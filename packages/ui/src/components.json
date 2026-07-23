@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-23T23:00:20.694Z",
+  "generated": "2026-07-23T23:56:30.058Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -485,7 +485,7 @@
           "required": false
         },
         "class": {
-          "type": "string",
+          "type": "ClassValue",
           "required": false
         }
       },

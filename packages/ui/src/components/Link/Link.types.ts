@@ -1,4 +1,10 @@
-import type { ComponentSize, AccentColor, Density, IconValue } from '../../types/shared'
+import type {
+  ComponentSize,
+  AccentColor,
+  Density,
+  IconValue,
+  ClassValue,
+} from '../../types/shared'
 
 export type LinkStyle = 'default' | 'underlined'
 
@@ -10,5 +16,5 @@ export interface LinkProps {
   disabled?: boolean
   label?: string
   icon?: IconValue
-  class?: string
+  class?: ClassValue
 }
