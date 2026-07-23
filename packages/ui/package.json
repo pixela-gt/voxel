@@ -11,7 +11,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
-    "./tokens.css": "./dist/tokens/tokens.css"
+    "./tokens.css": "./dist/tokens/tokens.css",
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"
@@ -20,7 +21,11 @@
     "dev": "vite",
     "build": "vite build && tsc --emitDeclarationOnly --declaration --declarationDir dist --noEmit false",
     "typecheck": "vue-tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,css}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,css}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "reka-ui": "^2.9.0",
@@ -28,12 +33,16 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.0",
-    "@lucide/vue": "^1.26.0",
+    "@lucide/vue": "1.25.0",
+    "@storybook/vue3": "^10.5.3",
+    "@storybook/vue3-vite": "^10.5.3",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.1.1",
     "@vitejs/plugin-vue": "^6.0.8",
     "postcss": "^8.5.22",
+    "prettier": "^3.9.6",
     "reka-ui": "^2.9.0",
+    "storybook": "^10.5.3",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vite": "^8.1.5",

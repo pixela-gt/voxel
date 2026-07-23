@@ -7,7 +7,9 @@
     "typecheck": "pnpm -r typecheck",
     "generate": "pnpm --filter @pixela-gt/voxel-cli generate",
     "playground:vue": "pnpm --filter playground-vue dev",
-    "playground:nuxt": "pnpm --filter playground-nuxt dev"
+    "playground:nuxt": "pnpm --filter playground-nuxt dev",
+    "storybook": "pnpm --filter @pixela-gt/voxel-ui storybook",
+    "build-storybook": "pnpm --filter @pixela-gt/voxel-ui build-storybook"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
