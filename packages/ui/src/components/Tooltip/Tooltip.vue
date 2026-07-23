@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { TooltipRoot, TooltipTrigger, TooltipContent, TooltipArrow } from 'reka-ui'
+import { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipContent, TooltipArrow } from 'reka-ui'
 import type { TooltipProps, TooltipPosition } from './Tooltip.types'
 
 const props = defineProps<TooltipProps>()
@@ -16,20 +16,17 @@ const side = computed(() => positionMap[props.position ?? 'top'])
 </script>
 
 <template>
-  <TooltipRoot :disabled="props.disabled">
-    <TooltipTrigger as-child>
-      <slot />
-    </TooltipTrigger>
-    <TooltipContent
-      :side="side"
-      align="center"
-      :side-offset="8"
-      class="voxel-tooltip__content"
-    >
-      {{ props.text }}
-      <TooltipArrow class="voxel-tooltip__arrow" />
-    </TooltipContent>
-  </TooltipRoot>
+  <TooltipProvider>
+    <TooltipRoot :disabled="props.disabled">
+      <TooltipTrigger as-child>
+        <slot />
+      </TooltipTrigger>
+      <TooltipContent :side="side" align="center" :side-offset="8" class="voxel-tooltip__content">
+        {{ props.text }}
+        <TooltipArrow class="voxel-tooltip__arrow" />
+      </TooltipContent>
+    </TooltipRoot>
+  </TooltipProvider>
 </template>
 
 <style scoped>
