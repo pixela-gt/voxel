@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<LabelProps>(), {
   disabled: false,
 } as const)
 
-const labelClass = computed(() => ['voxel-label', `voxel-label--${props.size}`])
+const labelClass = computed(() => ['voxel-label', `voxel-label--size-${props.size}`])
 </script>
 
 <template>
@@ -24,13 +24,13 @@ const labelClass = computed(() => ['voxel-label', `voxel-label--${props.size}`])
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-label--small {
+.voxel-label--size-small {
   @apply text-[11px] leading-[16px] tracking-[0.2px];
 }
-.voxel-label--default {
+.voxel-label--size-default {
   @apply text-sm leading-[20px] tracking-[0.07px];
 }
-.voxel-label--large {
+.voxel-label--size-large {
   @apply text-base leading-[24px] tracking-[0.08px];
 }
 </style>

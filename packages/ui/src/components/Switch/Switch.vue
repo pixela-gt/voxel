@@ -15,19 +15,23 @@ const emit = defineEmits<{
 
 const wrapperClass = computed(() => [
   'voxel-switch__wrapper',
-  `voxel-switch__wrapper--${props.size}`,
+  `voxel-switch__wrapper--size-${props.size}`,
 ])
 const trackClass = computed(() => [
   'voxel-switch',
-  `voxel-switch--${props.size}`,
+  `voxel-switch--size-${props.size}`,
   props.modelValue && 'voxel-switch--checked',
 ])
 const thumbClass = computed(() => [
   'voxel-switch__thumb',
-  `voxel-switch__thumb--${props.size}`,
+  `voxel-switch__thumb--size-${props.size}`,
   props.modelValue && 'voxel-switch__thumb--checked',
 ])
-const labelClass = computed(() => ['voxel-switch__label', `voxel-switch__label--${props.size}`])
+const labelClass = computed(() => [
+  'voxel-switch__label',
+  `voxel-switch__label--size-${props.size}`,
+  props.class,
+])
 </script>
 
 <template>
@@ -48,13 +52,13 @@ const labelClass = computed(() => ['voxel-switch__label', `voxel-switch__label--
 </template>
 
 <style scoped>
-.voxel-switch__wrapper--small {
+.voxel-switch__wrapper--size-small {
   @apply inline-flex items-center gap-[6px];
 }
-.voxel-switch__wrapper--default {
+.voxel-switch__wrapper--size-default {
   @apply inline-flex items-center gap-[8px];
 }
-.voxel-switch__wrapper--large {
+.voxel-switch__wrapper--size-large {
   @apply inline-flex items-center gap-[8px];
 }
 
@@ -72,13 +76,13 @@ const labelClass = computed(() => ['voxel-switch__label', `voxel-switch__label--
 }
 
 /* Sizes */
-.voxel-switch--small {
+.voxel-switch--size-small {
   @apply h-[16px] w-[28px] rounded-[8px];
 }
-.voxel-switch--default {
+.voxel-switch--size-default {
   @apply h-[20px] w-[36px] rounded-[10px];
 }
-.voxel-switch--large {
+.voxel-switch--size-large {
   @apply h-[24px] w-[44px] rounded-[12px];
 }
 
@@ -91,26 +95,26 @@ const labelClass = computed(() => ['voxel-switch__label', `voxel-switch__label--
   @apply translate-x-[calc(100%_-_4px)];
 }
 
-.voxel-switch__thumb--small {
+.voxel-switch__thumb--size-small {
   @apply size-[12px];
 }
-.voxel-switch__thumb--default {
+.voxel-switch__thumb--size-default {
   @apply size-[16px];
 }
-.voxel-switch__thumb--large {
+.voxel-switch__thumb--size-large {
   @apply size-[20px];
 }
 
 .voxel-switch__label {
   @apply font-sans font-normal text-[var(--color-text-primary)];
 }
-.voxel-switch__label--small {
+.voxel-switch__label--size-small {
   @apply text-[11px] leading-[16px] tracking-[0.2px];
 }
-.voxel-switch__label--default {
+.voxel-switch__label--size-default {
   @apply text-sm leading-[20px] tracking-[0.07px];
 }
-.voxel-switch__label--large {
+.voxel-switch__label--size-large {
   @apply text-base leading-[24px] tracking-[0.08px];
 }
 </style>

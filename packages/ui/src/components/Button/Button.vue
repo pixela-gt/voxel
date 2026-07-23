@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue'
 import type { ButtonProps } from './Button.types'
+import { Icon } from '../Icon'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   buttonStyle: 'default',
@@ -20,6 +21,7 @@ const classes = computed(() => [
   `voxel-button--color-${props.color}`,
   `voxel-button--style-${props.buttonStyle}`,
   { 'voxel-button--loading': props.loading },
+  props.class,
 ])
 </script>
 
@@ -34,12 +36,24 @@ const classes = computed(() => [
         <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20" />
       </svg>
     </span>
-    <span v-if="slots['prepend-icon'] && !props.loading" class="voxel-button__icon" aria-hidden="true">
-      <slot name="prepend-icon" />
+    <span
+      v-else-if="props.prependIcon || slots['prepend-icon']"
+      class="voxel-button__icon"
+      aria-hidden="true"
+    >
+      <slot name="prepend-icon">
+        <Icon :icon="props.prependIcon!" :size="props.size" />
+      </slot>
     </span>
     <slot />
-    <span v-if="slots['append-icon']" class="voxel-button__icon" aria-hidden="true">
-      <slot name="append-icon" />
+    <span
+      v-if="(props.appendIcon || slots['append-icon']) && !props.loading"
+      class="voxel-button__icon"
+      aria-hidden="true"
+    >
+      <slot name="append-icon">
+        <Icon :icon="props.appendIcon!" :size="props.size" />
+      </slot>
     </span>
   </button>
 </template>
@@ -113,11 +127,13 @@ const classes = computed(() => [
 }
 /* Icon sizing per button size */
 .voxel-button--size-small .voxel-button__icon {
-  @apply size-[12px];
+  @apply size-4;
 }
-.voxel-button--size-default .voxel-button__icon,
+.voxel-button--size-default .voxel-button__icon {
+  @apply size-5;
+}
 .voxel-button--size-large .voxel-button__icon {
-  @apply size-[16px];
+  @apply size-6;
 }
 
 /* Elements */

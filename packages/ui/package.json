@@ -28,6 +28,7 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
+    "@lucide/vue": "^1.0.0",
     "reka-ui": "^2.9.0",
     "vue": "^3.4.0"
   },

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 import type { LinkProps } from './Link.types'
+import { Icon } from '../Icon'
 
 const props = withDefaults(defineProps<LinkProps>(), {
   style: 'default',
@@ -9,45 +10,29 @@ const props = withDefaults(defineProps<LinkProps>(), {
   density: 'default',
 })
 
+const slots = useSlots()
+
 const linkClasses = computed(() => [
   'voxel-link',
-  `voxel-link--${props.style}`,
-  `voxel-link--${props.color}`,
-  `voxel-link--${props.size}`,
-  `voxel-link--${props.density}`,
+  `voxel-link--style-${props.style}`,
+  `voxel-link--color-${props.color}`,
+  `voxel-link--size-${props.size}`,
+  `voxel-link--density-${props.density}`,
   props.class,
 ])
-
-const iconClass = computed(() => {
-  const sizes = {
-    small: 'voxel-link__icon--sm',
-    default: 'voxel-link__icon--md',
-    large: 'voxel-link__icon--lg',
-  }
-  return sizes[props.size]
-})
 </script>
 
 <template>
   <a :class="linkClasses" v-bind="$attrs">
-    <slot name="icon">
-      <span
-        v-if="props.showIcon !== false"
-        :class="['voxel-link__icon', iconClass]"
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </span>
-    </slot>
+    <span
+      v-if="props.icon || slots.icon"
+      class="voxel-link__icon"
+      aria-hidden="true"
+    >
+      <slot name="icon">
+        <Icon :icon="props.icon!" :size="props.size" />
+      </slot>
+    </span>
     <slot>{{ props.label }}</slot>
   </a>
 </template>
@@ -58,57 +43,60 @@ const iconClass = computed(() => {
 }
 
 /* Styles */
-.voxel-link--underlined {
+.voxel-link--style-underlined {
   @apply underline underline-offset-2;
 }
 
 /* Colors */
-.voxel-link--primary {
+.voxel-link--color-primary {
   @apply text-[var(--color-primary-base)];
 }
-.voxel-link--secondary {
+.voxel-link--color-secondary {
   @apply text-[var(--color-secondary-base)];
 }
 
 /* Sizes */
-.voxel-link--small {
+.voxel-link--size-small {
   @apply text-[12px] leading-[16px] tracking-[0.06px];
 }
-.voxel-link--default {
+.voxel-link--size-default {
   @apply text-[14px] leading-[20px] tracking-[0.07px];
 }
-.voxel-link--large {
+.voxel-link--size-large {
   @apply text-[16px] leading-[24px] tracking-[0.08px];
 }
 
 /* Density */
-.voxel-link--default.voxel-link--default {
+.voxel-link--size-default.voxel-link--density-default {
   @apply gap-[6px] p-[4px];
 }
-.voxel-link--default.voxel-link--dense {
+.voxel-link--size-default.voxel-link--density-dense {
   @apply gap-[6px] px-[4px] py-[2px];
 }
-.voxel-link--small.voxel-link--default {
+.voxel-link--size-small.voxel-link--density-default {
   @apply gap-[6px] p-[4px];
 }
-.voxel-link--small.voxel-link--dense {
+.voxel-link--size-small.voxel-link--density-dense {
   @apply gap-[6px] px-[4px] py-[2px];
 }
-.voxel-link--large.voxel-link--default {
+.voxel-link--size-large.voxel-link--density-default {
   @apply gap-[6px] p-[4px];
 }
-.voxel-link--large.voxel-link--dense {
+.voxel-link--size-large.voxel-link--density-dense {
   @apply gap-[6px] px-[4px] py-[2px];
 }
 
 /* Elements */
-.voxel-link__icon--sm {
-  @apply size-[12px];
+.voxel-link__icon {
+  @apply inline-flex items-center justify-center;
 }
-.voxel-link__icon--md {
-  @apply size-[16px];
+.voxel-link--size-small .voxel-link__icon {
+  @apply size-4;
 }
-.voxel-link__icon--lg {
-  @apply size-[16px];
+.voxel-link--size-default .voxel-link__icon {
+  @apply size-5;
+}
+.voxel-link--size-large .voxel-link__icon {
+  @apply size-6;
 }
 </style>

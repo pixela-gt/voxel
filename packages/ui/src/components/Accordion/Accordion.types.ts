@@ -1,4 +1,4 @@
-import type { ClassValue } from '../../types/shared'
+import type { ClassValue, IconValue } from '../../types/shared'
 
 export interface AccordionProps {
   modelValue?: string | string[]
@@ -19,6 +19,7 @@ export interface AccordionHeaderProps {
 }
 
 export interface AccordionTriggerProps {
+  icon?: IconValue
   class?: ClassValue
 }
 

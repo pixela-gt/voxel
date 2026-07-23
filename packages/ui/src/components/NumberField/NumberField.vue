@@ -7,6 +7,7 @@ import {
   NumberFieldDecrement,
 } from 'reka-ui'
 import type { NumberFieldProps } from './NumberField.types'
+import { Icon } from '../Icon'
 
 const props = withDefaults(defineProps<NumberFieldProps>(), {
   min: 0,
@@ -20,7 +21,7 @@ const emit = defineEmits<{
   'update:modelValue': [value: number]
 }>()
 
-const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${props.size}`])
+const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--size-${props.size}`])
 </script>
 
 <template>
@@ -39,12 +40,20 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${p
         class="voxel-number-field__button voxel-number-field__button--decrement"
       >
         <slot name="decrement-icon">
+          <Icon
+            v-if="props.decrementIcon"
+            :icon="props.decrementIcon"
+            size="small"
+            class="voxel-number-field__button-icon"
+          />
           <svg
+            v-else
             width="14"
             height="14"
             viewBox="0 0 14 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="voxel-number-field__button-icon"
           >
             <path d="M3 7H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
           </svg>
@@ -55,12 +64,20 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${p
         class="voxel-number-field__button voxel-number-field__button--increment"
       >
         <slot name="increment-icon">
+          <Icon
+            v-if="props.incrementIcon"
+            :icon="props.incrementIcon"
+            size="small"
+            class="voxel-number-field__button-icon"
+          />
           <svg
+            v-else
             width="14"
             height="14"
             viewBox="0 0 14 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="voxel-number-field__button-icon"
           >
             <path
               d="M7 3V11M3 7H11"
@@ -95,13 +112,13 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${p
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-number-field--small .voxel-number-field__button {
+.voxel-number-field--size-small .voxel-number-field__button {
   @apply size-7 text-[11px];
 }
-.voxel-number-field--default .voxel-number-field__button {
+.voxel-number-field--size-default .voxel-number-field__button {
   @apply size-9 text-sm;
 }
-.voxel-number-field--large .voxel-number-field__button {
+.voxel-number-field--size-large .voxel-number-field__button {
   @apply size-11 text-base;
 }
 
@@ -113,6 +130,10 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${p
   @apply rounded-r-lg border-l-0;
 }
 
+.voxel-number-field__button-icon {
+  @apply size-[14px];
+}
+
 .voxel-number-field__input {
   @apply font-sans text-center
     bg-[var(--color-surface-base)]
@@ -122,13 +143,13 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${p
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-number-field--small .voxel-number-field__input {
+.voxel-number-field--size-small .voxel-number-field__input {
   @apply w-12 h-7 text-[11px];
 }
-.voxel-number-field--default .voxel-number-field__input {
+.voxel-number-field--size-default .voxel-number-field__input {
   @apply w-16 h-9 text-sm;
 }
-.voxel-number-field--large .voxel-number-field__input {
+.voxel-number-field--size-large .voxel-number-field__input {
   @apply w-20 h-11 text-base;
 }
 </style>

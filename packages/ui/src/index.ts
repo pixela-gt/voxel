@@ -1,7 +1,14 @@
 // @pixela-gt/voxel-ui - Component Library
 
 // Shared types
-export type { ComponentSize, AccentColor, Density, ButtonStyle, ClassValue } from './types/shared'
+export type {
+  ComponentSize,
+  AccentColor,
+  Density,
+  ButtonStyle,
+  ClassValue,
+  IconValue,
+} from './types/shared'
 
 // Component types (VX-prefixed)
 export type { ButtonProps as VXButtonProps } from './components/Button/Button.types'
@@ -66,6 +73,7 @@ export type {
   TextAlign as VXTextAlign,
   TextColor as VXTextColor,
 } from './components/Text/Text.types'
+export type { IconProps as VXIconProps } from './components/Icon/Icon.types'
 
 // Components (VX-prefixed)
 export { Button as VXButton } from './components/Button'
@@ -109,6 +117,7 @@ export {
 } from './components/ToggleGroup'
 export { PinInput as VXPinInput } from './components/PinInput'
 export { NumberField as VXNumberField } from './components/NumberField'
+export { Icon as VXIcon } from './components/Icon'
 
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'

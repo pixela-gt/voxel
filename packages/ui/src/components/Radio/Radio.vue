@@ -33,14 +33,17 @@ const emit = defineEmits<{
       :key="item.value"
       :value="item.value"
       :disabled="item.disabled"
-      :class="['voxel-radio', `voxel-radio--${props.size}`]"
+      :class="['voxel-radio', `voxel-radio--size-${props.size}`]"
     >
-      <span :class="['voxel-radio__indicator', `voxel-radio__indicator--${props.size}`]">
-        <RadioGroupIndicator :class="['voxel-radio__icon', `voxel-radio__icon--${props.size}`]">
+      <span :class="['voxel-radio__indicator', `voxel-radio__indicator--size-${props.size}`]">
+        <RadioGroupIndicator :class="['voxel-radio__icon', `voxel-radio__icon--size-${props.size}`]">
           <div class="voxel-radio__dot" />
         </RadioGroupIndicator>
       </span>
-      <label v-if="item.label" :class="['voxel-radio__label', `voxel-radio__label--${props.size}`]">
+      <label
+        v-if="item.label"
+        :class="['voxel-radio__label', `voxel-radio__label--size-${props.size}`]"
+      >
         {{ item.label }}
       </label>
     </RadioGroupItem>
@@ -56,15 +59,15 @@ const emit = defineEmits<{
 .voxel-radio__indicator {
   @apply flex-shrink-0;
 }
-.voxel-radio__indicator--small {
+.voxel-radio__indicator--size-small {
   @apply size-4 rounded-[8px] border-[1.5px] border-[var(--color-grey-400)]
     focus-within:ring-2 focus-within:ring-[var(--color-primary-base)] focus-within:ring-offset-2;
 }
-.voxel-radio__indicator--default {
+.voxel-radio__indicator--size-default {
   @apply size-5 rounded-[10px] border-[1.5px] border-[var(--color-grey-400)]
     focus-within:ring-2 focus-within:ring-[var(--color-primary-base)] focus-within:ring-offset-2;
 }
-.voxel-radio__indicator--large {
+.voxel-radio__indicator--size-large {
   @apply size-6 rounded-[12px] border-[2px] border-[var(--color-grey-400)]
     focus-within:ring-2 focus-within:ring-[var(--color-primary-base)] focus-within:ring-offset-2;
 }
@@ -72,13 +75,13 @@ const emit = defineEmits<{
 .voxel-radio__icon {
   @apply flex items-center justify-center;
 }
-.voxel-radio__icon--small {
+.voxel-radio__icon--size-small {
   @apply size-[6px];
 }
-.voxel-radio__icon--default {
+.voxel-radio__icon--size-default {
   @apply size-[8px];
 }
-.voxel-radio__icon--large {
+.voxel-radio__icon--size-large {
   @apply size-[10px];
 }
 
@@ -89,13 +92,13 @@ const emit = defineEmits<{
 .voxel-radio__label {
   @apply font-sans font-normal text-[var(--color-text-primary)] ml-1.5;
 }
-.voxel-radio__label--small {
+.voxel-radio__label--size-small {
   @apply text-[11px] leading-[16px] tracking-[0.2px];
 }
-.voxel-radio__label--default {
+.voxel-radio__label--size-default {
   @apply text-sm leading-[20px] tracking-[0.07px];
 }
-.voxel-radio__label--large {
+.voxel-radio__label--size-large {
   @apply text-base leading-[24px] tracking-[0.08px];
 }
 </style>

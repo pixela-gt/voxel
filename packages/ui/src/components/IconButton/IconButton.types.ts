@@ -4,6 +4,7 @@ import type {
   Density,
   ButtonStyle,
   ClassValue,
+  IconValue,
 } from '../../types/shared'
 
 export interface IconButtonProps {
@@ -13,6 +14,7 @@ export interface IconButtonProps {
   density?: Density
   disabled?: boolean
   loading?: boolean
+  icon?: IconValue
   'aria-label'?: string
   class?: ClassValue
 }

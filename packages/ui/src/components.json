@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-23T01:55:14.987Z",
+  "generated": "2026-07-23T23:00:20.694Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -30,6 +30,10 @@
         "value": {
           "type": "string",
           "required": true
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
         }
       },
       "slots": [
@@ -105,6 +109,10 @@
           "type": "boolean",
           "required": false,
           "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
         }
       },
       "slots": [
@@ -119,7 +127,7 @@
       "description": "Button component",
       "category": "actions",
       "props": {
-        "style": {
+        "buttonStyle": {
           "type": "ButtonStyle",
           "required": false,
           "default": "default"
@@ -139,16 +147,6 @@
           "required": false,
           "default": "default"
         },
-        "prependIcon": {
-          "type": "boolean",
-          "required": false,
-          "default": false
-        },
-        "appendIcon": {
-          "type": "boolean",
-          "required": false,
-          "default": false
-        },
         "loading": {
           "type": "boolean",
           "required": false,
@@ -161,6 +159,14 @@
         },
         "type": {
           "type": "'button' | 'submit' | 'reset'",
+          "required": false
+        },
+        "prependIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "appendIcon": {
+          "type": "IconValue",
           "required": false
         },
         "class": {
@@ -218,13 +224,17 @@
           "type": "string",
           "required": false
         },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
         "class": {
-          "type": "string | string[] | Record<string, boolean>",
+          "type": "ClassValue",
           "required": false
         }
       },
       "slots": [
-        "default"
+        "icon"
       ],
       "events": [
         "update"
@@ -248,6 +258,10 @@
           "type": "string",
           "required": false
         },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
@@ -255,6 +269,7 @@
       },
       "slots": [
         "trigger",
+        "close-icon",
         "content",
         "footer"
       ],
@@ -291,12 +306,17 @@
           "required": false,
           "default": ""
         },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
         }
       },
       "slots": [
+        "close-icon",
         "content",
         "footer"
       ],
@@ -328,6 +348,26 @@
         "DropdownMenuItem"
       ],
       "import": "import { DropdownMenu } from '@pixela-gt/voxel-ui'"
+    },
+    "Icon": {
+      "name": "Icon",
+      "description": "Icon component",
+      "category": "misc",
+      "props": {
+        "icon": {
+          "type": "IconValue",
+          "required": true
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Icon } from '@pixela-gt/voxel-ui'"
     },
     "IconButton": {
       "name": "IconButton",
@@ -364,6 +404,10 @@
           "required": false,
           "default": false
         },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
@@ -377,6 +421,31 @@
       ],
       "rekaUi": [],
       "import": "import { IconButton } from '@pixela-gt/voxel-ui'"
+    },
+    "Label": {
+      "name": "Label",
+      "description": "Label component",
+      "category": "misc",
+      "props": {
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "Label"
+      ],
+      "import": "import { Label } from '@pixela-gt/voxel-ui'"
     },
     "Link": {
       "name": "Link",
@@ -411,8 +480,8 @@
           "type": "string",
           "required": false
         },
-        "showIcon": {
-          "type": "boolean",
+        "icon": {
+          "type": "IconValue",
           "required": false
         },
         "class": {
@@ -426,6 +495,116 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Link } from '@pixela-gt/voxel-ui'"
+    },
+    "NumberField": {
+      "name": "NumberField",
+      "description": "NumberField component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number",
+          "required": false
+        },
+        "min": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": null
+        },
+        "step": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        },
+        "decrementIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "incrementIcon": {
+          "type": "IconValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "decrement-icon",
+        "increment-icon"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "NumberFieldRoot",
+        "NumberFieldInput",
+        "NumberFieldIncrement",
+        "NumberFieldDecrement"
+      ],
+      "import": "import { NumberField } from '@pixela-gt/voxel-ui'"
+    },
+    "PinInput": {
+      "name": "PinInput",
+      "description": "PinInput component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string[]",
+          "required": false
+        },
+        "length": {
+          "type": "number",
+          "required": false,
+          "default": 6
+        },
+        "type": {
+          "type": "'text' | 'number'",
+          "required": false,
+          "default": "text"
+        },
+        "mask": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "PinInputRoot",
+        "PinInputInput"
+      ],
+      "import": "import { PinInput } from '@pixela-gt/voxel-ui'"
     },
     "Radio": {
       "name": "Radio",
@@ -497,6 +676,62 @@
       ],
       "import": "import { Separator } from '@pixela-gt/voxel-ui'"
     },
+    "Slider": {
+      "name": "Slider",
+      "description": "Slider component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number[]",
+          "required": false
+        },
+        "min": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": 100
+        },
+        "step": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "default": "horizontal"
+        },
+        "inverted": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "SliderRoot",
+        "SliderTrack",
+        "SliderRange",
+        "SliderThumb"
+      ],
+      "import": "import { Slider } from '@pixela-gt/voxel-ui'"
+    },
     "Switch": {
       "name": "Switch",
       "description": "Switch component",
@@ -519,6 +754,10 @@
         },
         "label": {
           "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
           "required": false
         }
       },
@@ -604,6 +843,38 @@
       "rekaUi": [],
       "import": "import { Text } from '@pixela-gt/voxel-ui'"
     },
+    "Toggle": {
+      "name": "Toggle",
+      "description": "Toggle component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "Toggle"
+      ],
+      "import": "import { Toggle } from '@pixela-gt/voxel-ui'"
+    },
     "ToggleButton": {
       "name": "ToggleButton",
       "description": "ToggleButton component",
@@ -644,6 +915,61 @@
       "rekaUi": [],
       "import": "import { ToggleButton } from '@pixela-gt/voxel-ui'"
     },
+    "ToggleGroup": {
+      "name": "ToggleGroup",
+      "description": "ToggleGroup component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false,
+          "default": "single"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "default": "horizontal"
+        },
+        "rovingFocus": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ToggleGroupRoot"
+      ],
+      "import": "import { ToggleGroup } from '@pixela-gt/voxel-ui'"
+    },
     "Tooltip": {
       "name": "Tooltip",
       "description": "Tooltip component",
@@ -667,6 +993,7 @@
       ],
       "events": [],
       "rekaUi": [
+        "TooltipProvider",
         "TooltipRoot",
         "TooltipTrigger",
         "TooltipContent",

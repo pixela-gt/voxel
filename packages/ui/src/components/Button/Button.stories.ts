@@ -50,47 +50,16 @@ export const Disabled: Story = { args: { disabled: true }, render: render('Disab
 export const Loading: Story = { args: { loading: true }, render: render('Loading') }
 
 export const WithPrependIcon: Story = {
-  render: (args) => ({
-    components: { Button, ArrowLeft },
-    setup() {
-      return { args }
-    },
-    template: `
-      <Button v-bind="args">
-        <template #prepend-icon><ArrowLeft /></template>
-        Back
-      </Button>
-    `,
-  }),
+  args: { prependIcon: ArrowLeft },
+  render: render('Back'),
 }
 
 export const WithAppendIcon: Story = {
-  render: (args) => ({
-    components: { Button, ArrowRight },
-    setup() {
-      return { args }
-    },
-    template: `
-      <Button v-bind="args">
-        Next
-        <template #append-icon><ArrowRight /></template>
-      </Button>
-    `,
-  }),
+  args: { appendIcon: ArrowRight },
+  render: render('Next'),
 }
 
 export const WithBothIcons: Story = {
-  render: (args) => ({
-    components: { Button, Clock, ArrowRight },
-    setup() {
-      return { args }
-    },
-    template: `
-      <Button v-bind="args">
-        <template #prepend-icon><Clock /></template>
-        Schedule
-        <template #append-icon><ArrowRight /></template>
-      </Button>
-    `,
-  }),
+  args: { prependIcon: Clock, appendIcon: ArrowRight },
+  render: render('Schedule'),
 }

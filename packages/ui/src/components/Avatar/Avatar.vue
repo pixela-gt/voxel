@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<AvatarProps>(), {
 </script>
 
 <template>
-  <AvatarRoot :class="['voxel-avatar', `voxel-avatar--${props.style}`]">
+  <AvatarRoot :class="['voxel-avatar', `voxel-avatar--style-${props.style}`, props.class]">
     <AvatarImage v-if="props.src" :src="props.src" :alt="props.alt" class="voxel-avatar__image" />
     <AvatarFallback class="voxel-avatar__fallback">
       <slot>
@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<AvatarProps>(), {
   @apply relative size-8 rounded-[8px] overflow-hidden bg-[var(--color-grey-950)];
 }
 
-.voxel-avatar--main {
+.voxel-avatar--style-main {
   /* main variant has shadow layers */
 }
 

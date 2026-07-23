@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { CheckboxRoot, CheckboxIndicator } from 'reka-ui'
 import type { CheckboxProps } from './Checkbox.types'
+import { Icon } from '../Icon'
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
   size: 'default',
@@ -17,11 +18,14 @@ const checked = computed(() => props.modelValue)
 
 const indicatorClass = computed(() => [
   'voxel-checkbox__indicator',
-  `voxel-checkbox__indicator--${props.size}`,
+  `voxel-checkbox__indicator--size-${props.size}`,
   checked.value && 'voxel-checkbox__indicator--checked',
 ])
-const iconClass = computed(() => ['voxel-checkbox__icon', `voxel-checkbox__icon--${props.size}`])
-const labelClass = computed(() => ['voxel-checkbox__label', `voxel-checkbox__label--${props.size}`])
+const labelClass = computed(() => [
+  'voxel-checkbox__label',
+  `voxel-checkbox__label--size-${props.size}`,
+  props.class,
+])
 </script>
 
 <template>
@@ -33,18 +37,27 @@ const labelClass = computed(() => ['voxel-checkbox__label', `voxel-checkbox__lab
       class="voxel-checkbox"
     >
       <CheckboxIndicator :class="indicatorClass">
-        <svg
-          :class="iconClass"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M3 8L7 12L13 4" />
-        </svg>
+        <slot name="icon">
+          <Icon
+            v-if="props.icon"
+            :icon="props.icon"
+            :size="props.size"
+            class="voxel-checkbox__icon"
+          />
+          <svg
+            v-else
+            class="voxel-checkbox__icon"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 8L7 12L13 4" />
+          </svg>
+        </slot>
       </CheckboxIndicator>
     </CheckboxRoot>
     <label v-if="props.label" :class="labelClass">
@@ -75,36 +88,39 @@ const labelClass = computed(() => ['voxel-checkbox__label', `voxel-checkbox__lab
 }
 
 /* Sizes */
-.voxel-checkbox__indicator--small {
+.voxel-checkbox__indicator--size-small {
   @apply size-4 rounded-[4px];
 }
-.voxel-checkbox__indicator--default {
+.voxel-checkbox__indicator--size-default {
   @apply size-5 rounded-[5px];
 }
-.voxel-checkbox__indicator--large {
+.voxel-checkbox__indicator--size-large {
   @apply size-6 rounded-[6px];
 }
 
-.voxel-checkbox__icon--small {
+.voxel-checkbox__icon {
+  @apply stroke-current;
+}
+.voxel-checkbox__indicator--size-small .voxel-checkbox__icon {
   @apply size-[10px];
 }
-.voxel-checkbox__icon--default {
+.voxel-checkbox__indicator--size-default .voxel-checkbox__icon {
   @apply size-[12px];
 }
-.voxel-checkbox__icon--large {
+.voxel-checkbox__indicator--size-large .voxel-checkbox__icon {
   @apply size-[14px];
 }
 
 .voxel-checkbox__label {
   @apply font-sans font-normal text-[var(--color-text-primary)];
 }
-.voxel-checkbox__label--small {
+.voxel-checkbox__label--size-small {
   @apply text-[11px] leading-[16px] tracking-[0.2px];
 }
-.voxel-checkbox__label--default {
+.voxel-checkbox__label--size-default {
   @apply text-sm leading-[20px] tracking-[0.07px];
 }
-.voxel-checkbox__label--large {
+.voxel-checkbox__label--size-large {
   @apply text-base leading-[24px] tracking-[0.08px];
 }
 </style>

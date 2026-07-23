@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 import type { IconButtonProps } from './IconButton.types'
+import { Icon } from '../Icon'
 
 const props = withDefaults(defineProps<IconButtonProps>(), {
   style: 'default',
@@ -15,22 +16,16 @@ const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
+const slots = useSlots()
+
 const iconButtonClasses = computed(() => [
   'voxel-icon-button',
-  `voxel-icon-button--${props.size}`,
-  `voxel-icon-button--${props.density}`,
-  `voxel-icon-button--${props.style}-${props.color}`,
+  `voxel-icon-button--size-${props.size}`,
+  `voxel-icon-button--density-${props.density}`,
+  `voxel-icon-button--style-${props.style}`,
+  `voxel-icon-button--color-${props.color}`,
   props.class,
 ])
-
-const iconClass = computed(() => {
-  const sizes = {
-    small: 'voxel-icon-button__icon--sm',
-    default: 'voxel-icon-button__icon--md',
-    large: 'voxel-icon-button__icon--lg',
-  }
-  return sizes[props.size]
-})
 
 function handleClick(event: MouseEvent) {
   if (!props.disabled && !props.loading) {
@@ -62,8 +57,10 @@ function handleClick(event: MouseEvent) {
         />
       </svg>
     </span>
-    <span v-else :class="['voxel-icon-button__icon', iconClass]" aria-hidden="true">
-      <slot />
+    <span v-else-if="props.icon || slots.default" class="voxel-icon-button__icon" aria-hidden="true">
+      <slot>
+        <Icon :icon="props.icon!" :size="props.size" />
+      </slot>
     </span>
   </button>
 </template>
@@ -78,48 +75,48 @@ function handleClick(event: MouseEvent) {
 }
 
 /* Sizes */
-.voxel-icon-button--small.voxel-icon-button--default {
+.voxel-icon-button--size-small.voxel-icon-button--density-default {
   @apply size-9 rounded-[18px];
 }
-.voxel-icon-button--small.voxel-icon-button--dense {
+.voxel-icon-button--size-small.voxel-icon-button--density-dense {
   @apply size-8 rounded-[16px];
 }
-.voxel-icon-button--default.voxel-icon-button--default {
+.voxel-icon-button--size-default.voxel-icon-button--density-default {
   @apply size-10 rounded-[20px];
 }
-.voxel-icon-button--default.voxel-icon-button--dense {
+.voxel-icon-button--size-default.voxel-icon-button--density-dense {
   @apply size-8 rounded-[16px];
 }
-.voxel-icon-button--large.voxel-icon-button--default {
+.voxel-icon-button--size-large.voxel-icon-button--density-default {
   @apply size-11 rounded-[22px];
 }
-.voxel-icon-button--large.voxel-icon-button--dense {
+.voxel-icon-button--size-large.voxel-icon-button--density-dense {
   @apply size-9 rounded-[18px];
 }
 
 /* Variants */
-.voxel-icon-button--default-primary {
+.voxel-icon-button--color-primary.voxel-icon-button--style-default {
   @apply bg-[var(--color-primary-base)] text-[var(--color-text-on-primary)];
 }
-.voxel-icon-button--default-secondary {
+.voxel-icon-button--color-secondary.voxel-icon-button--style-default {
   @apply bg-[var(--color-secondary-base)] text-[var(--color-text-on-secondary)];
 }
-.voxel-icon-button--outline-primary {
+.voxel-icon-button--color-primary.voxel-icon-button--style-outline {
   @apply border border-[var(--color-primary-base)] bg-transparent text-[var(--color-primary-base)];
 }
-.voxel-icon-button--outline-secondary {
+.voxel-icon-button--color-secondary.voxel-icon-button--style-outline {
   @apply border border-[var(--color-secondary-base)] bg-transparent text-[var(--color-secondary-base)];
 }
-.voxel-icon-button--tonal-primary {
+.voxel-icon-button--color-primary.voxel-icon-button--style-tonal {
   @apply bg-[var(--color-primary-lighten-1)] text-[var(--color-primary-base)];
 }
-.voxel-icon-button--tonal-secondary {
+.voxel-icon-button--color-secondary.voxel-icon-button--style-tonal {
   @apply bg-[var(--color-secondary-lighten-1)] text-[var(--color-secondary-base)];
 }
-.voxel-icon-button--text-primary {
+.voxel-icon-button--color-primary.voxel-icon-button--style-text {
   @apply text-[var(--color-primary-base)] bg-transparent;
 }
-.voxel-icon-button--text-secondary {
+.voxel-icon-button--color-secondary.voxel-icon-button--style-text {
   @apply text-[var(--color-secondary-base)] bg-transparent;
 }
 
@@ -130,13 +127,16 @@ function handleClick(event: MouseEvent) {
 .voxel-icon-button__spinner-icon {
   @apply size-4;
 }
-.voxel-icon-button__icon--sm {
+.voxel-icon-button__icon {
+  @apply inline-flex items-center justify-center;
+}
+.voxel-icon-button--size-small .voxel-icon-button__icon {
   @apply size-4;
 }
-.voxel-icon-button__icon--md {
+.voxel-icon-button--size-default .voxel-icon-button__icon {
   @apply size-5;
 }
-.voxel-icon-button__icon--lg {
+.voxel-icon-button--size-large .voxel-icon-button__icon {
   @apply size-6;
 }
 </style>

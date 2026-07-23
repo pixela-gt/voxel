@@ -17,7 +17,7 @@ const props = withDefaults(
 
 const itemClass = computed(() => [
   'voxel-toggle-group__item',
-  `voxel-toggle-group__item--${props.size}`,
+  `voxel-toggle-group__item--size-${props.size}`,
 ])
 </script>
 
@@ -46,15 +46,15 @@ const itemClass = computed(() => [
     hover:bg-[var(--color-primary-darken-1)];
 }
 
-.voxel-toggle-group__item--small {
+.voxel-toggle-group__item--size-small {
   @apply h-7 px-2 text-[11px] gap-1;
 }
 
-.voxel-toggle-group__item--default {
+.voxel-toggle-group__item--size-default {
   @apply h-9 px-3 text-sm gap-1.5;
 }
 
-.voxel-toggle-group__item--large {
+.voxel-toggle-group__item--size-large {
   @apply h-11 px-4 text-base gap-2;
 }
 </style>

@@ -15,7 +15,7 @@ const emit = defineEmits<{
 
 const toggleClass = computed(() => [
   'voxel-toggle',
-  `voxel-toggle--${props.size}`,
+  `voxel-toggle--size-${props.size}`,
   props.modelValue && 'voxel-toggle--pressed',
 ])
 </script>
@@ -51,15 +51,15 @@ const toggleClass = computed(() => [
     hover:bg-[var(--color-primary-darken-1)];
 }
 
-.voxel-toggle--small {
+.voxel-toggle--size-small {
   @apply h-7 px-2 text-[11px] gap-1;
 }
 
-.voxel-toggle--default {
+.voxel-toggle--size-default {
   @apply h-9 px-3 text-sm gap-1.5;
 }
 
-.voxel-toggle--large {
+.voxel-toggle--size-large {
   @apply h-11 px-4 text-base gap-2;
 }
 </style>

@@ -1,9 +1,10 @@
-import type { ComponentSize } from '../../types/shared'
+import type { ComponentSize, ClassValue, IconValue } from '../../types/shared'
 
 export interface CheckboxProps {
   modelValue?: boolean
   size?: ComponentSize
   disabled?: boolean
   label?: string
-  class?: string | string[] | Record<string, boolean>
+  icon?: IconValue
+  class?: ClassValue
 }

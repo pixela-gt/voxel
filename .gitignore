@@ -1,6 +1,15 @@
+# Node
 node_modules
-dist
-plans/
 
+# Build dirs
+dist
 .nuxt
 .output
+
+# Open Code
+.opencode
+plans/
+thoughts/
+
+# Storybook
+storybook-static

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSlots } from 'vue'
 import {
   DialogRoot,
   DialogTrigger,
@@ -10,8 +11,10 @@ import {
   DialogClose,
 } from 'reka-ui'
 import type { DialogProps } from './Dialog.types'
+import { Icon } from '../Icon'
 
 const props = defineProps<DialogProps>()
+const slots = useSlots()
 </script>
 
 <template>
@@ -32,16 +35,16 @@ const props = defineProps<DialogProps>()
               {{ props.description }}
             </DialogDescription>
           </div>
-          <DialogClose class="voxel-dialog__close" aria-label="Close dialog">
-            <svg
-              class="voxel-dialog__close-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
+          <DialogClose
+            v-if="props.closeIcon || slots['close-icon']"
+            class="voxel-dialog__close"
+            aria-label="Close dialog"
+          >
+            <span class="voxel-dialog__close-icon" aria-hidden="true">
+              <slot name="close-icon">
+                <Icon :icon="props.closeIcon!" />
+              </slot>
+            </span>
           </DialogClose>
         </div>
 

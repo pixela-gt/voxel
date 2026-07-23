@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSlots } from 'vue'
 import {
   DialogRoot,
   DialogPortal,
@@ -8,6 +9,7 @@ import {
   DialogClose,
 } from 'reka-ui'
 import type { DrawerProps } from './Drawer.types'
+import { Icon } from '../Icon'
 
 const props = withDefaults(defineProps<DrawerProps>(), {
   state: 'expanded',
@@ -15,6 +17,7 @@ const props = withDefaults(defineProps<DrawerProps>(), {
   description: '',
 } as const)
 
+const slots = useSlots()
 const isCollapsed = props.state === 'collapsed'
 </script>
 
@@ -27,16 +30,16 @@ const isCollapsed = props.state === 'collapsed'
           <DialogTitle v-if="props.title" class="voxel-drawer__title">
             {{ props.title }}
           </DialogTitle>
-          <DialogClose class="voxel-drawer__close" aria-label="Close drawer">
-            <svg
-              class="voxel-drawer__close-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
+          <DialogClose
+            v-if="props.closeIcon || slots['close-icon']"
+            class="voxel-drawer__close"
+            aria-label="Close drawer"
+          >
+            <span class="voxel-drawer__close-icon" aria-hidden="true">
+              <slot name="close-icon">
+                <Icon :icon="props.closeIcon!" />
+              </slot>
+            </span>
           </DialogClose>
         </div>
         <div class="voxel-drawer__body">
