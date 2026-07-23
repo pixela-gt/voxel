@@ -16,6 +16,13 @@ npx tsx packages/cli/src/index.ts search "toggle"      # Search components
 npx tsx packages/cli/src/index.ts tokens               # List token categories
 npx tsx packages/cli/src/index.ts tokens colors        # Token values
 npx tsx packages/cli/src/index.ts generate             # Regenerate components.json
+
+# CLI dev (faster, no build step)
+pnpm --filter @pixela-gt/voxel-cli dev component --list
+pnpm --filter @pixela-gt/voxel-cli dev component Button
+pnpm --filter @pixela-gt/voxel-cli dev search "toggle"
+pnpm --filter @pixela-gt/voxel-cli dev tokens
+pnpm --filter @pixela-gt/voxel-cli dev generate
 ```
 
 **Build must succeed before committing.** The build runs `vite build` then `tsc --emitDeclarationOnly`.

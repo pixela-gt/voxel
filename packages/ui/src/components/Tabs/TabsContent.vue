@@ -9,11 +9,7 @@ const props = defineProps<TabsContentProps>()
 </script>
 
 <template>
-  <RekaTabsContent
-    :value="props.value"
-    class="voxel-tabs__content"
-    v-bind="$attrs"
-  >
+  <RekaTabsContent :value="props.value" class="voxel-tabs__content" v-bind="$attrs">
     <slot />
   </RekaTabsContent>
 </template>

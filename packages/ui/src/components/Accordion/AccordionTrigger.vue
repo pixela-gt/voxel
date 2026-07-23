@@ -6,11 +6,7 @@ const props = defineProps<AccordionTriggerProps>()
 </script>
 
 <template>
-  <RekaAccordionTrigger
-    class="voxel-accordion__trigger"
-    :class="props.class"
-    v-bind="$attrs"
-  >
+  <RekaAccordionTrigger class="voxel-accordion__trigger" :class="props.class" v-bind="$attrs">
     <span>
       <slot />
     </span>
@@ -38,7 +34,7 @@ const props = defineProps<AccordionTriggerProps>()
   @apply size-5 text-[var(--color-text-secondary)] transition-transform duration-150;
 }
 
-.voxel-accordion__trigger[data-state="open"] .voxel-accordion__trigger-icon {
+.voxel-accordion__trigger[data-state='open'] .voxel-accordion__trigger-icon {
   @apply rotate-180;
 }
 </style>

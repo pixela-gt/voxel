@@ -6,11 +6,7 @@ const props = defineProps<AccordionHeaderProps>()
 </script>
 
 <template>
-  <RekaAccordionHeader
-    class="voxel-accordion__header"
-    :class="props.class"
-    v-bind="$attrs"
-  >
+  <RekaAccordionHeader class="voxel-accordion__header" :class="props.class" v-bind="$attrs">
     <slot />
   </RekaAccordionHeader>
 </template>

@@ -14,14 +14,8 @@ import {
     </DropdownMenuTrigger>
 
     <DropdownMenuContent class="voxel-dropdown__content" :side-offset="4">
-      <DropdownMenuItem
-        v-for="item in 5"
-        :key="item"
-        class="voxel-dropdown__item"
-      >
-        <slot name="item" :item="item">
-          Menu Item {{ item }}
-        </slot>
+      <DropdownMenuItem v-for="item in 5" :key="item" class="voxel-dropdown__item">
+        <slot name="item" :item="item"> Menu Item {{ item }} </slot>
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenuRoot>

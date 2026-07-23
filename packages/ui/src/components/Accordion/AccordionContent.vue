@@ -6,11 +6,7 @@ const props = defineProps<AccordionContentProps>()
 </script>
 
 <template>
-  <RekaAccordionContent
-    class="voxel-accordion__content"
-    :class="props.class"
-    v-bind="$attrs"
-  >
+  <RekaAccordionContent class="voxel-accordion__content" :class="props.class" v-bind="$attrs">
     <div class="voxel-accordion__content-inner">
       <slot />
     </div>
@@ -22,11 +18,11 @@ const props = defineProps<AccordionContentProps>()
   @apply overflow-hidden text-[var(--color-text-secondary)];
 }
 
-.voxel-accordion__content[data-state="open"] {
+.voxel-accordion__content[data-state='open'] {
   @apply animate-accordion-down;
 }
 
-.voxel-accordion__content[data-state="closed"] {
+.voxel-accordion__content[data-state='closed'] {
   @apply animate-accordion-up;
 }
 

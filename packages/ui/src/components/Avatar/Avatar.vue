@@ -9,15 +9,16 @@ const props = withDefaults(defineProps<AvatarProps>(), {
 
 <template>
   <AvatarRoot :class="['voxel-avatar', `voxel-avatar--${props.style}`]">
-    <AvatarImage
-      v-if="props.src"
-      :src="props.src"
-      :alt="props.alt"
-      class="voxel-avatar__image"
-    />
+    <AvatarImage v-if="props.src" :src="props.src" :alt="props.alt" class="voxel-avatar__image" />
     <AvatarFallback class="voxel-avatar__fallback">
       <slot>
-        <svg class="voxel-avatar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg
+          class="voxel-avatar__icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <circle cx="12" cy="8" r="4" />
           <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
         </svg>

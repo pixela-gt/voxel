@@ -3,14 +3,17 @@ import { computed } from 'vue'
 import { ToggleGroupItem } from 'reka-ui'
 import type { ComponentSize } from '../../types/shared'
 
-const props = withDefaults(defineProps<{
-  value: string
-  size?: ComponentSize
-  disabled?: boolean
-}>(), {
-  size: 'default',
-  disabled: false,
-} as const)
+const props = withDefaults(
+  defineProps<{
+    value: string
+    size?: ComponentSize
+    disabled?: boolean
+  }>(),
+  {
+    size: 'default',
+    disabled: false,
+  } as const,
+)
 
 const itemClass = computed(() => [
   'voxel-toggle-group__item',
@@ -19,11 +22,7 @@ const itemClass = computed(() => [
 </script>
 
 <template>
-  <ToggleGroupItem
-    :value="props.value"
-    :disabled="props.disabled"
-    :class="itemClass"
-  >
+  <ToggleGroupItem :value="props.value" :disabled="props.disabled" :class="itemClass">
     <slot />
   </ToggleGroupItem>
 </template>
@@ -41,7 +40,7 @@ const itemClass = computed(() => [
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-toggle-group__item[data-state="on"] {
+.voxel-toggle-group__item[data-state='on'] {
   @apply bg-[var(--color-primary-base)] text-[var(--color-text-on-primary)]
     border-[var(--color-primary-base)]
     hover:bg-[var(--color-primary-darken-1)];

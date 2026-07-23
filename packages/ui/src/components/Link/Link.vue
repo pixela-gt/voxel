@@ -19,19 +19,31 @@ const linkClasses = computed(() => [
 ])
 
 const iconClass = computed(() => {
-  const sizes = { small: 'voxel-link__icon--sm', default: 'voxel-link__icon--md', large: 'voxel-link__icon--lg' }
+  const sizes = {
+    small: 'voxel-link__icon--sm',
+    default: 'voxel-link__icon--md',
+    large: 'voxel-link__icon--lg',
+  }
   return sizes[props.size]
 })
 </script>
 
 <template>
-  <a
-    :class="linkClasses"
-    v-bind="$attrs"
-  >
+  <a :class="linkClasses" v-bind="$attrs">
     <slot name="icon">
-      <span v-if="props.showIcon !== false" :class="['voxel-link__icon', iconClass]" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <span
+        v-if="props.showIcon !== false"
+        :class="['voxel-link__icon', iconClass]"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </span>

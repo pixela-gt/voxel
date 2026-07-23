@@ -12,11 +12,7 @@ const labelClass = computed(() => ['voxel-label', `voxel-label--${props.size}`])
 </script>
 
 <template>
-  <Label
-    :class="labelClass"
-    :disabled="props.disabled"
-    v-bind="$attrs"
-  >
+  <Label :class="labelClass" :disabled="props.disabled" v-bind="$attrs">
     <slot />
   </Label>
 </template>

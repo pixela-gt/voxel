@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { NumberFieldRoot, NumberFieldInput, NumberFieldIncrement, NumberFieldDecrement } from 'reka-ui'
+import {
+  NumberFieldRoot,
+  NumberFieldInput,
+  NumberFieldIncrement,
+  NumberFieldDecrement,
+} from 'reka-ui'
 import type { NumberFieldProps } from './NumberField.types'
 
 const props = withDefaults(defineProps<NumberFieldProps>(), {
@@ -30,21 +35,39 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${p
     v-bind="$attrs"
   >
     <div class="voxel-number-field__wrapper">
-      <NumberFieldDecrement class="voxel-number-field__button voxel-number-field__button--decrement">
+      <NumberFieldDecrement
+        class="voxel-number-field__button voxel-number-field__button--decrement"
+      >
         <slot name="decrement-icon">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 7H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M3 7H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
           </svg>
         </slot>
       </NumberFieldDecrement>
-      <NumberFieldInput
-        :placeholder="props.placeholder"
-        class="voxel-number-field__input"
-      />
-      <NumberFieldIncrement class="voxel-number-field__button voxel-number-field__button--increment">
+      <NumberFieldInput :placeholder="props.placeholder" class="voxel-number-field__input" />
+      <NumberFieldIncrement
+        class="voxel-number-field__button voxel-number-field__button--increment"
+      >
         <slot name="increment-icon">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 3V11M3 7H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 3V11M3 7H11"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
           </svg>
         </slot>
       </NumberFieldIncrement>

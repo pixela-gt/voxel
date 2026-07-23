@@ -13,9 +13,20 @@ const emit = defineEmits<{
   'update:modelValue': [value: boolean]
 }>()
 
-const wrapperClass = computed(() => ['voxel-switch__wrapper', `voxel-switch__wrapper--${props.size}`])
-const trackClass = computed(() => ['voxel-switch', `voxel-switch--${props.size}`, props.modelValue && 'voxel-switch--checked'])
-const thumbClass = computed(() => ['voxel-switch__thumb', `voxel-switch__thumb--${props.size}`, props.modelValue && 'voxel-switch__thumb--checked'])
+const wrapperClass = computed(() => [
+  'voxel-switch__wrapper',
+  `voxel-switch__wrapper--${props.size}`,
+])
+const trackClass = computed(() => [
+  'voxel-switch',
+  `voxel-switch--${props.size}`,
+  props.modelValue && 'voxel-switch--checked',
+])
+const thumbClass = computed(() => [
+  'voxel-switch__thumb',
+  `voxel-switch__thumb--${props.size}`,
+  props.modelValue && 'voxel-switch__thumb--checked',
+])
 const labelClass = computed(() => ['voxel-switch__label', `voxel-switch__label--${props.size}`])
 </script>
 

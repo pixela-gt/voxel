@@ -29,15 +29,15 @@ const props = withDefaults(defineProps<TabsTriggerProps>(), {
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-tabs__trigger[data-state="active"] {
+.voxel-tabs__trigger[data-state='active'] {
   @apply bg-white shadow-sm text-[var(--color-primary-base)];
 }
 
-.voxel-tabs__trigger[data-state="inactive"] {
+.voxel-tabs__trigger[data-state='inactive'] {
   @apply text-[var(--color-text-secondary)];
 }
 
-.voxel-tabs__trigger[data-state="inactive"]:hover {
+.voxel-tabs__trigger[data-state='inactive']:hover {
   @apply text-[var(--color-text-primary)];
 }
 </style>

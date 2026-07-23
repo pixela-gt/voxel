@@ -10,11 +10,7 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 
 <template>
   <span
-    :class="[
-      'voxel-badge',
-      `voxel-badge--${props.size}`,
-      `voxel-badge--${props.variant}`,
-    ]"
+    :class="['voxel-badge', `voxel-badge--${props.size}`, `voxel-badge--${props.variant}`]"
     v-bind="$attrs"
   >
     <span

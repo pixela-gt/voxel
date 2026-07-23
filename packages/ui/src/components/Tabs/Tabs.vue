@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  TabsRoot,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from 'reka-ui'
+import { TabsRoot, TabsList, TabsTrigger, TabsContent } from 'reka-ui'
 import type { TabsProps } from './Tabs.types'
 
 interface Tab {
@@ -31,7 +26,10 @@ const emit = defineEmits<{
     v-bind="$attrs"
   >
     <TabsList
-      :class="['voxel-tabs__list', props.orientation === 'vertical' && 'voxel-tabs__list--vertical']"
+      :class="[
+        'voxel-tabs__list',
+        props.orientation === 'vertical' && 'voxel-tabs__list--vertical',
+      ]"
     >
       <TabsTrigger
         v-for="tab in items"
@@ -71,7 +69,7 @@ const emit = defineEmits<{
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2;
 }
 
-.voxel-tabs__trigger[data-state="active"] {
+.voxel-tabs__trigger[data-state='active'] {
   @apply text-[var(--color-text-on-primary)] bg-[var(--color-primary-base)];
 }
 

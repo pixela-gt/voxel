@@ -7,15 +7,17 @@ const props = withDefaults(defineProps<TextProps>(), {
 })
 
 const tag = computed(() => props.tag)
-const textClass = computed(() => ['voxel-text', props.variant && `voxel-text--${props.variant}`, props.weight && `voxel-text--${props.weight}`, props.color && `voxel-text--${props.color}`, props.class])
+const textClass = computed(() => [
+  'voxel-text',
+  props.variant && `voxel-text--${props.variant}`,
+  props.weight && `voxel-text--${props.weight}`,
+  props.color && `voxel-text--${props.color}`,
+  props.class,
+])
 </script>
 
 <template>
-  <component
-    :is="tag"
-    :class="textClass"
-    v-bind="$attrs"
-  >
+  <component :is="tag" :class="textClass" v-bind="$attrs">
     <slot />
   </component>
 </template>

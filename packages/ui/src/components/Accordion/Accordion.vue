@@ -30,7 +30,9 @@ const emit = defineEmits<{
     :collapsible="props.collapsible"
     :disabled="props.disabled"
     v-model="props.modelValue"
-    @update:modelValue="(v) => emit('update:modelValue', v ?? (props.type === 'multiple' ? [] : ''))"
+    @update:modelValue="
+      (v) => emit('update:modelValue', v ?? (props.type === 'multiple' ? [] : ''))
+    "
     v-bind="$attrs"
   >
     <AccordionItem
@@ -57,9 +59,7 @@ const emit = defineEmits<{
       </AccordionHeader>
       <AccordionContent class="voxel-accordion__content">
         <div class="voxel-accordion__body">
-          <slot name="content" :item="item">
-            Content for {{ item.value }}
-          </slot>
+          <slot name="content" :item="item"> Content for {{ item.value }} </slot>
         </div>
       </AccordionContent>
     </AccordionItem>
@@ -87,7 +87,7 @@ const emit = defineEmits<{
   @apply size-5 text-[var(--color-text-secondary)] transition-transform duration-200;
 }
 
-.voxel-accordion__chevron[data-state="open"] {
+.voxel-accordion__chevron[data-state='open'] {
   @apply rotate-180;
 }
 
@@ -95,22 +95,30 @@ const emit = defineEmits<{
   @apply overflow-hidden text-sm text-[var(--color-text-secondary)];
 }
 
-.voxel-accordion__content[data-state="open"] {
+.voxel-accordion__content[data-state='open'] {
   animation: accordion-down 200ms ease-out;
 }
 
-.voxel-accordion__content[data-state="closed"] {
+.voxel-accordion__content[data-state='closed'] {
   animation: accordion-up 200ms ease-out;
 }
 
 @keyframes accordion-down {
-  from { height: 0; }
-  to { height: var(--radix-accordion-content-height); }
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
 }
 
 @keyframes accordion-up {
-  from { height: var(--radix-accordion-content-height); }
-  to { height: 0; }
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }
 
 .voxel-accordion__body {

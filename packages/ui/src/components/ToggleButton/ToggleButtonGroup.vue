@@ -22,7 +22,7 @@ function handleButtonClick(buttonValue: string, currentlyPressed: boolean) {
     selectedValues.value = currentlyPressed ? [] : [buttonValue]
   } else {
     if (currentlyPressed) {
-      selectedValues.value = selectedValues.value.filter(v => v !== buttonValue)
+      selectedValues.value = selectedValues.value.filter((v) => v !== buttonValue)
     } else {
       selectedValues.value = [...selectedValues.value, buttonValue]
     }

@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<RadioItemProps>(), {
   @apply size-6 rounded-[12px] border-[2px];
 }
 
-.voxel-radio__item[data-state="checked"] .voxel-radio__indicator {
+.voxel-radio__item[data-state='checked'] .voxel-radio__indicator {
   @apply border-[var(--color-primary-base)];
 }
 

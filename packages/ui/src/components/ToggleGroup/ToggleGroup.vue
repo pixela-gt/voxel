@@ -16,10 +16,7 @@ const emit = defineEmits<{
   'update:modelValue': [value: string | string[]]
 }>()
 
-const rootClass = computed(() => [
-  'voxel-toggle-group',
-  `voxel-toggle-group--${props.orientation}`,
-])
+const rootClass = computed(() => ['voxel-toggle-group', `voxel-toggle-group--${props.orientation}`])
 </script>
 
 <template>

@@ -33,7 +33,16 @@ const labelClass = computed(() => ['voxel-checkbox__label', `voxel-checkbox__lab
       class="voxel-checkbox"
     >
       <CheckboxIndicator :class="indicatorClass">
-        <svg :class="iconClass" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          :class="iconClass"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M3 8L7 12L13 4" />
         </svg>
       </CheckboxIndicator>

@@ -24,7 +24,11 @@ const iconButtonClasses = computed(() => [
 ])
 
 const iconClass = computed(() => {
-  const sizes = { small: 'voxel-icon-button__icon--sm', default: 'voxel-icon-button__icon--md', large: 'voxel-icon-button__icon--lg' }
+  const sizes = {
+    small: 'voxel-icon-button__icon--sm',
+    default: 'voxel-icon-button__icon--md',
+    large: 'voxel-icon-button__icon--lg',
+  }
   return sizes[props.size]
 })
 
@@ -43,9 +47,19 @@ function handleClick(event: MouseEvent) {
     @click="handleClick"
   >
     <span v-if="props.loading" class="voxel-icon-button__spinner" aria-hidden="true">
-      <svg class="voxel-icon-button__spinner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg
+        class="voxel-icon-button__spinner-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        />
       </svg>
     </span>
     <span v-else :class="['voxel-icon-button__icon', iconClass]" aria-hidden="true">
@@ -60,6 +74,7 @@ function handleClick(event: MouseEvent) {
     transition-colors duration-[var(--transition-fast)]
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed;
+  corner-smoothing: 60%;
 }
 
 /* Sizes */
