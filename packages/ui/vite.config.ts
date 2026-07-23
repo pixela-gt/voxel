@@ -19,7 +19,7 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['vue', 'reka-ui', 'lucide-vue-next'],
+      external: ['vue', 'reka-ui', '@lucide/vue'],
       output: {
         preserveModules: true,
         preserveModulesRoot: 'src',
