@@ -1,0 +1,207 @@
+@layer base {
+  :root {
+    /* Primitive Colors (from Figma Colors page) */
+    --color-blue-50: #eff6ff;
+    --color-blue-100: #dbeafe;
+    --color-blue-200: #bfdbfe;
+    --color-blue-300: #93c5fd;
+    --color-blue-400: #60a5fa;
+    --color-blue-500: #3b82f6;
+    --color-blue-600: #2563eb;
+    --color-blue-700: #1d4ed8;
+    --color-blue-800: #1e40af;
+    --color-blue-900: #1e3a8a;
+    --color-blue-950: #172554;
+
+    --color-silent-navy-50: #f0f4fa;
+    --color-silent-navy-100: #e1e9f5;
+    --color-silent-navy-200: #c3d2eb;
+    --color-silent-navy-300: #a5bce1;
+    --color-silent-navy-400: #87a6d7;
+    --color-silent-navy-500: #6990cd;
+    --color-silent-navy-600: #4b7ac3;
+    --color-silent-navy-700: #3763b8;
+    --color-silent-navy-800: #2d4fae;
+    --color-silent-navy-900: #233fa4;
+    --color-silent-navy-950: #1a2f7a;
+
+    --color-berry-lipstick-50: #fdf8fa;
+    --color-berry-lipstick-100: #fbf1f5;
+    --color-berry-lipstick-200: #f7e3eb;
+    --color-berry-lipstick-300: #f3d5e1;
+    --color-berry-lipstick-400: #efc7d7;
+    --color-berry-lipstick-500: #ebb9cd;
+    --color-berry-lipstick-600: #e7abc3;
+    --color-berry-lipstick-700: #e39db9;
+    --color-berry-lipstick-800: #df8faf;
+    --color-berry-lipstick-900: #db81a5;
+    --color-berry-lipstick-950: #d7739b;
+
+    --color-racing-red-50: #fef2f2;
+    --color-racing-red-100: #fee2e2;
+    --color-racing-red-200: #fecaca;
+    --color-racing-red-300: #fca5a5;
+    --color-racing-red-400: #f87171;
+    --color-racing-red-500: #ef4444;
+    --color-racing-red-600: #dc2626;
+    --color-racing-red-700: #b91c1c;
+    --color-racing-red-800: #991b1b;
+    --color-racing-red-900: #7f1d1d;
+    --color-racing-red-950: #450a0a;
+
+    --color-lightning-yellow-50: #fefce8;
+    --color-lightning-yellow-100: #fef9c3;
+    --color-lightning-yellow-200: #fef08a;
+    --color-lightning-yellow-300: #fde047;
+    --color-lightning-yellow-400: #facc15;
+    --color-lightning-yellow-500: #eab308;
+    --color-lightning-yellow-600: #ca8a04;
+    --color-lightning-yellow-700: #a16207;
+    --color-lightning-yellow-800: #854d0e;
+    --color-lightning-yellow-900: #713f12;
+    --color-lightning-yellow-950: #422006;
+
+    --color-pacific-cyan-50: #f0fdfa;
+    --color-pacific-cyan-100: #ccfbf1;
+    --color-pacific-cyan-200: #99f6e4;
+    --color-pacific-cyan-300: #5eead4;
+    --color-pacific-cyan-400: #22d3ee;
+    --color-pacific-cyan-500: #06b6d4;
+    --color-pacific-cyan-600: #0891b2;
+    --color-pacific-cyan-700: #0e7490;
+    --color-pacific-cyan-800: #155e75;
+    --color-pacific-cyan-900: #164e63;
+    --color-pacific-cyan-950: #083344;
+
+    --color-celadon-50: #f0fdf4;
+    --color-celadon-100: #dcfce7;
+    --color-celadon-200: #bbf7d0;
+    --color-celadon-300: #86efac;
+    --color-celadon-400: #4ade80;
+    --color-celadon-500: #22c55e;
+    --color-celadon-600: #16a34a;
+    --color-celadon-700: #15803d;
+    --color-celadon-800: #166534;
+    --color-celadon-900: #14532d;
+    --color-celadon-950: #052e16;
+
+    --color-grey-50: #f9fafb;
+    --color-grey-100: #f3f4f6;
+    --color-grey-200: #e5e7eb;
+    --color-grey-300: #d1d5db;
+    --color-grey-400: #a9a9a9;
+    --color-grey-500: #9ca3af;
+    --color-grey-600: #6b7280;
+    --color-grey-700: #4b5563;
+    --color-grey-800: #383838;
+    --color-grey-900: #2d2d2d;
+    --color-grey-950: #272727;
+
+    /* Semantic Colors (Theme Colors from Figma) */
+    --color-primary-base: #6969ff;
+    --color-primary-darken-1: #4343ff;
+    --color-primary-lighten-1: #aab3ff;
+
+    --color-secondary-base: #4eb6c2;
+    --color-secondary-darken-1: #0297a8;
+    --color-secondary-lighten-1: #81cbd4;
+
+    --color-info-base: #6969ff;
+    --color-info-darken-1: #4343ff;
+    --color-info-lighten-1: #aab3ff;
+
+    --color-error-base: #fa555d;
+    --color-error-darken-1: #f92a34;
+    --color-error-lighten-1: #fb7f85;
+
+    --color-warning-base: #fac935;
+    --color-warning-darken-1: #f9bc03;
+    --color-warning-lighten-1: #fbd768;
+
+    --color-success-base: #4eb6c2;
+    --color-success-darken-1: #0297a8;
+    --color-success-lighten-1: #81cbd4;
+
+    /* Surface Colors */
+    --color-surface-background: #f8f8f8;
+    --color-surface-base: #fbfbff;
+    --color-surface-light: #f2f2ff;
+
+    /* Grey Surface Colors */
+    --color-grey-400: #a9a9a9;
+    --color-grey-600: rgba(90, 90, 90, 0.12);
+    --color-grey-800: #383838;
+    --color-grey-900: #2d2d2d;
+    --color-grey-950: #272727;
+
+    /* Text Colors */
+    --color-text-primary: var(--color-grey-950);
+    --color-text-secondary: var(--color-grey-800);
+    --color-text-inverse: #ffffff;
+    --color-text-on-primary: var(--color-berry-lipstick-50);
+    --color-text-on-secondary: var(--color-berry-lipstick-50);
+    --color-text-muted: var(--color-grey-600);
+
+    /* Font */
+    --font-family-sans: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Font Sizes (from Figma Text page) */
+    --font-size-2xs: 11px;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 28px;
+    --font-size-2xl: 30px;
+    --font-size-3xl: 35px;
+    --font-size-4xl: 40px;
+    --font-size-5xl: 45px;
+    --font-size-6xl: 57px;
+    --font-size-7xl: 71px;
+
+    /* Spacing (4px grid) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+
+    /* Border Radius */
+    --rounded-xs: 4px;
+    --rounded-sm: 5px;
+    --rounded-md: 6px;
+    --rounded-lg: 8px;
+    --rounded-xl: 10px;
+    --rounded-2xl: 12px;
+    --rounded-3xl: 16px;
+    --rounded-full: 9999px;
+
+    /* Shadows (from Figma Card elevations) */
+    --shadow-sm: 0px 1px 3px 0px rgba(170, 179, 255, 0.1), 0px 1px 2px -1px rgba(170, 179, 255, 0.12);
+    --shadow-md: 0px 2px 4px -2px rgba(170, 179, 255, 0.12), 0px 4px 6px -1px rgba(170, 179, 255, 0.1);
+    --shadow-lg: 0px 4px 6px -4px rgba(170, 179, 255, 0.12), 0px 10px 15px -3px rgba(170, 179, 255, 0.1);
+    --shadow-xl: 0px 8px 10px -6px rgba(170, 179, 255, 0.12), 0px 20px 25px -5px rgba(170, 179, 255, 0.1);
+    --shadow-2xl: 0px 25px 50px -12px rgba(170, 179, 255, 0.25);
+
+    /* Transitions */
+    --transition-fast: 150ms;
+    --transition-normal: 200ms;
+    --transition-slow: 300ms;
+  }
+
+  .dark {
+    --color-surface-background: #1a1a2e;
+    --color-surface-base: #1e1e3a;
+    --color-surface-light: #252545;
+    --color-grey-400: #6b6b6b;
+    --color-grey-800: #e5e5e5;
+    --color-grey-900: #f0f0f0;
+    --color-grey-950: #fafafa;
+    --color-text-primary: #fafafa;
+    --color-text-secondary: #e5e5e5;
+    --color-text-inverse: #1e293b;
+  }
+}
