@@ -1,0 +1,12 @@
+{
+  "name": "voxel",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter @pixela-gt/voxel-ui build",
+    "build:cli": "pnpm --filter @pixela-gt/voxel-cli build",
+    "typecheck": "pnpm -r typecheck",
+    "generate": "pnpm --filter @pixela-gt/voxel-cli generate",
+    "playground:vue": "pnpm --filter playground-vue dev",
+    "playground:nuxt": "pnpm --filter playground-nuxt dev"
+  }
+}

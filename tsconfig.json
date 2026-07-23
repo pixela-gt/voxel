@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": true
+  },
+  "references": [
+    { "path": "packages/ui" },
+    { "path": "packages/cli" }
+  ],
+  "exclude": ["node_modules", "dist", "playground"]
+}
