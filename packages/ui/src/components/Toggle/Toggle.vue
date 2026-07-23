@@ -33,6 +33,7 @@ const toggleClass = computed(() => [
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-toggle {
   @apply inline-flex items-center justify-center
     font-sans font-medium text-[var(--color-text-secondary)]

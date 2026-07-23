@@ -8,5 +8,11 @@
     "generate": "pnpm --filter @pixela-gt/voxel-cli generate",
     "playground:vue": "pnpm --filter playground-vue dev",
     "playground:nuxt": "pnpm --filter playground-nuxt dev"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.7.0",
+    "eslint-plugin-vue": "^10.10.0",
+    "typescript-eslint": "^8.65.0"
   }
 }

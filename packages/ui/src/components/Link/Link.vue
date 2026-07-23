@@ -41,6 +41,7 @@ const iconClass = computed(() => {
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-link {
   @apply inline-flex items-center justify-center whitespace-nowrap font-sans antialiased font-medium;
 }

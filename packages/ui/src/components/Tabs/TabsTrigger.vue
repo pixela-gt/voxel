@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<TabsTriggerProps>(), {
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-tabs__trigger {
   @apply relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2

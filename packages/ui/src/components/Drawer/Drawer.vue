@@ -45,6 +45,7 @@ const isCollapsed = props.state === 'collapsed'
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-drawer__overlay {
   @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity;
 }

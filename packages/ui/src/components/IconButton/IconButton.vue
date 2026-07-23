@@ -55,6 +55,7 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-icon-button {
   @apply inline-flex items-center justify-center flex-shrink-0 font-sans
     transition-colors duration-[var(--transition-fast)]

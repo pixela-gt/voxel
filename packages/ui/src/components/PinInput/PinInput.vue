@@ -39,6 +39,7 @@ const rootClass = computed(() => ['voxel-pin-input', props.class])
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-pin-input {
   @apply flex items-center gap-2;
 }

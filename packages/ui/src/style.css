@@ -1,8 +1,93 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss";
 
 @import './tokens/tokens.css';
+
+@theme {
+  --color-primary: var(--color-primary-base);
+  --color-primary-darken: var(--color-primary-darken-1);
+  --color-primary-lighten: var(--color-primary-lighten-1);
+
+  --color-secondary: var(--color-secondary-base);
+  --color-secondary-darken: var(--color-secondary-darken-1);
+  --color-secondary-lighten: var(--color-secondary-lighten-1);
+
+  --color-info: var(--color-info-base);
+  --color-info-darken: var(--color-info-darken-1);
+  --color-info-lighten: var(--color-info-lighten-1);
+
+  --color-error: var(--color-error-base);
+  --color-error-darken: var(--color-error-darken-1);
+  --color-error-lighten: var(--color-error-lighten-1);
+
+  --color-warning: var(--color-warning-base);
+  --color-warning-darken: var(--color-warning-darken-1);
+  --color-warning-lighten: var(--color-warning-lighten-1);
+
+  --color-success: var(--color-success-base);
+  --color-success-darken: var(--color-success-darken-1);
+  --color-success-lighten: var(--color-success-lighten-1);
+
+  --color-surface-background: var(--color-surface-background);
+  --color-surface-base: var(--color-surface-base);
+  --color-surface-light: var(--color-surface-light);
+
+  --color-grey-400: var(--color-grey-400);
+  --color-grey-500: var(--color-grey-500);
+  --color-grey-600: var(--color-grey-600);
+  --color-grey-800: var(--color-grey-800);
+  --color-grey-900: var(--color-grey-900);
+  --color-grey-950: var(--color-grey-950);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-inverse: var(--color-text-inverse);
+  --color-text-on-primary: var(--color-text-on-primary);
+  --color-text-on-secondary: var(--color-text-on-secondary);
+  --color-text-muted: var(--color-text-muted);
+
+  --font-family-sans: var(--font-family-sans);
+
+  --text-2xs: var(--font-size-2xs);
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
+  --text-base: var(--font-size-base);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+  --text-3xl: var(--font-size-3xl);
+  --text-4xl: var(--font-size-4xl);
+  --text-5xl: var(--font-size-5xl);
+  --text-6xl: var(--font-size-6xl);
+  --text-7xl: var(--font-size-7xl);
+
+  --radius-xs: var(--rounded-xs);
+  --radius-sm: var(--rounded-sm);
+  --radius-md: var(--rounded-md);
+  --radius-lg: var(--rounded-lg);
+  --radius-xl: var(--rounded-xl);
+  --radius-2xl: var(--rounded-2xl);
+  --radius-3xl: var(--rounded-3xl);
+  --radius-full: var(--rounded-full);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+
+  --spacing-1: var(--space-1);
+  --spacing-2: var(--space-2);
+  --spacing-3: var(--space-3);
+  --spacing-4: var(--space-4);
+  --spacing-5: var(--space-5);
+  --spacing-6: var(--space-6);
+  --spacing-7: var(--space-7);
+  --spacing-8: var(--space-8);
+}
 
 /* Base styles */
 *,

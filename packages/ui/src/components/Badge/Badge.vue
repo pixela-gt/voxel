@@ -27,6 +27,7 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-badge {
   @apply inline-flex items-center gap-1 font-sans font-medium whitespace-nowrap rounded-full;
 }

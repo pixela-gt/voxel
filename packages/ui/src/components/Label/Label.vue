@@ -22,6 +22,7 @@ const labelClass = computed(() => ['voxel-label', `voxel-label--${props.size}`])
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-label {
   @apply font-sans font-medium text-[var(--color-text-primary)]
     cursor-pointer

@@ -16,6 +16,7 @@ const props = defineProps<AccordionHeaderProps>()
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-accordion__header {
   @apply bg-[var(--color-grey-50)] px-4 py-3;
 }

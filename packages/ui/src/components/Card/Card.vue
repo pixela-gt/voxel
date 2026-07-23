@@ -19,6 +19,7 @@ const cardClasses = computed(() => [
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-card {
   @apply bg-[var(--color-surface-base)] rounded-[var(--rounded-2xl)] p-4 transition-shadow duration-200;
 }

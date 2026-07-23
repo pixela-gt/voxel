@@ -49,6 +49,7 @@ const emit = defineEmits<{
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-radio {
   @apply flex items-center;
 }

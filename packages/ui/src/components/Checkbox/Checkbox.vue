@@ -46,6 +46,7 @@ const labelClass = computed(() => ['voxel-checkbox__label', `voxel-checkbox__lab
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-checkbox__wrapper {
   @apply inline-flex items-center gap-[6px];
 }

@@ -18,6 +18,7 @@ const props = defineProps<AccordionContentProps>()
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-accordion__content {
   @apply overflow-hidden text-[var(--color-text-secondary)];
 }

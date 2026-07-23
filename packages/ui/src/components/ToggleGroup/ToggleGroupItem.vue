@@ -29,6 +29,7 @@ const itemClass = computed(() => [
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-toggle-group__item {
   @apply inline-flex items-center justify-center
     font-sans font-medium text-[var(--color-text-secondary)]

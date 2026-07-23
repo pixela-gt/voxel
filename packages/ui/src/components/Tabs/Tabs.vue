@@ -56,6 +56,7 @@ const emit = defineEmits<{
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-tabs__list {
   @apply inline-flex items-center bg-[var(--color-grey-100)] p-1 rounded-xl gap-1;
 }

@@ -29,6 +29,7 @@ const props = withDefaults(defineProps<AvatarProps>(), {
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-avatar {
   @apply relative size-8 rounded-[8px] overflow-hidden bg-[var(--color-grey-950)];
 }

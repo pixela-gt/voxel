@@ -21,6 +21,7 @@ const props = withDefaults(defineProps<Pick<TabsProps, 'orientation'>>(), {
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-tabs__list {
   @apply inline-flex items-center bg-[var(--color-grey-100)] rounded-xl p-1;
 }

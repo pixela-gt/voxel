@@ -33,6 +33,7 @@ const side = computed(() => positionMap[props.position ?? 'top'])
 </template>
 
 <style scoped>
+@reference "../../style.css"
 .voxel-tooltip__content {
   @apply bg-[var(--color-surface-base)] text-[var(--color-text-primary)] text-xs font-medium
     px-3 py-1.5 rounded-[8px] shadow-[var(--shadow-md)] whitespace-nowrap z-50;
