@@ -12,7 +12,10 @@
     "@pixela-gt/voxel-ui": "workspace:*"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
-    "@vitejs/plugin-vue": "^5.0.0"
+    "vite": "^8.1.5",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@tailwindcss/postcss": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "postcss": "^8.5.22"
   }
 }
