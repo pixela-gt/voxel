@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-23T23:56:30.058Z",
+  "generated": "2026-07-23T23:56:42.119Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -51,6 +51,83 @@
         "AccordionContent"
       ],
       "import": "import { Accordion } from '@pixela-gt/voxel-ui'"
+    },
+    "AlertDialog": {
+      "name": "AlertDialog",
+      "description": "AlertDialog component",
+      "category": "misc",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "'info' | 'warning' | 'error' | 'success'",
+          "required": false,
+          "default": "info"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "trigger",
+        "footer",
+        "cancel",
+        "action"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "AlertDialogRoot",
+        "AlertDialogTrigger",
+        "AlertDialogPortal",
+        "AlertDialogOverlay",
+        "AlertDialogContent",
+        "AlertDialogTitle",
+        "AlertDialogDescription",
+        "AlertDialogAction",
+        "AlertDialogCancel"
+      ],
+      "import": "import { AlertDialog } from '@pixela-gt/voxel-ui'"
+    },
+    "AspectRatio": {
+      "name": "AspectRatio",
+      "description": "AspectRatio component",
+      "category": "misc",
+      "props": {
+        "ratio": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "AspectRatio"
+      ],
+      "import": "import { AspectRatio } from '@pixela-gt/voxel-ui'"
     },
     "Avatar": {
       "name": "Avatar",
@@ -182,6 +259,16 @@
       "rekaUi": [],
       "import": "import { Button } from '@pixela-gt/voxel-ui'"
     },
+    "Calendar": {
+      "name": "Calendar",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Calendar } from '@pixela-gt/voxel-ui'"
+    },
     "Card": {
       "name": "Card",
       "description": "Card component",
@@ -244,6 +331,254 @@
         "CheckboxIndicator"
       ],
       "import": "import { Checkbox } from '@pixela-gt/voxel-ui'"
+    },
+    "Collapsible": {
+      "name": "Collapsible",
+      "description": "Collapsible component",
+      "category": "misc",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "trigger"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "CollapsibleRoot",
+        "CollapsibleTrigger",
+        "CollapsibleContent"
+      ],
+      "import": "import { Collapsible } from '@pixela-gt/voxel-ui'"
+    },
+    "ColorArea": {
+      "name": "ColorArea",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ColorArea } from '@pixela-gt/voxel-ui'"
+    },
+    "ColorField": {
+      "name": "ColorField",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ColorField } from '@pixela-gt/voxel-ui'"
+    },
+    "ColorSlider": {
+      "name": "ColorSlider",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ColorSlider } from '@pixela-gt/voxel-ui'"
+    },
+    "ColorSwatch": {
+      "name": "ColorSwatch",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ColorSwatch } from '@pixela-gt/voxel-ui'"
+    },
+    "ColorSwatchPicker": {
+      "name": "ColorSwatchPicker",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ColorSwatchPicker } from '@pixela-gt/voxel-ui'"
+    },
+    "Combobox": {
+      "name": "Combobox",
+      "description": "Combobox component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | number | (string | number)[]",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string | number | (string | number)[]",
+          "required": false
+        },
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "multiple": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "required": {
+          "type": "boolean",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false,
+          "default": "Search..."
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "items": {
+          "type": "(ComboboxItem | ComboboxGroup)[]",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "update",
+        "update"
+      ],
+      "rekaUi": [
+        "ComboboxRoot",
+        "ComboboxAnchor",
+        "ComboboxInput",
+        "ComboboxPortal",
+        "ComboboxContent",
+        "ComboboxViewport",
+        "ComboboxItem",
+        "ComboboxItemIndicator",
+        "ComboboxGroup",
+        "ComboboxLabel",
+        "ComboboxSeparator",
+        "ComboboxEmpty",
+        "ComboboxTrigger",
+        "ComboboxCancel"
+      ],
+      "import": "import { Combobox } from '@pixela-gt/voxel-ui'"
+    },
+    "ContextMenu": {
+      "name": "ContextMenu",
+      "description": "ContextMenu component",
+      "category": "misc",
+      "props": {
+        "modal": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "pressOpenDelay": {
+          "type": "number",
+          "required": false,
+          "default": 700
+        },
+        "items": {
+          "type": "ContextMenuItem[]",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "trigger"
+      ],
+      "events": [
+        "select",
+        "update"
+      ],
+      "rekaUi": [
+        "ContextMenuRoot",
+        "ContextMenuTrigger",
+        "ContextMenuPortal",
+        "ContextMenuContent",
+        "ContextMenuItem",
+        "ContextMenuSeparator"
+      ],
+      "import": "import { ContextMenu } from '@pixela-gt/voxel-ui'"
+    },
+    "DateField": {
+      "name": "DateField",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { DateField } from '@pixela-gt/voxel-ui'"
+    },
+    "DatePicker": {
+      "name": "DatePicker",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { DatePicker } from '@pixela-gt/voxel-ui'"
+    },
+    "DateRangeField": {
+      "name": "DateRangeField",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { DateRangeField } from '@pixela-gt/voxel-ui'"
+    },
+    "DateRangePicker": {
+      "name": "DateRangePicker",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { DateRangePicker } from '@pixela-gt/voxel-ui'"
     },
     "Dialog": {
       "name": "Dialog",
@@ -348,6 +683,126 @@
         "DropdownMenuItem"
       ],
       "import": "import { DropdownMenu } from '@pixela-gt/voxel-ui'"
+    },
+    "Editable": {
+      "name": "Editable",
+      "description": "Editable component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false,
+          "default": "Enter text..."
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "readonly": {
+          "type": "boolean",
+          "required": false
+        },
+        "submitMode": {
+          "type": "'blur' | 'enter' | 'both' | 'none'",
+          "required": false,
+          "default": "blur"
+        },
+        "activationMode": {
+          "type": "'focus' | 'dblclick' | 'none'",
+          "required": false,
+          "default": "focus"
+        },
+        "selectOnFocus": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "maxLength": {
+          "type": "number",
+          "required": false
+        },
+        "startWithEditMode": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "submit"
+      ],
+      "rekaUi": [
+        "EditableRoot",
+        "EditableArea",
+        "EditablePreview",
+        "EditableInput",
+        "EditableEditTrigger",
+        "EditableSubmitTrigger",
+        "EditableCancelTrigger"
+      ],
+      "import": "import { Editable } from '@pixela-gt/voxel-ui'"
+    },
+    "HoverCard": {
+      "name": "HoverCard",
+      "description": "HoverCard component",
+      "category": "misc",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "openDelay": {
+          "type": "number",
+          "required": false,
+          "default": 300
+        },
+        "closeDelay": {
+          "type": "number",
+          "required": false,
+          "default": 100
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "trigger"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "HoverCardRoot",
+        "HoverCardTrigger",
+        "HoverCardPortal",
+        "HoverCardContent",
+        "HoverCardArrow"
+      ],
+      "import": "import { HoverCard } from '@pixela-gt/voxel-ui'"
     },
     "Icon": {
       "name": "Icon",
@@ -496,6 +951,186 @@
       "rekaUi": [],
       "import": "import { Link } from '@pixela-gt/voxel-ui'"
     },
+    "Listbox": {
+      "name": "Listbox",
+      "description": "Listbox component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | number | (string | number)[]",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string | number | (string | number)[]",
+          "required": false
+        },
+        "multiple": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "highlightOnHover": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "items": {
+          "type": "(ListboxItem | ListboxGroup)[]",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ListboxRoot",
+        "ListboxContent",
+        "ListboxItem",
+        "ListboxItemIndicator",
+        "ListboxGroup",
+        "ListboxGroupLabel",
+        "ListboxFilter"
+      ],
+      "import": "import { Listbox } from '@pixela-gt/voxel-ui'"
+    },
+    "Menubar": {
+      "name": "Menubar",
+      "description": "Menubar component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "items": {
+          "type": "MenubarItem[]",
+          "required": false
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update",
+        "select"
+      ],
+      "rekaUi": [
+        "MenubarRoot",
+        "MenubarMenu",
+        "MenubarTrigger",
+        "MenubarPortal",
+        "MenubarContent",
+        "MenubarItem",
+        "MenubarSeparator",
+        "MenubarSub",
+        "MenubarSubTrigger",
+        "MenubarSubContent"
+      ],
+      "import": "import { Menubar } from '@pixela-gt/voxel-ui'"
+    },
+    "MonthPicker": {
+      "name": "MonthPicker",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { MonthPicker } from '@pixela-gt/voxel-ui'"
+    },
+    "MonthRangePicker": {
+      "name": "MonthRangePicker",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { MonthRangePicker } from '@pixela-gt/voxel-ui'"
+    },
+    "NavigationMenu": {
+      "name": "NavigationMenu",
+      "description": "NavigationMenu component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "default": "horizontal"
+        },
+        "delayDuration": {
+          "type": "number",
+          "required": false,
+          "default": 200
+        },
+        "skipDelayDuration": {
+          "type": "number",
+          "required": false,
+          "default": 300
+        },
+        "items": {
+          "type": "NavigationMenuItem[]",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "NavigationMenuRoot",
+        "NavigationMenuList",
+        "NavigationMenuItem",
+        "NavigationMenuTrigger",
+        "NavigationMenuContent",
+        "NavigationMenuLink",
+        "NavigationMenuIndicator",
+        "NavigationMenuViewport"
+      ],
+      "import": "import { NavigationMenu } from '@pixela-gt/voxel-ui'"
+    },
     "NumberField": {
       "name": "NumberField",
       "description": "NumberField component",
@@ -558,6 +1193,68 @@
       ],
       "import": "import { NumberField } from '@pixela-gt/voxel-ui'"
     },
+    "Pagination": {
+      "name": "Pagination",
+      "description": "Pagination component",
+      "category": "misc",
+      "props": {
+        "page": {
+          "type": "number",
+          "required": false
+        },
+        "defaultPage": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "total": {
+          "type": "number",
+          "required": true
+        },
+        "itemsPerPage": {
+          "type": "number",
+          "required": true
+        },
+        "siblingCount": {
+          "type": "number",
+          "required": false,
+          "default": 2
+        },
+        "showEdges": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "PaginationRoot",
+        "PaginationList",
+        "PaginationListItem",
+        "PaginationPrev",
+        "PaginationNext",
+        "PaginationEllipsis",
+        "injectPaginationRootContext"
+      ],
+      "import": "import { Pagination } from '@pixela-gt/voxel-ui'"
+    },
     "PinInput": {
       "name": "PinInput",
       "description": "PinInput component",
@@ -606,6 +1303,81 @@
       ],
       "import": "import { PinInput } from '@pixela-gt/voxel-ui'"
     },
+    "Popover": {
+      "name": "Popover",
+      "description": "Popover component",
+      "category": "misc",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "modal": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "trigger"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "PopoverRoot",
+        "PopoverTrigger",
+        "PopoverPortal",
+        "PopoverContent",
+        "PopoverArrow",
+        "PopoverClose"
+      ],
+      "import": "import { Popover } from '@pixela-gt/voxel-ui'"
+    },
+    "Progress": {
+      "name": "Progress",
+      "description": "Progress component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number | null",
+          "required": false
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": 100
+        },
+        "indeterminate": {
+          "type": "boolean",
+          "required": false
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [
+        "ProgressRoot",
+        "ProgressIndicator"
+      ],
+      "import": "import { Progress } from '@pixela-gt/voxel-ui'"
+    },
     "Radio": {
       "name": "Radio",
       "description": "Radio component",
@@ -652,6 +1424,183 @@
         "RadioGroupIndicator"
       ],
       "import": "import { Radio } from '@pixela-gt/voxel-ui'"
+    },
+    "RangeCalendar": {
+      "name": "RangeCalendar",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { RangeCalendar } from '@pixela-gt/voxel-ui'"
+    },
+    "Rating": {
+      "name": "Rating",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "number",
+          "required": false
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": 5
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "required": {
+          "type": "boolean",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "value"
+      ],
+      "rekaUi": [
+        "RatingRoot",
+        "RatingItem",
+        "RatingItemIndicator"
+      ],
+      "import": "import { Rating } from '@pixela-gt/voxel-ui'"
+    },
+    "ScrollArea": {
+      "name": "ScrollArea",
+      "description": "ScrollArea component",
+      "category": "misc",
+      "props": {
+        "type": {
+          "type": "ScrollAreaType",
+          "required": false,
+          "default": "hover"
+        },
+        "scrollHideDelay": {
+          "type": "number",
+          "required": false,
+          "default": 600
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ScrollAreaRoot",
+        "ScrollAreaViewport",
+        "ScrollAreaScrollbar",
+        "ScrollAreaThumb",
+        "ScrollAreaCorner"
+      ],
+      "import": "import { ScrollArea } from '@pixela-gt/voxel-ui'"
+    },
+    "Select": {
+      "name": "Select",
+      "description": "Select component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | number | (string | number)[]",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string | number | (string | number)[]",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        },
+        "open": {
+          "type": "boolean",
+          "required": false
+        },
+        "multiple": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "required": {
+          "type": "boolean",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "items": {
+          "type": "(SelectItem | SelectGroup)[]",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "update"
+      ],
+      "rekaUi": [
+        "SelectRoot",
+        "SelectTrigger",
+        "SelectValue",
+        "SelectIcon",
+        "SelectPortal",
+        "SelectContent",
+        "SelectViewport",
+        "SelectItem",
+        "SelectItemText",
+        "SelectItemIndicator",
+        "SelectGroup",
+        "SelectLabel",
+        "SelectSeparator",
+        "SelectScrollUpButton",
+        "SelectScrollDownButton"
+      ],
+      "import": "import { Select } from '@pixela-gt/voxel-ui'"
     },
     "Separator": {
       "name": "Separator",
@@ -732,6 +1681,71 @@
       ],
       "import": "import { Slider } from '@pixela-gt/voxel-ui'"
     },
+    "Stepper": {
+      "name": "Stepper",
+      "description": "Stepper component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "default": "horizontal"
+        },
+        "linear": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "step": {
+          "type": "number",
+          "required": true
+        },
+        "title": {
+          "type": "string",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "completed": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "StepperRoot"
+      ],
+      "import": "import { Stepper } from '@pixela-gt/voxel-ui'"
+    },
     "Switch": {
       "name": "Switch",
       "description": "Switch component",
@@ -809,6 +1823,85 @@
       ],
       "import": "import { Tabs } from '@pixela-gt/voxel-ui'"
     },
+    "TagsInput": {
+      "name": "TagsInput",
+      "description": "TagsInput component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string[]",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string[]",
+          "required": false
+        },
+        "delimiter": {
+          "type": "string | RegExp",
+          "required": false,
+          "default": ","
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "addOnPaste": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "addOnBlur": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "addOnTab": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "duplicate": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false,
+          "default": "Add tag..."
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "value",
+        "value"
+      ],
+      "rekaUi": [
+        "TagsInputRoot",
+        "TagsInputItem",
+        "TagsInputItemText",
+        "TagsInputItemDelete",
+        "TagsInputInput",
+        "TagsInputClear"
+      ],
+      "import": "import { TagsInput } from '@pixela-gt/voxel-ui'"
+    },
     "Text": {
       "name": "Text",
       "description": "Text component",
@@ -842,6 +1935,44 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Text } from '@pixela-gt/voxel-ui'"
+    },
+    "TimeField": {
+      "name": "TimeField",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { TimeField } from '@pixela-gt/voxel-ui'"
+    },
+    "TimeRangeField": {
+      "name": "TimeRangeField",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { TimeRangeField } from '@pixela-gt/voxel-ui'"
+    },
+    "Toast": {
+      "name": "Toast",
+      "description": "Toast component",
+      "category": "misc",
+      "props": {},
+      "slots": [
+        "action"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToastRoot",
+        "ToastTitle",
+        "ToastDescription",
+        "ToastAction",
+        "ToastClose"
+      ],
+      "import": "import { Toast } from '@pixela-gt/voxel-ui'"
     },
     "Toggle": {
       "name": "Toggle",
@@ -1000,6 +2131,84 @@
         "TooltipArrow"
       ],
       "import": "import { Tooltip } from '@pixela-gt/voxel-ui'"
+    },
+    "Tree": {
+      "name": "Tree",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string[]",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string[]",
+          "required": false
+        },
+        "expanded": {
+          "type": "string[]",
+          "required": false
+        },
+        "defaultExpanded": {
+          "type": "string[]",
+          "required": false
+        },
+        "items": {
+          "type": "TreeNode[]",
+          "required": true
+        },
+        "selectionBehavior": {
+          "type": "'toggle' | 'replace'",
+          "required": false,
+          "default": "toggle"
+        },
+        "propagateSelect": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "update",
+        "select",
+        "toggle"
+      ],
+      "rekaUi": [
+        "TreeRoot",
+        "TreeItem"
+      ],
+      "import": "import { Tree } from '@pixela-gt/voxel-ui'"
+    },
+    "YearPicker": {
+      "name": "YearPicker",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { YearPicker } from '@pixela-gt/voxel-ui'"
+    },
+    "YearRangePicker": {
+      "name": "YearRangePicker",
+      "description": "ponytail: alpha, reka API may shift",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { YearRangePicker } from '@pixela-gt/voxel-ui'"
     }
   },
   "tokens": [

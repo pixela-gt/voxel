@@ -74,6 +74,61 @@ export type {
   TextColor as VXTextColor,
 } from './components/Text/Text.types'
 export type { IconProps as VXIconProps } from './components/Icon/Icon.types'
+export type {
+  SelectProps as VXSelectProps,
+  SelectItem as VXSelectItem,
+  SelectGroup as VXSelectGroup,
+} from './components/Select/Select.types'
+export type {
+  ComboboxProps as VXComboboxProps,
+  ComboboxItem as VXComboboxItem,
+  ComboboxGroup as VXComboboxGroup,
+} from './components/Combobox/Combobox.types'
+export type {
+  ListboxProps as VXListboxProps,
+  ListboxItem as VXListboxItem,
+  ListboxGroup as VXListboxGroup,
+} from './components/Listbox/Listbox.types'
+export type { EditableProps as VXEditableProps } from './components/Editable/Editable.types'
+export type { TagsInputProps as VXTagsInputProps } from './components/TagsInput/TagsInput.types'
+export type { RatingProps as VXRatingProps } from './components/Rating/Rating.types'
+export type { CollapsibleProps as VXCollapsibleProps } from './components/Collapsible/Collapsible.types'
+export type { PopoverProps as VXPopoverProps } from './components/Popover/Popover.types'
+export type { HoverCardProps as VXHoverCardProps } from './components/HoverCard/HoverCard.types'
+export type { AlertDialogProps as VXAlertDialogProps } from './components/AlertDialog/AlertDialog.types'
+export type { ToastOptions as VXToastOptions, ToastEntry as VXToastEntry } from './components/Toast/Toast.types'
+export type { ProgressProps as VXProgressProps } from './components/Progress/Progress.types'
+export type {
+  ScrollAreaProps as VXScrollAreaProps,
+  ScrollAreaType as VXScrollAreaType,
+} from './components/ScrollArea/ScrollArea.types'
+export type { AspectRatioProps as VXAspectRatioProps } from './components/AspectRatio/AspectRatio.types'
+export type {
+  SplitterGroupProps as VXSplitterGroupProps,
+  SplitterPanelProps as VXSplitterPanelProps,
+  SplitterResizeHandleProps as VXSplitterResizeHandleProps,
+} from './components/Splitter/Splitter.types'
+export type {
+  StepperProps as VXStepperProps,
+  StepperItemProps as VXStepperItemProps,
+} from './components/Stepper/Stepper.types'
+export type { PaginationProps as VXPaginationProps } from './components/Pagination/Pagination.types'
+export type {
+  ContextMenuProps as VXContextMenuProps,
+  ContextMenuItem as VXContextMenuItem,
+} from './components/ContextMenu/ContextMenu.types'
+export type {
+  MenubarProps as VXMenubarProps,
+  MenubarItem as VXMenubarItem,
+} from './components/Menubar/Menubar.types'
+export type {
+  NavigationMenuProps as VXNavigationMenuProps,
+  NavigationMenuItem as VXNavigationMenuItem,
+} from './components/NavigationMenu/NavigationMenu.types'
+export type {
+  TreeProps as VXTreeProps,
+  TreeNode as VXTreeNode,
+} from './components/Tree/Tree.types'
 
 // Components (VX-prefixed)
 export { Button as VXButton } from './components/Button'
@@ -118,7 +173,39 @@ export {
 export { PinInput as VXPinInput } from './components/PinInput'
 export { NumberField as VXNumberField } from './components/NumberField'
 export { Icon as VXIcon } from './components/Icon'
+export { Select as VXSelect } from './components/Select'
+export { Combobox as VXCombobox } from './components/Combobox'
+export { Listbox as VXListbox } from './components/Listbox'
+export { Editable as VXEditable } from './components/Editable'
+export { TagsInput as VXTagsInput } from './components/TagsInput'
+export { Rating as VXRating } from './components/Rating'
+export { Collapsible as VXCollapsible } from './components/Collapsible'
+export { Popover as VXPopover } from './components/Popover'
+export { HoverCard as VXHoverCard } from './components/HoverCard'
+export { AlertDialog as VXAlertDialog } from './components/AlertDialog'
+export {
+  Toast as VXToast,
+  ToastProvider as VXToastProvider,
+} from './components/Toast'
+export { Progress as VXProgress } from './components/Progress'
+export { ScrollArea as VXScrollArea } from './components/ScrollArea'
+export { AspectRatio as VXAspectRatio } from './components/AspectRatio'
+export {
+  SplitterGroup as VXSplitterGroup,
+  SplitterPanel as VXSplitterPanel,
+  SplitterResizeHandle as VXSplitterResizeHandle,
+} from './components/Splitter'
+export {
+  Stepper as VXStepper,
+  StepperItem as VXStepperItem,
+} from './components/Stepper'
+export { Pagination as VXPagination } from './components/Pagination'
+export { ContextMenu as VXContextMenu } from './components/ContextMenu'
+export { Menubar as VXMenubar } from './components/Menubar'
+export { NavigationMenu as VXNavigationMenu } from './components/NavigationMenu'
+export { Tree as VXTree } from './components/Tree'
 
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'
 export { useThemeConfig, type ThemeColors, type ThemeConfig } from './composables/useThemeConfig'
+export { useToast, type UseToast } from './composables/useToast'
