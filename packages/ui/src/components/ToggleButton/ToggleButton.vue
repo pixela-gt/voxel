@@ -36,7 +36,6 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-toggle-button {
   @apply inline-flex items-center justify-center whitespace-nowrap font-sans antialiased
     transition-colors duration-[var(--transition-fast)]

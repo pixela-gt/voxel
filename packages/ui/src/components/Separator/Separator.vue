@@ -18,7 +18,6 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-separator {
   @apply bg-[var(--color-grey-400)] shrink-0;
 }

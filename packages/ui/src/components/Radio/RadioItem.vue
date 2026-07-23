@@ -23,7 +23,6 @@ const props = withDefaults(defineProps<RadioItemProps>(), {
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-radio__item {
   @apply flex items-center;
 }

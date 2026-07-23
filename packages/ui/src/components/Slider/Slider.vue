@@ -40,7 +40,6 @@ const rootClass = computed(() => ['voxel-slider', `voxel-slider--${props.orienta
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-slider {
   @apply relative flex items-center select-none touch-none cursor-pointer;
 }

@@ -49,7 +49,6 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-button {
   @apply inline-flex items-center justify-center whitespace-nowrap font-sans antialiased
     transition-colors duration-[var(--transition-fast)]

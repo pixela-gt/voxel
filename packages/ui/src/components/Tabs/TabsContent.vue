@@ -19,7 +19,6 @@ const props = defineProps<TabsContentProps>()
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-tabs__content {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2;
 }

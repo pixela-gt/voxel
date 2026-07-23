@@ -39,7 +39,6 @@ const rootClass = computed(() => [
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-toggle-group {
   @apply inline-flex items-center gap-1;
 }

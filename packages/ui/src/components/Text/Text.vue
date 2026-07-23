@@ -21,7 +21,6 @@ const textClass = computed(() => ['voxel-text', props.variant && `voxel-text--${
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-text {
   @apply font-sans antialiased;
 }

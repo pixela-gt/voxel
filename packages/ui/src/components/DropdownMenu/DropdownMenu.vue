@@ -28,7 +28,6 @@ import {
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-dropdown__trigger {
   @apply inline-flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold rounded-xl
     bg-[var(--color-primary-base)] text-[var(--color-text-on-primary)]

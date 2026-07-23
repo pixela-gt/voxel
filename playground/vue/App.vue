@@ -1,32 +1,32 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import {
-  Button,
-  IconButton,
-  Badge,
-  Checkbox,
-  Switch,
-  Card,
-  Separator,
-  Text,
-  Avatar,
-  Dialog,
-  Tooltip,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionTrigger,
-  AccordionContent,
-  RadioGroup,
-  RadioItem,
-  ToggleButton,
-  ToggleButtonGroup,
-  Link,
-  Drawer,
+  VXButton,
+  VXIconButton,
+  VXBadge,
+  VXCheckbox,
+  VXSwitch,
+  VXCard,
+  VXSeparator,
+  VXText,
+  VXAvatar,
+  VXDialog,
+  VXTooltip,
+  VXTabs,
+  VXTabsList,
+  VXTabsTrigger,
+  VXTabsContent,
+  VXAccordion,
+  VXAccordionItem,
+  VXAccordionHeader,
+  VXAccordionTrigger,
+  VXAccordionContent,
+  VXRadioGroup,
+  VXRadioItem,
+  VXToggleButton,
+  VXToggleButtonGroup,
+  VXLink,
+  VXDrawer,
 } from '@pixela-gt/voxel-ui'
 
 const checked = ref(false)
@@ -40,121 +40,121 @@ const dialogOpen = ref(false)
 
 <template>
   <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
-    <Text variant="display-lg" color="primary">Voxel UI Playground</Text>
-    <Separator style="margin: 1.5rem 0;" />
+    <VXText variant="display-lg" color="primary">Voxel UI Playground</VXText>
+    <VXSeparator style="margin: 1.5rem 0;" />
 
-    <Text variant="headline-md">Button</Text>
+    <VXText variant="headline-md">Button</VXText>
     <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-      <Button>Default</Button>
-      <Button style="outline">Outline</Button>
-      <Button style="tonal">Tonal</Button>
-      <Button style="text">Text</Button>
+      <VXButton>Default</VXButton>
+      <VXButton style="outline">Outline</VXButton>
+      <VXButton style="tonal">Tonal</VXButton>
+      <VXButton style="text">Text</VXButton>
     </div>
 
-    <Text variant="headline-md">Badge</Text>
+    <VXText variant="headline-md">Badge</VXText>
     <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-      <Badge>Default</Badge>
-      <Badge variant="success">Success</Badge>
-      <Badge variant="error">Error</Badge>
-      <Badge variant="info">Info</Badge>
+      <VXBadge>Default</VXBadge>
+      <VXBadge variant="success">Success</VXBadge>
+      <VXBadge variant="error">Error</VXBadge>
+      <VXBadge variant="info">Info</VXBadge>
     </div>
 
-    <Text variant="headline-md">Form Controls</Text>
+    <VXText variant="headline-md">Form Controls</VXText>
     <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
-      <Checkbox v-model="checked" label="Check me" />
-      <Switch v-model="switched" label="Toggle me" />
+      <VXCheckbox v-model="checked" label="Check me" />
+      <VXSwitch v-model="switched" label="Toggle me" />
     </div>
 
-    <Text variant="headline-md">Card</Text>
-    <Card elevation="md" style="padding: 1.5rem; margin-bottom: 1rem;">
-      <Text variant="title-md">Card Title</Text>
-      <Text variant="body-md">This is a card with some content.</Text>
-    </Card>
+    <VXText variant="headline-md">Card</VXText>
+    <VXCard elevation="md" style="padding: 1.5rem; margin-bottom: 1rem;">
+      <VXText variant="title-md">Card Title</VXText>
+      <VXText variant="body-md">This is a card with some content.</VXText>
+    </VXCard>
 
-    <Text variant="headline-md">Tabs</Text>
-    <Tabs v-model="tab" style="margin-bottom: 1rem;">
-      <TabsList>
-        <TabsTrigger value="one">One</TabsTrigger>
-        <TabsTrigger value="two">Two</TabsTrigger>
-        <TabsTrigger value="three">Three</TabsTrigger>
-      </TabsList>
-      <TabsContent value="one">
-        <Text>Content for tab one.</Text>
-      </TabsContent>
-      <TabsContent value="two">
-        <Text>Content for tab two.</Text>
-      </TabsContent>
-      <TabsContent value="three">
-        <Text>Content for tab three.</Text>
-      </TabsContent>
-    </Tabs>
+    <VXText variant="headline-md">Tabs</VXText>
+    <VXTabs v-model="tab" style="margin-bottom: 1rem;">
+      <VXTabsList>
+        <VXTabsTrigger value="one">One</VXTabsTrigger>
+        <VXTabsTrigger value="two">Two</VXTabsTrigger>
+        <VXTabsTrigger value="three">Three</VXTabsTrigger>
+      </VXTabsList>
+      <VXTabsContent value="one">
+        <VXText>Content for tab one.</VXText>
+      </VXTabsContent>
+      <VXTabsContent value="two">
+        <VXText>Content for tab two.</VXText>
+      </VXTabsContent>
+      <VXTabsContent value="three">
+        <VXText>Content for tab three.</VXText>
+      </VXTabsContent>
+    </VXTabs>
 
-    <Text variant="headline-md">Accordion</Text>
-    <Accordion type="single" collapsible style="margin-bottom: 1rem;">
-      <AccordionItem value="item-1">
-        <AccordionHeader>
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>
-          <Text>Yes. It adheres to the WAI-ARIA design pattern.</Text>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionHeader>
-          <AccordionTrigger>Is it styled?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>
-          <Text>Yes. It comes with default styles that match the other components.</Text>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+    <VXText variant="headline-md">Accordion</VXText>
+    <VXAccordion type="single" collapsible style="margin-bottom: 1rem;">
+      <VXAccordionItem value="item-1">
+        <VXAccordionHeader>
+          <VXAccordionTrigger>Is it accessible?</VXAccordionTrigger>
+        </VXAccordionHeader>
+        <VXAccordionContent>
+          <VXText>Yes. It adheres to the WAI-ARIA design pattern.</VXText>
+        </VXAccordionContent>
+      </VXAccordionItem>
+      <VXAccordionItem value="item-2">
+        <VXAccordionHeader>
+          <VXAccordionTrigger>Is it styled?</VXAccordionTrigger>
+        </VXAccordionHeader>
+        <VXAccordionContent>
+          <VXText>Yes. It comes with default styles that match the other components.</VXText>
+        </VXAccordionContent>
+      </VXAccordionItem>
+    </VXAccordion>
 
-    <Text variant="headline-md">Radio</Text>
-    <RadioGroup v-model="radio" style="margin-bottom: 1rem;">
-      <RadioItem value="a" label="Option A" />
-      <RadioItem value="b" label="Option B" />
-      <RadioItem value="c" label="Option C" />
-    </RadioGroup>
+    <VXText variant="headline-md">Radio</VXText>
+    <VXRadioGroup v-model="radio" style="margin-bottom: 1rem;">
+      <VXRadioItem value="a" label="Option A" />
+      <VXRadioItem value="b" label="Option B" />
+      <VXRadioItem value="c" label="Option C" />
+    </VXRadioGroup>
 
-    <Text variant="headline-md">Toggle Button</Text>
-    <ToggleButtonGroup v-model="toggled" type="multiple" style="margin-bottom: 1rem;">
+    <VXText variant="headline-md">Toggle Button</VXText>
+    <VXToggleButtonGroup v-model="toggled" type="multiple" style="margin-bottom: 1rem;">
       <template #default="{ selected, toggle }">
-        <ToggleButton value="bold" :pressed="selected.includes('bold')" @click="toggle('bold', selected.includes('bold'))">Bold</ToggleButton>
-        <ToggleButton value="italic" :pressed="selected.includes('italic')" @click="toggle('italic', selected.includes('italic'))">Italic</ToggleButton>
-        <ToggleButton value="underline" :pressed="selected.includes('underline')" @click="toggle('underline', selected.includes('underline'))">Underline</ToggleButton>
+        <VXToggleButton value="bold" :pressed="selected.includes('bold')" @click="toggle('bold', selected.includes('bold'))">Bold</VXToggleButton>
+        <VXToggleButton value="italic" :pressed="selected.includes('italic')" @click="toggle('italic', selected.includes('italic'))">Italic</VXToggleButton>
+        <VXToggleButton value="underline" :pressed="selected.includes('underline')" @click="toggle('underline', selected.includes('underline'))">Underline</VXToggleButton>
       </template>
-    </ToggleButtonGroup>
+    </VXToggleButtonGroup>
 
-    <Text variant="headline-md">Avatar</Text>
+    <VXText variant="headline-md">Avatar</VXText>
     <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-      <Avatar src="https://i.pravatar.cc/150?img=1" alt="User" />
-      <Avatar src="https://i.pravatar.cc/150?img=2" alt="User" style="main" />
+      <VXAvatar src="https://i.pravatar.cc/150?img=1" alt="User" />
+      <VXAvatar src="https://i.pravatar.cc/150?img=2" alt="User" style="main" />
     </div>
 
-    <Text variant="headline-md">Link</Text>
+    <VXText variant="headline-md">Link</VXText>
     <div style="margin-bottom: 1rem;">
-      <Link href="https://example.com">External link</Link>
+      <VXLink href="https://example.com">External link</VXLink>
     </div>
 
-    <Text variant="headline-md">Tooltip</Text>
+    <VXText variant="headline-md">Tooltip</VXText>
     <div style="margin-bottom: 1rem;">
-      <Tooltip text="Hello!">
-        <Button>Hover me</Button>
-      </Tooltip>
+      <VXTooltip text="Hello!">
+        <VXButton>Hover me</VXButton>
+      </VXTooltip>
     </div>
 
-    <Text variant="headline-md">Drawer</Text>
-    <Button @click="drawerOpen = !drawerOpen">Toggle Drawer</Button>
-    <Drawer v-model:state="drawerOpen" title="Drawer Title" description="This is a drawer.">
-      <Text>Drawer content goes here.</Text>
-    </Drawer>
+    <VXText variant="headline-md">Drawer</VXText>
+    <VXButton @click="drawerOpen = !drawerOpen">Toggle Drawer</VXButton>
+    <VXDrawer v-model:state="drawerOpen" title="Drawer Title" description="This is a drawer.">
+      <VXText>Drawer content goes here.</VXText>
+    </VXDrawer>
 
-    <Text variant="headline-md">Dialog</Text>
-    <Button @click="dialogOpen = true">Open Dialog</Button>
-    <Dialog v-model:open="dialogOpen" title="Dialog Title" description="This is a dialog.">
+    <VXText variant="headline-md">Dialog</VXText>
+    <VXButton @click="dialogOpen = true">Open Dialog</VXButton>
+    <VXDialog v-model:open="dialogOpen" title="Dialog Title" description="This is a dialog.">
       <div style="padding: 1rem;">
-        <Text>Dialog content goes here.</Text>
+        <VXText>Dialog content goes here.</VXText>
       </div>
-    </Dialog>
+    </VXDialog>
   </div>
 </template>

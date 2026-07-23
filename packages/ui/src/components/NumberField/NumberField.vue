@@ -53,7 +53,6 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--${p
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-number-field {
   @apply inline-flex;
 }

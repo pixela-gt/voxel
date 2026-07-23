@@ -29,7 +29,6 @@ const props = defineProps<AccordionTriggerProps>()
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-accordion__trigger {
   @apply flex items-center justify-between w-full text-left font-sans font-medium text-[var(--color-text-primary)]
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2;

@@ -37,7 +37,6 @@ const labelClass = computed(() => ['voxel-switch__label', `voxel-switch__label--
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-switch__wrapper--small {
   @apply inline-flex items-center gap-[6px];
 }

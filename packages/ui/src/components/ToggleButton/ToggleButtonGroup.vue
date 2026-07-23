@@ -37,7 +37,6 @@ function handleButtonClick(buttonValue: string, currentlyPressed: boolean) {
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-toggle-button-group {
   @apply inline-flex items-center;
 }

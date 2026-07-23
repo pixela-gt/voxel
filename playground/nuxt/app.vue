@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import {
-  Button,
-  Badge,
-  Card,
-  Text,
-  Separator,
-  Checkbox,
-  Switch,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
+  VXButton,
+  VXBadge,
+  VXCard,
+  VXText,
+  VXSeparator,
+  VXCheckbox,
+  VXSwitch,
+  VXTabs,
+  VXTabsList,
+  VXTabsTrigger,
+  VXTabsContent,
 } from '@pixela-gt/voxel-ui'
 
 const checked = ref(false)
@@ -20,51 +20,51 @@ const tab = ref('one')
 
 <template>
   <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
-    <Text variant="display-lg" color="primary">Nuxt Playground</Text>
-    <Separator style="margin: 1.5rem 0;" />
+    <VXText variant="display-lg" color="primary">Nuxt Playground</VXText>
+    <VXSeparator style="margin: 1.5rem 0;" />
 
-    <Text variant="headline-md">Button</Text>
+    <VXText variant="headline-md">Button</VXText>
     <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-      <Button>Default</Button>
-      <Button style="outline">Outline</Button>
-      <Button style="tonal">Tonal</Button>
+      <VXButton>Default</VXButton>
+      <VXButton style="outline">Outline</VXButton>
+      <VXButton style="tonal">Tonal</VXButton>
     </div>
 
-    <Text variant="headline-md">Badge</Text>
+    <VXText variant="headline-md">Badge</VXText>
     <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-      <Badge>Default</Badge>
-      <Badge variant="success">Success</Badge>
-      <Badge variant="error">Error</Badge>
+      <VXBadge>Default</VXBadge>
+      <VXBadge variant="success">Success</VXBadge>
+      <VXBadge variant="error">Error</VXBadge>
     </div>
 
-    <Text variant="headline-md">Form Controls</Text>
+    <VXText variant="headline-md">Form Controls</VXText>
     <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
-      <Checkbox v-model="checked" label="Check me" />
-      <Switch v-model="switched" label="Toggle me" />
+      <VXCheckbox v-model="checked" label="Check me" />
+      <VXSwitch v-model="switched" label="Toggle me" />
     </div>
 
-    <Text variant="headline-md">Card</Text>
-    <Card elevation="md" style="padding: 1.5rem; margin-bottom: 1rem;">
-      <Text variant="title-md">Card Title</Text>
-      <Text variant="body-md">This is a card with some content.</Text>
-    </Card>
+    <VXText variant="headline-md">Card</VXText>
+    <VXCard elevation="md" style="padding: 1.5rem; margin-bottom: 1rem;">
+      <VXText variant="title-md">Card Title</VXText>
+      <VXText variant="body-md">This is a card with some content.</VXText>
+    </VXCard>
 
-    <Text variant="headline-md">Tabs</Text>
-    <Tabs v-model="tab" style="margin-bottom: 1rem;">
-      <TabsList>
-        <TabsTrigger value="one">One</TabsTrigger>
-        <TabsTrigger value="two">Two</TabsTrigger>
-        <TabsTrigger value="three">Three</TabsTrigger>
-      </TabsList>
-      <TabsContent value="one">
-        <Text>Content for tab one.</Text>
-      </TabsContent>
-      <TabsContent value="two">
-        <Text>Content for tab two.</Text>
-      </TabsContent>
-      <TabsContent value="three">
-        <Text>Content for tab three.</Text>
-      </TabsContent>
-    </Tabs>
+    <VXText variant="headline-md">Tabs</VXText>
+    <VXTabs v-model="tab" style="margin-bottom: 1rem;">
+      <VXTabsList>
+        <VXTabsTrigger value="one">One</VXTabsTrigger>
+        <VXTabsTrigger value="two">Two</VXTabsTrigger>
+        <VXTabsTrigger value="three">Three</VXTabsTrigger>
+      </VXTabsList>
+      <VXTabsContent value="one">
+        <VXText>Content for tab one.</VXText>
+      </VXTabsContent>
+      <VXTabsContent value="two">
+        <VXText>Content for tab two.</VXText>
+      </VXTabsContent>
+      <VXTabsContent value="three">
+        <VXText>Content for tab three.</VXText>
+      </VXTabsContent>
+    </VXTabs>
   </div>
 </template>

@@ -19,7 +19,6 @@ const props = withDefaults(defineProps<AccordionItemProps>(), {
 </template>
 
 <style scoped>
-@reference "../../style.css"
 .voxel-accordion__item {
   @apply border border-[var(--color-grey-200)] rounded-xl overflow-hidden;
 }

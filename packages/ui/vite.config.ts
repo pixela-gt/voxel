@@ -2,10 +2,12 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+import { vueTailwindReference } from './vite-plugins/vue-tailwind-reference'
 
 export default defineConfig({
   plugins: [
     vue(),
+    vueTailwindReference(),
     dts({
       insertTypesEntry: true,
       tsconfigPath: './tsconfig.json',
