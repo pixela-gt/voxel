@@ -1,4 +1,10 @@
-import type { ComponentSize, AccentColor, Density, ButtonStyle, ClassValue } from '../../types/shared'
+import type {
+  ComponentSize,
+  AccentColor,
+  Density,
+  ButtonStyle,
+  ClassValue,
+} from '../../types/shared'
 
 export interface IconButtonProps {
   style?: ButtonStyle

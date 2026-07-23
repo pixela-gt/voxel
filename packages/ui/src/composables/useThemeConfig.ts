@@ -56,14 +56,14 @@ export function useThemeConfig() {
   function resetTheme() {
     const el = document.documentElement
     const props = [
-      ...Object.values(COLOR_KEYS).flatMap(k => [
+      ...Object.values(COLOR_KEYS).flatMap((k) => [
         `--color-${k}-base`,
         `--color-${k}-darken-1`,
         `--color-${k}-lighten-1`,
       ]),
       '--font-family-sans',
     ]
-    props.forEach(p => el.style.removeProperty(p))
+    props.forEach((p) => el.style.removeProperty(p))
   }
 
   return { setTheme, resetTheme }
