@@ -23,8 +23,7 @@ import {
   VXAccordionContent,
   VXRadioGroup,
   VXRadioItem,
-  VXToggleButton,
-  VXToggleButtonGroup,
+  VXToggle,
   VXLink,
   VXDrawer,
 } from '@pixela-gt/voxel-ui'
@@ -33,7 +32,7 @@ const checked = ref(false)
 const switched = ref(false)
 const tab = ref('one')
 const radio = ref('a')
-const toggled = ref<string[]>(['bold'])
+const toggled = ref(false)
 const drawerOpen = ref(false)
 const dialogOpen = ref(false)
 </script>
@@ -116,14 +115,15 @@ const dialogOpen = ref(false)
       <VXRadioItem value="c" label="Option C" />
     </VXRadioGroup>
 
-    <VXText variant="headline-md">Toggle Button</VXText>
-    <VXToggleButtonGroup v-model="toggled" type="multiple" class="mb-4">
-      <template #default="{ selected, toggle }">
-        <VXToggleButton value="bold" :pressed="selected.includes('bold')" @click="toggle('bold', selected.includes('bold'))">Bold</VXToggleButton>
-        <VXToggleButton value="italic" :pressed="selected.includes('italic')" @click="toggle('italic', selected.includes('italic'))">Italic</VXToggleButton>
-        <VXToggleButton value="underline" :pressed="selected.includes('underline')" @click="toggle('underline', selected.includes('underline'))">Underline</VXToggleButton>
-      </template>
-    </VXToggleButtonGroup>
+    <VXText variant="headline-md">Toggle</VXText>
+    <div class="flex gap-2 items-center mb-4">
+      <VXToggle v-model="toggled">Toggle</VXToggle>
+      <VXToggle size="small">Small</VXToggle>
+      <VXToggle size="large">Large</VXToggle>
+      <VXToggle variant="icon-button" aria-label="Favorite">
+        <span>★</span>
+      </VXToggle>
+    </div>
 
     <VXText variant="headline-md">Avatar</VXText>
     <div class="flex gap-2 mb-4">

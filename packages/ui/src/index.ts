@@ -18,7 +18,6 @@ export type {
   LinkStyle as VXLinkStyle,
 } from './components/Link/Link.types'
 export type {
-  ToggleButtonProps as VXToggleButtonProps,
   ToggleButtonGroupProps as VXToggleButtonGroupProps,
 } from './components/ToggleButton/ToggleButton.types'
 export type {
@@ -57,7 +56,7 @@ export type { TabsProps as VXTabsProps } from './components/Tabs/Tabs.types'
 export type { AccordionProps as VXAccordionProps } from './components/Accordion/Accordion.types'
 export type { LabelProps as VXLabelProps } from './components/Label/Label.types'
 export type { SliderProps as VXSliderProps } from './components/Slider/Slider.types'
-export type { ToggleProps as VXToggleProps } from './components/Toggle/Toggle.types'
+export type { ToggleProps as VXToggleProps, ToggleVariant as VXToggleVariant } from './components/Toggle/Toggle.types'
 export type {
   ToggleGroupProps as VXToggleGroupProps,
   ToggleGroupItemProps as VXToggleGroupItemProps,
@@ -136,7 +135,6 @@ export { Button as VXButton } from './components/Button'
 export { IconButton as VXIconButton } from './components/IconButton'
 export { Link as VXLink } from './components/Link'
 export {
-  ToggleButton as VXToggleButton,
   ToggleButtonGroup as VXToggleButtonGroup,
 } from './components/ToggleButton'
 export { Tooltip as VXTooltip } from './components/Tooltip'
