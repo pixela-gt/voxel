@@ -4,7 +4,7 @@ import Tree from './Tree.vue'
 import type { TreeNode } from './Tree.types'
 
 const meta: Meta<typeof Tree> = {
-  title: 'Components/Tree',
+  title: 'Surfaces/Tree',
   component: Tree,
   tags: ['autodocs'],
   argTypes: {

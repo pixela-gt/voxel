@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import ScrollArea from './ScrollArea.vue'
 
 const meta: Meta<typeof ScrollArea> = {
-  title: 'Components/ScrollArea',
+  title: 'Surfaces/ScrollArea',
   component: ScrollArea,
   tags: ['autodocs'],
   argTypes: {

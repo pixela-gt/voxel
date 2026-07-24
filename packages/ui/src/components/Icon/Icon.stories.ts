@@ -4,7 +4,7 @@ import { Check, X as XIcon, ArrowRight } from '@lucide/vue'
 import Icon from './Icon.vue'
 
 const meta: Meta<typeof Icon> = {
-  title: 'Components/Icon',
+  title: 'Primitives/Icon',
   component: Icon,
   tags: ['autodocs'],
   argTypes: {

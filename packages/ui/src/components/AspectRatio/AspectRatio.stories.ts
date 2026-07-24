@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import AspectRatio from './AspectRatio.vue'
 
 const meta: Meta<typeof AspectRatio> = {
-  title: 'Components/AspectRatio',
+  title: 'Surfaces/AspectRatio',
   component: AspectRatio,
   tags: ['autodocs'],
   argTypes: {

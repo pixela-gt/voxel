@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Text from './Text.vue'
 
 const meta: Meta<typeof Text> = {
-  title: 'Components/Text',
+  title: 'Primitives/Text',
   component: Text,
   tags: ['autodocs'],
   argTypes: {

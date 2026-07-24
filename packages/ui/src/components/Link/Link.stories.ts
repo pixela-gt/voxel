@@ -3,7 +3,7 @@ import { ExternalLink, ArrowRight } from '@lucide/vue'
 import Link from './Link.vue'
 
 const meta: Meta<typeof Link> = {
-  title: 'Components/Link',
+  title: 'Action/Link',
   component: Link,
   tags: ['autodocs'],
   argTypes: {

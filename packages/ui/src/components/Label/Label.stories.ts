@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Label from './Label.vue'
 
 const meta: Meta<typeof Label> = {
-  title: 'Components/Label',
+  title: 'Content/Label',
   component: Label,
   tags: ['autodocs'],
   argTypes: {

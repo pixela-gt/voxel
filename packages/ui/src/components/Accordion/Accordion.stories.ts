@@ -5,7 +5,7 @@ import { ref } from 'vue'
 import Accordion from './Accordion.vue'
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Components/Accordion',
+  title: 'Surfaces/Accordion',
   component: Accordion,
   tags: ['autodocs'],
   argTypes: {

@@ -5,7 +5,7 @@ import Tabs from './Tabs.vue'
 import { TabsList, TabsTrigger, TabsContent } from './index'
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Components/Tabs',
+  title: 'Surfaces/Tabs',
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {

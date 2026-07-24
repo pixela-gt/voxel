@@ -3,7 +3,7 @@ import { expect, userEvent, within } from 'storybook/test'
 import Collapsible from './Collapsible.vue'
 
 const meta: Meta<typeof Collapsible> = {
-  title: 'Components/Collapsible',
+  title: 'Surfaces/Collapsible',
   component: Collapsible,
   tags: ['autodocs'],
   argTypes: {

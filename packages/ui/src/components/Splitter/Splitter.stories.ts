@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from './index'
 
 const meta: Meta<typeof SplitterGroup> = {
-  title: 'Components/Splitter',
+  title: 'Surfaces/Splitter',
   component: SplitterGroup,
   tags: ['autodocs'],
   argTypes: {
