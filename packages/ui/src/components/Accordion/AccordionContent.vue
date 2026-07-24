@@ -17,6 +17,9 @@ const props = defineProps<AccordionContentProps>()
 .voxel-accordion__content {
   @apply overflow-hidden text-[var(--color-text-secondary)];
 }
+.voxel-accordion__content[data-state='open'] {
+  @apply bg-[var(--color-surface-light)];
+}
 .voxel-accordion__content-inner {
   @apply px-4 py-3;
 }
