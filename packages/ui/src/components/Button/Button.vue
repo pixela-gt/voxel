@@ -1,26 +1,36 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed, inject, useSlots } from 'vue'
 import type { ButtonProps } from './Button.types'
+import type { ButtonGroupContext } from '../ButtonGroup/ButtonGroup.types'
+import { BUTTON_GROUP_KEY } from '../ButtonGroup/ButtonGroup.types'
 import { Icon } from '../Icon'
 import { Loading } from '../Loading'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  variant: 'default',
-  color: 'primary',
-  size: 'default',
-  density: 'default',
+  variant: undefined,
+  color: undefined,
+  size: undefined,
+  density: undefined,
   loading: false,
   disabled: false,
 } as const)
 
 const slots = useSlots()
 
+const groupContext = inject<ButtonGroupContext | null>(BUTTON_GROUP_KEY, null)
+
+const effectiveVariant = computed(() => props.variant ?? groupContext?.variant ?? 'default')
+const effectiveColor = computed(() => props.color ?? groupContext?.color ?? 'primary')
+const effectiveSize = computed(() => props.size ?? groupContext?.size ?? 'default')
+const effectiveDensity = computed(() => props.density ?? groupContext?.density ?? 'default')
+const effectiveDisabled = computed(() => props.disabled || (groupContext?.disabled ?? false))
+
 const classes = computed(() => [
   'voxel-button',
-  `voxel-button--size-${props.size}`,
-  `voxel-button--density-${props.density}`,
-  `voxel-button--color-${props.color}`,
-  `voxel-button--style-${props.variant}`,
+  `voxel-button--size-${effectiveSize.value}`,
+  `voxel-button--density-${effectiveDensity.value}`,
+  `voxel-button--color-${effectiveColor.value}`,
+  `voxel-button--style-${effectiveVariant.value}`,
   { 'voxel-button--loading': props.loading },
   props.class,
 ])
@@ -29,7 +39,7 @@ const classes = computed(() => [
 <template>
   <button
     :class="classes"
-    :disabled="props.disabled || props.loading"
+    :disabled="effectiveDisabled || props.loading"
     v-bind="$attrs"
   >
     <Loading v-if="props.loading" />
@@ -39,7 +49,7 @@ const classes = computed(() => [
       aria-hidden="true"
     >
       <slot name="prepend-icon">
-        <Icon :icon="props.prependIcon!" :size="props.size" />
+        <Icon :icon="props.prependIcon!" :size="effectiveSize" />
       </slot>
     </span>
     <slot />
@@ -49,7 +59,7 @@ const classes = computed(() => [
       aria-hidden="true"
     >
       <slot name="append-icon">
-        <Icon :icon="props.appendIcon!" :size="props.size" />
+        <Icon :icon="props.appendIcon!" :size="effectiveSize" />
       </slot>
     </span>
   </button>

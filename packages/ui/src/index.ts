@@ -14,6 +14,10 @@ export type {
 export type { ButtonProps as VXButtonProps } from './components/Button/Button.types'
 export type { IconButtonProps as VXIconButtonProps } from './components/IconButton/IconButton.types'
 export type {
+  ButtonGroupProps as VXButtonGroupProps,
+  ButtonGroupContext as VXButtonGroupContext,
+} from './components/ButtonGroup/ButtonGroup.types'
+export type {
   LinkProps as VXLinkProps,
   LinkStyle as VXLinkStyle,
 } from './components/Link/Link.types'
@@ -131,6 +135,7 @@ export type {
 // Components (VX-prefixed)
 export { Button as VXButton } from './components/Button'
 export { IconButton as VXIconButton } from './components/IconButton'
+export { ButtonGroup as VXButtonGroup } from './components/ButtonGroup'
 export { Link as VXLink } from './components/Link'
 export { Tooltip as VXTooltip } from './components/Tooltip'
 export { Checkbox as VXCheckbox } from './components/Checkbox'

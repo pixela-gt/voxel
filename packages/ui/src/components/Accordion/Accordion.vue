@@ -29,6 +29,7 @@ const emit = defineEmits<{
     :type="props.type"
     :collapsible="props.collapsible"
     :disabled="props.disabled"
+    :class="['voxel-accordion', { 'voxel-accordion--disabled': props.disabled }]"
     v-model="props.modelValue"
     @update:modelValue="
       (v) => emit('update:modelValue', v ?? (props.type === 'multiple' ? [] : ''))
@@ -91,37 +92,12 @@ const emit = defineEmits<{
   @apply rotate-180;
 }
 
-.voxel-accordion__content {
-  @apply overflow-hidden text-sm text-[var(--color-text-secondary)];
-}
-
-.voxel-accordion__content[data-state='open'] {
-  animation: accordion-down 200ms ease-out;
-}
-
-.voxel-accordion__content[data-state='closed'] {
-  animation: accordion-up 200ms ease-out;
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
-}
-
 .voxel-accordion__body {
   @apply pt-2 pb-4 px-4;
+}
+
+.voxel-accordion--disabled {
+  background-color: rgb(170 179 255 / 0.12);
+  border-radius: var(--rounded-xl);
 }
 </style>

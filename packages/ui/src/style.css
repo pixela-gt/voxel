@@ -110,6 +110,14 @@
   }
 }
 
+.voxel-accordion__content[data-state='open'] {
+  animation: accordion-down 200ms ease-out;
+}
+
+.voxel-accordion__content[data-state='closed'] {
+  animation: accordion-up 200ms ease-out;
+}
+
 /* Base styles */
 *,
 *::before,

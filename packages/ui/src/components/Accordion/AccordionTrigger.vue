@@ -23,7 +23,6 @@ const slots = useSlots()
       </slot>
     </span>
     <svg
-      v-else
       class="voxel-accordion__trigger-icon voxel-accordion__trigger-icon--default"
       viewBox="0 0 24 24"
       fill="none"
@@ -48,7 +47,13 @@ const slots = useSlots()
   @apply size-5 text-[var(--color-text-secondary)] transition-transform duration-150 inline-flex items-center justify-center;
 }
 
-.voxel-accordion__trigger[data-state='open'] .voxel-accordion__trigger-icon {
+.voxel-accordion__trigger[data-state='open'] .voxel-accordion__trigger-icon--default {
   @apply rotate-180;
+}
+.voxel-accordion__trigger[data-disabled] {
+  @apply cursor-not-allowed;
+}
+.voxel-accordion__trigger[data-disabled]:hover {
+  @apply bg-[var(--color-surface-base)];
 }
 </style>

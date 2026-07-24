@@ -11,6 +11,7 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
 } from 'reka-ui'
+import { Icon } from '../Icon'
 import type { AlertDialogProps } from './AlertDialog.types'
 
 const props = withDefaults(defineProps<AlertDialogProps>(), {
@@ -22,19 +23,6 @@ const emit = defineEmits<{
 }>()
 
 const rootClass = computed(() => ['voxel-alert-dialog', `voxel-alert-dialog--${props.variant}`, props.class])
-
-const iconPath = computed(() => {
-  switch (props.variant) {
-    case 'warning':
-      return 'M12 7V13M12 16.5V17'
-    case 'error':
-      return 'M9 9L15 15M15 9L9 15'
-    case 'success':
-      return 'M8.5 12.5L11 15L15.5 9.5'
-    default:
-      return 'M12 8V13M12 16V16.5'
-  }
-})
 </script>
 
 <template>
@@ -52,16 +40,16 @@ const iconPath = computed(() => {
       <AlertDialogOverlay class="voxel-alert-dialog__overlay" />
       <AlertDialogContent class="voxel-alert-dialog__content">
         <div class="voxel-alert-dialog__header">
-          <div :class="['voxel-alert-dialog__icon', `voxel-alert-dialog__icon--${props.variant}`]">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path :d="iconPath" />
-            </svg>
+          <div v-if="props.icon" :class="['voxel-alert-dialog__icon', `voxel-alert-dialog__icon--${props.variant}`]">
+            <Icon :icon="props.icon" size="default" />
           </div>
-          <AlertDialogTitle v-if="props.title" class="voxel-alert-dialog__title">{{ props.title }}</AlertDialogTitle>
+          <div class="voxel-alert-dialog__header-content">
+            <AlertDialogTitle v-if="props.title" class="voxel-alert-dialog__title">{{ props.title }}</AlertDialogTitle>
+            <AlertDialogDescription v-if="props.description" class="voxel-alert-dialog__description">
+              {{ props.description }}
+            </AlertDialogDescription>
+          </div>
         </div>
-        <AlertDialogDescription v-if="props.description" class="voxel-alert-dialog__description">
-          {{ props.description }}
-        </AlertDialogDescription>
         <div class="voxel-alert-dialog__body">
           <slot />
         </div>
@@ -100,17 +88,32 @@ const iconPath = computed(() => {
 }
 
 .voxel-alert-dialog__header {
-  @apply flex items-start gap-3 mb-2;
+  @apply flex items-center gap-3 mb-2;
+  }
+  
+  .voxel-alert-dialog__header-content {
+    @apply flex flex-col flex-1;
 }
 
 .voxel-alert-dialog__icon {
   @apply flex-shrink-0 flex items-center justify-center size-9 rounded-full;
 }
 
-.voxel-alert-dialog__icon--info { @apply bg-[var(--color-info-lighten-1)] text-[var(--color-info-base)]; }
-.voxel-alert-dialog__icon--warning { @apply bg-[var(--color-warning-lighten-1)] text-[var(--color-warning-base)]; }
-.voxel-alert-dialog__icon--error { @apply bg-[var(--color-error-lighten-1)] text-[var(--color-error-base)]; }
-.voxel-alert-dialog__icon--success { @apply bg-[var(--color-success-lighten-1)] text-[var(--color-success-base)]; }
+.voxel-alert-dialog__icon--info {
+  @apply bg-[var(--color-info-lighten-1)]/12 text-[var(--color-info-base)];
+}
+
+.voxel-alert-dialog__icon--warning {
+  @apply bg-[var(--color-warning-lighten-1)]/12 text-[var(--color-warning-base)];
+}
+
+.voxel-alert-dialog__icon--error {
+  @apply bg-[var(--color-error-lighten-1)]/12 text-[var(--color-error-base)];
+}
+
+.voxel-alert-dialog__icon--success {
+  @apply bg-[var(--color-success-lighten-1)]/12 text-[var(--color-success-base)];
+}
 
 .voxel-alert-dialog__title {
   @apply text-lg font-semibold text-[var(--color-text-primary)];

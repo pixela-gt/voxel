@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
-  addons: [],
+  addons: ['@storybook/addon-a11y'],
   framework: {
     name: '@storybook/vue3-vite',
     options: {},

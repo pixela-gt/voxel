@@ -20,6 +20,11 @@ const props = withDefaults(defineProps<AccordionItemProps>(), {
 
 <style scoped>
 .voxel-accordion__item {
-  @apply border border-[var(--color-grey-200)] rounded-xl overflow-hidden;
+  @apply border border-[var(--color-surface-background)] rounded-xl overflow-hidden;
+  }
+  
+  .voxel-accordion__item[data-disabled] {
+    @apply cursor-not-allowed;
+    filter: grayscale(1);
 }
 </style>

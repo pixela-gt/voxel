@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-24T20:01:39.720Z",
+  "generated": "2026-07-24T22:44:12.907Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -211,22 +211,22 @@
         "variant": {
           "type": "ButtonStyle",
           "required": false,
-          "default": "default"
+          "default": "undefined"
         },
         "color": {
           "type": "AccentColor",
           "required": false,
-          "default": "primary"
+          "default": "undefined"
         },
         "size": {
           "type": "ComponentSize",
           "required": false,
-          "default": "default"
+          "default": "undefined"
         },
         "density": {
           "type": "Density",
           "required": false,
-          "default": "default"
+          "default": "undefined"
         },
         "loading": {
           "type": "boolean",
@@ -262,6 +262,56 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Button } from '@pixela-gt/voxel-ui'"
+    },
+    "ButtonGroup": {
+      "name": "ButtonGroup",
+      "description": "ButtonGroup component",
+      "category": "misc",
+      "props": {
+        "variant": {
+          "type": "ButtonStyle",
+          "required": false
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false
+        },
+        "density": {
+          "type": "Density",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "default": "horizontal"
+        },
+        "separators": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "flat": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ButtonGroup } from '@pixela-gt/voxel-ui'"
     },
     "Calendar": {
       "name": "Calendar",
@@ -836,22 +886,22 @@
         "variant": {
           "type": "ButtonStyle",
           "required": false,
-          "default": "default"
+          "default": "undefined"
         },
         "color": {
           "type": "AccentColor",
           "required": false,
-          "default": "primary"
+          "default": "undefined"
         },
         "size": {
           "type": "ComponentSize",
           "required": false,
-          "default": "default"
+          "default": "undefined"
         },
         "density": {
           "type": "Density",
           "required": false,
-          "default": "default"
+          "default": "undefined"
         },
         "disabled": {
           "type": "boolean",
@@ -2104,30 +2154,19 @@
       "name": "Tooltip",
       "description": "Tooltip component",
       "category": "overlays",
-      "props": {
-        "text": {
-          "type": "string",
-          "required": true
-        },
-        "position": {
-          "type": "TooltipPosition",
-          "required": false
-        },
-        "disabled": {
-          "type": "boolean",
-          "required": false
-        }
-      },
+      "props": {},
       "slots": [
-        "default"
+        "content"
       ],
       "events": [],
       "rekaUi": [
+        "TooltipArrow",
+        "TooltipContent",
+        "TooltipPortal",
         "TooltipProvider",
         "TooltipRoot",
         "TooltipTrigger",
-        "TooltipContent",
-        "TooltipArrow"
+        "useForwardPropsEmits"
       ],
       "import": "import { Tooltip } from '@pixela-gt/voxel-ui'"
     },

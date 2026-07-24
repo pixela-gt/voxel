@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed, inject, useSlots } from 'vue'
 import type { IconButtonProps } from './IconButton.types'
+import type { ButtonGroupContext } from '../ButtonGroup/ButtonGroup.types'
+import { BUTTON_GROUP_KEY } from '../ButtonGroup/ButtonGroup.types'
 import { Icon } from '../Icon'
 import { Loading } from '../Loading'
 
 const props = withDefaults(defineProps<IconButtonProps>(), {
-  variant: 'default',
-  color: 'primary',
-  size: 'default',
-  density: 'default',
+  variant: undefined,
+  color: undefined,
+  size: undefined,
+  density: undefined,
   disabled: false,
   loading: false,
 })
@@ -19,17 +21,25 @@ const emit = defineEmits<{
 
 const slots = useSlots()
 
+const groupContext = inject<ButtonGroupContext | null>(BUTTON_GROUP_KEY, null)
+
+const effectiveVariant = computed(() => props.variant ?? groupContext?.variant ?? 'default')
+const effectiveColor = computed(() => props.color ?? groupContext?.color ?? 'primary')
+const effectiveSize = computed(() => props.size ?? groupContext?.size ?? 'default')
+const effectiveDensity = computed(() => props.density ?? groupContext?.density ?? 'default')
+const effectiveDisabled = computed(() => props.disabled || (groupContext?.disabled ?? false))
+
 const iconButtonClasses = computed(() => [
   'voxel-icon-button',
-  `voxel-icon-button--size-${props.size}`,
-  `voxel-icon-button--density-${props.density}`,
-  `voxel-icon-button--style-${props.variant}`,
-  `voxel-icon-button--color-${props.color}`,
+  `voxel-icon-button--size-${effectiveSize.value}`,
+  `voxel-icon-button--density-${effectiveDensity.value}`,
+  `voxel-icon-button--style-${effectiveVariant.value}`,
+  `voxel-icon-button--color-${effectiveColor.value}`,
   props.class,
 ])
 
 function handleClick(event: MouseEvent) {
-  if (!props.disabled && !props.loading) {
+  if (!effectiveDisabled.value && !props.loading) {
     emit('click', event)
   }
 }
@@ -38,14 +48,14 @@ function handleClick(event: MouseEvent) {
 <template>
   <button
     :class="iconButtonClasses"
-    :disabled="props.disabled || props.loading"
+    :disabled="effectiveDisabled || props.loading"
     :aria-label="props['aria-label']"
     @click="handleClick"
   >
     <Loading v-if="props.loading" size="small" />
     <span v-else-if="props.icon || slots.default" class="voxel-icon-button__icon" aria-hidden="true">
       <slot>
-        <Icon :icon="props.icon!" :size="props.size" />
+        <Icon :icon="props.icon!" :size="effectiveSize" />
       </slot>
     </span>
   </button>

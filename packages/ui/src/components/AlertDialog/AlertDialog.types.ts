@@ -1,4 +1,4 @@
-import type { ClassValue } from '../../types/shared'
+import type { ClassValue, IconValue } from '../../types/shared'
 
 export interface AlertDialogProps {
   open?: boolean
@@ -6,5 +6,6 @@ export interface AlertDialogProps {
   title?: string
   description?: string
   variant?: 'info' | 'warning' | 'error' | 'success'
+  icon?: IconValue
   class?: ClassValue
 }
