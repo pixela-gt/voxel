@@ -1,7 +1,16 @@
-export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right'
+import type { ClassValue } from '../../types/shared'
+import type {
+  TooltipContentProps,
+  TooltipProviderProps,
+  TooltipRootProps,
+} from 'reka-ui'
 
-export interface TooltipProps {
-  text: string
-  position?: TooltipPosition
-  disabled?: boolean
-}
+export type TooltipPosition = 'top' | 'right' | 'bottom' | 'left'
+
+export type TooltipProps = TooltipRootProps &
+  TooltipProviderProps &
+  Omit<TooltipContentProps, 'side'> & {
+    text?: string
+    position?: TooltipPosition
+    class?: ClassValue
+  }
