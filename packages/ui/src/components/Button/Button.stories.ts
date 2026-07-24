@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+import { expect, userEvent, within } from 'storybook/test'
 import { ArrowLeft, ArrowRight, Clock } from '@lucide/vue'
 import Button from './Button.vue'
 
@@ -62,4 +63,15 @@ export const WithAppendIcon: Story = {
 export const WithBothIcons: Story = {
   args: { prependIcon: Clock, appendIcon: ArrowRight },
   render: render('Schedule'),
+}
+
+export const InteractiveClick: Story = {
+  args: { disabled: false, loading: false },
+  render: render('Click me'),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole('button', { name: 'Click me' })
+    await expect(button).toBeEnabled()
+    await userEvent.click(button)
+  },
 }
