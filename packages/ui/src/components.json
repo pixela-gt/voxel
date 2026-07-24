@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-23T23:56:42.119Z",
+  "generated": "2026-07-24T20:01:39.720Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -77,6 +77,10 @@
           "type": "'info' | 'warning' | 'error' | 'success'",
           "required": false,
           "default": "info"
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
         },
         "class": {
           "type": "ClassValue",
@@ -204,7 +208,7 @@
       "description": "Button component",
       "category": "actions",
       "props": {
-        "buttonStyle": {
+        "variant": {
           "type": "ButtonStyle",
           "required": false,
           "default": "default"
@@ -829,7 +833,7 @@
       "description": "IconButton component",
       "category": "actions",
       "props": {
-        "style": {
+        "variant": {
           "type": "ButtonStyle",
           "required": false,
           "default": "default"
@@ -1007,6 +1011,26 @@
         "ListboxFilter"
       ],
       "import": "import { Listbox } from '@pixela-gt/voxel-ui'"
+    },
+    "Loading": {
+      "name": "Loading",
+      "description": "Loading component",
+      "category": "misc",
+      "props": {
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Loading } from '@pixela-gt/voxel-ui'"
     },
     "Menubar": {
       "name": "Menubar",
@@ -1977,79 +2001,50 @@
     "Toggle": {
       "name": "Toggle",
       "description": "Toggle component",
-      "category": "misc",
+      "category": "actions",
       "props": {
         "modelValue": {
-          "type": "boolean",
+          "type": "boolean | null",
           "required": false,
           "default": false
+        },
+        "variant": {
+          "type": "ToggleVariant",
+          "required": false,
+          "default": "button"
         },
         "size": {
           "type": "ComponentSize",
           "required": false,
           "default": "default"
         },
-        "disabled": {
-          "type": "boolean",
-          "required": false,
-          "default": false
-        }
-      },
-      "slots": [
-        "default"
-      ],
-      "events": [
-        "update"
-      ],
-      "rekaUi": [
-        "Toggle"
-      ],
-      "import": "import { Toggle } from '@pixela-gt/voxel-ui'"
-    },
-    "ToggleButton": {
-      "name": "ToggleButton",
-      "description": "ToggleButton component",
-      "category": "actions",
-      "props": {
-        "type": {
-          "type": "'single' | 'multiple'",
-          "required": false
-        },
-        "pressed": {
-          "type": "boolean",
-          "required": false
-        },
-        "disabled": {
-          "type": "boolean",
-          "required": false
-        },
         "value": {
           "type": "string",
           "required": false
         },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
         "class": {
           "type": "ClassValue",
-          "required": false
-        },
-        "modelValue": {
-          "type": "string[]",
           "required": false
         }
       },
       "slots": [
         "default"
       ],
-      "events": [
-        "update",
-        "click"
+      "events": [],
+      "rekaUi": [
+        "Toggle as RekaToggle"
       ],
-      "rekaUi": [],
-      "import": "import { ToggleButton } from '@pixela-gt/voxel-ui'"
+      "import": "import { Toggle } from '@pixela-gt/voxel-ui'"
     },
     "ToggleGroup": {
       "name": "ToggleGroup",
       "description": "ToggleGroup component",
-      "category": "misc",
+      "category": "actions",
       "props": {
         "modelValue": {
           "type": "string | string[]",
@@ -2084,6 +2079,10 @@
           "type": "boolean",
           "required": false,
           "default": true
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
         },
         "value": {
           "type": "string",

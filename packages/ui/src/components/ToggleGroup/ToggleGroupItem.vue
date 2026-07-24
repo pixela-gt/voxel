@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { ToggleGroupItem } from 'reka-ui'
-import type { ComponentSize } from '../../types/shared'
+import type { ToggleGroupContext, ToggleGroupItemProps } from './ToggleGroup.types'
 
-const props = withDefaults(
-  defineProps<{
-    value: string
-    size?: ComponentSize
-    disabled?: boolean
-  }>(),
-  {
-    size: 'default',
-    disabled: false,
-  } as const,
-)
+const props = withDefaults(defineProps<ToggleGroupItemProps>(), {
+  size: undefined,
+  disabled: false,
+} as const)
+
+const group = inject<ToggleGroupContext | null>('voxelToggleGroup', null)
+
+const effectiveSize = computed(() => props.size ?? group?.size ?? 'default')
 
 const itemClass = computed(() => [
   'voxel-toggle-group__item',
-  `voxel-toggle-group__item--size-${props.size}`,
+  `voxel-toggle-group__item--size-${effectiveSize.value}`,
+  props.class,
 ])
 </script>
 
@@ -30,31 +28,33 @@ const itemClass = computed(() => [
 <style scoped>
 .voxel-toggle-group__item {
   @apply inline-flex items-center justify-center
-    font-sans font-medium text-[var(--color-text-secondary)]
+    font-sans font-bold tracking-[0.07px]
     bg-transparent
-    border border-[var(--color-grey-600)]
-    rounded-lg
+    text-[var(--color-primary-base)]
     transition-colors duration-[var(--transition-fast)]
-    hover:bg-[var(--color-grey-100)]
+    hover:bg-[var(--color-primary-lighten-1)]/12
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed;
+  corner-smoothing: 60%;
 }
 
 .voxel-toggle-group__item[data-state='on'] {
-  @apply bg-[var(--color-primary-base)] text-[var(--color-text-on-primary)]
-    border-[var(--color-primary-base)]
-    hover:bg-[var(--color-primary-darken-1)];
+  @apply bg-[var(--color-primary-base)] text-[var(--color-text-on-primary)];
+}
+
+.voxel-toggle-group__item[data-state='on']:hover {
+  @apply bg-[var(--color-primary-darken-1)];
 }
 
 .voxel-toggle-group__item--size-small {
-  @apply h-7 px-2 text-[11px] gap-1;
+  @apply px-5 py-1 text-xs rounded-[10px] gap-[4px];
 }
 
 .voxel-toggle-group__item--size-default {
-  @apply h-9 px-3 text-sm gap-1.5;
+  @apply px-6 py-2 text-sm rounded-[12px] gap-[6px];
 }
 
 .voxel-toggle-group__item--size-large {
-  @apply h-11 px-4 text-base gap-2;
+  @apply px-7 py-3 text-base rounded-[14px] gap-[8px];
 }
 </style>

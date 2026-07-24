@@ -18,9 +18,6 @@ export type {
   LinkStyle as VXLinkStyle,
 } from './components/Link/Link.types'
 export type {
-  ToggleButtonGroupProps as VXToggleButtonGroupProps,
-} from './components/ToggleButton/ToggleButton.types'
-export type {
   TooltipProps as VXTooltipProps,
   TooltipPosition as VXTooltipPosition,
 } from './components/Tooltip/Tooltip.types'
@@ -60,6 +57,7 @@ export type { ToggleProps as VXToggleProps, ToggleVariant as VXToggleVariant } f
 export type {
   ToggleGroupProps as VXToggleGroupProps,
   ToggleGroupItemProps as VXToggleGroupItemProps,
+  ToggleGroupContext as VXToggleGroupContext,
 } from './components/ToggleGroup/ToggleGroup.types'
 export type { PinInputProps as VXPinInputProps } from './components/PinInput/PinInput.types'
 export type { NumberFieldProps as VXNumberFieldProps } from './components/NumberField/NumberField.types'
@@ -134,9 +132,6 @@ export type {
 export { Button as VXButton } from './components/Button'
 export { IconButton as VXIconButton } from './components/IconButton'
 export { Link as VXLink } from './components/Link'
-export {
-  ToggleButtonGroup as VXToggleButtonGroup,
-} from './components/ToggleButton'
 export { Tooltip as VXTooltip } from './components/Tooltip'
 export { Checkbox as VXCheckbox } from './components/Checkbox'
 export { RadioGroup as VXRadioGroup, RadioItem as VXRadioItem } from './components/Radio'

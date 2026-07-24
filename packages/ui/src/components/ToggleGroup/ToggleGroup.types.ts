@@ -1,4 +1,4 @@
-import type { ComponentSize } from '../../types/shared'
+import type { ClassValue, ComponentSize } from '../../types/shared'
 
 export interface ToggleGroupProps {
   modelValue?: string | string[]
@@ -8,9 +8,16 @@ export interface ToggleGroupProps {
   orientation?: 'horizontal' | 'vertical'
   rovingFocus?: boolean
   loop?: boolean
+  class?: ClassValue
 }
 
 export interface ToggleGroupItemProps {
   value: string
+  size?: ComponentSize
   disabled?: boolean
+  class?: ClassValue
+}
+
+export interface ToggleGroupContext {
+  size: ComponentSize
 }

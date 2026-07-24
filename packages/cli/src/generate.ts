@@ -138,7 +138,7 @@ function extractRekaUi(vueContent: string): string[] {
 
 function inferCategory(name: string): string {
   const categories: Record<string, string[]> = {
-    actions: ['Button', 'IconButton', 'Link', 'Toggle', 'ToggleButtonGroup'],
+    actions: ['Button', 'IconButton', 'Link', 'Toggle', 'ToggleGroup'],
     inputs: ['Checkbox', 'Switch', 'RadioGroup', 'RadioItem'],
     navigation: ['Tabs', 'TabsList', 'TabsTrigger', 'TabsContent', 'Accordion'],
     layout: ['Card', 'Separator', 'Drawer'],
