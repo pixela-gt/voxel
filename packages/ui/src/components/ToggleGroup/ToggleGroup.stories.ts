@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { ToggleGroup, ToggleGroupItem } from './index'
 
 const meta: Meta<typeof ToggleGroup> = {
-  title: 'Components/ToggleGroup',
+  title: 'Action/ToggleGroup',
   component: ToggleGroup,
   tags: ['autodocs'],
   argTypes: {

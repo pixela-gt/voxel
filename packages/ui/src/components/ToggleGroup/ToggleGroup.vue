@@ -44,11 +44,11 @@ provide<ToggleGroupContext>('voxelToggleGroup', { size: props.size })
 <style scoped>
 .voxel-toggle-group {
   @apply inline-flex items-center bg-[var(--color-surface-light)]
-    p-1 rounded-xl gap-0
+    p-1 rounded-xl gap-1
     divide-x divide-[var(--color-grey-200)];
 }
 
 .voxel-toggle-group--vertical {
-  @apply flex-col divide-x-0 divide-y;
+  @apply flex-col divide-x-0 divide-y items-stretch gap-1;
 }
 </style>
