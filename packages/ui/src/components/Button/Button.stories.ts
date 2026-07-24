@@ -4,11 +4,11 @@ import { ArrowLeft, ArrowRight, Clock } from '@lucide/vue'
 import Button from './Button.vue'
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Action/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    buttonStyle: {
+    variant: {
       control: 'select',
       options: ['default', 'outline', 'tonal', 'text'],
     },
@@ -41,9 +41,9 @@ const render = (label: string) => (args: any) => ({
 })
 
 export const Default: Story = { render: render('Button') }
-export const Outline: Story = { args: { buttonStyle: 'outline' }, render: render('Outline') }
-export const Tonal: Story = { args: { buttonStyle: 'tonal' }, render: render('Tonal') }
-export const Text: Story = { args: { buttonStyle: 'text' }, render: render('Text') }
+export const Outline: Story = { args: { variant: 'outline' }, render: render('Outline') }
+export const Tonal: Story = { args: { variant: 'tonal' }, render: render('Tonal') }
+export const Text: Story = { args: { variant: 'text' }, render: render('Text') }
 export const Secondary: Story = { args: { color: 'secondary' }, render: render('Secondary') }
 export const Small: Story = { args: { size: 'small' }, render: render('Small') }
 export const Large: Story = { args: { size: 'large' }, render: render('Large') }

@@ -2,9 +2,10 @@
 import { computed, useSlots } from 'vue'
 import type { ButtonProps } from './Button.types'
 import { Icon } from '../Icon'
+import { Loading } from '../Loading'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  buttonStyle: 'default',
+  variant: 'default',
   color: 'primary',
   size: 'default',
   density: 'default',
@@ -19,7 +20,7 @@ const classes = computed(() => [
   `voxel-button--size-${props.size}`,
   `voxel-button--density-${props.density}`,
   `voxel-button--color-${props.color}`,
-  `voxel-button--style-${props.buttonStyle}`,
+  `voxel-button--style-${props.variant}`,
   { 'voxel-button--loading': props.loading },
   props.class,
 ])
@@ -31,11 +32,7 @@ const classes = computed(() => [
     :disabled="props.disabled || props.loading"
     v-bind="$attrs"
   >
-    <span v-if="props.loading" class="voxel-button__spinner">
-      <svg class="voxel-button__spinner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20" />
-      </svg>
-    </span>
+    <Loading v-if="props.loading" />
     <span
       v-else-if="props.prependIcon || slots['prepend-icon']"
       class="voxel-button__icon"
@@ -134,14 +131,6 @@ const classes = computed(() => [
 }
 .voxel-button--size-large .voxel-button__icon {
   @apply size-6;
-}
-
-/* Elements */
-.voxel-button__spinner {
-  @apply animate-spin;
-}
-.voxel-button__spinner-icon {
-  @apply size-5;
 }
 </style>
 

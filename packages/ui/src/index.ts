@@ -74,6 +74,7 @@ export type {
   TextColor as VXTextColor,
 } from './components/Text/Text.types'
 export type { IconProps as VXIconProps } from './components/Icon/Icon.types'
+export type { LoadingProps as VXLoadingProps } from './components/Loading/Loading.types'
 export type {
   SelectProps as VXSelectProps,
   SelectItem as VXSelectItem,
@@ -173,6 +174,7 @@ export {
 export { PinInput as VXPinInput } from './components/PinInput'
 export { NumberField as VXNumberField } from './components/NumberField'
 export { Icon as VXIcon } from './components/Icon'
+export { Loading as VXLoading } from './components/Loading'
 export { Select as VXSelect } from './components/Select'
 export { Combobox as VXCombobox } from './components/Combobox'
 export { Listbox as VXListbox } from './components/Listbox'

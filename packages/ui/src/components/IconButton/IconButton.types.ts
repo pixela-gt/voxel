@@ -8,7 +8,7 @@ import type {
 } from '../../types/shared'
 
 export interface IconButtonProps {
-  style?: ButtonStyle
+  variant?: ButtonStyle
   color?: AccentColor
   size?: ComponentSize
   density?: Density
