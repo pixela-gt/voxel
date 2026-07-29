@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import PinInput from './PinInput.vue'
 
 const meta: Meta<typeof PinInput> = {
-  title: 'Components/PinInput',
+  title: 'Forms/PinInput',
   component: PinInput,
   tags: ['autodocs'],
   argTypes: {

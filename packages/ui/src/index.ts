@@ -32,6 +32,20 @@ export type {
 } from './components/Radio/Radio.types'
 export type { SwitchProps as VXSwitchProps } from './components/Switch/Switch.types'
 export type {
+  InputProps as VXInputProps,
+  InputType as VXInputType,
+  InputVariant as VXInputVariant,
+  InputDensity as VXInputDensity,
+  InputFocusEffect as VXInputFocusEffect,
+} from './components/Input/Input.types'
+export type { TextareaProps as VXTextareaProps } from './components/Textarea/Textarea.types'
+
+export type {
+  FormFieldProps as VXFormFieldProps,
+  FormFieldContext as VXFormFieldContext,
+} from './components/FormField/FormField.types'
+export type { MaskedInputProps as VXMaskedInputProps } from './components/MaskedInput/MaskedInput.types'
+export type {
   CardProps as VXCardProps,
   CardElevation as VXCardElevation,
 } from './components/Card/Card.types'
@@ -141,6 +155,11 @@ export { Tooltip as VXTooltip } from './components/Tooltip'
 export { Checkbox as VXCheckbox } from './components/Checkbox'
 export { RadioGroup as VXRadioGroup, RadioItem as VXRadioItem } from './components/Radio'
 export { Switch as VXSwitch } from './components/Switch'
+export { Input as VXInput } from './components/Input'
+export { Textarea as VXTextarea } from './components/Textarea'
+
+export { FormField as VXFormField } from './components/FormField'
+export { MaskedInput as VXMaskedInput } from './components/MaskedInput'
 export { Card as VXCard } from './components/Card'
 export { Separator as VXSeparator } from './components/Separator'
 export { DropdownMenu as VXDropdownMenu } from './components/DropdownMenu'

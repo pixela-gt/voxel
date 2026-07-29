@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import Editable from './Editable.vue'
 
 const meta: Meta<typeof Editable> = {
-  title: 'Components/Editable',
+  title: 'Forms/Editable',
   component: Editable,
   tags: ['autodocs'],
   argTypes: {

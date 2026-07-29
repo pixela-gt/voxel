@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import TagsInput from './TagsInput.vue'
 
 const meta: Meta<typeof TagsInput> = {
-  title: 'Components/TagsInput',
+  title: 'Forms/TagsInput',
   component: TagsInput,
   tags: ['autodocs'],
   argTypes: {

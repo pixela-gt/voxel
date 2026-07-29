@@ -32,8 +32,8 @@ interface TokenGroup {
 function extractProps(typesContent: string): Record<string, PropInfo> {
   const props: Record<string, PropInfo> = {}
 
-  // Match interface blocks
-  const interfaceRegex = /export\s+interface\s+\w+Props\s*\{([^}]+)\}/gs
+  // Match interface blocks (allow optional generic between name and `{`)
+  const interfaceRegex = /export\s+interface\s+\w+Props(?:<[^>]+>)?\s*\{([^}]+)\}/gs
   let match
   while ((match = interfaceRegex.exec(typesContent)) !== null) {
     const body = match[1]
@@ -139,7 +139,16 @@ function extractRekaUi(vueContent: string): string[] {
 function inferCategory(name: string): string {
   const categories: Record<string, string[]> = {
     actions: ['Button', 'IconButton', 'Link', 'Toggle', 'ToggleGroup'],
-    inputs: ['Checkbox', 'Switch', 'RadioGroup', 'RadioItem'],
+    inputs: [
+      'Checkbox',
+      'Switch',
+      'RadioGroup',
+      'RadioItem',
+      'Input',
+      'Textarea',
+      'FormField',
+      'MaskedInput',
+    ],
     navigation: ['Tabs', 'TabsList', 'TabsTrigger', 'TabsContent', 'Accordion'],
     layout: ['Card', 'Separator', 'Drawer'],
     overlays: ['Dialog', 'Tooltip', 'DropdownMenu'],

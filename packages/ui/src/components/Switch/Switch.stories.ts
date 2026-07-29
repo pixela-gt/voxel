@@ -4,7 +4,7 @@ import { ref } from 'vue'
 import Switch from './Switch.vue'
 
 const meta: Meta<typeof Switch> = {
-  title: 'Components/Switch',
+  title: 'Forms/Switch',
   component: Switch,
   tags: ['autodocs'],
   argTypes: {

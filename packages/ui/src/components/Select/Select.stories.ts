@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import Select from './Select.vue'
 
 const meta: Meta<typeof Select> = {
-  title: 'Components/Select',
+  title: 'Forms/Select',
   component: Select,
   tags: ['autodocs'],
   argTypes: {

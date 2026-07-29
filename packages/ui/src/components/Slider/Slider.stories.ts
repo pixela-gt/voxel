@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import Slider from './Slider.vue'
 
 const meta: Meta<typeof Slider> = {
-  title: 'Components/Slider',
+  title: 'Forms/Slider',
   component: Slider,
   tags: ['autodocs'],
   argTypes: {

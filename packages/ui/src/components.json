@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-24T22:44:12.907Z",
+  "generated": "2026-07-29T16:09:20.786Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -815,6 +815,49 @@
       ],
       "import": "import { Editable } from '@pixela-gt/voxel-ui'"
     },
+    "FormField": {
+      "name": "FormField",
+      "description": "FormField component",
+      "category": "inputs",
+      "props": {
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "hint": {
+          "type": "string",
+          "required": false
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "required": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "density": {
+          "type": "'default' | 'dense'",
+          "required": false,
+          "default": "default"
+        },
+        "id": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "hint"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { FormField } from '@pixela-gt/voxel-ui'"
+    },
     "HoverCard": {
       "name": "HoverCard",
       "description": "HoverCard component",
@@ -930,6 +973,67 @@
       ],
       "rekaUi": [],
       "import": "import { IconButton } from '@pixela-gt/voxel-ui'"
+    },
+    "Input": {
+      "name": "Input",
+      "description": "Input component",
+      "category": "inputs",
+      "props": {
+        "type": {
+          "type": "InputType",
+          "required": false,
+          "default": "text"
+        },
+        "modelValue": {
+          "type": "string | number",
+          "required": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "prepend",
+        "append"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { Input } from '@pixela-gt/voxel-ui'"
     },
     "Label": {
       "name": "Label",
@@ -1081,6 +1185,71 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Loading } from '@pixela-gt/voxel-ui'"
+    },
+    "MaskedInput": {
+      "name": "MaskedInput",
+      "description": "MaskedInput component",
+      "category": "inputs",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "type": {
+          "type": "InputType",
+          "required": false,
+          "default": "text"
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "mask": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "prepend",
+        "append"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { MaskedInput } from '@pixela-gt/voxel-ui'"
     },
     "Menubar": {
       "name": "Menubar",
@@ -2009,6 +2178,62 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Text } from '@pixela-gt/voxel-ui'"
+    },
+    "Textarea": {
+      "name": "Textarea",
+      "description": "Textarea component",
+      "category": "inputs",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "rows": {
+          "type": "number",
+          "required": false,
+          "default": 3
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "prepend",
+        "append"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { Textarea } from '@pixela-gt/voxel-ui'"
     },
     "TimeField": {
       "name": "TimeField",

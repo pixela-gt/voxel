@@ -5,7 +5,7 @@ import Radio from './Radio.vue'
 import { RadioItem } from './index'
 
 const meta: Meta<typeof Radio> = {
-  title: 'Components/Radio',
+  title: 'Forms/Radio',
   component: Radio,
   tags: ['autodocs'],
   argTypes: {

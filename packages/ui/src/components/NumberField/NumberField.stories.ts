@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import NumberField from './NumberField.vue'
 
 const meta: Meta<typeof NumberField> = {
-  title: 'Components/NumberField',
+  title: 'Forms/NumberField',
   component: NumberField,
   tags: ['autodocs'],
   argTypes: {
