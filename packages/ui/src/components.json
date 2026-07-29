@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-29T17:43:05.164Z",
+  "generated": "2026-07-29T17:51:45.294Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -1934,6 +1934,39 @@
         "Separator"
       ],
       "import": "import { Separator } from '@pixela-gt/voxel-ui'"
+    },
+    "Skeleton": {
+      "name": "Skeleton",
+      "description": "Skeleton component",
+      "category": "misc",
+      "props": {
+        "variant": {
+          "type": "SkeletonVariant",
+          "required": false,
+          "default": "rect"
+        },
+        "width": {
+          "type": "string | number",
+          "required": false
+        },
+        "height": {
+          "type": "string | number",
+          "required": false
+        },
+        "count": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Skeleton } from '@pixela-gt/voxel-ui'"
     },
     "Slider": {
       "name": "Slider",

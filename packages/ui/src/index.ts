@@ -125,6 +125,10 @@ export type {
   ScrollAreaProps as VXScrollAreaProps,
   ScrollAreaType as VXScrollAreaType,
 } from './components/ScrollArea/ScrollArea.types'
+export type {
+  SkeletonProps as VXSkeletonProps,
+  SkeletonVariant as VXSkeletonVariant,
+} from './components/Skeleton/Skeleton.types'
 export type { AspectRatioProps as VXAspectRatioProps } from './components/AspectRatio/AspectRatio.types'
 export type {
   SplitterGroupProps as VXSplitterGroupProps,
@@ -217,6 +221,7 @@ export {
 } from './components/Toast'
 export { Progress as VXProgress } from './components/Progress'
 export { ScrollArea as VXScrollArea } from './components/ScrollArea'
+export { Skeleton as VXSkeleton } from './components/Skeleton'
 export { AspectRatio as VXAspectRatio } from './components/AspectRatio'
 export {
   SplitterGroup as VXSplitterGroup,
