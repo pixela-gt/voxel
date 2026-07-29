@@ -69,6 +69,13 @@ export type {
 } from './components/Badge/Badge.types'
 export type { TabsProps as VXTabsProps } from './components/Tabs/Tabs.types'
 export type { AccordionProps as VXAccordionProps } from './components/Accordion/Accordion.types'
+export type {
+  ListProps as VXListProps,
+  ListDensity as VXListDensity,
+  SelectionMode as VXSelectionMode,
+  SelectedValue as VXSelectedValue,
+} from './components/List/List.types'
+export type { ListItemProps as VXListItemProps } from './components/ListItem/ListItem.types'
 export type { LabelProps as VXLabelProps } from './components/Label/Label.types'
 export type { SliderProps as VXSliderProps } from './components/Slider/Slider.types'
 export type { ToggleProps as VXToggleProps, ToggleVariant as VXToggleVariant } from './components/Toggle/Toggle.types'
@@ -180,6 +187,8 @@ export {
   AccordionTrigger as VXAccordionTrigger,
   AccordionContent as VXAccordionContent,
 } from './components/Accordion'
+export { List as VXList } from './components/List'
+export { ListItem as VXListItem } from './components/ListItem'
 export { Text as VXText } from './components/Text'
 export { Label as VXLabel } from './components/Label'
 export { Slider as VXSlider } from './components/Slider'
@@ -228,3 +237,18 @@ export { Tree as VXTree } from './components/Tree'
 export { useTheme, type ThemeMode } from './composables/useTheme'
 export { useThemeConfig, type ThemeColors, type ThemeConfig } from './composables/useThemeConfig'
 export { useToast, type UseToast } from './composables/useToast'
+export { useSidebar, type UseSidebarOptions } from './composables/useSidebar'
+
+// Layouts
+export { AppShell } from './layouts'
+export type { AppShellProps } from './layouts'
+
+// Patterns
+export { PageHeader } from './patterns'
+export type { PageHeaderProps } from './patterns'
+export { EmptyState } from './patterns'
+export type { EmptyStateProps } from './patterns'
+export { DataTable } from './patterns/DataTable'
+export type { DataTableProps, ColumnDef, SortDirection } from './patterns/DataTable'
+export { DataTableServer } from './patterns/DataTableServer'
+export type { DataTableServerProps } from './patterns/DataTableServer'

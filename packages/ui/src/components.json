@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-29T16:09:20.786Z",
+  "generated": "2026-07-29T17:43:05.164Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -1108,6 +1108,73 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Link } from '@pixela-gt/voxel-ui'"
+    },
+    "List": {
+      "name": "List",
+      "description": "List component",
+      "category": "misc",
+      "props": {
+        "density": {
+          "type": "ListDensity",
+          "required": false,
+          "default": "default"
+        },
+        "separated": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "selectionMode": {
+          "type": "SelectionMode",
+          "required": false,
+          "default": "none"
+        },
+        "selected": {
+          "type": "SelectedValue",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { List } from '@pixela-gt/voxel-ui'"
+    },
+    "ListItem": {
+      "name": "ListItem",
+      "description": "ListItem component",
+      "category": "misc",
+      "props": {
+        "value": {
+          "type": "string | number",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "prepend",
+        "secondary",
+        "append"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ListItem } from '@pixela-gt/voxel-ui'"
     },
     "Listbox": {
       "name": "Listbox",
@@ -2472,6 +2539,171 @@
       "events": [],
       "rekaUi": [],
       "import": "import { YearRangePicker } from '@pixela-gt/voxel-ui'"
+    },
+    "AppShell": {
+      "name": "AppShell",
+      "description": "AppShell layout",
+      "category": "layout",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "header",
+        "sidebar"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { AppShell } from '@pixela-gt/voxel-ui'"
+    },
+    "DataTable": {
+      "name": "DataTable",
+      "description": "DataTable pattern",
+      "category": "pattern",
+      "props": {
+        "columns": {
+          "type": "ColumnDef<T>[]",
+          "required": true
+        },
+        "items": {
+          "type": "T[]",
+          "required": true
+        },
+        "pageSize": {
+          "type": "number",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "mode": {
+          "type": "emit page changes */",
+          "required": true
+        },
+        "total": {
+          "type": "number",
+          "required": false
+        },
+        "page": {
+          "type": "number",
+          "required": false
+        },
+        "onPageChange": {
+          "type": "(page: number)",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "sort"
+      ],
+      "rekaUi": [],
+      "import": "import { DataTable } from '@pixela-gt/voxel-ui'"
+    },
+    "DataTableServer": {
+      "name": "DataTableServer",
+      "description": "DataTableServer pattern",
+      "category": "pattern",
+      "props": {
+        "columns": {
+          "type": "ColumnDef<T>[]",
+          "required": true
+        },
+        "items": {
+          "type": "T[]",
+          "required": true
+        },
+        "total": {
+          "type": "number",
+          "required": true
+        },
+        "page": {
+          "type": "number",
+          "required": false
+        },
+        "pageSize": {
+          "type": "number",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { DataTableServer } from '@pixela-gt/voxel-ui'"
+    },
+    "EmptyState": {
+      "name": "EmptyState",
+      "description": "EmptyState pattern",
+      "category": "pattern",
+      "props": {
+        "icon": {
+          "type": "string",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "icon",
+        "action"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { EmptyState } from '@pixela-gt/voxel-ui'"
+    },
+    "PageHeader": {
+      "name": "PageHeader",
+      "description": "PageHeader pattern",
+      "category": "pattern",
+      "props": {
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "prepend",
+        "actions"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { PageHeader } from '@pixela-gt/voxel-ui'"
     }
   },
   "tokens": [

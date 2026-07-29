@@ -136,7 +136,10 @@ function extractRekaUi(vueContent: string): string[] {
   return imports
 }
 
-function inferCategory(name: string): string {
+function inferCategory(name: string, sourceDir?: string): string {
+  if (sourceDir === 'layouts') return 'layout'
+  if (sourceDir === 'patterns') return 'pattern'
+
   const categories: Record<string, string[]> = {
     actions: ['Button', 'IconButton', 'Link', 'Toggle', 'ToggleGroup'],
     inputs: [
@@ -202,19 +205,17 @@ function extractTokens(cssContent: string): TokenGroup[] {
   return groups
 }
 
-function generate(): void {
-  const componentsDir = join(UI_SRC, 'components')
-  const components: Record<string, ComponentInfo> = {}
+function scanDirectory(baseDir: string, sourceDir: string, components: Record<string, ComponentInfo>): void {
+  if (!existsSync(baseDir)) return
 
-  const dirs = readdirSync(componentsDir, { withFileTypes: true })
+  const dirs = readdirSync(baseDir, { withFileTypes: true })
     .filter(d => d.isDirectory())
     .map(d => d.name)
 
   for (const dir of dirs) {
-    const dirPath = join(componentsDir, dir)
+    const dirPath = join(baseDir, dir)
     const typesFile = join(dirPath, `${dir}.types.ts`)
     const vueFile = join(dirPath, `${dir}.vue`)
-    const indexFile = join(dirPath, 'index.ts')
 
     if (!existsSync(typesFile) || !existsSync(vueFile)) continue
 
@@ -234,12 +235,12 @@ function generate(): void {
       }
     }
 
-    // Try to get description from index.ts or comments
-    let description = `${dir} component`
+    // Try to get description from types file comments
+    let description = `${dir} ${sourceDir === 'components' ? 'component' : sourceDir.slice(0, -1)}`
     const descMatch = typesContent.match(/\/\/\s*(.+)/)
     if (descMatch) description = descMatch[1]
 
-    const category = inferCategory(dir)
+    const category = inferCategory(dir, sourceDir)
 
     components[dir] = {
       name: dir,
@@ -252,6 +253,15 @@ function generate(): void {
       import: `import { ${dir} } from '@pixela-gt/voxel-ui'`,
     }
   }
+}
+
+function generate(): void {
+  const components: Record<string, ComponentInfo> = {}
+
+  // Scan components, layouts, and patterns directories
+  scanDirectory(join(UI_SRC, 'components'), 'components', components)
+  scanDirectory(join(UI_SRC, 'layouts'), 'layouts', components)
+  scanDirectory(join(UI_SRC, 'patterns'), 'patterns', components)
 
   // Extract tokens
   const tokensFile = join(UI_SRC, 'tokens', 'tokens.css')

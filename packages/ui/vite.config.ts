@@ -15,10 +15,15 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+        'layouts/index': resolve(__dirname, 'src/layouts/index.ts'),
+        'patterns/index': resolve(__dirname, 'src/patterns/index.ts'),
+        'composables/index': resolve(__dirname, 'src/composables/index.ts'),
+      },
       name: 'Voxel-UI',
       formats: ['es'],
-      fileName: 'index',
+      fileName: (_format, entryName) => `${entryName}.mjs`,
     },
     rollupOptions: {
       external: ['vue', 'reka-ui', '@lucide/vue'],

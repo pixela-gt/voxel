@@ -11,6 +11,18 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
+    "./layouts": {
+      "types": "./dist/layouts/index.d.ts",
+      "import": "./dist/layouts/index.mjs"
+    },
+    "./patterns": {
+      "types": "./dist/patterns/index.d.ts",
+      "import": "./dist/patterns/index.mjs"
+    },
+    "./composables": {
+      "types": "./dist/composables/index.d.ts",
+      "import": "./dist/composables/index.mjs"
+    },
     "./tokens.css": "./dist/tokens/tokens.css",
     "./style.css": "./dist/style.css"
   },
