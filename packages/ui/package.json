@@ -23,15 +23,19 @@
       "types": "./dist/composables/index.d.ts",
       "import": "./dist/composables/index.mjs"
     },
+    "./style.css": "./dist/assets/voxel-ui.css",
     "./tokens.css": "./dist/tokens/tokens.css",
-    "./style.css": "./dist/style.css"
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "import": "./dist/plugin.mjs"
+    }
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc --emitDeclarationOnly --declaration --declarationDir dist --noEmit false",
+    "build": "vite build && mkdir -p dist/tokens && cp src/tokens/tokens.css dist/tokens/tokens.css && tsc --emitDeclarationOnly --declaration --declarationDir dist --noEmit false",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{ts,css}\"",
@@ -41,8 +45,10 @@
   },
   "peerDependencies": {
     "@lucide/vue": "^1.0.0",
-    "reka-ui": "^2.9.0",
     "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "reka-ui": "^2.9.0"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.0",

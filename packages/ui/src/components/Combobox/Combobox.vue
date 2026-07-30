@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import {
   ComboboxRoot,
   ComboboxAnchor,
@@ -17,12 +17,17 @@ import {
   ComboboxCancel,
 } from 'reka-ui'
 import type { ComboboxProps, ComboboxItem as ComboboxItemType, ComboboxGroup as ComboboxGroupType } from './Combobox.types'
+import type { FormFieldContext } from '../FormField/FormField.types'
+import { FORM_FIELD_KEY } from '../FormField/FormField.types'
 
 const props = withDefaults(defineProps<ComboboxProps>(), {
   multiple: false,
   disabled: false,
   size: 'default',
   placeholder: 'Search...',
+  variant: 'outlined',
+  density: 'default',
+  focusEffect: 'border',
 } as const)
 
 const emit = defineEmits<{
@@ -31,9 +36,23 @@ const emit = defineEmits<{
   'update:searchTerm': [value: string]
 }>()
 
+const formContext = inject<FormFieldContext | null>(FORM_FIELD_KEY, null)
+
+const effectiveError = computed(() => props.errorMessage ?? formContext?.errorMessage)
+
 const searchTerm = defineModel<string>('searchTerm', { default: '' })
 
 const rootClass = computed(() => ['voxel-combobox', `voxel-combobox--size-${props.size}`, props.class])
+const anchorClass = computed(() => [
+  'voxel-combobox__anchor',
+  `voxel-combobox__anchor--variant-${props.variant}`,
+  `voxel-combobox__anchor--density-${props.density}`,
+  `voxel-combobox__anchor--focus-${props.focusEffect}`,
+  {
+    'voxel-combobox__anchor--error': !!effectiveError.value,
+    'voxel-combobox__anchor--disabled': props.disabled,
+  },
+])
 const inputClass = computed(() => ['voxel-combobox__input', `voxel-combobox__input--size-${props.size}`])
 
 const isGroup = (entry: ComboboxItemType | ComboboxGroupType): entry is ComboboxGroupType =>
@@ -84,7 +103,7 @@ const hasMatches = computed(() => {
     :class="rootClass"
     v-bind="$attrs"
   >
-    <ComboboxAnchor class="voxel-combobox__anchor">
+    <ComboboxAnchor :class="anchorClass">
       <ComboboxInput
         :modelValue="searchTerm"
         @update:modelValue="(v: string) => (searchTerm = v)"
@@ -144,23 +163,111 @@ const hasMatches = computed(() => {
 }
 
 .voxel-combobox__anchor {
-  @apply inline-flex items-center gap-2 w-full
-    bg-[var(--color-surface-base)]
-    border border-[var(--color-grey-600)]
-    rounded-lg
-    transition-colors duration-[var(--transition-fast)]
-    hover:border-[var(--color-primary-lighten-1)]
-    focus-within:border-[var(--color-primary-base)] focus-within:ring-2 focus-within:ring-[var(--color-primary-base)]
-    disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply inline-flex items-center gap-2 w-full font-sans transition-all duration-[var(--transition-normal)] focus-within:outline-none;
 }
 
-.voxel-combobox--size-small .voxel-combobox__anchor { @apply h-7 px-2 text-[11px]; }
-.voxel-combobox--size-default .voxel-combobox__anchor { @apply h-9 px-3 text-sm; }
-.voxel-combobox--size-large .voxel-combobox__anchor { @apply h-11 px-4 text-base; }
+/* Outlined */
+.voxel-combobox__anchor--variant-outlined {
+  @apply bg-[var(--color-surface-background)] border-2 border-[var(--color-grey-200)] rounded-[var(--rounded-2xl)];
+}
+
+.voxel-combobox__anchor--variant-outlined.voxel-combobox__anchor--density-default {
+  @apply px-3 py-3;
+}
+
+.voxel-combobox__anchor--variant-outlined.voxel-combobox__anchor--density-dense {
+  @apply px-2 py-2;
+}
+
+/* Underlined */
+.voxel-combobox__anchor--variant-underlined {
+  @apply bg-transparent border-0 border-b-2 border-[var(--color-grey-300)] rounded-none;
+}
+
+.voxel-combobox__anchor--variant-underlined.voxel-combobox__anchor--density-default {
+  @apply py-3;
+}
+
+.voxel-combobox__anchor--variant-underlined.voxel-combobox__anchor--density-dense {
+  @apply py-2;
+}
+
+/* Ghost */
+.voxel-combobox__anchor--variant-ghost {
+  @apply bg-transparent border-2 border-transparent rounded-[var(--rounded-2xl)] hover:bg-[var(--color-surface-light)];
+}
+
+.voxel-combobox__anchor--variant-ghost.voxel-combobox__anchor--density-default {
+  @apply px-3 py-3;
+}
+
+.voxel-combobox__anchor--variant-ghost.voxel-combobox__anchor--density-dense {
+  @apply px-2 py-2;
+}
+
+/* Focus effects — border */
+.voxel-combobox__anchor--focus-border:focus-within {
+  @apply border-[var(--color-primary-base)]/70;
+}
+
+.voxel-combobox__anchor--variant-underlined.voxel-combobox__anchor--focus-border:focus-within {
+  @apply border-b-[var(--color-primary-base)]/70;
+}
+
+/* Focus effects — elevation */
+.voxel-combobox__anchor--focus-elevation:focus-within {
+  box-shadow: 0 4px 6px -1px color-mix(in srgb, var(--color-primary-base) 12%, transparent);
+}
+
+/* Focus effects — glow */
+.voxel-combobox__anchor--focus-glow:focus-within {
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-primary-base) 12%, transparent);
+}
+
+/* Error — border */
+.voxel-combobox__anchor--error.voxel-combobox__anchor--focus-border:focus-within {
+  @apply border-[var(--color-error-base)];
+}
+
+.voxel-combobox__anchor--error.voxel-combobox__anchor--variant-underlined.voxel-combobox__anchor--focus-border:focus-within {
+  @apply border-b-[var(--color-error-base)];
+}
+
+/* Error — elevation */
+.voxel-combobox__anchor--error.voxel-combobox__anchor--focus-elevation:focus-within {
+  box-shadow: 0 4px 6px -1px color-mix(in srgb, var(--color-error-base) 12%, transparent);
+}
+
+/* Error — glow */
+.voxel-combobox__anchor--error.voxel-combobox__anchor--focus-glow:focus-within {
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-error-base) 12%, transparent);
+}
+
+/* Disabled */
+.voxel-combobox__anchor--disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.voxel-combobox__anchor--disabled.voxel-combobox__anchor--variant-outlined {
+  @apply bg-[var(--color-grey-50)] border-[var(--color-grey-200)];
+}
+
+.voxel-combobox__anchor--disabled.voxel-combobox__anchor--variant-underlined {
+  @apply border-b-[var(--color-grey-200)];
+}
+
+.voxel-combobox__anchor--disabled.voxel-combobox__anchor--variant-ghost {
+  @apply hover:bg-transparent;
+}
+
+/* Size — text only (density handles padding) */
+.voxel-combobox--size-small .voxel-combobox__anchor { @apply text-[11px]; }
+.voxel-combobox--size-default .voxel-combobox__anchor { @apply text-sm; }
+.voxel-combobox--size-large .voxel-combobox__anchor { @apply text-base; }
 
 .voxel-combobox__input {
-  @apply flex-1 bg-transparent outline-none text-[var(--color-text-primary)]
-    placeholder:text-[var(--color-text-muted)] min-w-0;
+  @apply flex-1 bg-transparent outline-none border-0 text-[var(--color-text-primary)]
+    placeholder:text-[var(--color-text-muted)] min-w-0 disabled:cursor-not-allowed;
 }
 
 .voxel-combobox__cancel,

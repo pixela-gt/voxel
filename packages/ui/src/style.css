@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-@import './tokens/tokens.css';
-
 @theme {
   --color-primary: var(--color-primary-base);
   --color-primary-darken: var(--color-primary-darken-1);

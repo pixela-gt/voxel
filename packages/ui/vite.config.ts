@@ -17,6 +17,7 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
+        plugin: resolve(__dirname, 'src/plugin.ts'),
         'layouts/index': resolve(__dirname, 'src/layouts/index.ts'),
         'patterns/index': resolve(__dirname, 'src/patterns/index.ts'),
         'composables/index': resolve(__dirname, 'src/composables/index.ts'),
@@ -28,12 +29,11 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue', 'reka-ui', '@lucide/vue'],
       output: {
-        preserveModules: true,
-        preserveModulesRoot: 'src',
         entryFileNames: '[name].mjs',
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'tokens.css') {
-            return 'tokens/[name].[ext]'
+          const name = assetInfo.name || 'asset'
+          if (name === 'style.css') {
+            return '[name].[ext]'
           }
           return 'assets/[name].[ext]'
         },
@@ -42,7 +42,7 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     sourcemap: true,
     emptyOutDir: true,
   },

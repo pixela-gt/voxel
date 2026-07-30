@@ -8,20 +8,36 @@ Vue 3 component design system built on [reka-ui](https://reka-ui.com/) with [Tai
 npm install @pixela-gt/voxel-ui reka-ui
 ```
 
-Peer dependencies: `vue ^3.4.0`, `reka-ui ^2.9.0`.
+Peer dependencies: `vue ^3.4.0`, `reka-ui ^2.9.0`, `@lucide/vue ^1.0.0`.
 
 ## Usage
 
+### Vue Plugin (recommended)
+
+```ts
+import { createVoxel } from '@pixela-gt/voxel-ui/plugin'
+import '@pixela-gt/voxel-ui/style.css'
+
+app.use(createVoxel())
+```
+
+Then use components directly in templates:
+
+```vue
+<template>
+  <VXButton style="tonal" color="primary">Click me</VXButton>
+  <VXBadge variant="success">Active</VXBadge>
+</template>
+```
+
+### Direct Import
+
 ```vue
 <script setup>
-import { Button, Badge } from '@pixela-gt/voxel-ui'
+import { VXButton, VXBadge } from '@pixela-gt/voxel-ui'
+import '@pixela-gt/voxel-ui/tokens.css'
 import '@pixela-gt/voxel-ui/style.css'
 </script>
-
-<template>
-  <Button style="tonal" color="primary">Click me</Button>
-  <Badge variant="success">Active</Badge>
-</template>
 ```
 
 ### Theming

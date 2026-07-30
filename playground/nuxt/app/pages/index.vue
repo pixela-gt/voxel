@@ -27,9 +27,9 @@ function toggleTheme() {
         <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Button</VxText>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
           <VxButton>Default</VxButton>
-          <VxButton style="outline">Outline</VxButton>
-          <VxButton style="tonal">Tonal</VxButton>
-          <VxButton style="text">Text</VxButton>
+          <VxButton variant="outline">Outline</VxButton>
+          <VxButton variant="tonal">Tonal</VxButton>
+          <VxButton variant="text">Text</VxButton>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
           <VxButton color="primary">Primary</VxButton>

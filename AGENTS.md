@@ -37,13 +37,19 @@ voxel/
     ui/                         # @pixela-gt/voxel-ui
       src/
         index.ts                # Barrel exports
+        plugin.ts               # Vue plugin for non-Nuxt apps
         tokens/tokens.css       # Design token CSS custom properties
-        style.css               # Imports tailwind + tokens + base styles
+        style.css               # Tailwind + base styles
         components.json         # Generated component registry (do not edit manually)
         components/             # One folder per component:
                                 #   ComponentName.vue, ComponentName.types.ts, index.ts
         composables/            # useTheme.ts
         types/                  # html-attributes.ts, shared.ts
+    nuxt/                       # @pixela-gt/voxel-ui-nuxt
+      src/
+        index.ts                # Nuxt module entry
+        module.ts               # defineNuxtModule with addComponent loop
+        components.ts           # List of all VX component names
     cli/                        # @pixela-gt/voxel-cli
       src/
         index.ts                # CLI entry point
@@ -63,8 +69,9 @@ voxel/
 All tokens use `--color-*` prefix with hyphens. This is enforced everywhere.
 
 ### Component Pattern
-Each component folder has 3 files:
+Each component folder has 4 files:
 - `ComponentName.vue` - SFC implementation
+- `ComponentNane.story.ts` - Storybook Stories
 - `ComponentName.types.ts` - Exported types (for reuse across packages)
 - `index.ts` - Re-exports component + types from `.types.ts`
 
@@ -119,8 +126,22 @@ Use the custom types in `src/types/html-attributes.ts` or plain interfaces.
 ## Import Pattern
 
 ```typescript
+// Vue plugin (recommended for non-Nuxt apps)
+import { createVoxel } from '@pixela-gt/voxel-ui/plugin'
+import '@pixela-gt/voxel-ui/style.css'
+app.use(createVoxel())
+
+// Direct import
 import { Button, Dialog, Card } from '@pixela-gt/voxel-ui'
 import '@pixela-gt/voxel-ui/tokens.css'
+import '@pixela-gt/voxel-ui/style.css'
+
+// Nuxt module (auto-imports)
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['@pixela-gt/voxel-ui-nuxt'],
+})
+// Components are auto-imported, no manual imports needed
 ```
 
 ## Design Tokens
@@ -199,11 +220,27 @@ Available color keys: `primary`, `secondary`, `info`, `error`, `warning`, `succe
 ```json
 {
   ".": { "types": "./dist/index.d.ts", "import": "./dist/index.mjs" },
-  "./tokens.css": "./dist/tokens/tokens.css"
+  "./plugin": { "types": "./dist/plugin.d.ts", "import": "./dist/plugin.mjs" },
+  "./tokens.css": "./dist/tokens/tokens.css",
+  "./style.css": "./dist/assets/voxel-ui.css"
 }
 ```
 
-Peer deps: `vue ^3.4.0`, `reka-ui ^2.9.0`. Both are externalized in build.
+Peer deps: `vue ^3.4.0`, `reka-ui ^2.9.0`, `@lucide/vue ^1.0.0`. All are externalized in build.
+
+## Nuxt Module
+
+The `@pixela-gt/voxel-ui-nuxt` package provides auto-imports for all VX-prefixed components. CSS is injected automatically.
+
+```typescript
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['@pixela-gt/voxel-ui-nuxt'],
+})
+```
+
+Components are auto-imported with the `VX` prefix (e.g., `VXButton`, `VXDialog`).
+Composables (`useTheme`, `useThemeConfig`, `useToast`, `useSidebar`) are also auto-imported.
 
 ## Known Issues
 

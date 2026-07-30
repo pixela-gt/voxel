@@ -2,12 +2,17 @@ import { ref, computed, onMounted, watch, type Ref } from 'vue'
 
 export type ThemeMode = 'light' | 'dark' | 'system'
 
+function getSystemTheme(): 'light' | 'dark' {
+  if (typeof window === 'undefined') return 'light'
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 export function useTheme() {
   const theme: Ref<ThemeMode> = ref('system')
 
   const resolvedTheme = computed(() => {
     if (theme.value === 'system') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      return getSystemTheme()
     }
     return theme.value
   })
@@ -17,6 +22,7 @@ export function useTheme() {
   }
 
   function applyTheme(mode: 'light' | 'dark') {
+    if (typeof document === 'undefined') return
     if (mode === 'dark') {
       document.documentElement.classList.add('dark')
     } else {

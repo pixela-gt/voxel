@@ -1,4 +1,5 @@
 import type { ClassValue } from '../../types/shared'
+import type { InputVariant, InputDensity, InputFocusEffect } from '../Input/Input.types'
 
 export interface TagsInputProps {
   modelValue?: string[]
@@ -12,5 +13,9 @@ export interface TagsInputProps {
   duplicate?: boolean
   placeholder?: string
   size?: 'small' | 'default' | 'large'
+  variant?: InputVariant
+  density?: InputDensity
+  focusEffect?: InputFocusEffect
+  errorMessage?: string
   class?: ClassValue
 }

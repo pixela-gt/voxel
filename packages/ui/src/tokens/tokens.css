@@ -1,5 +1,4 @@
-@layer base {
-  :root {
+:root {
     /* Primitive Colors (from Figma Colors page) */
     --color-blue-50: #eff6ff;
     --color-blue-100: #dbeafe;
@@ -197,16 +196,15 @@
     --transition-slow: 300ms;
   }
 
-  .dark {
-    --color-surface-background: #1a1a2e;
-    --color-surface-base: #1e1e3a;
-    --color-surface-light: #252545;
-    --color-grey-400: #6b6b6b;
-    --color-grey-800: #e5e5e5;
-    --color-grey-900: #f0f0f0;
-    --color-grey-950: #fafafa;
-    --color-text-primary: #fafafa;
-    --color-text-secondary: #e5e5e5;
-    --color-text-inverse: #1e293b;
-  }
+.dark {
+  --color-surface-background: #1a1a2e;
+  --color-surface-base: #1e1e3a;
+  --color-surface-light: #252545;
+  --color-grey-400: #6b6b6b;
+  --color-grey-800: #e5e5e5;
+  --color-grey-900: #f0f0f0;
+  --color-grey-950: #fafafa;
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #e5e5e5;
+  --color-text-inverse: #1e293b;
 }

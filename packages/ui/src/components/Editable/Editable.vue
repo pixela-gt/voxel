@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import {
   EditableRoot,
   EditableArea,
@@ -10,6 +10,8 @@ import {
   EditableCancelTrigger,
 } from 'reka-ui'
 import type { EditableProps } from './Editable.types'
+import type { FormFieldContext } from '../FormField/FormField.types'
+import { FORM_FIELD_KEY } from '../FormField/FormField.types'
 
 const props = withDefaults(defineProps<EditableProps>(), {
   placeholder: 'Enter text...',
@@ -19,6 +21,9 @@ const props = withDefaults(defineProps<EditableProps>(), {
   selectOnFocus: false,
   startWithEditMode: false,
   size: 'default',
+  variant: 'outlined',
+  density: 'default',
+  focusEffect: 'border',
 } as const)
 
 const emit = defineEmits<{
@@ -26,9 +31,30 @@ const emit = defineEmits<{
   submit: [value: string]
 }>()
 
+const formContext = inject<FormFieldContext | null>(FORM_FIELD_KEY, null)
+
+const effectiveError = computed(() => props.errorMessage ?? formContext?.errorMessage)
+
 const rootClass = computed(() => ['voxel-editable', `voxel-editable--size-${props.size}`, props.class])
-const previewClass = computed(() => ['voxel-editable__preview', `voxel-editable__preview--size-${props.size}`])
-const inputClass = computed(() => ['voxel-editable__input', `voxel-editable__input--size-${props.size}`])
+const previewClass = computed(() => [
+  'voxel-editable__preview',
+  `voxel-editable__preview--size-${props.size}`,
+  `voxel-editable__preview--variant-${props.variant}`,
+  `voxel-editable__preview--density-${props.density}`,
+  {
+    'voxel-editable__preview--error': !!effectiveError.value,
+  },
+])
+const inputClass = computed(() => [
+  'voxel-editable__input',
+  `voxel-editable__input--size-${props.size}`,
+  `voxel-editable__input--variant-${props.variant}`,
+  `voxel-editable__input--density-${props.density}`,
+  `voxel-editable__input--focus-${props.focusEffect}`,
+  {
+    'voxel-editable__input--error': !!effectiveError.value,
+  },
+])
 </script>
 
 <template>
@@ -75,32 +101,119 @@ const inputClass = computed(() => ['voxel-editable__input', `voxel-editable__inp
   @apply flex-1 min-w-0;
 }
 
-.voxel-editable__preview {
-  @apply font-sans rounded-md px-2
+/* Preview — Outlined */
+.voxel-editable__preview--variant-outlined {
+  @apply font-sans rounded-[var(--rounded-2xl)] px-3
     text-[var(--color-text-primary)]
-    border border-transparent
-    cursor-text
-    truncate
-    hover:bg-[var(--color-grey-100)]
+    border border-[var(--color-grey-200)]
+    cursor-text truncate
+    hover:bg-[var(--color-surface-light)]
     data-[placeholder]:text-[var(--color-text-muted)];
 }
 
-.voxel-editable__preview--size-small { @apply text-[11px] h-7 leading-[28px]; }
-.voxel-editable__preview--size-default { @apply text-sm h-9 leading-[36px]; }
-.voxel-editable__preview--size-large { @apply text-base h-11 leading-[44px]; }
-
-.voxel-editable__input {
-  @apply font-sans w-full rounded-md px-2
-    bg-[var(--color-surface-base)]
-    border border-[var(--color-primary-base)]
+/* Preview — Underlined */
+.voxel-editable__preview--variant-underlined {
+  @apply font-sans rounded-none px-1
     text-[var(--color-text-primary)]
-    outline-none ring-2 ring-[var(--color-primary-base)]
-    placeholder:text-[var(--color-text-muted)];
+    border-0 border-b-2 border-[var(--color-grey-300)]
+    cursor-text truncate
+    hover:bg-[var(--color-surface-light)]
+    data-[placeholder]:text-[var(--color-text-muted)];
 }
 
-.voxel-editable__input--size-small { @apply text-[11px] h-7; }
-.voxel-editable__input--size-default { @apply text-sm h-9; }
-.voxel-editable__input--size-large { @apply text-base h-11; }
+/* Preview — Ghost */
+.voxel-editable__preview--variant-ghost {
+  @apply font-sans rounded-[var(--rounded-2xl)] px-3
+    text-[var(--color-text-primary)]
+    border-2 border-transparent
+    cursor-text truncate
+    hover:bg-[var(--color-surface-light)]
+    data-[placeholder]:text-[var(--color-text-muted)];
+}
+
+/* Preview density */
+.voxel-editable__preview--density-default { @apply h-9 leading-[36px]; }
+.voxel-editable__preview--density-dense { @apply h-7 leading-[28px]; }
+
+/* Preview size (override density for backwards compat) */
+.voxel-editable__preview--size-small { @apply text-[11px]; }
+.voxel-editable__preview--size-default { @apply text-sm; }
+.voxel-editable__preview--size-large { @apply text-base; }
+
+/* Preview error */
+.voxel-editable__preview--error.voxel-editable__preview--variant-outlined {
+  @apply border-[var(--color-error-base)];
+}
+
+.voxel-editable__preview--error.voxel-editable__preview--variant-underlined {
+  @apply border-b-[var(--color-error-base)];
+}
+
+/* Input — Outlined */
+.voxel-editable__input {
+  @apply font-sans w-full bg-transparent outline-none border-0
+    text-[var(--color-text-primary)]
+    placeholder:text-[var(--color-text-muted)]
+    disabled:cursor-not-allowed;
+}
+
+.voxel-editable__input--variant-outlined {
+  @apply rounded-[var(--rounded-2xl)] px-3
+    bg-[var(--color-surface-background)] border-2 border-[var(--color-grey-200)];
+}
+
+.voxel-editable__input--variant-underlined {
+  @apply rounded-none px-1
+    bg-transparent border-0 border-b-2 border-[var(--color-grey-300)];
+}
+
+.voxel-editable__input--variant-ghost {
+  @apply rounded-[var(--rounded-2xl)] px-3
+    bg-transparent border-2 border-transparent hover:bg-[var(--color-surface-light)];
+}
+
+/* Input density */
+.voxel-editable__input--density-default { @apply h-9 py-3; }
+.voxel-editable__input--density-dense { @apply h-7 py-2; }
+
+/* Input size (override density for backwards compat) */
+.voxel-editable__input--size-small { @apply text-[11px]; }
+.voxel-editable__input--size-default { @apply text-sm; }
+.voxel-editable__input--size-large { @apply text-base; }
+
+/* Input focus effects */
+.voxel-editable__input--focus-border:focus-within {
+  @apply border-[var(--color-primary-base)]/70;
+}
+
+.voxel-editable__input--variant-underlined.voxel-editable__input--focus-border:focus-within {
+  @apply border-b-[var(--color-primary-base)]/70;
+}
+
+.voxel-editable__input--focus-elevation:focus-within {
+  box-shadow: 0 4px 6px -1px color-mix(in srgb, var(--color-primary-base) 12%, transparent);
+}
+
+.voxel-editable__input--focus-glow:focus-within {
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-primary-base) 12%, transparent);
+}
+
+/* Input error */
+.voxel-editable__input--error.voxel-editable__input--focus-border:focus-within {
+  @apply border-[var(--color-error-base)];
+}
+
+.voxel-editable__input--error.voxel-editable__input--variant-underlined.voxel-editable__input--focus-border:focus-within {
+  @apply border-b-[var(--color-error-base)];
+}
+
+.voxel-editable__input--error.voxel-editable__input--focus-elevation:focus-within {
+  box-shadow: 0 4px 6px -1px color-mix(in srgb, var(--color-error-base) 12%, transparent);
+}
+
+.voxel-editable__input--error.voxel-editable__input--focus-glow:focus-within {
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-error-base) 12%, transparent);
+}
 
 .voxel-editable__actions {
   @apply inline-flex items-center gap-1;

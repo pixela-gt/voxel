@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import {
   NumberFieldRoot,
   NumberFieldInput,
@@ -7,6 +7,8 @@ import {
   NumberFieldDecrement,
 } from 'reka-ui'
 import type { NumberFieldProps } from './NumberField.types'
+import type { FormFieldContext } from '../FormField/FormField.types'
+import { FORM_FIELD_KEY } from '../FormField/FormField.types'
 import { Icon } from '../Icon'
 
 const props = withDefaults(defineProps<NumberFieldProps>(), {
@@ -15,13 +17,34 @@ const props = withDefaults(defineProps<NumberFieldProps>(), {
   step: 1,
   disabled: false,
   size: 'default',
+  variant: 'outlined',
+  density: 'default',
+  focusEffect: 'border',
 } as const)
 
 const emit = defineEmits<{
   'update:modelValue': [value: number]
 }>()
 
-const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--size-${props.size}`])
+const formContext = inject<FormFieldContext | null>(FORM_FIELD_KEY, null)
+
+const effectiveError = computed(() => props.errorMessage ?? formContext?.errorMessage)
+const effectiveId = computed(() => formContext?.id)
+const describedBy = computed(() => {
+  if (!formContext?.id) return undefined
+  return effectiveError.value ? `${formContext.id}-error` : `${formContext.id}-hint`
+})
+
+const rootClass = computed(() => [
+  'voxel-number-field',
+  `voxel-number-field--variant-${props.variant}`,
+  `voxel-number-field--density-${props.density}`,
+  `voxel-number-field--focus-${props.focusEffect}`,
+  {
+    'voxel-number-field--error': !!effectiveError.value,
+  },
+  props.class,
+])
 </script>
 
 <template>
@@ -59,7 +82,13 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--siz
           </svg>
         </slot>
       </NumberFieldDecrement>
-      <NumberFieldInput :placeholder="props.placeholder" class="voxel-number-field__input" />
+      <NumberFieldInput
+        :id="effectiveId"
+        :placeholder="props.placeholder"
+        :aria-invalid="!!effectiveError"
+        :aria-describedby="describedBy"
+        class="voxel-number-field__input"
+      />
       <NumberFieldIncrement
         class="voxel-number-field__button voxel-number-field__button--increment"
       >
@@ -101,55 +130,119 @@ const rootClass = computed(() => ['voxel-number-field', `voxel-number-field--siz
   @apply inline-flex items-center;
 }
 
+/* Buttons — Outlined */
 .voxel-number-field__button {
-  @apply flex items-center justify-center
-    bg-[var(--color-surface-base)]
-    border border-[var(--color-grey-600)]
-    text-[var(--color-text-secondary)]
-    transition-colors duration-[var(--transition-fast)]
-    hover:bg-[var(--color-grey-100)]
-    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2
+  @apply flex items-center justify-center font-sans transition-all duration-[var(--transition-normal)] focus-visible:outline-none;
+}
+
+.voxel-number-field--variant-outlined .voxel-number-field__button {
+  @apply bg-[var(--color-surface-background)] border-2 border-[var(--color-grey-200)] text-[var(--color-text-secondary)]
+    hover:bg-[var(--color-grey-100)] disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.voxel-number-field--variant-outlined .voxel-number-field__button--decrement {
+  @apply rounded-l-[var(--rounded-2xl)] border-r-0;
+}
+
+.voxel-number-field--variant-outlined .voxel-number-field__button--increment {
+  @apply rounded-r-[var(--rounded-2xl)] border-l-0;
+}
+
+/* Buttons — Underlined */
+.voxel-number-field--variant-underlined .voxel-number-field__button {
+  @apply bg-transparent border-0 text-[var(--color-text-secondary)]
+    hover:bg-[var(--color-grey-100)] disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Buttons — Ghost */
+.voxel-number-field--variant-ghost .voxel-number-field__button {
+  @apply bg-transparent border-2 border-transparent text-[var(--color-text-secondary)]
+    hover:bg-[var(--color-surface-light)] rounded-[var(--rounded-2xl)]
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-number-field--size-small .voxel-number-field__button {
-  @apply size-7 text-[11px];
-}
-.voxel-number-field--size-default .voxel-number-field__button {
-  @apply size-9 text-sm;
-}
-.voxel-number-field--size-large .voxel-number-field__button {
-  @apply size-11 text-base;
-}
-
-.voxel-number-field__button--decrement {
-  @apply rounded-l-lg border-r-0;
-}
-
-.voxel-number-field__button--increment {
-  @apply rounded-r-lg border-l-0;
-}
-
+/* Button icon */
 .voxel-number-field__button-icon {
   @apply size-[14px];
 }
 
+/* Input — Outlined */
 .voxel-number-field__input {
-  @apply font-sans text-center
-    bg-[var(--color-surface-base)]
-    border-y border-[var(--color-grey-600)]
+  @apply font-sans text-center bg-transparent outline-none border-0
     text-[var(--color-text-primary)]
-    focus:outline-none focus:border-[var(--color-primary-base)] focus:ring-2 focus:ring-[var(--color-primary-base)]
+    placeholder:text-[var(--color-text-muted)]
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-number-field--size-small .voxel-number-field__input {
-  @apply w-12 h-7 text-[11px];
+.voxel-number-field--variant-outlined .voxel-number-field__input {
+  @apply bg-[var(--color-surface-background)] border-y-2 border-[var(--color-grey-200)]
+    rounded-none;
 }
-.voxel-number-field--size-default .voxel-number-field__input {
+
+.voxel-number-field--variant-underlined .voxel-number-field__input {
+  @apply bg-transparent border-y-2 border-[var(--color-grey-300)] rounded-none;
+}
+
+.voxel-number-field--variant-ghost .voxel-number-field__input {
+  @apply bg-transparent border-2 border-transparent rounded-none;
+}
+
+/* Density — button size + input size */
+.voxel-number-field--density-default .voxel-number-field__button {
+  @apply size-9 text-sm;
+}
+
+.voxel-number-field--density-dense .voxel-number-field__button {
+  @apply size-7 text-[11px];
+}
+
+.voxel-number-field--density-default .voxel-number-field__input {
   @apply w-16 h-9 text-sm;
 }
-.voxel-number-field--size-large .voxel-number-field__input {
-  @apply w-20 h-11 text-base;
+
+.voxel-number-field--density-dense .voxel-number-field__input {
+  @apply w-12 h-7 text-[11px];
+}
+
+/* Focus effects — border */
+.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
+.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+  @apply border-[var(--color-primary-base)]/70;
+}
+
+.voxel-number-field--variant-underlined.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
+.voxel-number-field--variant-underlined.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+  @apply border-b-[var(--color-primary-base)]/70;
+}
+
+/* Focus effects — elevation */
+.voxel-number-field--focus-elevation:focus-within {
+  box-shadow: 0 4px 6px -1px color-mix(in srgb, var(--color-primary-base) 12%, transparent);
+}
+
+/* Focus effects — glow */
+.voxel-number-field--focus-glow:focus-within {
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-primary-base) 12%, transparent);
+}
+
+/* Error — border */
+.voxel-number-field--error.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
+.voxel-number-field--error.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+  @apply border-[var(--color-error-base)];
+}
+
+.voxel-number-field--error.voxel-number-field--variant-underlined.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
+.voxel-number-field--error.voxel-number-field--variant-underlined.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+  @apply border-b-[var(--color-error-base)];
+}
+
+/* Error — elevation */
+.voxel-number-field--error.voxel-number-field--focus-elevation:focus-within {
+  box-shadow: 0 4px 6px -1px color-mix(in srgb, var(--color-error-base) 12%, transparent);
+}
+
+/* Error — glow */
+.voxel-number-field--error.voxel-number-field--focus-glow:focus-within {
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-error-base) 12%, transparent);
 }
 </style>
