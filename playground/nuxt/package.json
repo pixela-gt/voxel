@@ -9,8 +9,9 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
+    "@pixela-gt/voxel-ui": "workspace:*",
+    "@pixela-gt/voxel-ui-nuxt": "workspace:*",
     "nuxt": "^4.4.8",
-    "vue": "^3.5.0",
-    "@pixela-gt/voxel-ui": "workspace:*"
+    "vue": "^3.5.0"
   }
 }

@@ -1,0 +1,37 @@
+{
+  "name": "@pixela-gt/voxel-ui-nuxt",
+  "version": "0.1.0",
+  "description": "Nuxt module for @pixela-gt/voxel-ui",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "files": ["src"],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@pixela-gt/voxel-ui": ">=0.1.0"
+  },
+  "devDependencies": {
+    "@nuxt/schema": "^4.0.0",
+    "@pixela-gt/voxel-ui": "workspace:*",
+    "nuxt": "^4.0.0",
+    "typescript": "^6.0.0"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "vue",
+    "components",
+    "design-system",
+    "voxel-ui"
+  ],
+  "author": "pixela-gt",
+  "license": "MIT"
+}
