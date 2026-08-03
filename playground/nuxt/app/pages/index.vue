@@ -24,7 +24,7 @@ function toggleTheme() {
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
       <div>
-        <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Button</VxText>
+        <VxText variant="headline-base" style="margin-bottom: 0.5rem;">Button</VxText>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
           <VxButton>Default</VxButton>
           <VxButton variant="outline">Outline</VxButton>
@@ -45,7 +45,7 @@ function toggleTheme() {
       </div>
 
       <div>
-        <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Badge</VxText>
+        <VxText variant="headline-base" style="margin-bottom: 0.5rem;">Badge</VxText>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
           <VxBadge>Default</VxBadge>
           <VxBadge variant="success">Success</VxBadge>
@@ -60,7 +60,7 @@ function toggleTheme() {
       </div>
 
       <div>
-        <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Form Controls</VxText>
+        <VxText variant="headline-base" style="margin-bottom: 0.5rem;">Form Controls</VxText>
         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
           <VxCheckbox v-model="checked" label="Accept terms and conditions" />
           <VxSwitch v-model="switched" label="Enable notifications" />
@@ -68,7 +68,7 @@ function toggleTheme() {
       </div>
 
       <div>
-        <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Card</VxText>
+        <VxText variant="headline-base" style="margin-bottom: 0.5rem;">Card</VxText>
         <VxCard elevation="md" style="padding: 1rem;">
           <VxText variant="title-md">Card Title</VxText>
           <VxText variant="body-md" style="margin-top: 0.25rem;">
@@ -78,7 +78,7 @@ function toggleTheme() {
       </div>
 
       <div>
-        <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Tabs</VxText>
+        <VxText variant="headline-base" style="margin-bottom: 0.5rem;">Tabs</VxText>
         <VxTabs v-model="tab">
           <VxTabsList>
             <VxTabsTrigger value="one">One</VxTabsTrigger>
@@ -98,7 +98,7 @@ function toggleTheme() {
       </div>
 
       <div>
-        <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Avatar</VxText>
+        <VxText variant="headline-base" style="margin-bottom: 0.5rem;">Avatar</VxText>
         <div style="display: flex; gap: 0.5rem; align-items: center;">
           <VxAvatar style="primary" size="sm">JD</VxAvatar>
           <VxAvatar style="secondary" size="md">AB</VxAvatar>
@@ -109,14 +109,14 @@ function toggleTheme() {
 
     <VxSeparator style="margin: 1.5rem 0;" />
 
-    <VxText variant="headline-md" style="margin-bottom: 0.5rem;">Text Variants</VxText>
+    <VxText variant="headline-base" style="margin-bottom: 0.5rem;">Text Variants</VxText>
     <div style="display: flex; flex-direction: column; gap: 0.25rem;">
       <VxText variant="display-lg">Display Large</VxText>
-      <VxText variant="headline-md">Headline Medium</VxText>
+      <VxText variant="headline-base">Headline Medium</VxText>
       <VxText variant="title-lg">Title Large</VxText>
-      <VxText variant="title-md">Title Medium</VxText>
+      <VxText variant="title-base">Title Medium</VxText>
       <VxText variant="body-lg">Body Large</VxText>
-      <VxText variant="body-md">Body Medium</VxText>
+      <VxText variant="body-base">Body Medium</VxText>
       <VxText variant="body-sm">Body Small</VxText>
     </div>
   </div>

@@ -49,7 +49,10 @@ const effectiveCount = computed(() => Math.max(1, props.count))
 
 <style scoped>
 @keyframes voxel-pulse {
-  0%, 100% { opacity: 0.5; }
+  0%,
+    100% {
+      opacity: 0.8;
+    }
   50% { opacity: 0.2; }
 }
 
@@ -81,7 +84,7 @@ const effectiveCount = computed(() => Math.max(1, props.count))
 @media (prefers-reduced-motion: reduce) {
   .voxel-skeleton {
     animation: none;
-    opacity: 0.4;
+    opacity: 0.8;
   }
 }
 </style>
