@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-29T17:51:45.294Z",
+  "generated": "2026-07-31T01:15:03.566Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -520,6 +520,25 @@
           "required": false,
           "default": "default"
         },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
         "items": {
           "type": "(ComboboxItem | ComboboxGroup)[]",
           "required": false
@@ -596,11 +615,68 @@
     },
     "DateField": {
       "name": "DateField",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "DateField component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "Date | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "Date | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "Date",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "readonly": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
+      "events": [
+        "update"
+      ],
       "rekaUi": [],
       "import": "import { DateField } from '@pixela-gt/voxel-ui'"
     },
@@ -793,6 +869,25 @@
           "type": "'small' | 'default' | 'large'",
           "required": false,
           "default": "default"
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
         },
         "class": {
           "type": "ClassValue",
@@ -1475,6 +1570,25 @@
           "required": false,
           "default": "default"
         },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
         "placeholder": {
           "type": "string",
           "required": false
@@ -1485,6 +1599,10 @@
         },
         "incrementIcon": {
           "type": "IconValue",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
           "required": false
         }
       },
@@ -1597,6 +1715,34 @@
           "type": "boolean",
           "required": false,
           "default": false
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
         },
         "class": {
           "type": "ClassValue",
@@ -1878,6 +2024,25 @@
           "type": "'small' | 'default' | 'large'",
           "required": false,
           "default": "default"
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
         },
         "items": {
           "type": "(SelectItem | SelectGroup)[]",
@@ -2224,6 +2389,25 @@
           "required": false,
           "default": "default"
         },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
@@ -2337,19 +2521,81 @@
     },
     "TimeField": {
       "name": "TimeField",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "TimeField component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "any | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "any | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "any",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "readonly": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
+      "events": [
+        "update"
+      ],
       "rekaUi": [],
       "import": "import { TimeField } from '@pixela-gt/voxel-ui'"
     },
     "TimeRangeField": {
       "name": "TimeRangeField",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "TimeRangeField component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "{ start: any | null; end: any | null",
+          "required": false
+        }
+      },
       "slots": [],
       "events": [],
       "rekaUi": [],
@@ -2842,18 +3088,21 @@
         "--color-secondary-base": "#4eb6c2",
         "--color-secondary-darken-1": "#0297a8",
         "--color-secondary-lighten-1": "#81cbd4",
-        "--color-info-base": "#6969ff",
-        "--color-info-darken-1": "#4343ff",
-        "--color-info-lighten-1": "#aab3ff",
+        "--color-success-base": "#22c55e",
+        "--color-success-darken-1": "#16a34a",
+        "--color-success-lighten-1": "#86efac",
+        "--color-info-base": "#3b82f6",
+        "--color-info-darken-1": "#2563eb",
+        "--color-info-lighten-1": "#93c5fd",
         "--color-error-base": "#fa555d",
         "--color-error-darken-1": "#f92a34",
         "--color-error-lighten-1": "#fb7f85",
         "--color-warning-base": "#fac935",
         "--color-warning-darken-1": "#f9bc03",
         "--color-warning-lighten-1": "#fbd768",
-        "--color-success-base": "#4eb6c2",
-        "--color-success-darken-1": "#0297a8",
-        "--color-success-lighten-1": "#81cbd4"
+        "--color-neutral-base": "#9ca3af",
+        "--color-neutral-darken-1": "#6b7280",
+        "--color-neutral-lighten-1": "#d1d5db"
       }
     },
     {
@@ -2882,6 +3131,11 @@
         "--color-text-inverse": "#ffffff",
         "--color-text-on-primary": "var(--color-berry-lipstick-50)",
         "--color-text-on-secondary": "var(--color-berry-lipstick-50)",
+        "--color-text-on-success": "#ffffff",
+        "--color-text-on-info": "#ffffff",
+        "--color-text-on-error": "#ffffff",
+        "--color-text-on-warning": "var(--color-grey-950)",
+        "--color-text-on-neutral": "var(--color-grey-950)",
         "--color-text-muted": "var(--color-grey-600)"
       }
     },

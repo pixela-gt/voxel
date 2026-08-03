@@ -104,6 +104,26 @@ const classes = computed(() => [
   @apply bg-[var(--color-secondary-base)] text-[var(--color-text-on-secondary)];
 }
 
+.voxel-button--color-success {
+  @apply bg-[var(--color-success-base)] text-[var(--color-text-on-success)];
+}
+
+.voxel-button--color-info {
+  @apply bg-[var(--color-info-base)] text-[var(--color-text-on-info)];
+}
+
+.voxel-button--color-error {
+  @apply bg-[var(--color-error-base)] text-[var(--color-text-on-error)];
+}
+
+.voxel-button--color-warning {
+  @apply bg-[var(--color-warning-base)] text-[var(--color-text-on-warning)];
+}
+
+.voxel-button--color-neutral {
+  @apply bg-[var(--color-neutral-base)] text-[var(--color-text-on-neutral)];
+}
+
 /* Styles */
 .voxel-button--style-outline {
   @apply border bg-transparent;
@@ -114,6 +134,21 @@ const classes = computed(() => [
 .voxel-button--style-outline.voxel-button--color-secondary {
   @apply border-[var(--color-secondary-base)] text-[var(--color-secondary-base)];
 }
+.voxel-button--style-outline.voxel-button--color-success {
+  @apply border-[var(--color-success-base)] text-[var(--color-success-base)];
+}
+.voxel-button--style-outline.voxel-button--color-info {
+  @apply border-[var(--color-info-base)] text-[var(--color-info-base)];
+}
+.voxel-button--style-outline.voxel-button--color-error {
+  @apply border-[var(--color-error-base)] text-[var(--color-error-base)];
+}
+.voxel-button--style-outline.voxel-button--color-warning {
+  @apply border-[var(--color-warning-base)] text-[var(--color-warning-base)];
+}
+.voxel-button--style-outline.voxel-button--color-neutral {
+  @apply border-[var(--color-neutral-base)] text-[var(--color-neutral-base)];
+}
 .voxel-button--style-tonal {
   @apply bg-[var(--color-primary-lighten-1)]/12;
 }
@@ -123,6 +158,21 @@ const classes = computed(() => [
 .voxel-button--style-tonal.voxel-button--color-secondary {
   @apply bg-[var(--color-secondary-lighten-1)]/12 text-[var(--color-secondary-base)];
 }
+.voxel-button--style-tonal.voxel-button--color-success {
+  @apply bg-[var(--color-success-lighten-1)]/12 text-[var(--color-success-base)];
+}
+.voxel-button--style-tonal.voxel-button--color-info {
+  @apply bg-[var(--color-info-lighten-1)]/12 text-[var(--color-info-base)];
+}
+.voxel-button--style-tonal.voxel-button--color-error {
+  @apply bg-[var(--color-error-lighten-1)]/12 text-[var(--color-error-base)];
+}
+.voxel-button--style-tonal.voxel-button--color-warning {
+  @apply bg-[var(--color-warning-lighten-1)]/12 text-[var(--color-warning-base)];
+}
+.voxel-button--style-tonal.voxel-button--color-neutral {
+  @apply bg-[var(--color-neutral-lighten-1)]/12 text-[var(--color-neutral-base)];
+}
 .voxel-button--style-text {
   @apply bg-transparent;
 }
@@ -131,6 +181,21 @@ const classes = computed(() => [
 }
 .voxel-button--style-text.voxel-button--color-secondary {
   @apply text-[var(--color-secondary-base)];
+}
+.voxel-button--style-text.voxel-button--color-success {
+  @apply text-[var(--color-success-base)];
+}
+.voxel-button--style-text.voxel-button--color-info {
+  @apply text-[var(--color-info-base)];
+}
+.voxel-button--style-text.voxel-button--color-error {
+  @apply text-[var(--color-error-base)];
+}
+.voxel-button--style-text.voxel-button--color-warning {
+  @apply text-[var(--color-warning-base)];
+}
+.voxel-button--style-text.voxel-button--color-neutral {
+  @apply text-[var(--color-neutral-base)];
 }
 /* Icon sizing per button size */
 .voxel-button--size-small .voxel-button__icon {

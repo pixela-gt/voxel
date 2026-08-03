@@ -105,9 +105,13 @@
     --color-secondary-darken-1: #0297a8;
     --color-secondary-lighten-1: #81cbd4;
 
-    --color-info-base: #6969ff;
-    --color-info-darken-1: #4343ff;
-    --color-info-lighten-1: #aab3ff;
+    --color-success-base: #22c55e;
+    --color-success-darken-1: #16a34a;
+    --color-success-lighten-1: #86efac;
+
+    --color-info-base: #3b82f6;
+    --color-info-darken-1: #2563eb;
+    --color-info-lighten-1: #93c5fd;
 
     --color-error-base: #fa555d;
     --color-error-darken-1: #f92a34;
@@ -117,9 +121,9 @@
     --color-warning-darken-1: #f9bc03;
     --color-warning-lighten-1: #fbd768;
 
-    --color-success-base: #4eb6c2;
-    --color-success-darken-1: #0297a8;
-    --color-success-lighten-1: #81cbd4;
+    --color-neutral-base: #9ca3af;
+    --color-neutral-darken-1: #6b7280;
+    --color-neutral-lighten-1: #d1d5db;
 
     /* Surface Colors */
     --color-surface-background: #f8f8f8;
@@ -139,6 +143,11 @@
     --color-text-inverse: #ffffff;
     --color-text-on-primary: var(--color-berry-lipstick-50);
     --color-text-on-secondary: var(--color-berry-lipstick-50);
+    --color-text-on-success: #ffffff;
+    --color-text-on-info: #ffffff;
+    --color-text-on-error: #ffffff;
+    --color-text-on-warning: var(--color-grey-950);
+    --color-text-on-neutral: var(--color-grey-950);
     --color-text-muted: var(--color-grey-600);
 
     /* Font */
@@ -207,4 +216,31 @@
   --color-text-primary: #fafafa;
   --color-text-secondary: #e5e5e5;
   --color-text-inverse: #1e293b;
+
+  /* Semantic Colors - Dark Mode */
+  --color-success-base: #4ade80;
+  --color-success-darken-1: #22c55e;
+  --color-success-lighten-1: #bbf7d0;
+
+  --color-info-base: #60a5fa;
+  --color-info-darken-1: #3b82f6;
+  --color-info-lighten-1: #bfdbfe;
+
+  --color-error-base: #f87171;
+  --color-error-darken-1: #ef4444;
+  --color-error-lighten-1: #fecaca;
+
+  --color-warning-base: #facc15;
+  --color-warning-darken-1: #eab308;
+  --color-warning-lighten-1: #fef08a;
+
+  --color-neutral-base: #a9a9a9;
+  --color-neutral-darken-1: #9ca3af;
+  --color-neutral-lighten-1: #e5e7eb;
+
+  --color-text-on-success: #ffffff;
+  --color-text-on-info: #ffffff;
+  --color-text-on-error: #ffffff;
+  --color-text-on-warning: var(--color-grey-950);
+  --color-text-on-neutral: var(--color-grey-950);
 }

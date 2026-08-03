@@ -97,11 +97,41 @@ function handleClick(event: MouseEvent) {
 .voxel-icon-button--color-secondary.voxel-icon-button--style-default {
   @apply bg-[var(--color-secondary-base)] text-[var(--color-text-on-secondary)];
 }
+.voxel-icon-button--color-success.voxel-icon-button--style-default {
+  @apply bg-[var(--color-success-base)] text-[var(--color-text-on-success)];
+}
+.voxel-icon-button--color-info.voxel-icon-button--style-default {
+  @apply bg-[var(--color-info-base)] text-[var(--color-text-on-info)];
+}
+.voxel-icon-button--color-error.voxel-icon-button--style-default {
+  @apply bg-[var(--color-error-base)] text-[var(--color-text-on-error)];
+}
+.voxel-icon-button--color-warning.voxel-icon-button--style-default {
+  @apply bg-[var(--color-warning-base)] text-[var(--color-text-on-warning)];
+}
+.voxel-icon-button--color-neutral.voxel-icon-button--style-default {
+  @apply bg-[var(--color-neutral-base)] text-[var(--color-text-on-neutral)];
+}
 .voxel-icon-button--color-primary.voxel-icon-button--style-outline {
   @apply border border-[var(--color-primary-base)] bg-transparent text-[var(--color-primary-base)];
 }
 .voxel-icon-button--color-secondary.voxel-icon-button--style-outline {
   @apply border border-[var(--color-secondary-base)] bg-transparent text-[var(--color-secondary-base)];
+}
+.voxel-icon-button--color-success.voxel-icon-button--style-outline {
+  @apply border border-[var(--color-success-base)] bg-transparent text-[var(--color-success-base)];
+}
+.voxel-icon-button--color-info.voxel-icon-button--style-outline {
+  @apply border border-[var(--color-info-base)] bg-transparent text-[var(--color-info-base)];
+}
+.voxel-icon-button--color-error.voxel-icon-button--style-outline {
+  @apply border border-[var(--color-error-base)] bg-transparent text-[var(--color-error-base)];
+}
+.voxel-icon-button--color-warning.voxel-icon-button--style-outline {
+  @apply border border-[var(--color-warning-base)] bg-transparent text-[var(--color-warning-base)];
+}
+.voxel-icon-button--color-neutral.voxel-icon-button--style-outline {
+  @apply border border-[var(--color-neutral-base)] bg-transparent text-[var(--color-neutral-base)];
 }
 .voxel-icon-button--color-primary.voxel-icon-button--style-tonal {
   @apply bg-[var(--color-primary-lighten-1)]/12 text-[var(--color-primary-base)];
@@ -109,11 +139,41 @@ function handleClick(event: MouseEvent) {
 .voxel-icon-button--color-secondary.voxel-icon-button--style-tonal {
   @apply bg-[var(--color-secondary-lighten-1)]/12 text-[var(--color-secondary-base)];
 }
+.voxel-icon-button--color-success.voxel-icon-button--style-tonal {
+  @apply bg-[var(--color-success-lighten-1)]/12 text-[var(--color-success-base)];
+}
+.voxel-icon-button--color-info.voxel-icon-button--style-tonal {
+  @apply bg-[var(--color-info-lighten-1)]/12 text-[var(--color-info-base)];
+}
+.voxel-icon-button--color-error.voxel-icon-button--style-tonal {
+  @apply bg-[var(--color-error-lighten-1)]/12 text-[var(--color-error-base)];
+}
+.voxel-icon-button--color-warning.voxel-icon-button--style-tonal {
+  @apply bg-[var(--color-warning-lighten-1)]/12 text-[var(--color-warning-base)];
+}
+.voxel-icon-button--color-neutral.voxel-icon-button--style-tonal {
+  @apply bg-[var(--color-neutral-lighten-1)]/12 text-[var(--color-neutral-base)];
+}
 .voxel-icon-button--color-primary.voxel-icon-button--style-text {
   @apply text-[var(--color-primary-base)] bg-transparent;
 }
 .voxel-icon-button--color-secondary.voxel-icon-button--style-text {
   @apply text-[var(--color-secondary-base)] bg-transparent;
+}
+.voxel-icon-button--color-success.voxel-icon-button--style-text {
+  @apply text-[var(--color-success-base)] bg-transparent;
+}
+.voxel-icon-button--color-info.voxel-icon-button--style-text {
+  @apply text-[var(--color-info-base)] bg-transparent;
+}
+.voxel-icon-button--color-error.voxel-icon-button--style-text {
+  @apply text-[var(--color-error-base)] bg-transparent;
+}
+.voxel-icon-button--color-warning.voxel-icon-button--style-text {
+  @apply text-[var(--color-warning-base)] bg-transparent;
+}
+.voxel-icon-button--color-neutral.voxel-icon-button--style-text {
+  @apply text-[var(--color-neutral-base)] bg-transparent;
 }
 
 /* Elements */

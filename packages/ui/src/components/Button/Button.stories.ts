@@ -14,7 +14,7 @@ const meta: Meta<typeof Button> = {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'success', 'info', 'error', 'warning', 'neutral'],
     },
     size: {
       control: 'select',
@@ -45,6 +45,11 @@ export const Outline: Story = { args: { variant: 'outline' }, render: render('Ou
 export const Tonal: Story = { args: { variant: 'tonal' }, render: render('Tonal') }
 export const Text: Story = { args: { variant: 'text' }, render: render('Text') }
 export const Secondary: Story = { args: { color: 'secondary' }, render: render('Secondary') }
+export const Success: Story = { args: { color: 'success' }, render: render('Success') }
+export const Info: Story = { args: { color: 'info' }, render: render('Info') }
+export const Error: Story = { args: { color: 'error' }, render: render('Error') }
+export const Warning: Story = { args: { color: 'warning' }, render: render('Warning') }
+export const Neutral: Story = { args: { color: 'neutral' }, render: render('Neutral') }
 export const Small: Story = { args: { size: 'small' }, render: render('Small') }
 export const Large: Story = { args: { size: 'large' }, render: render('Large') }
 export const Disabled: Story = { args: { disabled: true }, render: render('Disabled') }

@@ -4,7 +4,7 @@ import type { Component } from 'vue'
 
 export type ComponentSize = 'small' | 'default' | 'large'
 
-export type AccentColor = 'primary' | 'secondary'
+export type AccentColor = 'primary' | 'secondary' | 'success' | 'info' | 'error' | 'warning' | 'neutral'
 
 export type Density = 'default' | 'dense'
 

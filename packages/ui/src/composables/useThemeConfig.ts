@@ -1,10 +1,11 @@
 export interface ThemeColors {
   primary?: string
   secondary?: string
+  success?: string
   info?: string
   error?: string
   warning?: string
-  success?: string
+  neutral?: string
 }
 
 export interface ThemeConfig {
@@ -15,10 +16,11 @@ export interface ThemeConfig {
 const COLOR_KEYS: Record<keyof ThemeColors, string> = {
   primary: 'primary',
   secondary: 'secondary',
+  success: 'success',
   info: 'info',
   error: 'error',
   warning: 'warning',
-  success: 'success',
+  neutral: 'neutral',
 }
 
 function generateColorScale(base: string): { darken: string; lighten: string } {
