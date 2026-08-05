@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-07-31T01:15:03.566Z",
+  "generated": "2026-08-05T18:48:28.702Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -2099,6 +2099,84 @@
         "Separator"
       ],
       "import": "import { Separator } from '@pixela-gt/voxel-ui'"
+    },
+    "Sidebar": {
+      "name": "Sidebar",
+      "description": "Data types for the items array",
+      "category": "misc",
+      "props": {
+        "items": {
+          "type": "SidebarNavItem[]",
+          "required": false
+        },
+        "collapsed": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "visible": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "breakpoint": {
+          "type": "string",
+          "required": false,
+          "default": "768px"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false,
+          "default": "Main navigation"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "badge": {
+          "type": "string | number",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "sub": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "title",
+        "bottom"
+      ],
+      "events": [
+        "update",
+        "update",
+        "close"
+      ],
+      "rekaUi": [],
+      "import": "import { Sidebar } from '@pixela-gt/voxel-ui'"
     },
     "Skeleton": {
       "name": "Skeleton",

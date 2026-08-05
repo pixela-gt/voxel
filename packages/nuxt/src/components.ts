@@ -20,6 +20,9 @@ export const componentNames = [
   'VxCard',
   'VxSeparator',
   'VxAppShell',
+  'VxSidebar',
+  'VxSidebarItem',
+  'VxSidebarItemGroup',
 
   // Overlays
   'VxDropdownMenu',

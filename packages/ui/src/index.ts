@@ -156,6 +156,14 @@ export type {
   NavigationMenuItem as VXNavigationMenuItem,
 } from './components/NavigationMenu/NavigationMenu.types'
 export type {
+  SidebarProps as VXSidebarProps,
+  SidebarItemData as VXSidebarItemData,
+  SidebarGroupData as VXSidebarGroupData,
+  SidebarNavItem as VXSidebarNavItem,
+  SidebarItemProps as VXSidebarItemProps,
+  SidebarItemGroupProps as VXSidebarItemGroupProps,
+} from './components/Sidebar/Sidebar.types'
+export type {
   TreeProps as VXTreeProps,
   TreeNode as VXTreeNode,
 } from './components/Tree/Tree.types'
@@ -239,6 +247,11 @@ export { Pagination as VXPagination } from './components/Pagination'
 export { ContextMenu as VXContextMenu } from './components/ContextMenu'
 export { Menubar as VXMenubar } from './components/Menubar'
 export { NavigationMenu as VXNavigationMenu } from './components/NavigationMenu'
+export {
+  Sidebar as VXSidebar,
+  SidebarItem as VXSidebarItem,
+  SidebarItemGroup as VXSidebarItemGroup,
+} from './components/Sidebar'
 export { Tree as VXTree } from './components/Tree'
 export { DateField as VXDateField } from './components/DateField'
 export { TimeField as VXTimeField } from './components/TimeField'
