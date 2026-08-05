@@ -5,6 +5,8 @@ import { isSidebarGroup, isSidebarItem, SIDEBAR_KEY } from './Sidebar.types'
 import SidebarItem from './SidebarItem.vue'
 import SidebarItemGroup from './SidebarItemGroup.vue'
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsed: false,
   visible: true,
@@ -56,64 +58,71 @@ function handleBackdropClick() {
 </script>
 
 <template>
-  <nav
-    :class="rootClass"
-    :aria-label="props.ariaLabel"
-  >
-    <div v-if="$slots.title" class="vx-sidebar__title">
-      <slot name="title" />
-    </div>
+  <div v-bind="$attrs" class="vx-sidebar-root">
+    <nav
+      :class="rootClass"
+      :aria-label="props.ariaLabel"
+    >
+      <div v-if="$slots.title" class="vx-sidebar__title">
+        <slot name="title" />
+      </div>
 
-    <div class="vx-sidebar__nav">
-      <template v-for="(item, idx) in props.items" :key="idx">
-        <SidebarItem
-          v-if="isSidebarItem(item)"
-          :icon="item.icon"
-          :label="item.label"
-          :href="item.href || item.to"
-          :badge="item.badge"
-          :active="item.active"
-          :disabled="item.disabled"
-          :sub="item.sub"
-        />
-        <SidebarItemGroup
-          v-else-if="isSidebarGroup(item)"
-          :icon="item.icon"
-          :label="item.label"
-          :defaultOpen="item.defaultOpen"
-          :disabled="item.disabled"
-        >
+      <div class="vx-sidebar__nav">
+        <template v-for="(item, idx) in props.items" :key="idx">
           <SidebarItem
-            v-for="(sub, subIdx) in item.items"
-            :key="subIdx"
-            :icon="sub.icon"
-            :label="sub.label"
-            :href="sub.href || sub.to"
-            :badge="sub.badge"
-            :active="sub.active"
-            :disabled="sub.disabled"
-            sub
+            v-if="isSidebarItem(item)"
+            :icon="item.icon"
+            :label="item.label"
+            :href="item.href || item.to"
+            :badge="item.badge"
+            :active="item.active"
+            :disabled="item.disabled"
+            :sub="item.sub"
           />
-        </SidebarItemGroup>
-      </template>
-      <slot />
-    </div>
+          <SidebarItemGroup
+            v-else-if="isSidebarGroup(item)"
+            :icon="item.icon"
+            :label="item.label"
+            :defaultOpen="item.defaultOpen"
+            :disabled="item.disabled"
+          >
+            <SidebarItem
+              v-for="(sub, subIdx) in item.items"
+              :key="subIdx"
+              :icon="sub.icon"
+              :label="sub.label"
+              :href="sub.href || sub.to"
+              :badge="sub.badge"
+              :active="sub.active"
+              :disabled="sub.disabled"
+              sub
+            />
+          </SidebarItemGroup>
+        </template>
+        <slot />
+      </div>
 
-    <div class="vx-sidebar__bottom">
-      <slot name="bottom" />
-    </div>
-  </nav>
+      <div class="vx-sidebar__bottom">
+        <slot name="bottom" />
+      </div>
+    </nav>
 
-  <div
-    v-if="isMobile"
-    class="vx-sidebar__backdrop"
-    :class="{ 'vx-sidebar__backdrop--hidden': !props.visible }"
-    aria-hidden="true"
-    @click="handleBackdropClick"
-  />
+    <div
+      v-if="isMobile"
+      class="vx-sidebar__backdrop"
+      :class="{ 'vx-sidebar__backdrop--hidden': !props.visible }"
+      aria-hidden="true"
+      @click="handleBackdropClick"
+    />
+  </div>
 </template>
 
 <style scoped>
+.vx-sidebar-root {
+  position: inherit;
+  z-index: inherit;
+}
+
 .vx-sidebar {
   @apply flex flex-col h-full transition-all duration-300 ease-out;
   width: var(--sidebar-width, 255px);
@@ -126,7 +135,7 @@ function handleBackdropClick() {
 }
 
 .vx-sidebar--mobile {
-  @apply fixed inset-y-0 left-0 z-50;
+  @apply absolute inset-y-0 left-0 z-50;
   width: var(--sidebar-width, 255px);
 }
 
@@ -151,7 +160,7 @@ function handleBackdropClick() {
 }
 
 .vx-sidebar__backdrop {
-  @apply fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity;
+  @apply absolute inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity;
 }
 
 .vx-sidebar__backdrop--hidden {
