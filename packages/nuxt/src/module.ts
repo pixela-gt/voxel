@@ -5,6 +5,7 @@ import { componentNames } from './components'
 export interface VoxelOptions {
   prefix: string
   components: boolean
+  theme?: string
 }
 
 const module: NuxtModule<VoxelOptions> = defineNuxtModule<VoxelOptions>({
@@ -16,6 +17,7 @@ const module: NuxtModule<VoxelOptions> = defineNuxtModule<VoxelOptions>({
   defaults: {
     prefix: '',
     components: true,
+    theme: undefined,
   },
   setup(options, nuxt) {
     // Register components
@@ -39,9 +41,12 @@ const module: NuxtModule<VoxelOptions> = defineNuxtModule<VoxelOptions>({
       { name: 'useSidebar', from: '@pixela-gt/voxel-ui' },
     ])
 
-    // Add CSS
+    // Add CSS — tokens first, then style, then user theme overrides
     nuxt.options.css.push('@pixela-gt/voxel-ui/tokens.css')
     nuxt.options.css.push('@pixela-gt/voxel-ui/style.css')
+    if (options.theme) {
+      nuxt.options.css.push(options.theme)
+    }
   },
 })
 
