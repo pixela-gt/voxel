@@ -251,4 +251,16 @@ program
     execSync(`npx tsx "${scriptPath}"`, { stdio: 'inherit', cwd: resolve(__dirname, '../..') })
   })
 
+program
+  .command('init')
+  .description('Generate an AI agent skill file for voxel')
+  .option('--target <target>', 'Skill target: claude, cursor, opencode, md', 'claude')
+  .option('--full', 'Full depth: slots, events, reka-ui mapping, complete tokens')
+  .option('--framework <framework>', 'Framework coverage: vue, nuxt, both', 'both')
+  .option('--output <path>', 'Custom output path (overrides target default)')
+  .action(async (options: any) => {
+    const { generateSkill } = await import('./skill')
+    await generateSkill(options)
+  })
+
 program.parse()
