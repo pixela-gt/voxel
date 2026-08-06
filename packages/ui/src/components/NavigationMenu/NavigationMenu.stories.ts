@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import NavigationMenu from './NavigationMenu.vue'
 
 const meta: Meta<typeof NavigationMenu> = {
-  title: 'Components/NavigationMenu',
+  title: 'Navigation/NavigationMenu',
   component: NavigationMenu,
   tags: ['autodocs'],
   argTypes: {

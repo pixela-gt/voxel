@@ -3,7 +3,7 @@ import { expect, userEvent, within } from 'storybook/test'
 import Popover from './Popover.vue'
 
 const meta: Meta<typeof Popover> = {
-  title: 'Components/Popover',
+  title: 'Action/Popover',
   component: Popover,
   tags: ['autodocs'],
   argTypes: {

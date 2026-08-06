@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import Listbox from './Listbox.vue'
 
 const meta: Meta<typeof Listbox> = {
-  title: 'Components/Listbox',
+  title: 'Surfaces/Listbox',
   component: Listbox,
   tags: ['autodocs'],
   argTypes: {

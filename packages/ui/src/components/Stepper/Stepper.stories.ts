@@ -4,7 +4,7 @@ import Stepper from './Stepper.vue'
 import { StepperItem } from './index'
 
 const meta: Meta<typeof Stepper> = {
-  title: 'Components/Stepper',
+  title: 'Surfaces/Stepper',
   component: Stepper,
   tags: ['autodocs'],
   argTypes: {

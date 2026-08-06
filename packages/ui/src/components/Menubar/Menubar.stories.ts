@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Menubar from './Menubar.vue'
 
 const meta: Meta<typeof Menubar> = {
-  title: 'Components/Menubar',
+  title: 'Navigation/Menubar',
   component: Menubar,
   tags: ['autodocs'],
   argTypes: {

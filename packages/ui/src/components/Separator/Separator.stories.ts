@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import Separator from './Separator.vue'
 
 const meta: Meta<typeof Separator> = {
-  title: 'Components/Separator',
+  title: 'Primitives/Separator',
   component: Separator,
   tags: ['autodocs'],
   argTypes: {

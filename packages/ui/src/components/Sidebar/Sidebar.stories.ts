@@ -6,7 +6,7 @@ import SidebarItem from './SidebarItem.vue'
 import SidebarItemGroup from './SidebarItemGroup.vue'
 
 const meta: Meta<typeof Sidebar> = {
-  title: 'Components/Sidebar',
+  title: 'Navigation/Sidebar',
   component: Sidebar,
   tags: ['autodocs'],
   argTypes: {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import HoverCard from './HoverCard.vue'
 
 const meta: Meta<typeof HoverCard> = {
-  title: 'Components/HoverCard',
+  title: 'Action/HoverCard',
   component: HoverCard,
   tags: ['autodocs'],
   argTypes: {

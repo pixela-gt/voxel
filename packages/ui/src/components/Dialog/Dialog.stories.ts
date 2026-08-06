@@ -3,7 +3,7 @@ import { expect, userEvent, within } from 'storybook/test'
 import Dialog from './Dialog.vue'
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Components/Dialog',
+  title: 'Surfaces/Dialog',
   component: Dialog,
   tags: ['autodocs'],
   argTypes: {

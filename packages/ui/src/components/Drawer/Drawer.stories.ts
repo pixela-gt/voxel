@@ -3,7 +3,7 @@ import { X } from '@lucide/vue'
 import Drawer from './Drawer.vue'
 
 const meta: Meta<typeof Drawer> = {
-  title: 'Components/Drawer',
+  title: 'Surfaces/Drawer',
   component: Drawer,
   tags: ['autodocs'],
   argTypes: {

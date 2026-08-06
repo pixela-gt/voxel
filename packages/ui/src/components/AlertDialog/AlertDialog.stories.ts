@@ -3,7 +3,7 @@ import { Info, AlertTriangle, XCircle, CheckCircle2 } from '@lucide/vue'
 import AlertDialog from './AlertDialog.vue'
 
 const meta: Meta<typeof AlertDialog> = {
-  title: 'Components/AlertDialog',
+  title: 'Surfaces/AlertDialog',
   component: AlertDialog,
   tags: ['autodocs'],
   argTypes: {

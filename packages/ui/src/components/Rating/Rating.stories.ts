@@ -4,7 +4,7 @@ import { ref } from 'vue'
 import Rating from './Rating.vue'
 
 const meta: Meta<typeof Rating> = {
-  title: 'Components/Rating',
+  title: 'Forms/Rating',
   component: Rating,
   tags: ['autodocs'],
   argTypes: {
