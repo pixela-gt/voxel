@@ -48,6 +48,7 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
+    "@pixela-gt/voxel-ui": "link:",
     "reka-ui": "^2.9.0"
   },
   "devDependencies": {

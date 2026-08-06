@@ -147,7 +147,7 @@ export const MobileOverlay: Story = {
       return { items, visible }
     },
     template: `
-      <div style="height:500px;background:var(--color-surface-light);position:relative">
+      <div style="height:500px;background:var(--color-surface-light);position:relative;overflow:hidden">
         <button
           @click="visible = !visible"
           style="position:absolute;top:16px;left:16px;z-index:60;padding:8px;background:var(--color-surface-base);border:1px solid var(--color-grey-200);border-radius:6px;cursor:pointer"
