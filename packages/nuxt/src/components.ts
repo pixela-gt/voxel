@@ -23,6 +23,12 @@ export const componentNames = [
   'VxSidebar',
   'VxSidebarItem',
   'VxSidebarItemGroup',
+  'VxToolbar',
+  'VxToolbarButton',
+  'VxToolbarLink',
+  'VxToolbarSeparator',
+  'VxToolbarToggleGroup',
+  'VxToolbarToggleItem',
 
   // Overlays
   'VxDropdownMenu',

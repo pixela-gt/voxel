@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import type { IconProps } from './Icon.types'
 
 const props = withDefaults(defineProps<IconProps>(), {
   size: 'default',
+})
+
+const mounted = ref(false)
+
+onMounted(() => {
+  mounted.value = true
 })
 
 const classes = computed(() => [
@@ -13,7 +19,10 @@ const classes = computed(() => [
 </script>
 
 <template>
-  <component :is="props.icon" :class="classes" aria-hidden="true" />
+  <!-- SSR and before mount: render placeholder with correct size -->
+  <span v-if="!mounted" :class="classes" aria-hidden="true" />
+  <!-- Client-side: render actual icon -->
+  <component v-else :is="props.icon" :class="classes" aria-hidden="true" />
 </template>
 
 <style scoped>

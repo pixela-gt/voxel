@@ -167,6 +167,16 @@ export type {
   TreeProps as VXTreeProps,
   TreeNode as VXTreeNode,
 } from './components/Tree/Tree.types'
+export type {
+  ToolbarProps as VXToolbarProps,
+  ToolbarButtonProps as VXToolbarButtonProps,
+  ToolbarLinkProps as VXToolbarLinkProps,
+  ToolbarSeparatorProps as VXToolbarSeparatorProps,
+  ToolbarToggleGroupProps as VXToolbarToggleGroupProps,
+  ToolbarToggleItemProps as VXToolbarToggleItemProps,
+  ToolbarContext as VXToolbarContext,
+  ToolbarToggleContext as VXToolbarToggleContext,
+} from './components/Toolbar/Toolbar.types'
 
 // Components (VX-prefixed)
 export { Button as VXButton } from './components/Button'
@@ -253,6 +263,14 @@ export {
   SidebarItemGroup as VXSidebarItemGroup,
 } from './components/Sidebar'
 export { Tree as VXTree } from './components/Tree'
+export {
+  Toolbar as VXToolbar,
+  ToolbarButton as VXToolbarButton,
+  ToolbarLink as VXToolbarLink,
+  ToolbarSeparator as VXToolbarSeparator,
+  ToolbarToggleGroup as VXToolbarToggleGroup,
+  ToolbarToggleItem as VXToolbarToggleItem,
+} from './components/Toolbar'
 export { DateField as VXDateField } from './components/DateField'
 export { TimeField as VXTimeField } from './components/TimeField'
 export { TimeRangeField as VXTimeRangeField } from './components/TimeRangeField'

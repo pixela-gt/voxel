@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./dist/index.mjs",
   "bin": {
-    "voxel": "./dist/index.mjs"
+    "voxel": "./dist/index.js"
   },
   "exports": {
     ".": {
