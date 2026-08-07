@@ -51,6 +51,9 @@
     "ai",
     "agent"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "author": "pixela-gt",
   "license": "MIT"
 }

@@ -11,13 +11,16 @@
     "playground:nuxt": "pnpm --filter playground-nuxt dev",
     "storybook": "pnpm --filter @pixela-gt/voxel-ui storybook",
     "build-storybook": "pnpm --filter @pixela-gt/voxel-ui build-storybook",
-    "pack": "pnpm --filter @pixela-gt/voxel-ui pack && pnpm --filter @pixela-gt/voxel-ui-nuxt pack"
+    "pack": "pnpm --filter @pixela-gt/voxel-ui pack && pnpm --filter @pixela-gt/voxel-ui-nuxt pack",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.1",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.7.0",
     "eslint-plugin-vue": "^10.10.0",
     "typescript-eslint": "^8.65.0"
-  },
-  "dependencies": {}
+  }
 }

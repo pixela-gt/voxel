@@ -247,3 +247,24 @@ Composables (`useTheme`, `useThemeConfig`, `useToast`, `useSidebar`) are also au
 - ESLint config requires `@eslint/js` and `typescript-eslint` packages (not installed)
 - Playground environments not yet created
 - `DropdownMenu` is a placeholder — renders hardcoded items, not data-driven
+
+## Release Workflow
+
+Uses [Changesets](https://changesets.dev) for version management.
+
+### Making a changeset
+```bash
+pnpm changeset
+# Select packages changed, bump type, description
+```
+
+### Publishing (automated)
+1. Add changeset files with your PR
+2. Merge to main → changesets/action creates "Version Packages" PR
+3. Merge version PR → packages published to npm + GitHub Packages
+
+### Manual release
+```bash
+pnpm version   # apply changesets, bump versions
+pnpm release   # build + publish
+```

@@ -34,6 +34,9 @@
     "design-system",
     "voxel-ui"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "author": "pixela-gt",
   "license": "MIT"
 }
