@@ -38,7 +38,7 @@ const rootClass = computed(() => ['voxel-popover', props.class])
   </PopoverRoot>
 </template>
 
-<style scoped>
+<style>
 .voxel-popover {
   @apply inline-flex;
 }

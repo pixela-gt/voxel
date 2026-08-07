@@ -21,15 +21,7 @@ import {
   </DropdownMenuRoot>
 </template>
 
-<style scoped>
-.voxel-dropdown__trigger {
-  @apply inline-flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold rounded-xl
-    bg-[var(--color-primary-base)] text-[var(--color-text-on-primary)]
-    hover:bg-[var(--color-primary-darken-1)]
-    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2
-    disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150;
-}
-
+<style>
 .voxel-dropdown__content {
   @apply bg-[var(--color-surface-base)] rounded-[6px] shadow-[var(--shadow-md)]
     border border-[var(--color-grey-200)] min-w-[160px] p-1

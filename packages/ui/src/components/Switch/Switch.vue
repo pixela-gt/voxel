@@ -92,7 +92,7 @@ const labelClass = computed(() => [
 }
 
 .voxel-switch__thumb--checked {
-  @apply translate-x-[calc(100%_-_4px)];
+  @apply translate-x-[calc(100%_+_2px)];
 }
 
 .voxel-switch__thumb--size-small {

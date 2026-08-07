@@ -25,7 +25,7 @@ const emit = defineEmits<{
     :name="props.name"
     :required="props.required"
     @update:modelValue="(v) => v && emit('update:modelValue', v as string)"
-    class="inline-flex items-center"
+class="inline-flex items-center gap-2"
     v-bind="$attrs"
   >
     <RadioGroupItem
@@ -53,23 +53,26 @@ const emit = defineEmits<{
 
 <style scoped>
 .voxel-radio {
-  @apply flex items-center;
+  @apply flex items-center cursor-pointer;
 }
 
 .voxel-radio__indicator {
-  @apply flex-shrink-0;
+  @apply flex-shrink-0 flex items-center justify-center;
 }
 .voxel-radio__indicator--size-small {
-  @apply size-4 rounded-[8px] border-[1.5px] border-[var(--color-grey-400)]
+  @apply size-4 rounded-[8px] border-[1.5px]
     focus-within:ring-2 focus-within:ring-[var(--color-primary-base)] focus-within:ring-offset-2;
+  border-color: color-mix(in srgb, var(--color-primary-base) 12%, transparent);
 }
 .voxel-radio__indicator--size-default {
-  @apply size-5 rounded-[10px] border-[1.5px] border-[var(--color-grey-400)]
+  @apply size-5 rounded-[10px] border-[1.5px]
     focus-within:ring-2 focus-within:ring-[var(--color-primary-base)] focus-within:ring-offset-2;
+  border-color: color-mix(in srgb, var(--color-primary-base) 12%, transparent);
 }
 .voxel-radio__indicator--size-large {
-  @apply size-6 rounded-[12px] border-[2px] border-[var(--color-grey-400)]
+  @apply size-6 rounded-[12px] border-[2px]
     focus-within:ring-2 focus-within:ring-[var(--color-primary-base)] focus-within:ring-offset-2;
+  border-color: color-mix(in srgb, var(--color-primary-base) 12%, transparent);
 }
 
 .voxel-radio__icon {
@@ -86,7 +89,8 @@ const emit = defineEmits<{
 }
 
 .voxel-radio__dot {
-  @apply bg-[var(--color-primary-base)] rounded-full size-full;
+  @apply rounded-full size-full;
+    background: color-mix(in srgb, var(--color-primary-base) 85%, transparent);
 }
 
 .voxel-radio__label {

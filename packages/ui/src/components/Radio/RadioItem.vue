@@ -31,7 +31,8 @@ const props = withDefaults(defineProps<RadioItemProps>(), {
 }
 
 .voxel-radio__indicator {
-  @apply flex-shrink-0 flex items-center justify-center border-[var(--color-grey-400)] bg-[var(--color-surface-base)] border;
+  @apply flex-shrink-0 flex items-center justify-center border bg-[var(--color-surface-base)];
+  border-color: color-mix(in srgb, var(--color-primary-base) 12%, transparent);
 }
 
 .voxel-radio__indicator--size-small {
@@ -47,7 +48,7 @@ const props = withDefaults(defineProps<RadioItemProps>(), {
 }
 
 .voxel-radio__item[data-state='checked'] .voxel-radio__indicator {
-  @apply border-[var(--color-primary-base)];
+  border-color: var(--color-primary-base);
 }
 
 .voxel-radio__dot {
@@ -67,7 +68,8 @@ const props = withDefaults(defineProps<RadioItemProps>(), {
 }
 
 .voxel-radio__dot-inner {
-  @apply bg-[var(--color-primary-base)] rounded-full size-full;
+  @apply rounded-full size-full;
+  background: color-mix(in srgb, var(--color-primary-base) 85%, transparent);
 }
 
 .voxel-radio__label {

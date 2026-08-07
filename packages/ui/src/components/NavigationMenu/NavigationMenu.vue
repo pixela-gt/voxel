@@ -69,7 +69,7 @@ const rootClass = computed(() => ['voxel-navigation-menu', `voxel-navigation-men
   </NavigationMenuRoot>
 </template>
 
-<style scoped>
+<style>
 .voxel-navigation-menu {
   @apply relative w-full;
 }

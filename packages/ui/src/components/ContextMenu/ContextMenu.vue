@@ -55,7 +55,7 @@ const rootClass = computed(() => ['voxel-context-menu', props.class])
   </ContextMenuRoot>
 </template>
 
-<style scoped>
+<style>
 .voxel-context-menu {
   @apply inline-flex;
 }
