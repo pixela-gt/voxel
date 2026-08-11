@@ -83,6 +83,41 @@ pnpm storybook         # Storybook
 pnpm build             # Build library
 ```
 
+## Local Development with pnpm link
+
+### UI Library
+
+```bash
+# In the voxel directory, build and link
+cd packages/ui
+pnpm build
+pnpm link --global
+
+# In your consumer project
+pnpm link --global @pixela-gt/voxel-ui
+```
+
+The consumer project will now use the local version. Rebuild `packages/ui` after changes.
+
+### CLI
+
+```bash
+# In the voxel directory, link the CLI globally
+cd packages/cli
+pnpm link --global
+
+# Run voxel commands directly
+voxel component --list
+voxel tokens colors
+```
+
+Alternatively, use `pnpm dev` from the repo root:
+
+```bash
+npx tsx packages/cli/src/index.ts component --list
+npx tsx packages/cli/src/index.ts tokens colors
+```
+
 ## License
 
 MIT
