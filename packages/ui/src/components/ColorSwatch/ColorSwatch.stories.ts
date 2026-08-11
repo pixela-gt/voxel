@@ -1,18 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import ColorSwatch from './ColorSwatch.vue'
 
-// ponytail: placeholder
 const meta: Meta<typeof ColorSwatch> = {
-  title: 'Components/ColorSwatch',
+  title: 'Color/ColorSwatch',
   component: ColorSwatch,
   tags: ['autodocs'],
-  parameters: {
-    docs: { description: { component: '**Placeholder** — renders `TODO` until reka-ui color API stabilizes.' } },
+  argTypes: {
+    value: { control: 'color' },
+    size: { control: 'select', options: ['small', 'default', 'large'] },
+    disabled: { control: 'boolean' },
   },
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
-export const WithRamp: Story = {}
+export const Default: Story = { args: { value: '#3450e8' } }
+export const Disabled: Story = { args: { value: '#3450e8', disabled: true } }

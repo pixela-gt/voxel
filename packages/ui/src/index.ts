@@ -117,6 +117,11 @@ export type { TagsInputProps as VXTagsInputProps } from './components/TagsInput/
 export type { DateFieldProps as VXDateFieldProps } from './components/DateField/DateField.types'
 export type { TimeFieldProps as VXTimeFieldProps } from './components/TimeField/TimeField.types'
 export type { TimeRangeFieldProps as VXTimeRangeFieldProps } from './components/TimeRangeField/TimeRangeField.types'
+export type { ColorAreaProps as VXColorAreaProps } from './components/ColorArea/ColorArea.types'
+export type { ColorFieldProps as VXColorFieldProps } from './components/ColorField/ColorField.types'
+export type { ColorSliderProps as VXColorSliderProps } from './components/ColorSlider/ColorSlider.types'
+export type { ColorSwatchProps as VXColorSwatchProps } from './components/ColorSwatch/ColorSwatch.types'
+export type { ColorSwatchPickerProps as VXColorSwatchPickerProps } from './components/ColorSwatchPicker/ColorSwatchPicker.types'
 export type { RatingProps as VXRatingProps } from './components/Rating/Rating.types'
 export type { CollapsibleProps as VXCollapsibleProps } from './components/Collapsible/Collapsible.types'
 export type { PopoverProps as VXPopoverProps } from './components/Popover/Popover.types'
@@ -274,6 +279,11 @@ export {
 export { DateField as VXDateField } from './components/DateField'
 export { TimeField as VXTimeField } from './components/TimeField'
 export { TimeRangeField as VXTimeRangeField } from './components/TimeRangeField'
+export { ColorArea as VXColorArea } from './components/ColorArea'
+export { ColorField as VXColorField } from './components/ColorField'
+export { ColorSlider as VXColorSlider } from './components/ColorSlider'
+export { ColorSwatch as VXColorSwatch } from './components/ColorSwatch'
+export { ColorSwatchPicker as VXColorSwatchPicker } from './components/ColorSwatchPicker'
 
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'
