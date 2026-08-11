@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { PopoverRoot, PopoverTrigger, PopoverPortal, PopoverContent, PopoverArrow, PopoverClose } from 'reka-ui'
 import type { PopoverProps } from './Popover.types'
 
@@ -12,23 +12,33 @@ const emit = defineEmits<{
 }>()
 
 const rootClass = computed(() => ['voxel-popover', props.class])
+
+const controlled = computed(() => props.open !== undefined)
+const isOpen = ref(props.open ?? props.defaultOpen ?? false)
+
+watch(() => props.open, (v) => {
+  if (v !== undefined) isOpen.value = v
+})
+
+function onUpdateOpen(v: boolean) {
+  if (props.open === undefined) isOpen.value = v
+  emit('update:open', v)
+}
 </script>
 
 <template>
   <PopoverRoot
-    :open="props.open"
-    :defaultOpen="props.defaultOpen"
+    v-bind="controlled ? { open: isOpen } : { defaultOpen: props.defaultOpen }"
     :modal="props.modal"
-    @update:open="(v: boolean) => emit('update:open', v)"
+    @update:open="onUpdateOpen"
     :class="rootClass"
-    v-bind="$attrs"
   >
-    <PopoverTrigger class="voxel-popover__trigger">
-      <slot name="trigger" />
+    <PopoverTrigger as-child>
+      <slot />
     </PopoverTrigger>
     <PopoverPortal>
-      <PopoverContent class="voxel-popover__content" :side-offset="6">
-        <slot />
+      <PopoverContent class="voxel-popover__content" :side-offset="8">
+        <slot name="content" />
         <PopoverArrow class="voxel-popover__arrow" />
         <PopoverClose class="voxel-popover__close" aria-label="Close">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 3L9 9M9 3L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
@@ -43,14 +53,9 @@ const rootClass = computed(() => ['voxel-popover', props.class])
   @apply inline-flex;
 }
 
-.voxel-popover__trigger {
-  @apply inline-flex items-center;
-}
-
 .voxel-popover__content {
   @apply bg-[var(--color-surface-base)]
     rounded-lg shadow-[var(--shadow-md)]
-    border border-[var(--color-grey-200)]
     p-4
     text-sm text-[var(--color-text-primary)]
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2

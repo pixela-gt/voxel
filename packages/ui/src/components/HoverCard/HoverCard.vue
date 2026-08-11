@@ -37,7 +37,7 @@ const rootClass = computed(() => ['voxel-hover-card', props.class])
   </HoverCardRoot>
 </template>
 
-<style scoped>
+<style>
 .voxel-hover-card {
   @apply inline-flex;
 }

@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.0",
+    "@internationalized/date": "^3.12.2",
     "@lucide/vue": "1.25.0",
     "@storybook/addon-a11y": "^10.5.3",
     "@storybook/vue3": "^10.5.3",

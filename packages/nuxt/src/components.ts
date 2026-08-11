@@ -92,6 +92,14 @@ export const componentNames = [
   'VxColorSlider',
   'VxColorSwatch',
   'VxColorSwatchPicker',
+  'VxCalendar',
+  'VxRangeCalendar',
+  'VxMonthPicker',
+  'VxMonthRangePicker',
+  'VxYearPicker',
+  'VxYearRangePicker',
+  'VxDatePicker',
+  'VxDateRangePicker',
 
   // Patterns
   'VxPageHeader',

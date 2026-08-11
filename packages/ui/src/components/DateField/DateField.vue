@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
+import { DateFieldRoot, DateFieldInput } from 'reka-ui'
 import type { DateFieldProps } from './DateField.types'
 import type { FormFieldContext } from '../FormField/FormField.types'
 import { FORM_FIELD_KEY } from '../FormField/FormField.types'
@@ -14,7 +15,7 @@ const props = withDefaults(defineProps<DateFieldProps>(), {
 } as const)
 
 const emit = defineEmits<{
-  'update:modelValue': [value: Date | null]
+  'update:modelValue': [value: DateFieldProps['modelValue']]
 }>()
 
 const formContext = inject<FormFieldContext | null>(FORM_FIELD_KEY, null)
@@ -38,28 +39,26 @@ const rootClass = computed(() => [
   },
   props.class,
 ])
-
-const onInput = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  emit('update:modelValue', target.valueAsDate)
-}
 </script>
 
 <template>
   <div :class="rootClass">
-    <input
-      type="date"
-      :id="effectiveId"
-      :value="modelValue ? modelValue.toISOString().split('T')[0] : ''"
-      :placeholder="placeholder ? String(placeholder) : ''"
+    <DateFieldRoot v-model="props.modelValue" class="voxel-date-field__group" :default-value="defaultValue ?? undefined"
+      :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
       :name="name"
-      :aria-invalid="!!effectiveError"
-      :aria-describedby="describedBy"
-      class="voxel-date-field__input"
-      @input="onInput"
-    />
+      @update:modelValue="(v) => emit('update:modelValue', v)">
+      <template #default="{ segments }">
+        <template v-for="(segment, index) in segments" :key="index">
+          <DateFieldInput :part="segment.part" :id="index === 0 ? effectiveId : undefined"
+            :aria-invalid="!!effectiveError || undefined" :aria-describedby="describedBy"
+            :class="{ 'voxel-date-field__segment': segment.part !== 'literal' }">
+            {{ segment.value }}
+          </DateFieldInput>
+        </template>
+      </template>
+    </DateFieldRoot>
   </div>
 </template>
 
@@ -68,6 +67,9 @@ const onInput = (event: Event) => {
   @apply inline-flex items-center w-full font-sans transition-all duration-[var(--transition-normal)] focus-within:outline-none;
 }
 
+.voxel-date-field__group {
+  @apply flex items-start flex-1 min-w-0 gap-0.5;
+}
 /* Outlined */
 .voxel-date-field--variant-outlined {
   @apply bg-[var(--color-surface-background)] border-2 border-[var(--color-grey-200)] rounded-[var(--rounded-2xl)];
@@ -163,12 +165,20 @@ const onInput = (event: Event) => {
 }
 
 /* Input */
-.voxel-date-field__input {
-  @apply flex-1 min-w-0 bg-transparent outline-none border-0 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] disabled:cursor-not-allowed;
+.voxel-date-field__segment {
+  @apply bg-transparent outline-none border-0 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] disabled:cursor-not-allowed;
 }
 
 /* Size */
-.voxel-date-field--size-small .voxel-date-field__input { @apply text-[11px]; }
-.voxel-date-field--size-default .voxel-date-field__input { @apply text-sm; }
-.voxel-date-field--size-large .voxel-date-field__input { @apply text-base; }
+.voxel-date-field--size-small .voxel-date-field__segment {
+  @apply text-[11px];
+}
+
+.voxel-date-field--size-default .voxel-date-field__segment {
+  @apply text-sm;
+}
+
+.voxel-date-field--size-large .voxel-date-field__segment {
+  @apply text-base;
+}
 </style>
