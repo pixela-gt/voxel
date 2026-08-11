@@ -55,22 +55,23 @@
     "@iconify-json/lucide": "^1.2.0",
     "@internationalized/date": "^3.12.2",
     "@lucide/vue": "1.25.0",
-    "@storybook/addon-a11y": "^10.5.3",
-    "@storybook/vue3": "^10.5.3",
-    "@storybook/vue3-vite": "^10.5.3",
+    "@storybook/addon-a11y": "^10.5.7",
+    "@storybook/addon-docs": "^10.5.7",
+    "@storybook/vue3-vite": "^10.5.7",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.1.1",
     "@vitejs/plugin-vue": "^6.0.8",
     "postcss": "^8.5.22",
     "prettier": "^3.9.6",
     "reka-ui": "^2.9.0",
-    "storybook": "^10.5.3",
+    "storybook": "^10.5.7",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vite": "^8.1.5",
     "vite-plugin-dts": "^5.0.3",
     "vue": "^3.4.0",
-    "vue-tsc": "^3.3.8"
+    "vue-tsc": "^3.3.8",
+    "eslint-plugin-storybook": "10.5.7"
   },
   "sideEffects": [
     "**/*.css"

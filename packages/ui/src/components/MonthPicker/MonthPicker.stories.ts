@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import MonthPicker from './MonthPicker.vue'
 
 const meta: Meta<typeof MonthPicker> = {

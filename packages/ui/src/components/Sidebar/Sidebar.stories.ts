@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 import { Home, Settings, Users, FileText, Bell, Menu, ChevronLeft } from '@lucide/vue'
 import Sidebar from './Sidebar.vue'

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Folder, FileText, Inbox } from '@lucide/vue'
 import EmptyState from './EmptyState.vue'
 import Button from '../../components/Button/Button.vue'

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Plus, Minus, Trash } from '@lucide/vue'
 import { ButtonGroup } from './index'
 import { Button } from '../Button'

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Plus, X, Check, ChevronRight } from '@lucide/vue'
 import IconButton from './IconButton.vue'
 

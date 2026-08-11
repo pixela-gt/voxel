@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 import { User, Star, ChevronRight, Mail, Phone, Settings, Bell, Shield } from '@lucide/vue'
 import { List } from './index'

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Menubar from './Menubar.vue'
 
 const meta: Meta<typeof Menubar> = {

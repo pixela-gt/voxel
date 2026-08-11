@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Time } from '@internationalized/date'
 import type { TimeValue } from 'reka-ui'
 import { ref } from 'vue'

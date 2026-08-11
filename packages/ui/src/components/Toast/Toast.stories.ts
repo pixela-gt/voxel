@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Toast from './Toast.vue'
 import { ToastProvider } from './index'
 import { useToast } from '../../composables/useToast'

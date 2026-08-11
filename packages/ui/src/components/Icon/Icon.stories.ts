@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { expect, within } from 'storybook/test'
 import { Check, X as XIcon, ArrowRight } from '@lucide/vue'
 import Icon from './Icon.vue'
