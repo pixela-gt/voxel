@@ -35,7 +35,7 @@ const classes = computed(() => [
 
 <style scoped>
 .voxel-page-header {
-  @apply flex items-start justify-between gap-4 py-4 px-2;
+  @apply flex items-start justify-between gap-4 py-4 px-4;
 }
 
 .voxel-page-header--boxy {
