@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { EmptyStateProps } from './EmptyState.types'
+import { Icon } from '../../components/Icon'
 
 const props = withDefaults(defineProps<EmptyStateProps>(), {} as const)
 </script>
@@ -8,7 +9,7 @@ const props = withDefaults(defineProps<EmptyStateProps>(), {} as const)
   <div :class="['voxel-empty-state', props.class]" v-bind="$attrs">
     <div v-if="props.icon || $slots.icon" class="voxel-empty-state__icon">
       <slot name="icon">
-        <span v-if="props.icon" class="voxel-empty-state__icon-text">{{ props.icon }}</span>
+        <Icon v-if="props.icon" :icon="props.icon" class="voxel-empty-state__icon-svg" />
       </slot>
     </div>
     <h3 class="voxel-empty-state__title">{{ props.title }}</h3>
@@ -33,8 +34,8 @@ const props = withDefaults(defineProps<EmptyStateProps>(), {} as const)
   @apply mb-4 text-[var(--color-text-muted)];
 }
 
-.voxel-empty-state__icon-text {
-  @apply text-4xl;
+.voxel-empty-state__icon-svg {
+  @apply size-10;
 }
 
 .voxel-empty-state__title {

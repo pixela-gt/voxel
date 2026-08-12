@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { PageHeaderProps } from './PageHeader.types'
+import Text from '@/components/Text/Text.vue'
+import { Icon } from '@/components/Icon'
 
 const props = withDefaults(defineProps<PageHeaderProps>(), {} as const)
 
@@ -16,10 +18,13 @@ const classes = computed(() => [
     <div class="voxel-page-header__left">
       <slot name="prepend" />
       <div class="voxel-page-header__text">
-        <h1 class="voxel-page-header__title">{{ props.title }}</h1>
-        <p v-if="props.description" class="voxel-page-header__description">
+        <div class="voxel-page-header__heading">
+          <Icon v-if="props.icon" :icon="props.icon" class="voxel-page-header__icon" />
+          <Text variant="title-lg" weight="bold" class="voxel-page-header__title">{{ props.title }}</Text>
+        </div>
+        <Text v-if="props.description" variant="body-sm" class="voxel-page-header__description">
           {{ props.description }}
-        </p>
+        </Text>
       </div>
     </div>
     <div v-if="$slots.actions" class="voxel-page-header__actions">
@@ -45,12 +50,20 @@ const classes = computed(() => [
   @apply flex flex-col gap-1;
 }
 
+.voxel-page-header__heading {
+  @apply flex items-center gap-2;
+}
+
+.voxel-page-header__icon {
+  @apply size-8 shrink-0 text-[var(--color-text-secondary)];
+}
+
 .voxel-page-header__title {
-  @apply text-xl font-semibold text-[var(--color-text-primary)] leading-tight;
+  @apply text-[var(--color-text-primary)] leading-tight;
 }
 
 .voxel-page-header__description {
-  @apply text-sm text-[var(--color-text-secondary)] leading-relaxed;
+  @apply text-[var(--color-text-secondary)] leading-relaxed;
 }
 
 .voxel-page-header__actions {
