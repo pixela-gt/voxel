@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSlots } from 'vue'
+import { useSlots, ref, onMounted } from 'vue'
 import {
   DialogRoot,
   DialogTrigger,
@@ -15,11 +15,15 @@ import { Icon } from '../Icon'
 
 const props = defineProps<DialogProps>()
 const slots = useSlots()
+
+// ponytail: skip reka-ui rendering during SSR to avoid dual-Vue-instance crash
+const isClient = ref(false)
+onMounted(() => { isClient.value = true })
 </script>
 
 <template>
-  <DialogRoot v-bind="$attrs">
-    <DialogTrigger class="voxel-dialog__trigger">
+  <DialogRoot v-if="isClient" v-bind="$attrs">
+    <DialogTrigger v-if="$slots.trigger" class="voxel-dialog__trigger">
       <slot name="trigger" />
     </DialogTrigger>
 

@@ -60,6 +60,9 @@ const classes = computed(() => [
   @apply rounded-lg overflow-auto;
 }
 
+.voxel-app-shell--boxy .voxel-app-shell__main {
+  @apply p-2;
+}
 /** Inset variant */
 .voxel-app-shell--inset {
   @apply bg-[var(--color-surface-base)];

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import {
   AlertDialogRoot,
   AlertDialogTrigger,
@@ -23,17 +23,22 @@ const emit = defineEmits<{
 }>()
 
 const rootClass = computed(() => ['voxel-alert-dialog', `voxel-alert-dialog--${props.variant}`, props.class])
+
+// ponytail: skip reka-ui rendering during SSR to avoid dual-Vue-instance crash
+const isClient = ref(false)
+onMounted(() => { isClient.value = true })
 </script>
 
 <template>
   <AlertDialogRoot
+    v-if="isClient"
     :open="props.open"
     :defaultOpen="props.defaultOpen"
     @update:open="(v: boolean) => emit('update:open', v)"
     :class="rootClass"
     v-bind="$attrs"
   >
-    <AlertDialogTrigger class="voxel-alert-dialog__trigger">
+    <AlertDialogTrigger v-if="$slots.trigger" class="voxel-alert-dialog__trigger">
       <slot name="trigger" />
     </AlertDialogTrigger>
     <AlertDialogPortal>

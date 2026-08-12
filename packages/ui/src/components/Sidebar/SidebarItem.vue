@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, resolveComponent } from 'vue'
 import { Icon } from '../Icon'
 import { Tooltip } from '../Tooltip'
 import type { SidebarItemProps } from './Sidebar.types'
@@ -14,8 +14,19 @@ const props = withDefaults(defineProps<SidebarItemProps>(), {
 const ctx = inject(SIDEBAR_KEY, null)
 const collapsed = computed(() => ctx?.collapsed.value ?? false)
 
-const href = computed(() => props.href)
 const hasBadge = computed(() => props.badge != null && props.badge !== '')
+
+const linkIs = computed(() => {
+  if (!props.to) return 'a'
+  try {
+    return resolveComponent('RouterLink')
+  }
+  catch {
+    return 'a'
+  }
+})
+
+const linkBind = computed(() => props.to ? { to: props.to } : { href: props.href })
 
 function badgeText(badge: string | number) {
   return typeof badge === 'number' && badge > 99 ? '99+' : String(badge)
@@ -24,7 +35,7 @@ function badgeText(badge: string | number) {
 
 <template>
   <Tooltip v-if="collapsed" :text="props.label || ''" position="right">
-    <a :href="href" :class="[
+    <component :is="linkIs" v-bind="linkBind" :class="[
       'vx-sidebar-item',
       'vx-sidebar-item--collapsed',
       {
@@ -41,10 +52,10 @@ function badgeText(badge: string | number) {
           <span v-if="hasBadge" class="vx-sidebar-item__badge" />
         </span>
       </slot>
-    </a>
+    </component>
   </Tooltip>
 
-  <a v-else :href="href" :class="[
+  <component :is="linkIs" v-else v-bind="linkBind" :class="[
     'vx-sidebar-item',
     {
       'vx-sidebar-item--active': props.active,
@@ -64,7 +75,7 @@ function badgeText(badge: string | number) {
         </span>
       </span>
     </slot>
-  </a>
+  </component>
 </template>
 
 <style>

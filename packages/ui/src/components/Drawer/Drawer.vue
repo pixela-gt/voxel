@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSlots } from 'vue'
+import { useSlots, ref, onMounted } from 'vue'
 import {
   DialogRoot,
   DialogPortal,
@@ -19,10 +19,14 @@ const props = withDefaults(defineProps<DrawerProps>(), {
 
 const slots = useSlots()
 const isCollapsed = props.state === 'collapsed'
+
+// ponytail: skip reka-ui rendering during SSR to avoid dual-Vue-instance crash
+const isClient = ref(false)
+onMounted(() => { isClient.value = true })
 </script>
 
 <template>
-  <DialogRoot v-bind="$attrs">
+  <DialogRoot v-if="isClient" v-bind="$attrs">
     <DialogPortal>
       <DialogOverlay class="voxel-drawer__overlay" />
       <DialogContent :class="['voxel-drawer', isCollapsed && 'voxel-drawer--collapsed']">
@@ -69,7 +73,7 @@ const isCollapsed = props.state === 'collapsed'
 }
 
 .voxel-drawer__header {
-  @apply h-[68px] opacity-80 flex-shrink-0 flex items-center justify-between px-4
+  @apply h-[68px] flex-shrink-0 flex items-center justify-between px-4
     border-b border-[var(--color-primary-darken-1)];
 }
 
@@ -86,7 +90,7 @@ const isCollapsed = props.state === 'collapsed'
 }
 
 .voxel-drawer__body {
-  @apply flex-1 min-h-0 opacity-80 overflow-auto p-4;
+  @apply flex-1 min-h-0 overflow-auto p-4;
 }
 
 .voxel-drawer__footer {

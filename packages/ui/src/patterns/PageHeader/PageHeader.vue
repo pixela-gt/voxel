@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { PageHeaderProps } from './PageHeader.types'
 
 const props = withDefaults(defineProps<PageHeaderProps>(), {} as const)
+
+const classes = computed(() => [
+  'voxel-page-header',
+  `voxel-page-header--${props.variant ?? 'default'}`,
+  props.class,
+])
 </script>
 
 <template>
-  <div :class="['voxel-page-header', props.class]" v-bind="$attrs">
+  <div :class="classes" v-bind="$attrs">
     <div class="voxel-page-header__left">
       <slot name="prepend" />
       <div class="voxel-page-header__text">
@@ -23,7 +30,11 @@ const props = withDefaults(defineProps<PageHeaderProps>(), {} as const)
 
 <style scoped>
 .voxel-page-header {
-  @apply flex items-start justify-between gap-4 py-4;
+  @apply flex items-start justify-between gap-4 py-4 px-2;
+}
+
+.voxel-page-header--boxy {
+  @apply bg-[var(--color-bg-secondary)] rounded-lg shadow-[var(--shadow-lg)];
 }
 
 .voxel-page-header__left {

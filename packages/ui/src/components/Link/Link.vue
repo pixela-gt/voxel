@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed, resolveComponent } from 'vue'
 import type { LinkProps } from './Link.types'
 import { Icon } from '../Icon'
 
@@ -10,7 +10,15 @@ const props = withDefaults(defineProps<LinkProps>(), {
   density: 'default',
 })
 
-const slots = useSlots()
+const linkIs = computed(() => {
+  if (!props.to) return 'a'
+  try {
+    return resolveComponent('RouterLink')
+  }
+  catch {
+    return 'a'
+  }
+})
 
 const linkClasses = computed(() => [
   'voxel-link',
@@ -23,9 +31,9 @@ const linkClasses = computed(() => [
 </script>
 
 <template>
-  <a :class="linkClasses" v-bind="$attrs">
+  <component :is="linkIs" :to="props.to" :class="linkClasses" v-bind="$attrs">
     <span
-      v-if="props.icon || slots.icon"
+      v-if="props.icon || $slots.icon"
       class="voxel-link__icon"
       aria-hidden="true"
     >
@@ -34,7 +42,7 @@ const linkClasses = computed(() => [
       </slot>
     </span>
     <slot>{{ props.label }}</slot>
-  </a>
+  </component>
 </template>
 
 <style scoped>

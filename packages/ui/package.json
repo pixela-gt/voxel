@@ -61,6 +61,7 @@
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.1.1",
     "@vitejs/plugin-vue": "^6.0.8",
+    "eslint-plugin-storybook": "10.5.7",
     "postcss": "^8.5.22",
     "prettier": "^3.9.6",
     "reka-ui": "^2.9.0",
@@ -70,8 +71,7 @@
     "vite": "^8.1.5",
     "vite-plugin-dts": "^5.0.3",
     "vue": "^3.4.0",
-    "vue-tsc": "^3.3.8",
-    "eslint-plugin-storybook": "10.5.7"
+    "vue-tsc": "^3.3.8"
   },
   "sideEffects": [
     "**/*.css"
