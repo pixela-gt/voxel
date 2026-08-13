@@ -1,4 +1,4 @@
-// @pixela-gt/voxel-ui - Component Library
+// @pixela/voxel-ui - Component Library
 
 // Shared types
 export type {

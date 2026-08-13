@@ -80,8 +80,8 @@ export const Default: Story = {
           <div v-else-if="item.value === 'install'">
             <p style="margin:0 0 8px;font-size:13px">Install via pnpm and import the components you need:</p>
             <ul style="margin:0 0 0 16px;padding:0;font-size:13px;line-height:1.6">
-              <li><code style="font-family:ui-monospace,monospace;background:var(--color-grey-100);padding:1px 4px;border-radius:3px">pnpm add @pixela-gt/voxel-ui</code></li>
-              <li>Import components from the package, e.g. <code style="font-family:ui-monospace,monospace;background:var(--color-grey-100);padding:1px 4px;border-radius:3px">import { Button } from '@pixela-gt/voxel-ui'</code></li>
+              <li><code style="font-family:ui-monospace,monospace;background:var(--color-grey-100);padding:1px 4px;border-radius:3px">pnpm add @pixela/voxel-ui</code></li>
+              <li>Import components from the package, e.g. <code style="font-family:ui-monospace,monospace;background:var(--color-grey-100);padding:1px 4px;border-radius:3px">import { Button } from '@pixela/voxel-ui'</code></li>
               <li>Import the design tokens CSS once in your app root.</li>
             </ul>
           </div>

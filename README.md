@@ -1,11 +1,11 @@
-# @pixela-gt/voxel-ui
+# @pixela/voxel-ui
 
 Vue 3 component design system built on [reka-ui](https://reka-ui.com/) with [Tailwind CSS](https://tailwindcss.com/).
 
 ## Install
 
 ```bash
-npm install @pixela-gt/voxel-ui reka-ui
+npm install @pixela/voxel-ui reka-ui
 ```
 
 Peer dependencies: `vue ^3.4.0`, `reka-ui ^2.9.0`, `@lucide/vue ^1.0.0`.
@@ -15,8 +15,8 @@ Peer dependencies: `vue ^3.4.0`, `reka-ui ^2.9.0`, `@lucide/vue ^1.0.0`.
 ### Vue Plugin (recommended)
 
 ```ts
-import { createVoxel } from '@pixela-gt/voxel-ui/plugin'
-import '@pixela-gt/voxel-ui/style.css'
+import { createVoxel } from '@pixela/voxel-ui/plugin'
+import '@pixela/voxel-ui/style.css'
 
 app.use(createVoxel())
 ```
@@ -34,16 +34,16 @@ Then use components directly in templates:
 
 ```vue
 <script setup>
-import { VXButton, VXBadge } from '@pixela-gt/voxel-ui'
-import '@pixela-gt/voxel-ui/tokens.css'
-import '@pixela-gt/voxel-ui/style.css'
+import { VXButton, VXBadge } from '@pixela/voxel-ui'
+import '@pixela/voxel-ui/tokens.css'
+import '@pixela/voxel-ui/style.css'
 </script>
 ```
 
 ### Theming
 
 ```ts
-import { useTheme } from '@pixela-gt/voxel-ui'
+import { useTheme } from '@pixela/voxel-ui'
 
 const { theme, setTheme } = useTheme()
 setTheme('dark')
@@ -94,7 +94,7 @@ pnpm build
 pnpm link --global
 
 # In your consumer project
-pnpm link --global @pixela-gt/voxel-ui
+pnpm link --global @pixela/voxel-ui
 ```
 
 The consumer project will now use the local version. Rebuild `packages/ui` after changes.

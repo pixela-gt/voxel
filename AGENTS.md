@@ -1,4 +1,4 @@
-# AGENTS.md - @pixela-gt/voxel-ui
+# AGENTS.md - @pixela/voxel-ui
 
 ## Quick Reference
 
@@ -18,11 +18,11 @@ npx tsx packages/cli/src/index.ts tokens colors        # Token values
 npx tsx packages/cli/src/index.ts generate             # Regenerate components.json
 
 # CLI dev (faster, no build step)
-pnpm --filter @pixela-gt/voxel-cli dev component --list
-pnpm --filter @pixela-gt/voxel-cli dev component Button
-pnpm --filter @pixela-gt/voxel-cli dev search "toggle"
-pnpm --filter @pixela-gt/voxel-cli dev tokens
-pnpm --filter @pixela-gt/voxel-cli dev generate
+pnpm --filter @pixela/voxel-cli dev component --list
+pnpm --filter @pixela/voxel-cli dev component Button
+pnpm --filter @pixela/voxel-cli dev search "toggle"
+pnpm --filter @pixela/voxel-cli dev tokens
+pnpm --filter @pixela/voxel-cli dev generate
 ```
 
 **Build must succeed before committing.** The build runs `vite build` then `tsc --emitDeclarationOnly`.
@@ -34,7 +34,7 @@ Monorepo using pnpm workspaces.
 ```
 voxel/
   packages/
-    ui/                         # @pixela-gt/voxel-ui
+    ui/                         # @pixela/voxel-ui
       src/
         index.ts                # Barrel exports
         plugin.ts               # Vue plugin for non-Nuxt apps
@@ -45,12 +45,12 @@ voxel/
                                 #   ComponentName.vue, ComponentName.types.ts, index.ts
         composables/            # useTheme.ts
         types/                  # html-attributes.ts, shared.ts
-    nuxt/                       # @pixela-gt/voxel-ui-nuxt
+    nuxt/                       # @pixela/voxel-ui-nuxt
       src/
         index.ts                # Nuxt module entry
         module.ts               # defineNuxtModule with addComponent loop
         components.ts           # List of all VX component names
-    cli/                        # @pixela-gt/voxel-cli
+    cli/                        # @pixela/voxel-cli
       src/
         index.ts                # CLI entry point
         generate.ts             # Generates components.json from source
@@ -127,19 +127,19 @@ Use the custom types in `src/types/html-attributes.ts` or plain interfaces.
 
 ```typescript
 // Vue plugin (recommended for non-Nuxt apps)
-import { createVoxel } from '@pixela-gt/voxel-ui/plugin'
-import '@pixela-gt/voxel-ui/style.css'
+import { createVoxel } from '@pixela/voxel-ui/plugin'
+import '@pixela/voxel-ui/style.css'
 app.use(createVoxel())
 
 // Direct import
-import { Button, Dialog, Card } from '@pixela-gt/voxel-ui'
-import '@pixela-gt/voxel-ui/tokens.css'
-import '@pixela-gt/voxel-ui/style.css'
+import { Button, Dialog, Card } from '@pixela/voxel-ui'
+import '@pixela/voxel-ui/tokens.css'
+import '@pixela/voxel-ui/style.css'
 
 // Nuxt module (auto-imports)
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@pixela-gt/voxel-ui-nuxt'],
+  modules: ['@pixela/voxel-ui-nuxt'],
 })
 // Components are auto-imported, no manual imports needed
 ```
@@ -170,7 +170,7 @@ All tokens are CSS custom properties. Use via Tailwind or raw CSS.
 ## useTheme Composable
 
 ```typescript
-import { useTheme } from '@pixela-gt/voxel-ui'
+import { useTheme } from '@pixela/voxel-ui'
 
 const { theme, resolvedTheme, setTheme } = useTheme()
 // theme: 'light' | 'dark' | 'system'
@@ -184,7 +184,7 @@ const { theme, resolvedTheme, setTheme } = useTheme()
 Override CSS custom properties in your app's CSS after importing tokens:
 
 ```css
-@import '@pixela-gt/voxel-ui/tokens.css';
+@import '@pixela/voxel-ui/tokens.css';
 
 :root {
   --color-primary-base: #ff0000;
@@ -199,7 +199,7 @@ Lighten/darken variants must be defined manually: `--color-primary-darken-1`, `-
 Programmatic control with auto-generated color scales:
 
 ```typescript
-import { useThemeConfig } from '@pixela-gt/voxel-ui'
+import { useThemeConfig } from '@pixela/voxel-ui'
 
 const { setTheme, resetTheme } = useThemeConfig()
 
@@ -230,12 +230,12 @@ Peer deps: `vue ^3.4.0`, `reka-ui ^2.9.0`, `@lucide/vue ^1.0.0`. All are externa
 
 ## Nuxt Module
 
-The `@pixela-gt/voxel-ui-nuxt` package provides auto-imports for all VX-prefixed components. CSS is injected automatically.
+The `@pixela/voxel-ui-nuxt` package provides auto-imports for all VX-prefixed components. CSS is injected automatically.
 
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@pixela-gt/voxel-ui-nuxt'],
+  modules: ['@pixela/voxel-ui-nuxt'],
 })
 ```
 

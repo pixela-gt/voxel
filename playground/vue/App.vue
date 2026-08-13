@@ -27,7 +27,7 @@ import {
   VXLink,
   VXDrawer,
   VXColorField,
-} from '@pixela-gt/voxel-ui'
+} from '@pixela/voxel-ui'
 
 const checked = ref(false)
 const switched = ref(false)

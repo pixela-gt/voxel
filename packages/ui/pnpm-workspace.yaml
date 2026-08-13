@@ -2,4 +2,4 @@ allowBuilds:
   esbuild: true
   vue-demi: true
 overrides:
-  '@pixela-gt/voxel-ui': 'link:'
+  '@pixela/voxel-ui': 'link:'

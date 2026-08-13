@@ -1,11 +1,11 @@
-# @pixela-gt/voxel-cli
+# @pixela/voxel-cli
 
 CLI for Voxel design system — component docs, tokens, and AI agent tooling.
 
 ## Install
 
 ```bash
-npm install -g @pixela-gt/voxel-cli
+npm install -g @pixela/voxel-cli
 ```
 
 Or run without installing via `npx`:

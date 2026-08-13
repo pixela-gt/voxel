@@ -1,4 +1,4 @@
-# Contributing to @pixela-gt/voxel-ui
+# Contributing to @pixela/voxel-ui
 
 ## Adding a Storybook story
 
@@ -8,10 +8,10 @@ Every component folder under `packages/ui/src/components/<Name>/` should have a 
 
 1. Import `Meta, StoryObj` from `@storybook/vue3` and the component from its SFC.
 2. Declare `Meta<typeof Component>` with:
-   - `title: 'Components/<Name>'`
-   - `component`
-   - `tags: ['autodocs']`
-   - `argTypes` for every public prop **except `class`** (skip it — noise)
+  - `title: 'Components/<Name>'`
+  - `component`
+  - `tags: ['autodocs']`
+  - `argTypes` for every public prop **except `class`** (skip it — noise)
 3. Export a `Story` type alias: `type Story = StoryObj<typeof meta>`
 4. Add a `Default` story and one story per meaningful prop variant (`Small`, `Disabled`, `Outline`, etc.). No exhaustive matrix.
 5. For v-model components, use `withVModel` from `.story-helpers.ts` to wire `args.modelValue` into a local ref.
@@ -35,9 +35,9 @@ import { withVModel } from '../.story-helpers'
 ### Verification
 
 ```bash
-pnpm --filter @pixela-gt/voxel-ui build-storybook
-pnpm --filter @pixela-gt/voxel-ui typecheck
-pnpm --filter @pixela-gt/voxel-ui storybook
+pnpm --filter @pixela/voxel-ui build-storybook
+pnpm --filter @pixela/voxel-ui typecheck
+pnpm --filter @pixela/voxel-ui storybook
 ```
 
 Open the story in the browser, verify the a11y panel reports no violations on the Default story, and check that any `play()` story completes without error.

@@ -250,7 +250,7 @@ function scanDirectory(baseDir: string, sourceDir: string, components: Record<st
       slots,
       events,
       rekaUi,
-      import: `import { ${dir} } from '@pixela-gt/voxel-ui'`,
+      import: `import { ${dir} } from '@pixela/voxel-ui'`,
     }
   }
 }

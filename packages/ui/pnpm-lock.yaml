@@ -5,13 +5,13 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@pixela-gt/voxel-ui': 'link:'
+  '@pixela/voxel-ui': 'link:'
 
 importers:
 
   .:
     dependencies:
-      '@pixela-gt/voxel-ui':
+      '@pixela/voxel-ui':
         specifier: 'link:'
         version: 'link:'
       reka-ui:

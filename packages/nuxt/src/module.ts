@@ -10,7 +10,7 @@ export interface VoxelOptions {
 
 const module: NuxtModule<VoxelOptions> = defineNuxtModule<VoxelOptions>({
   meta: {
-    name: '@pixela-gt/voxel-ui-nuxt',
+    name: '@pixela/voxel-ui-nuxt',
     configKey: 'voxel',
     compatibility: { nuxt: '>=3.0.0' },
   },
@@ -28,22 +28,22 @@ const module: NuxtModule<VoxelOptions> = defineNuxtModule<VoxelOptions>({
         addComponent({
           name: `${options.prefix}${name}`,
           export: exportName,
-          filePath: '@pixela-gt/voxel-ui',
+          filePath: '@pixela/voxel-ui',
         })
       }
     }
 
     // Auto-import composables
     addImports([
-      { name: 'useTheme', from: '@pixela-gt/voxel-ui' },
-      { name: 'useThemeConfig', from: '@pixela-gt/voxel-ui' },
-      { name: 'useToast', from: '@pixela-gt/voxel-ui' },
-      { name: 'useSidebar', from: '@pixela-gt/voxel-ui' },
+      { name: 'useTheme', from: '@pixela/voxel-ui' },
+      { name: 'useThemeConfig', from: '@pixela/voxel-ui' },
+      { name: 'useToast', from: '@pixela/voxel-ui' },
+      { name: 'useSidebar', from: '@pixela/voxel-ui' },
     ])
 
     // Add CSS — tokens first, then style, then user theme overrides
-    nuxt.options.css.push('@pixela-gt/voxel-ui/tokens.css')
-    nuxt.options.css.push('@pixela-gt/voxel-ui/style.css')
+    nuxt.options.css.push('@pixela/voxel-ui/tokens.css')
+    nuxt.options.css.push('@pixela/voxel-ui/style.css')
     if (options.theme) {
       nuxt.options.css.push(options.theme)
     }
