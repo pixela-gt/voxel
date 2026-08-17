@@ -25,6 +25,10 @@ const props = withDefaults(defineProps<SelectProps>(), {
   multiple: false,
   disabled: false,
   size: 'default',
+  // `undefined` defaults prevent Vue from coercing absent Boolean props to `false`,
+  // which would otherwise force reka-ui into controlled mode (`open === undefined` is its uncontrolled sentinel).
+  open: undefined,
+  defaultOpen: undefined,
 } as const)
 
 const emit = defineEmits<{
@@ -36,25 +40,6 @@ const rootClass = computed(() => ['voxel-select', `voxel-select--size-${props.si
 const triggerClass = computed(() => ['voxel-select__trigger', `voxel-select__trigger--size-${props.size}`])
 const isGroup = (entry: SelectItemType | SelectGroupType): entry is SelectGroupType =>
   Array.isArray((entry as SelectGroupType).items)
-
-const handleItemClick = (item: SelectItemType) => {
-  if (item.disabled) return
-  if (props.multiple) {
-    const current = Array.isArray(props.modelValue) ? props.modelValue : []
-    const exists = current.includes(item.value)
-    const next = exists ? current.filter(v => v !== item.value) : [...current, item.value]
-    emit('update:modelValue', next)
-  } else {
-    emit('update:modelValue', item.value)
-  }
-}
-
-const isSelected = (item: SelectItemType) => {
-  if (props.multiple) {
-    return Array.isArray(props.modelValue) && props.modelValue.includes(item.value)
-  }
-  return props.modelValue === item.value
-}
 </script>
 
 <template>
@@ -95,10 +80,9 @@ const isSelected = (item: SelectItemType) => {
                 :value="item.value"
                 :disabled="item.disabled"
                 class="voxel-select__item"
-                @click="() => handleItemClick(item)"
               >
                 <SelectItemText>{{ item.label ?? item.value }}</SelectItemText>
-                <SelectItemIndicator v-if="isSelected(item)" class="voxel-select__item-indicator">
+                <SelectItemIndicator class="voxel-select__item-indicator">
                   <Icon :icon="Check" size="small" />
                 </SelectItemIndicator>
               </SelectItem>
@@ -108,10 +92,9 @@ const isSelected = (item: SelectItemType) => {
               :value="(entry as SelectItemType).value"
               :disabled="(entry as SelectItemType).disabled"
               class="voxel-select__item"
-              @click="() => handleItemClick(entry as SelectItemType)"
             >
               <SelectItemText>{{ (entry as SelectItemType).label ?? (entry as SelectItemType).value }}</SelectItemText>
-              <SelectItemIndicator v-if="isSelected(entry as SelectItemType)" class="voxel-select__item-indicator">
+              <SelectItemIndicator class="voxel-select__item-indicator">
                 <Icon :icon="Check" size="small" />
               </SelectItemIndicator>
             </SelectItem>
@@ -166,6 +149,7 @@ const isSelected = (item: SelectItemType) => {
     border border-[var(--color-grey-200)]
     focus-visible:outline-none
     overflow-hidden z-50;
+  width: var(--reka-select-trigger-width);
 }
 
 .voxel-select__viewport {
@@ -181,7 +165,7 @@ const isSelected = (item: SelectItemType) => {
 }
 
 .voxel-select__label {
-  @apply px-2 py-1.5 text-[11px] font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide;
+  @apply px-2 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)]/90 uppercase tracking-wide;
 }
 
 .voxel-select__item {
