@@ -14,6 +14,7 @@ export interface SelectGroup {
 
 export interface SelectProps {
   modelValue?: string | number | (string | number)[]
+  value?: string | number | (string | number)[] // VeeValidate compatibility
   defaultValue?: string | number | (string | number)[]
   defaultOpen?: boolean
   open?: boolean

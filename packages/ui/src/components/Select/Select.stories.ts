@@ -12,6 +12,7 @@ const meta: Meta<typeof Select> = {
     disabled: { control: 'boolean' },
     size: { control: 'select', options: ['small', 'default', 'large'] },
     placeholder: { control: 'text' },
+    open: { control: 'boolean' },
   },
 }
 
@@ -29,29 +30,161 @@ const groupedFruits = [
   { label: 'Berries', items: [{ value: 'strawberry', label: 'Strawberry' }, { value: 'blueberry', label: 'Blueberry' }] },
 ]
 
-const template = (args: any) => ({
-  components: { Select },
-  setup() {
-    const value = ref(args.modelValue ?? '')
-    return { args, value }
-  },
-  template: '<Select v-bind="args" v-model="value" style="width:200px" />',
-})
+export const Default: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('')
+      return { value, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }}</p>
+        <Select v-model="value" :items="fruits" placeholder="Pick a fruit" style="width:200px" />
+      </div>
+    `,
+  }),
+}
 
-export const Default: Story = { args: { items: fruits, placeholder: 'Pick a fruit' }, render: template }
-export const Preselected: Story = { args: { items: fruits, modelValue: 'banana' }, render: template }
-export const WithGroups: Story = { args: { items: groupedFruits }, render: template }
+export const Preselected: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('banana')
+      return { value, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value }}</p>
+        <Select v-model="value" :items="fruits" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const WithGroups: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('')
+      return { value, groupedFruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }}</p>
+        <Select v-model="value" :items="groupedFruits" placeholder="Pick a fruit" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
 export const Multiple: Story = {
-  args: { items: fruits, multiple: true, modelValue: ['apple'] },
   render: () => ({
     components: { Select },
     setup() {
       const value = ref<string[]>(['apple'])
       return { value, fruits }
     },
-    template: '<Select v-model="value" :items="fruits" multiple style="width:200px" />',
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value }}</p>
+        <Select v-model="value" :items="fruits" multiple placeholder="Pick fruits" style="width:200px" />
+      </div>
+    `,
   }),
 }
-export const Disabled: Story = { args: { items: fruits, disabled: true }, render: template }
-export const Small: Story = { args: { items: fruits, size: 'small' }, render: template }
-export const Large: Story = { args: { items: fruits, size: 'large' }, render: template }
+
+export const Disabled: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('apple')
+      return { value, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value }}</p>
+        <Select v-model="value" :items="fruits" disabled style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const Small: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('')
+      return { value, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }}</p>
+        <Select v-model="value" :items="fruits" size="small" placeholder="Pick a fruit" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const Large: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('')
+      return { value, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }}</p>
+        <Select v-model="value" :items="fruits" size="large" placeholder="Pick a fruit" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+// VeeValidate compatibility: using value prop instead of modelValue
+export const WithValueProp: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('apple')
+      return { value, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value }}</p>
+        <Select :value="value" @change="(v) => value = v" :items="fruits" placeholder="Pick a fruit" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const Controlled: Story = {
+  render: () => ({
+    components: { Select },
+    setup() {
+      const value = ref('')
+      const isOpen = ref(false)
+      return { value, isOpen, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }}</p>
+        <p style="margin-bottom: 8px; font-size: 14px;">Open: {{ isOpen }}</p>
+        <Select
+          v-model="value"
+          v-model:open="isOpen"
+          :items="fruits"
+          placeholder="Pick a fruit"
+          style="width:200px"
+        />
+        <button
+          @click="isOpen = !isOpen"
+          style="margin-top: 8px; padding: 4px 8px; cursor: pointer;"
+        >
+          Toggle Open
+        </button>
+      </div>
+    `,
+  }),
+}

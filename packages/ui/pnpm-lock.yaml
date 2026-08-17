@@ -4,16 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@pixela/voxel-ui': 'link:'
-
 importers:
 
   .:
     dependencies:
-      '@pixela/voxel-ui':
-        specifier: 'link:'
-        version: 'link:'
       reka-ui:
         specifier: ^2.9.0
         version: 2.10.1(vue@3.5.40(typescript@6.0.3))
