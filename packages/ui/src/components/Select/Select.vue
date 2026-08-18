@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, useSlots } from 'vue'
 import {
   SelectRoot,
   SelectTrigger,
@@ -17,6 +17,8 @@ import {
   SelectScrollUpButton,
   SelectScrollDownButton,
 } from 'reka-ui'
+import { ChevronDown, ChevronUp, Check } from '@lucide/vue'
+import { Icon } from '../Icon'
 import type { SelectProps, SelectItem as SelectItemType, SelectGroup as SelectGroupType } from './Select.types'
 import type { FormFieldContext } from '../FormField/FormField.types'
 import { FORM_FIELD_KEY } from '../FormField/FormField.types'
@@ -28,6 +30,10 @@ const props = withDefaults(defineProps<SelectProps>(), {
   variant: 'outlined',
   density: 'default',
   focusEffect: 'border',
+  // `undefined` defaults prevent Vue from coercing absent Boolean props to `false`,
+  // which would otherwise force reka-ui into controlled mode (`open === undefined` is its uncontrolled sentinel).
+  open: undefined,
+  defaultOpen: undefined,
 } as const)
 
 const emit = defineEmits<{
@@ -36,6 +42,8 @@ const emit = defineEmits<{
 }>()
 
 const formContext = inject<FormFieldContext | null>(FORM_FIELD_KEY, null)
+
+const slots = useSlots()
 
 const effectiveError = computed(() => props.errorMessage ?? formContext?.errorMessage)
 
@@ -53,25 +61,6 @@ const triggerClass = computed(() => [
 ])
 const isGroup = (entry: SelectItemType | SelectGroupType): entry is SelectGroupType =>
   Array.isArray((entry as SelectGroupType).items)
-
-const handleItemClick = (item: SelectItemType) => {
-  if (item.disabled) return
-  if (props.multiple) {
-    const current = Array.isArray(props.modelValue) ? props.modelValue : []
-    const exists = current.includes(item.value)
-    const next = exists ? current.filter(v => v !== item.value) : [...current, item.value]
-    emit('update:modelValue', next)
-  } else {
-    emit('update:modelValue', item.value)
-  }
-}
-
-const isSelected = (item: SelectItemType) => {
-  if (props.multiple) {
-    return Array.isArray(props.modelValue) && props.modelValue.includes(item.value)
-  }
-  return props.modelValue === item.value
-}
 </script>
 
 <template>
@@ -90,18 +79,22 @@ const isSelected = (item: SelectItemType) => {
     v-bind="$attrs"
   >
     <SelectTrigger :class="triggerClass">
+      <span v-if="slots.prepend" class="voxel-select__prepend">
+        <slot name="prepend" />
+      </span>
       <SelectValue :placeholder="props.placeholder" class="voxel-select__value" />
+      <span v-if="slots.append" class="voxel-select__append">
+        <slot name="append" />
+      </span>
       <SelectIcon class="voxel-select__icon">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <Icon :icon="ChevronDown" size="small" />
       </SelectIcon>
     </SelectTrigger>
 
     <SelectPortal>
       <SelectContent class="voxel-select__content" :side-offset="4" position="popper">
         <SelectScrollUpButton class="voxel-select__scroll-button">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 7.5L6 4.5L9 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <Icon :icon="ChevronUp" size="small" />
         </SelectScrollUpButton>
         <SelectViewport class="voxel-select__viewport">
           <template v-for="(entry, idx) in props.items" :key="idx">
@@ -114,11 +107,10 @@ const isSelected = (item: SelectItemType) => {
                 :value="item.value"
                 :disabled="item.disabled"
                 class="voxel-select__item"
-                @click="() => handleItemClick(item)"
               >
                 <SelectItemText>{{ item.label ?? item.value }}</SelectItemText>
-                <SelectItemIndicator v-if="isSelected(item)" class="voxel-select__item-indicator">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <SelectItemIndicator class="voxel-select__item-indicator">
+                  <Icon :icon="Check" size="small" />
                 </SelectItemIndicator>
               </SelectItem>
             </SelectGroup>
@@ -127,30 +119,29 @@ const isSelected = (item: SelectItemType) => {
               :value="(entry as SelectItemType).value"
               :disabled="(entry as SelectItemType).disabled"
               class="voxel-select__item"
-              @click="() => handleItemClick(entry as SelectItemType)"
             >
               <SelectItemText>{{ (entry as SelectItemType).label ?? (entry as SelectItemType).value }}</SelectItemText>
-              <SelectItemIndicator v-if="isSelected(entry as SelectItemType)" class="voxel-select__item-indicator">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <SelectItemIndicator class="voxel-select__item-indicator">
+                <Icon :icon="Check" size="small" />
               </SelectItemIndicator>
             </SelectItem>
           </template>
         </SelectViewport>
         <SelectScrollDownButton class="voxel-select__scroll-button">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <Icon :icon="ChevronDown" size="small" />
         </SelectScrollDownButton>
       </SelectContent>
     </SelectPortal>
   </SelectRoot>
 </template>
 
-<style scoped>
+<style>
 .voxel-select {
   @apply inline-flex;
 }
 
 .voxel-select__trigger {
-  @apply inline-flex items-center justify-between gap-2 w-full font-sans transition-all duration-[var(--transition-normal)] focus-within:outline-none;
+  @apply inline-flex items-center justify-between gap-2 w-full font-sans text-left transition-all duration-[var(--transition-normal)] focus-within:outline-none;
 }
 
 /* Outlined */
@@ -247,7 +238,6 @@ const isSelected = (item: SelectItemType) => {
   @apply hover:bg-transparent;
 }
 
-/* Size overrides — reset old size classes, use density instead */
 .voxel-select__trigger--size-small {
   @apply text-[11px];
 }
@@ -261,11 +251,26 @@ const isSelected = (item: SelectItemType) => {
 }
 
 .voxel-select__value {
-  @apply truncate;
+  @apply flex-1 min-w-0 truncate;
 }
 
 .voxel-select__icon {
   @apply text-[var(--color-text-secondary)] flex-shrink-0;
+}
+
+.voxel-select__prepend,
+.voxel-select__append {
+  @apply shrink-0 flex items-center justify-center text-[var(--color-text-muted)];
+}
+
+.voxel-select__trigger--density-default .voxel-select__prepend,
+.voxel-select__trigger--density-default .voxel-select__append {
+  @apply size-5;
+}
+
+.voxel-select__trigger--density-dense .voxel-select__prepend,
+.voxel-select__trigger--density-dense .voxel-select__append {
+  @apply size-4;
 }
 
 .voxel-select__content {
@@ -273,6 +278,7 @@ const isSelected = (item: SelectItemType) => {
     border border-[var(--color-grey-200)]
     focus-visible:outline-none
     overflow-hidden z-50;
+  width: var(--reka-select-trigger-width);
 }
 
 .voxel-select__viewport {
@@ -288,7 +294,7 @@ const isSelected = (item: SelectItemType) => {
 }
 
 .voxel-select__label {
-  @apply px-2 py-1.5 text-[11px] font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide;
+  @apply px-2 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)]/90 uppercase tracking-wide;
 }
 
 .voxel-select__item {
@@ -296,7 +302,7 @@ const isSelected = (item: SelectItemType) => {
     rounded-md px-2 py-1.5
     text-sm text-[var(--color-text-primary)]
     cursor-pointer select-none outline-none
-    data-[highlighted]:bg-[var(--color-primary-lighten-1)] data-[highlighted]:text-[var(--color-primary-base)]
+    data-[highlighted]:bg-[var(--color-primary-lighten-1)]/12 data-[highlighted]:text-[var(--color-primary-base)]
     data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed;
 }
 

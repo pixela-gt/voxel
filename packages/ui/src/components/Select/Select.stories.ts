@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
+import { Search, X } from '@lucide/vue'
 import Select from './Select.vue'
 
 const meta: Meta<typeof Select> = {
@@ -7,11 +8,24 @@ const meta: Meta<typeof Select> = {
   component: Select,
   tags: ['autodocs'],
   argTypes: {
-    modelValue: { control: 'object' },
+    modelValue: { control: 'text' },
+    defaultValue: { control: 'text' },
+    size: { control: 'select', options: ['small', 'default', 'large'] },
+    variant: { control: 'select', options: ['outlined', 'underlined', 'ghost'] },
+    density: { control: 'select', options: ['default', 'dense'] },
+    focusEffect: { control: 'select', options: ['border', 'elevation', 'glow'] },
     multiple: { control: 'boolean' },
     disabled: { control: 'boolean' },
-    size: { control: 'select', options: ['small', 'default', 'large'] },
+    required: { control: 'boolean' },
     placeholder: { control: 'text' },
+    name: { control: 'text' },
+    defaultOpen: { control: 'boolean' },
+    errorMessage: { control: 'text' },
+    // not wired in the component (dead props) — hide to avoid misleading controls
+    value: { table: { disable: true } },
+    open: { table: { disable: true } },
+    items: { table: { disable: true } },
+    class: { table: { disable: true } },
   },
 }
 
@@ -33,25 +47,167 @@ const template = (args: any) => ({
   components: { Select },
   setup() {
     const value = ref(args.modelValue ?? '')
-    return { args, value }
+    return { args, value, fruits }
   },
-  template: '<Select v-bind="args" v-model="value" style="width:200px" />',
+  template: `
+    <div>
+      <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }}</p>
+      <Select v-bind="args" v-model="value" :items="fruits" placeholder="Pick a fruit" style="width:200px" />
+    </div>
+  `,
 })
 
-export const Default: Story = { args: { items: fruits, placeholder: 'Pick a fruit' }, render: template }
-export const Preselected: Story = { args: { items: fruits, modelValue: 'banana' }, render: template }
-export const WithGroups: Story = { args: { items: groupedFruits }, render: template }
-export const Multiple: Story = {
-  args: { items: fruits, multiple: true, modelValue: ['apple'] },
+export const Default: Story = { args: {}, render: template }
+export const Preselected: Story = { args: { modelValue: 'banana' }, render: template }
+export const Disabled: Story = { args: { disabled: true, modelValue: 'apple' }, render: template }
+export const Small: Story = { args: { size: 'small' }, render: template }
+export const Large: Story = { args: { size: 'large' }, render: template }
+export const Underlined: Story = { args: { variant: 'underlined' }, render: template }
+export const Ghost: Story = { args: { variant: 'ghost' }, render: template }
+export const Dense: Story = { args: { density: 'dense' }, render: template }
+export const WithError: Story = { args: { errorMessage: 'This field is required' }, render: template }
+
+export const WithPrepend: Story = {
+  args: {},
   render: () => ({
-    components: { Select },
+    components: { Select, Search },
     setup() {
-      const value = ref<string[]>(['apple'])
-      return { value, fruits }
+      const value = ref('')
+      return { value, fruits, Search }
     },
-    template: '<Select v-model="value" :items="fruits" multiple style="width:200px" />',
+    template: `
+      <Select v-model="value" :items="fruits" placeholder="Search fruit" style="width:200px">
+        <template #prepend><Search :size="20" /></template>
+      </Select>
+    `,
   }),
 }
-export const Disabled: Story = { args: { items: fruits, disabled: true }, render: template }
-export const Small: Story = { args: { items: fruits, size: 'small' }, render: template }
-export const Large: Story = { args: { items: fruits, size: 'large' }, render: template }
+
+export const WithAppend: Story = {
+  args: {},
+  render: () => ({
+    components: { Select, X },
+    setup() {
+      const value = ref('')
+      return { value, fruits, X }
+    },
+    template: `
+      <Select v-model="value" :items="fruits" placeholder="Pick a fruit" style="width:200px">
+        <template #append><X :size="20" /></template>
+      </Select>
+    `,
+  }),
+}
+
+export const WithPrependAndAppend: Story = {
+  args: {},
+  render: () => ({
+    components: { Select, Search, X },
+    setup() {
+      const value = ref('')
+      return { value, fruits, Search, X }
+    },
+    template: `
+      <Select v-model="value" :items="fruits" placeholder="Search fruit" style="width:200px">
+        <template #prepend><Search :size="20" /></template>
+        <template #append><X :size="20" /></template>
+      </Select>
+    `,
+  }),
+}
+
+export const Multiple: Story = {
+  args: { multiple: true, modelValue: ['apple'] },
+  render: (args: any) => ({
+    components: { Select },
+    setup() {
+      const value = ref<string[]>(args.modelValue ?? [])
+      return { args, value, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value }}</p>
+        <Select v-bind="args" v-model="value" :items="fruits" placeholder="Pick fruits" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const WithGroups: Story = {
+  args: {},
+  render: (args: any) => ({
+    components: { Select },
+    setup() {
+      const value = ref(args.modelValue ?? '')
+      return { args, value, groupedFruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }}</p>
+        <Select v-bind="args" v-model="value" :items="groupedFruits" placeholder="Pick a fruit" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const Uncontrolled: Story = {
+  args: { defaultValue: 'banana', placeholder: 'Pick a fruit' },
+  render: (args: any) => ({
+    components: { Select },
+    setup() {
+      return { args, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">No v-model — value is managed internally (defaultValue).</p>
+        <Select v-bind="args" :items="fruits" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const UncontrolledOpen: Story = {
+  args: { defaultOpen: true, placeholder: 'Pick a fruit' },
+  render: (args: any) => ({
+    components: { Select },
+    setup() {
+      return { args, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">No v-model:open — open state is managed internally (defaultOpen).</p>
+        <Select v-bind="args" :items="fruits" style="width:200px" />
+      </div>
+    `,
+  }),
+}
+
+export const Controlled: Story = {
+  args: { placeholder: 'Pick a fruit' },
+  render: (args: any) => ({
+    components: { Select },
+    setup() {
+      const value = ref('')
+      const isOpen = ref(false)
+      return { args, value, isOpen, fruits }
+    },
+    template: `
+      <div>
+        <p style="margin-bottom: 8px; font-size: 14px;">Selected: {{ value || '(none)' }} | Open: {{ isOpen }}</p>
+        <Select
+          v-bind="args"
+          v-model="value"
+          v-model:open="isOpen"
+          :items="fruits"
+          style="width:200px"
+        />
+        <button
+          @click="isOpen = !isOpen"
+          style="margin-top: 8px; padding: 4px 8px; cursor: pointer;"
+        >
+          Toggle Open
+        </button>
+      </div>
+    `,
+  }),
+}

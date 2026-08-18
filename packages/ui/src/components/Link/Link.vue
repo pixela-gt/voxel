@@ -8,6 +8,7 @@ const props = withDefaults(defineProps<LinkProps>(), {
   color: 'primary',
   size: 'default',
   density: 'default',
+  disabled: false,
 })
 
 const linkIs = computed(() => {
@@ -26,12 +27,21 @@ const linkClasses = computed(() => [
   `voxel-link--color-${props.color}`,
   `voxel-link--size-${props.size}`,
   `voxel-link--density-${props.density}`,
+  { 'voxel-link--disabled': props.disabled },
   props.class,
 ])
 </script>
 
 <template>
-  <component :is="linkIs" :to="props.to" :class="linkClasses" v-bind="$attrs">
+  <component
+    :is="linkIs"
+    :to="props.to"
+    :class="linkClasses"
+    :aria-disabled="props.disabled || undefined"
+    :tabindex="props.disabled ? -1 : undefined"
+    @click="props.disabled && $event.preventDefault()"
+    v-bind="$attrs"
+  >
     <span
       v-if="props.icon || $slots.icon"
       class="voxel-link__icon"
@@ -53,6 +63,10 @@ const linkClasses = computed(() => [
 /* Styles */
 .voxel-link--style-underlined {
   @apply underline underline-offset-2;
+}
+
+.voxel-link--disabled {
+  @apply opacity-50 cursor-not-allowed;
 }
 
 /* Colors */

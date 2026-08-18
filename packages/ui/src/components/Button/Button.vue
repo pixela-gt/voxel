@@ -42,7 +42,7 @@ const classes = computed(() => [
     :disabled="effectiveDisabled || props.loading"
     v-bind="$attrs"
   >
-    <Loading v-if="props.loading" />
+    <Loading v-if="props.loading" :size="effectiveSize" />
     <span
       v-else-if="props.prependIcon || slots['prepend-icon']"
       class="voxel-button__icon"

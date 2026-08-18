@@ -52,7 +52,7 @@ function handleClick(event: MouseEvent) {
     :aria-label="props['aria-label']"
     @click="handleClick"
   >
-    <Loading v-if="props.loading" size="small" />
+    <Loading v-if="props.loading" :size="effectiveSize" />
     <span v-else-if="props.icon || slots.default" class="voxel-icon-button__icon" aria-hidden="true">
       <slot>
         <Icon :icon="props.icon!" :size="effectiveSize" />

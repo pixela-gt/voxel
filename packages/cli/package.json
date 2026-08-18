@@ -1,6 +1,6 @@
 {
   "name": "@pixela/voxel-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CLI tool for Voxel design system — component docs, tokens, and agent tooling",
   "type": "module",
   "main": "./dist/index.mjs",
@@ -34,14 +34,6 @@
     "ts-node": "^10.9.0",
     "tsx": "^4.23.1",
     "typescript": "^5.3.0"
-  },
-  "peerDependencies": {
-    "@pixela/voxel-ui": "workspace:*"
-  },
-  "peerDependenciesMeta": {
-    "@pixela/voxel-ui": {
-      "optional": true
-    }
   },
   "keywords": [
     "voxel",

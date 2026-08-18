@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
+import { userEvent, within } from 'storybook/test'
 import Toast from './Toast.vue'
 import { ToastProvider } from './index'
 import { useToast } from '../../composables/useToast'
@@ -13,7 +14,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const template = () => ({
-  components: { ToastProvider },
+  components: { ToastProvider, DemoButtons },
   setup() {
     return {}
   },
@@ -42,23 +43,30 @@ const DemoButtons = {
   `,
 }
 
-export const Default: Story = { render: template }
+const DemoButtonsWithAction = {
+  components: { Toast },
+  setup() {
+    const toast = useToast()
+    const show = () => toast.toast({ title: 'Item archived', description: 'You can restore it later' })
+    return { show }
+  },
+  template: '<button @click="show">Toast with action</button>',
+}
+
+export const Default: Story = {
+  render: template,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole('button', { name: 'Success' }))
+  },
+}
+
 export const WithCustomAction: Story = {
   render: () => ({
-    components: { ToastProvider },
-    setup() {
-      return {}
-    },
+    components: { ToastProvider, DemoButtonsWithAction },
     template: `
       <ToastProvider>
-        <component :is="{
-          setup() {
-            const toast = useToast()
-            const show = () => toast.toast({ title: 'Item archived', description: 'You can restore it later' })
-            return { show }
-          },
-          template: '<button @click="show">Toast with action</button>'
-        }" />
+        <DemoButtonsWithAction />
       </ToastProvider>
     `,
   }),
