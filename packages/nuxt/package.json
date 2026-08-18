@@ -1,6 +1,6 @@
 {
   "name": "@pixela/voxel-ui-nuxt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Nuxt module for @pixela/voxel-ui",
   "type": "module",
   "exports": {
@@ -18,7 +18,7 @@
     "@nuxt/kit": "^3.0.0"
   },
   "peerDependencies": {
-    "@pixela/voxel-ui": ">=0.1.0"
+    "@pixela/voxel-ui": ">=0.2.0"
   },
   "devDependencies": {
     "@nuxt/schema": "^4.0.0",
