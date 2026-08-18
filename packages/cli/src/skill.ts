@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createInterface } from 'node:readline'
+import { loadRegistry } from './registry.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -10,11 +11,7 @@ export interface SkillOptions {
   full: boolean
   framework: 'vue' | 'nuxt' | 'both'
   output?: string
-}
-
-function loadRegistry() {
-  const registryPath = resolve(__dirname, '../../ui/src/components.json')
-  return JSON.parse(readFileSync(registryPath, 'utf-8'))
+  global?: boolean
 }
 
 function resolveOutputPath(options: SkillOptions): string {
@@ -22,7 +19,10 @@ function resolveOutputPath(options: SkillOptions): string {
   switch (options.target) {
     case 'claude': return '.claude/skills/voxel/SKILL.md'
     case 'cursor': return '.cursor/rules/voxel.md'
-    case 'opencode': return `${process.env.HOME}/.config/opencode/skills/voxel/SKILL.md`
+    case 'opencode':
+      return options.global
+        ? `${process.env.HOME}/.config/opencode/skills/voxel/SKILL.md`
+        : '.opencode/skills/voxel/SKILL.md'
     case 'md': return './voxel.md'
   }
 }

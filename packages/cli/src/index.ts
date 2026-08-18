@@ -1,15 +1,10 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
-import { readFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { loadRegistry } from './registry.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-
-function loadRegistry() {
-  const registryPath = resolve(__dirname, '../../ui/src/components.json')
-  return JSON.parse(readFileSync(registryPath, 'utf-8'))
-}
 
 function formatProps(props: Record<string, any>): string {
   const lines: string[] = []
@@ -246,6 +241,12 @@ program
   .command('generate')
   .description('Regenerate components.json from source')
   .action(async () => {
+    const { existsSync } = await import('node:fs')
+    const uiSrc = resolve(__dirname, '../../ui/src')
+    if (!existsSync(uiSrc)) {
+      console.error('voxel generate must be run inside the voxel monorepo (packages/ui/src not found).')
+      process.exit(1)
+    }
     const { execSync } = await import('node:child_process')
     const scriptPath = resolve(__dirname, 'generate.ts')
     execSync(`npx tsx "${scriptPath}"`, { stdio: 'inherit', cwd: resolve(__dirname, '../..') })
@@ -258,9 +259,10 @@ program
   .option('--full', 'Full depth: slots, events, reka-ui mapping, complete tokens')
   .option('--framework <framework>', 'Framework coverage: vue, nuxt, both', 'both')
   .option('--output <path>', 'Custom output path (overrides target default)')
+  .option('--global', 'Install skill to user-level config (opencode only)')
   .action(async (options: any) => {
     const { generateSkill } = await import('./skill')
-    await generateSkill(options)
+    await generateSkill({ ...options, global: options.global })
   })
 
 program.parse()
