@@ -29,11 +29,11 @@ const rootClass = computed(() => [
 .voxel-splitter-handle {
   @apply relative flex items-center justify-center
     bg-[var(--color-grey-100)]
-    hover:bg-[var(--color-primary-lighten-1)]
+    hover:bg-[var(--color-primary-lighten-1)]/20
     transition-colors
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2
-    data-[resize-handle-state='hover']:bg-[var(--color-primary-lighten-1)]
-    data-[resize-handle-state='drag']:bg-[var(--color-primary-lighten-1)];
+    data-[resize-handle-state='hover']:bg-[var(--color-primary-lighten-1)]/20
+    data-[resize-handle-state='drag']:bg-[var(--color-primary-lighten-1)]/20;
 }
 
 .voxel-splitter-handle--horizontal {
