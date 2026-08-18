@@ -35,14 +35,6 @@
     "tsx": "^4.23.1",
     "typescript": "^5.3.0"
   },
-  "peerDependencies": {
-    "@pixela/voxel-ui": "workspace:*"
-  },
-  "peerDependenciesMeta": {
-    "@pixela/voxel-ui": {
-      "optional": true
-    }
-  },
   "keywords": [
     "voxel",
     "cli",
