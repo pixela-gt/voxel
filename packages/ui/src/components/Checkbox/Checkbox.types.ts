@@ -6,5 +6,9 @@ export interface CheckboxProps {
   disabled?: boolean
   label?: string
   icon?: IconValue
+  /** Renders the dash state instead of unchecked (maps to reka's indeterminate). */
+  indeterminate?: boolean
+  /** Visual error state. Also set automatically inside FormField with errorMessage. */
+  error?: boolean
   class?: ClassValue
 }
