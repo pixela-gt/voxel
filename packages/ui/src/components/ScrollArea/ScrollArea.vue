@@ -42,34 +42,35 @@ const rootClass = computed(() => ['voxel-scroll-area', props.class])
   @apply relative w-full h-full overflow-hidden;
 }
 
-.voxel-scroll-area__viewport {
+/* reka's ScrollAreaViewport renders a multi-root fragment (content div +
+   injected <style>), so parent scoped attrs never land on its elements —
+   plain scoped selectors silently miss and e.g. height:100% never applies,
+   leaving the viewport unconstrained and wheel-scrolling dead.
+   Anchor every part rule through :deep() from our single-root Root instead. */
+.voxel-scroll-area :deep(.voxel-scroll-area__viewport) {
   @apply w-full h-full rounded-[inherit];
 }
 
-.voxel-scroll-area__viewport > :slotted(*) {
-  @apply h-full;
-}
-
-.voxel-scroll-area__scrollbar {
+.voxel-scroll-area :deep(.voxel-scroll-area__scrollbar) {
   @apply flex select-none touch-none p-0.5
     bg-transparent
     transition-colors;
 }
 
-.voxel-scroll-area__scrollbar--vertical {
+.voxel-scroll-area :deep(.voxel-scroll-area__scrollbar--vertical) {
   @apply w-2 h-full;
 }
 
-.voxel-scroll-area__scrollbar--horizontal {
+.voxel-scroll-area :deep(.voxel-scroll-area__scrollbar--horizontal) {
   @apply h-2 flex-col;
 }
 
-.voxel-scroll-area__thumb {
+.voxel-scroll-area :deep(.voxel-scroll-area__thumb) {
   @apply relative flex-1 rounded-full
     bg-[var(--color-grey-400)];
 }
 
-.voxel-scroll-area__corner {
+.voxel-scroll-area :deep(.voxel-scroll-area__corner) {
   @apply bg-transparent;
 }
 </style>
