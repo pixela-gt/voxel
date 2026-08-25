@@ -39,13 +39,19 @@ const template = (args: any) => ({
 export const Default: Story = { render: template }
 export const Open: Story = { args: { defaultOpen: true }, render: template }
 export const Modal: Story = { args: { modal: true }, render: template }
+export const NoClose: Story = { args: { defaultOpen: true, showClose: false }, render: template }
+export const BottomPlacement: Story = {
+  args: { defaultOpen: true, side: 'bottom', align: 'end' },
+  render: template,
+}
 
 export const Interactive: Story = {
   render: template,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await userEvent.click(canvas.getByRole('button', { name: 'Open popover' }))
-    await expect(await within(document.body).findByText('Popover content')).toBeInTheDocument()
+    const content = await within(document.body).findByText('Popover content')
+    expect(content).toBeTruthy()
   },
 }
 
@@ -67,7 +73,7 @@ export const Controlled: Story = {
             </div>
           </template>
         </Popover>
-        <button @click="open = !open" style="padding:6px 12px;border:1px solid var(--color-grey-200);border-radius:8px;cursor:pointer">
+        <button @click="open = !open" style="padding:6px 12px;border:1px solid var(--color-surface-light);border-radius:8px;cursor:pointer">
           {{ open ? 'Close' : 'Open' }} popover
         </button>
       </div>
