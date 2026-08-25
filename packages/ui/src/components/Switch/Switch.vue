@@ -1,17 +1,31 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject, useId } from 'vue'
 import { SwitchRoot, SwitchThumb } from 'reka-ui'
 import type { SwitchProps } from './Switch.types'
+import { FORM_FIELD_KEY } from '../FormField/FormField.types'
 
 const props = withDefaults(defineProps<SwitchProps>(), {
   size: 'default',
   disabled: false,
   modelValue: false,
+  error: false,
 } as const)
 
 const emit = defineEmits<{
   'update:modelValue': [value: boolean]
 }>()
+
+// FormField integration: pick up error state; claim the field id once so
+// siblings fall back to their own generated id (first-consumer-wins).
+const formField = inject(FORM_FIELD_KEY, null)
+const ownId = useId()
+let claimedId: string | undefined
+if (formField && !formField.claimed) {
+  formField.claimed = true
+  claimedId = formField.id
+}
+const fieldId = computed(() => claimedId ?? ownId)
+const hasError = computed(() => props.error || !!formField?.errorMessage)
 
 const wrapperClass = computed(() => [
   'voxel-switch__wrapper',
@@ -21,6 +35,7 @@ const trackClass = computed(() => [
   'voxel-switch',
   `voxel-switch--size-${props.size}`,
   props.modelValue && 'voxel-switch--checked',
+  hasError.value && 'voxel-switch--error',
 ])
 const thumbClass = computed(() => [
   'voxel-switch__thumb',
@@ -37,6 +52,7 @@ const labelClass = computed(() => [
 <template>
   <div :class="wrapperClass" v-bind="$attrs">
     <SwitchRoot
+      :id="fieldId"
       v-model="props.modelValue"
       :disabled="props.disabled"
       @update:modelValue="emit('update:modelValue', $event)"
@@ -44,7 +60,7 @@ const labelClass = computed(() => [
     >
       <SwitchThumb :class="thumbClass" />
     </SwitchRoot>
-    <label v-if="props.label" :class="labelClass">
+    <label v-if="props.label" :for="fieldId" :class="labelClass">
       {{ props.label }}
     </label>
     <slot />
@@ -73,6 +89,10 @@ const labelClass = computed(() => [
 
 .voxel-switch--checked {
   @apply bg-[var(--color-primary-base)];
+}
+
+.voxel-switch--error {
+  @apply ring-1 ring-inset ring-[var(--color-error-base)];
 }
 
 /* Sizes */

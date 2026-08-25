@@ -21,9 +21,16 @@ const emit = defineEmits<{
 
 // FormField integration + label association: FormField's id wins when nested,
 // otherwise we generate our own so the label always toggles the checkbox.
+// First-consumer-wins: only the first control in a field claims the shared id,
+// so siblings fall back to their own unique id (no duplicate DOM ids).
 const formField = inject(FORM_FIELD_KEY, null)
 const ownId = useId()
-const effectiveId = computed(() => formField?.id ?? ownId)
+let claimedId: string | undefined
+if (formField && !formField.claimed) {
+  formField.claimed = true
+  claimedId = formField.id
+}
+const effectiveId = computed(() => claimedId ?? ownId)
 const hasError = computed(() => props.error || !!formField?.errorMessage)
 
 type CheckedState = boolean | 'indeterminate'

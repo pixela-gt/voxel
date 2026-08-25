@@ -5,5 +5,7 @@ export interface SwitchProps {
   size?: ComponentSize
   disabled?: boolean
   label?: string
+  /** Visual error state. Also set automatically inside FormField with errorMessage. */
+  error?: boolean
   class?: ClassValue
 }
