@@ -70,7 +70,7 @@ const rootClass = computed(() => ['voxel-pagination', `voxel-pagination--size-${
 }
 
 .voxel-pagination__ellipsis {
-  @apply inline-flex items-center justify-center text-[var(--color-text-muted)] select-none;
+  @apply inline-flex items-center justify-center text-[var(--color-text-secondary)] select-none;
 }
 
 .voxel-pagination--size-small .voxel-pagination__ellipsis { @apply size-7; }
