@@ -7,8 +7,9 @@ import {
   PaginationPrev,
   PaginationNext,
   PaginationEllipsis,
-  injectPaginationRootContext,
 } from 'reka-ui'
+import { ChevronLeft, ChevronRight, Ellipsis } from '@lucide/vue'
+import { Icon } from '../Icon'
 import type { PaginationProps } from './Pagination.types'
 
 const props = withDefaults(defineProps<PaginationProps>(), {
@@ -22,43 +23,6 @@ const props = withDefaults(defineProps<PaginationProps>(), {
 const emit = defineEmits<{
   'update:page': [page: number]
 }>()
-
-const root = injectPaginationRootContext()
-const currentPage = computed(() => root.page.value)
-const pageCount = computed(() => root.pageCount.value)
-
-const generateRange = (): (number | 'ellipsis')[] => {
-  const total = pageCount.value
-  const sib = props.siblingCount
-  const current = currentPage.value
-  const range: (number | 'ellipsis')[] = []
-  const start = Math.max(1, current - sib)
-  const end = Math.min(total, current + sib)
-
-  if (props.showEdges) {
-    range.push(1)
-    if (start > 2) range.push('ellipsis')
-  } else if (start > 1) {
-    range.push(1)
-    if (start > 2) range.push('ellipsis')
-  }
-
-  for (let i = start; i <= end; i++) {
-    range.push(i)
-  }
-
-  if (end < total) {
-    if (end < total - 1) range.push('ellipsis')
-    if (props.showEdges) {
-      range.push(total)
-    } else {
-      range.push(total)
-    }
-  }
-  return range
-}
-
-const range = computed(generateRange)
 
 const rootClass = computed(() => ['voxel-pagination', `voxel-pagination--size-${props.size}`, props.class])
 </script>
@@ -76,27 +40,22 @@ const rootClass = computed(() => ['voxel-pagination', `voxel-pagination--size-${
     :class="rootClass"
     v-bind="$attrs"
   >
-    <PaginationPrev class="voxel-pagination__step voxel-pagination__step--prev">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    <PaginationPrev class="voxel-pagination__step voxel-pagination__step--prev" aria-label="Previous page">
+      <Icon :icon="ChevronLeft" size="small" />
     </PaginationPrev>
-    <PaginationList class="voxel-pagination__list">
-      <template v-for="(item, idx) in range" :key="idx">
-        <PaginationListItem v-if="item === 'ellipsis'" :value="-1" class="voxel-pagination__item">
-          <PaginationEllipsis class="voxel-pagination__ellipsis">...</PaginationEllipsis>
-        </PaginationListItem>
-        <PaginationListItem v-else :value="item" class="voxel-pagination__item">
-          <button
-            type="button"
-            :class="['voxel-pagination__button', currentPage === item && 'voxel-pagination__button--active']"
-            @click="() => emit('update:page', item)"
-          >
-            {{ item }}
-          </button>
+    <!-- reka owns range math (incl. ellipsis) — items come from the List slot -->
+    <PaginationList v-slot="{ items }" class="voxel-pagination__list">
+      <template v-for="(item, idx) in items" :key="idx">
+        <PaginationEllipsis v-if="item.type === 'ellipsis'" class="voxel-pagination__ellipsis">
+          <Icon :icon="Ellipsis" size="small" />
+        </PaginationEllipsis>
+        <PaginationListItem v-else :value="item.value" class="voxel-pagination__button">
+          {{ item.value }}
         </PaginationListItem>
       </template>
     </PaginationList>
-    <PaginationNext class="voxel-pagination__step voxel-pagination__step--next">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    <PaginationNext class="voxel-pagination__step voxel-pagination__step--next" aria-label="Next page">
+      <Icon :icon="ChevronRight" size="small" />
     </PaginationNext>
   </PaginationRoot>
 </template>
@@ -110,9 +69,13 @@ const rootClass = computed(() => ['voxel-pagination', `voxel-pagination--size-${
   @apply inline-flex items-center gap-1;
 }
 
-.voxel-pagination__item {
-  @apply inline-flex;
+.voxel-pagination__ellipsis {
+  @apply inline-flex items-center justify-center text-[var(--color-text-muted)] select-none;
 }
+
+.voxel-pagination--size-small .voxel-pagination__ellipsis { @apply size-7; }
+.voxel-pagination--size-default .voxel-pagination__ellipsis { @apply size-9; }
+.voxel-pagination--size-large .voxel-pagination__ellipsis { @apply size-11; }
 
 .voxel-pagination__button {
   @apply inline-flex items-center justify-center
@@ -126,17 +89,13 @@ const rootClass = computed(() => ['voxel-pagination', `voxel-pagination--size-${
     disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
-.voxel-pagination--size-small .voxel-pagination__button { @apply size-7 text-[11px]; }
-.voxel-pagination--size-default .voxel-pagination__button { @apply size-9 text-sm; }
-.voxel-pagination--size-large .voxel-pagination__button { @apply size-11 text-base; }
-
-.voxel-pagination__button--active {
+.voxel-pagination__button[data-selected='true'] {
   @apply bg-[var(--color-primary-base)] text-white hover:bg-[var(--color-primary-darken-1)];
 }
 
-.voxel-pagination__ellipsis {
-  @apply inline-flex items-center justify-center text-[var(--color-text-muted)] select-none;
-}
+.voxel-pagination--size-small .voxel-pagination__button { @apply size-7 text-[11px]; }
+.voxel-pagination--size-default .voxel-pagination__button { @apply size-9 text-sm; }
+.voxel-pagination--size-large .voxel-pagination__button { @apply size-11 text-base; }
 
 .voxel-pagination__step {
   @apply inline-flex items-center justify-center
