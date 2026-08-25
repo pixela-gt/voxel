@@ -28,23 +28,31 @@ const hasError = computed(() => props.error || !!formField?.errorMessage)
 
 type CheckedState = boolean | 'indeterminate'
 
-const isControlled = computed(() => props.modelValue !== undefined)
-
-// Local mirror used ONLY when uncontrolled, so we can always hand Root a
-// stable modelValue (reka switches modes on `modelValue === undefined`).
+// Single source of truth = internal state, synced FROM modelValue when the
+// parent changes it. This survives environments (e.g. Storybook) that
+// materialize declared props with defaults like modelValue=false.
 const internalValue = ref<CheckedState>(props.indeterminate ? 'indeterminate' : false)
-watch(() => props.indeterminate, (v) => {
-  if (!isControlled.value) internalValue.value = v ? 'indeterminate' : false
-})
+watch(
+  () => [props.modelValue, props.indeterminate] as const,
+  ([mv, ind], prev) => {
+    // Parent-driven value change wins outright.
+    if (typeof mv === 'boolean') internalValue.value = mv
+    // indeterminate flag transitions set/clear mixed explicitly — it must NOT
+    // permanently pin unchecked to mixed (that made unchecking impossible).
+    const prevInd = prev?.[1]
+    if (ind !== prevInd) {
+      if (ind && !internalValue.value) internalValue.value = 'indeterminate'
+      if (!ind && internalValue.value === 'indeterminate') internalValue.value = false
+    }
+  },
+  { immediate: true },
+)
 
-const checked = computed<CheckedState>(() => {
-  const base = isControlled.value ? props.modelValue! : internalValue.value
-  return props.indeterminate && base === false ? 'indeterminate' : base
-})
+const checked = computed<CheckedState>(() => internalValue.value)
 
 function onUpdate(v: CheckedState) {
   const next = v === true
-  if (!isControlled.value) internalValue.value = next
+  internalValue.value = next
   emit('update:modelValue', next)
 }
 

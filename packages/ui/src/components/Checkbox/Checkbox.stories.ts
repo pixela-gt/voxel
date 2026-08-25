@@ -82,6 +82,17 @@ export const InsideFormField: Story = {
   }),
 }
 
+export const InsideFormFieldIndeterminate: Story = {
+  render: () => ({
+    components: { Checkbox, FormField },
+    template: `
+      <FormField label="Select items" error-message="Selection required">
+        <Checkbox label="Select all" :indeterminate="true" />
+      </FormField>
+    `,
+  }),
+}
+
 export const Interactive: Story = {
   args: { label: 'Click me' },
   render: template,
