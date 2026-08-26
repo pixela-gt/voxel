@@ -54,10 +54,7 @@ export type {
   SeparatorOrientation as VXSeparatorOrientation,
 } from './components/Separator/Separator.types'
 export type { DropdownMenuProps as VXDropdownMenuProps } from './components/DropdownMenu/DropdownMenu.types'
-export type {
-  DrawerProps as VXDrawerProps,
-  DrawerState as VXDrawerState,
-} from './components/Drawer/Drawer.types'
+export type { DrawerProps as VXDrawerProps } from './components/Drawer/Drawer.types'
 export type {
   AvatarProps as VXAvatarProps,
   AvatarStyle as VXAvatarStyle,
@@ -145,7 +142,7 @@ export type {
   SkeletonProps as VXSkeletonProps,
   SkeletonVariant as VXSkeletonVariant,
 } from './components/Skeleton/Skeleton.types'
-export type { AspectRatioProps as VXAspectRatioProps } from './components/AspectRatio/AspectRatio.types'
+export type { AspectRatioProps as VXAspectRatioProps, AspectRatioPreset as VXAspectRatioPreset } from './components/AspectRatio/AspectRatio.types'
 export type {
   SplitterGroupProps as VXSplitterGroupProps,
   SplitterPanelProps as VXSplitterPanelProps,

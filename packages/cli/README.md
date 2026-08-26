@@ -61,13 +61,14 @@ voxel generate
 
 ### `voxel init`
 
-Generate an AI agent skill file for Voxel. Creates a skill file for use with Claude, Cursor, or OpenCode.
+Generate an AI agent skill file for Voxel. Creates a skill file for use with Claude, Cursor, or OpenCode. Local-first by default — pass `--global` to install to user-level config.
 
 ```bash
 voxel init                           # Default: Claude skill, full coverage
 voxel init --target cursor           # Cursor-specific skill
 voxel init --target opencode         # OpenCode-specific skill
 voxel init --target md               # Markdown file output
+voxel init --global                  # Install to user-level config (opencode only)
 voxel init --full                    # Include slots, events, reka-ui mapping
 voxel init --framework vue           # Vue only (default: both vue + nuxt)
 voxel init --output ./custom-path.md  # Custom output path

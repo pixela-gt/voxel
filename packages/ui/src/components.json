@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-18T16:16:34.410Z",
+  "generated": "2026-08-26T01:06:08.915Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -117,7 +117,17 @@
         "ratio": {
           "type": "number",
           "required": false,
-          "default": 1
+          "default": "undefined"
+        },
+        "preset": {
+          "type": "AspectRatioPreset",
+          "required": false,
+          "default": "undefined"
+        },
+        "asChild": {
+          "type": "boolean",
+          "required": false,
+          "default": false
         },
         "class": {
           "type": "ClassValue",
@@ -145,6 +155,24 @@
         },
         "size": {
           "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "shape": {
+          "type": "AvatarShape",
+          "required": false,
+          "default": "rounded"
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false
+        },
+        "status": {
+          "type": "AvatarStatus",
           "required": false
         },
         "src": {
@@ -156,7 +184,7 @@
           "required": false
         },
         "class": {
-          "type": "string | string[] | Record<string, boolean>",
+          "type": "ClassValue",
           "required": false
         }
       },
@@ -397,8 +425,7 @@
       "props": {
         "modelValue": {
           "type": "boolean",
-          "required": false,
-          "default": false
+          "required": false
         },
         "size": {
           "type": "ComponentSize",
@@ -417,6 +444,16 @@
         "icon": {
           "type": "IconValue",
           "required": false
+        },
+        "indeterminate": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "error": {
+          "type": "boolean",
+          "required": false,
+          "default": false
         },
         "class": {
           "type": "ClassValue",
@@ -1162,10 +1199,24 @@
       "description": "Drawer component",
       "category": "layout",
       "props": {
-        "state": {
-          "type": "DrawerState",
+        "open": {
+          "type": "boolean",
           "required": false,
-          "default": "expanded"
+          "default": "undefined"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "side": {
+          "type": "'left' | 'right'",
+          "required": false,
+          "default": "right"
+        },
+        "width": {
+          "type": "number | string",
+          "required": false
         },
         "title": {
           "type": "string",
@@ -1191,13 +1242,16 @@
         "content",
         "footer"
       ],
-      "events": [],
+      "events": [
+        "update"
+      ],
       "rekaUi": [
         "DialogRoot",
         "DialogPortal",
         "DialogOverlay",
         "DialogContent",
         "DialogTitle",
+        "DialogDescription",
         "DialogClose"
       ],
       "import": "import { Drawer } from '@pixela/voxel-ui'"
@@ -1366,11 +1420,13 @@
       "props": {
         "open": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "defaultOpen": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "openDelay": {
           "type": "number",
@@ -1381,6 +1437,19 @@
           "type": "number",
           "required": false,
           "default": 100
+        },
+        "side": {
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
+        },
+        "showArrow": {
+          "type": "boolean",
+          "required": false,
+          "default": true
         },
         "class": {
           "type": "ClassValue",
@@ -2167,8 +2236,7 @@
         "PaginationListItem",
         "PaginationPrev",
         "PaginationNext",
-        "PaginationEllipsis",
-        "injectPaginationRootContext"
+        "PaginationEllipsis"
       ],
       "import": "import { Pagination } from '@pixela/voxel-ui'"
     },
@@ -2255,16 +2323,35 @@
       "props": {
         "open": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "defaultOpen": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "modal": {
           "type": "boolean",
           "required": false,
           "default": false
+        },
+        "showClose": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "side": {
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
         },
         "class": {
           "type": "ClassValue",
@@ -2272,7 +2359,8 @@
         }
       },
       "slots": [
-        "content"
+        "content",
+        "close-icon"
       ],
       "events": [
         "update"
@@ -2346,6 +2434,14 @@
         },
         "required": {
           "type": "boolean",
+          "required": false
+        },
+        "error": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
           "required": false
         },
         "value": {
@@ -2906,6 +3002,11 @@
         "label": {
           "type": "string",
           "required": false
+        },
+        "error": {
+          "type": "boolean",
+          "required": false,
+          "default": false
         },
         "class": {
           "type": "ClassValue",

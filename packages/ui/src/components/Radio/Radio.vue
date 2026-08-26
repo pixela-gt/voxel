@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { computed, inject } from 'vue'
 import { RadioGroupRoot, RadioGroupItem, RadioGroupIndicator } from 'reka-ui'
 import type { RadioGroupProps } from './Radio.types'
+import { FORM_FIELD_KEY } from '../FormField/FormField.types'
 
 interface RadioItemData {
   value: string
@@ -11,11 +13,21 @@ interface RadioItemData {
 const props = withDefaults(defineProps<RadioGroupProps & { items?: RadioItemData[] }>(), {
   size: 'default',
   disabled: false,
+  error: false,
 } as const)
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
 }>()
+
+// FormField integration: pick up error state when nested
+const formField = inject(FORM_FIELD_KEY, null)
+const hasError = computed(() => props.error || !!formField?.errorMessage)
+
+const rootClass = computed(() => [
+  'inline-flex items-center gap-2',
+  hasError.value && 'voxel-radio-group--error',
+])
 </script>
 
 <template>
@@ -25,7 +37,7 @@ const emit = defineEmits<{
     :name="props.name"
     :required="props.required"
     @update:modelValue="(v) => v && emit('update:modelValue', v as string)"
-class="inline-flex items-center gap-2"
+    :class="rootClass"
     v-bind="$attrs"
   >
     <RadioGroupItem
@@ -54,6 +66,14 @@ class="inline-flex items-center gap-2"
 <style scoped>
 .voxel-radio {
   @apply flex items-center cursor-pointer;
+}
+
+/* Error parity (BUG-001 audit): red accent on indicators + dots */
+.voxel-radio-group--error .voxel-radio__indicator {
+  border-color: var(--color-error-base);
+}
+.voxel-radio-group--error .voxel-radio__dot {
+  background: var(--color-error-base);
 }
 
 .voxel-radio__indicator {
