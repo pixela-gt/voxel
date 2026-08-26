@@ -288,8 +288,6 @@ Module options (via the `voxel` config key): `prefix` (string, default `''`),
 - `DropdownMenu` is a placeholder — renders hardcoded items, not data-driven
 - `Combobox`/`Collapsible`/`AlertDialog` still forward `open`/`defaultOpen` without
   `default: undefined` (Vue boolean-casting bug) — tracked in BUG-010, not yet fixed
-- CLI version string is hardcoded (`version('0.1.0')` in `packages/cli/src/index.ts`) —
-  does not auto-sync with package.json
 
 ## Release Workflow
 

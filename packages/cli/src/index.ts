@@ -2,9 +2,15 @@
 import { Command } from 'commander'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { readFileSync } from 'node:fs'
 import { loadRegistry } from './registry.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+
+// Read version from package.json so `voxel --version` always matches the
+// published package (works in dev via tsx, after tsc build, and from the
+// installed dist — package.json is always one level up from src/ or dist/).
+const { version } = JSON.parse(readFileSync(resolve(__dirname, '../package.json'), 'utf-8'))
 
 function formatProps(props: Record<string, any>): string {
   const lines: string[] = []
@@ -60,7 +66,7 @@ const program = new Command()
 program
   .name('voxel')
   .description('Voxel design system CLI — component docs, tokens, and agent tooling')
-  .version('0.1.0')
+  .version(version)
 
 program
   .command('component [name]')
