@@ -1,2 +1,2 @@
 export { default as AspectRatio } from './AspectRatio.vue'
-export type { AspectRatioProps } from './AspectRatio.types'
+export type { AspectRatioProps, AspectRatioPreset } from './AspectRatio.types'

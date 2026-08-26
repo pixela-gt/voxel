@@ -142,7 +142,7 @@ export type {
   SkeletonProps as VXSkeletonProps,
   SkeletonVariant as VXSkeletonVariant,
 } from './components/Skeleton/Skeleton.types'
-export type { AspectRatioProps as VXAspectRatioProps } from './components/AspectRatio/AspectRatio.types'
+export type { AspectRatioProps as VXAspectRatioProps, AspectRatioPreset as VXAspectRatioPreset } from './components/AspectRatio/AspectRatio.types'
 export type {
   SplitterGroupProps as VXSplitterGroupProps,
   SplitterPanelProps as VXSplitterPanelProps,
