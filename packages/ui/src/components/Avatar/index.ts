@@ -1,2 +1,2 @@
 export { default as Avatar } from './Avatar.vue'
-export type { AvatarProps } from './Avatar.types'
+export type { AvatarProps, AvatarShape, AvatarStatus, AvatarStyle } from './Avatar.types'
