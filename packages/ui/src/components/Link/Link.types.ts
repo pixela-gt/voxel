@@ -14,6 +14,7 @@ export interface LinkProps {
   size?: ComponentSize
   density?: Density
   disabled?: boolean
+  to?: string
   label?: string
   icon?: IconValue
   class?: ClassValue

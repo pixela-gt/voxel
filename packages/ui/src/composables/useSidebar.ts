@@ -6,20 +6,36 @@ export interface UseSidebarOptions {
   defaultVisible?: boolean
 }
 
-export function useSidebar(options: UseSidebarOptions = {}) {
-  const { storageKey, defaultCollapsed = false, defaultVisible = true } = options
-  const collapsed: Ref<boolean> = ref(defaultCollapsed)
-  const visible: Ref<boolean> = ref(defaultVisible)
+const collapsed: Ref<boolean> = ref(false)
+const visible: Ref<boolean> = ref(true)
+let initialized = false
 
-  if (storageKey && typeof window !== 'undefined') {
-    const stored = localStorage.getItem(storageKey)
-    if (stored !== null) {
-      collapsed.value = stored === 'true'
+export function useSidebar(options: UseSidebarOptions = {}) {
+  if (!initialized) {
+    const { storageKey, defaultCollapsed = false, defaultVisible = true } = options
+
+    collapsed.value = defaultCollapsed
+    visible.value = defaultVisible
+
+    if (storageKey && typeof window !== 'undefined') {
+      const stored = localStorage.getItem(storageKey)
+      if (stored !== null) {
+        collapsed.value = stored === 'true'
+      }
+      const storedVisible = localStorage.getItem(`${storageKey}-visible`)
+      if (storedVisible !== null) {
+        visible.value = storedVisible === 'true'
+      }
+
+      watch(collapsed, (val) => {
+        localStorage.setItem(storageKey, String(val))
+      })
+      watch(visible, (val) => {
+        localStorage.setItem(`${storageKey}-visible`, String(val))
+      })
     }
-    const storedVisible = localStorage.getItem(`${storageKey}-visible`)
-    if (storedVisible !== null) {
-      visible.value = storedVisible === 'true'
-    }
+
+    initialized = true
   }
 
   function toggle() {
@@ -40,15 +56,6 @@ export function useSidebar(options: UseSidebarOptions = {}) {
 
   function hide() {
     visible.value = false
-  }
-
-  if (storageKey && typeof window !== 'undefined') {
-    watch(collapsed, (val) => {
-      localStorage.setItem(storageKey, String(val))
-    })
-    watch(visible, (val) => {
-      localStorage.setItem(`${storageKey}-visible`, String(val))
-    })
   }
 
   return {

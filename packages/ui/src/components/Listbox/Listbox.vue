@@ -133,7 +133,7 @@ const visibleItems = computed<(ListboxItemType | ListboxGroupType)[]>(() => {
   @apply relative flex items-center gap-2 rounded-md px-2 py-1.5
     text-sm text-[var(--color-text-primary)]
     cursor-pointer select-none outline-none
-    data-[highlighted]:bg-[var(--color-primary-lighten-1)] data-[highlighted]:text-[var(--color-primary-base)]
+    data-[highlighted]:bg-[var(--color-primary-lighten-1)]/12 data-[highlighted]:text-[var(--color-primary-base)]
     data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed;
 }
 

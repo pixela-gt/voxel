@@ -1,4 +1,4 @@
-// @pixela-gt/voxel-ui - Component Library
+// @pixela/voxel-ui - Component Library
 
 // Shared types
 export type {
@@ -54,10 +54,7 @@ export type {
   SeparatorOrientation as VXSeparatorOrientation,
 } from './components/Separator/Separator.types'
 export type { DropdownMenuProps as VXDropdownMenuProps } from './components/DropdownMenu/DropdownMenu.types'
-export type {
-  DrawerProps as VXDrawerProps,
-  DrawerState as VXDrawerState,
-} from './components/Drawer/Drawer.types'
+export type { DrawerProps as VXDrawerProps } from './components/Drawer/Drawer.types'
 export type {
   AvatarProps as VXAvatarProps,
   AvatarStyle as VXAvatarStyle,
@@ -117,6 +114,19 @@ export type { TagsInputProps as VXTagsInputProps } from './components/TagsInput/
 export type { DateFieldProps as VXDateFieldProps } from './components/DateField/DateField.types'
 export type { TimeFieldProps as VXTimeFieldProps } from './components/TimeField/TimeField.types'
 export type { TimeRangeFieldProps as VXTimeRangeFieldProps } from './components/TimeRangeField/TimeRangeField.types'
+export type { ColorAreaProps as VXColorAreaProps } from './components/ColorArea/ColorArea.types'
+export type { ColorFieldProps as VXColorFieldProps } from './components/ColorField/ColorField.types'
+export type { ColorSliderProps as VXColorSliderProps } from './components/ColorSlider/ColorSlider.types'
+export type { ColorSwatchProps as VXColorSwatchProps } from './components/ColorSwatch/ColorSwatch.types'
+export type { ColorSwatchPickerProps as VXColorSwatchPickerProps } from './components/ColorSwatchPicker/ColorSwatchPicker.types'
+export type { CalendarProps as VXCalendarProps } from './components/Calendar/Calendar.types'
+export type { RangeCalendarProps as VXRangeCalendarProps } from './components/RangeCalendar/RangeCalendar.types'
+export type { MonthPickerProps as VXMonthPickerProps } from './components/MonthPicker/MonthPicker.types'
+export type { MonthRangePickerProps as VXMonthRangePickerProps } from './components/MonthRangePicker/MonthRangePicker.types'
+export type { YearPickerProps as VXYearPickerProps } from './components/YearPicker/YearPicker.types'
+export type { YearRangePickerProps as VXYearRangePickerProps } from './components/YearRangePicker/YearRangePicker.types'
+export type { DatePickerProps as VXDatePickerProps } from './components/DatePicker/DatePicker.types'
+export type { DateRangePickerProps as VXDateRangePickerProps } from './components/DateRangePicker/DateRangePicker.types'
 export type { RatingProps as VXRatingProps } from './components/Rating/Rating.types'
 export type { CollapsibleProps as VXCollapsibleProps } from './components/Collapsible/Collapsible.types'
 export type { PopoverProps as VXPopoverProps } from './components/Popover/Popover.types'
@@ -132,7 +142,7 @@ export type {
   SkeletonProps as VXSkeletonProps,
   SkeletonVariant as VXSkeletonVariant,
 } from './components/Skeleton/Skeleton.types'
-export type { AspectRatioProps as VXAspectRatioProps } from './components/AspectRatio/AspectRatio.types'
+export type { AspectRatioProps as VXAspectRatioProps, AspectRatioPreset as VXAspectRatioPreset } from './components/AspectRatio/AspectRatio.types'
 export type {
   SplitterGroupProps as VXSplitterGroupProps,
   SplitterPanelProps as VXSplitterPanelProps,
@@ -274,6 +284,19 @@ export {
 export { DateField as VXDateField } from './components/DateField'
 export { TimeField as VXTimeField } from './components/TimeField'
 export { TimeRangeField as VXTimeRangeField } from './components/TimeRangeField'
+export { ColorArea as VXColorArea } from './components/ColorArea'
+export { ColorField as VXColorField } from './components/ColorField'
+export { ColorSlider as VXColorSlider } from './components/ColorSlider'
+export { ColorSwatch as VXColorSwatch } from './components/ColorSwatch'
+export { ColorSwatchPicker as VXColorSwatchPicker } from './components/ColorSwatchPicker'
+export { Calendar as VXCalendar } from './components/Calendar'
+export { RangeCalendar as VXRangeCalendar } from './components/RangeCalendar'
+export { MonthPicker as VXMonthPicker } from './components/MonthPicker'
+export { MonthRangePicker as VXMonthRangePicker } from './components/MonthRangePicker'
+export { YearPicker as VXYearPicker } from './components/YearPicker'
+export { YearRangePicker as VXYearRangePicker } from './components/YearRangePicker'
+export { DatePicker as VXDatePicker } from './components/DatePicker'
+export { DateRangePicker as VXDateRangePicker } from './components/DateRangePicker'
 
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'
@@ -282,15 +305,15 @@ export { useToast, type UseToast } from './composables/useToast'
 export { useSidebar, type UseSidebarOptions } from './composables/useSidebar'
 
 // Layouts
-export { AppShell } from './layouts'
-export type { AppShellProps } from './layouts'
+export { AppShell as VXAppShell } from './layouts'
+export type { AppShellProps as VXAppShellProps } from './layouts'
 
 // Patterns
-export { PageHeader } from './patterns'
-export type { PageHeaderProps } from './patterns'
-export { EmptyState } from './patterns'
-export type { EmptyStateProps } from './patterns'
-export { DataTable } from './patterns/DataTable'
-export type { DataTableProps, ColumnDef, SortDirection } from './patterns/DataTable'
-export { DataTableServer } from './patterns/DataTableServer'
-export type { DataTableServerProps } from './patterns/DataTableServer'
+export { PageHeader as VXPageHeader } from './patterns'
+export type { PageHeaderProps as VXPageHeaderProps } from './patterns'
+export { EmptyState as VXEmptyState } from './patterns'
+export type { EmptyStateProps as VXEmptyStateProps } from './patterns'
+export { DataTable as VXDataTable } from './patterns/DataTable'
+export type { DataTableProps as VXDataTableProps, ColumnDef, SortDirection } from './patterns/DataTable'
+export { DataTableServer as VXDataTableServer } from './patterns/DataTableServer'
+export type { DataTableServerProps as VXDataTableServerProps } from './patterns/DataTableServer'

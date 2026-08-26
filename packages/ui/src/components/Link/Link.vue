@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed, resolveComponent } from 'vue'
 import type { LinkProps } from './Link.types'
 import { Icon } from '../Icon'
 
@@ -8,9 +8,18 @@ const props = withDefaults(defineProps<LinkProps>(), {
   color: 'primary',
   size: 'default',
   density: 'default',
+  disabled: false,
 })
 
-const slots = useSlots()
+const linkIs = computed(() => {
+  if (!props.to) return 'a'
+  try {
+    return resolveComponent('RouterLink')
+  }
+  catch {
+    return 'a'
+  }
+})
 
 const linkClasses = computed(() => [
   'voxel-link',
@@ -18,14 +27,23 @@ const linkClasses = computed(() => [
   `voxel-link--color-${props.color}`,
   `voxel-link--size-${props.size}`,
   `voxel-link--density-${props.density}`,
+  { 'voxel-link--disabled': props.disabled },
   props.class,
 ])
 </script>
 
 <template>
-  <a :class="linkClasses" v-bind="$attrs">
+  <component
+    :is="linkIs"
+    :to="props.to"
+    :class="linkClasses"
+    :aria-disabled="props.disabled || undefined"
+    :tabindex="props.disabled ? -1 : undefined"
+    @click="props.disabled && $event.preventDefault()"
+    v-bind="$attrs"
+  >
     <span
-      v-if="props.icon || slots.icon"
+      v-if="props.icon || $slots.icon"
       class="voxel-link__icon"
       aria-hidden="true"
     >
@@ -34,7 +52,7 @@ const linkClasses = computed(() => [
       </slot>
     </span>
     <slot>{{ props.label }}</slot>
-  </a>
+  </component>
 </template>
 
 <style scoped>
@@ -45,6 +63,10 @@ const linkClasses = computed(() => [
 /* Styles */
 .voxel-link--style-underlined {
   @apply underline underline-offset-2;
+}
+
+.voxel-link--disabled {
+  @apply opacity-50 cursor-not-allowed;
 }
 
 /* Colors */

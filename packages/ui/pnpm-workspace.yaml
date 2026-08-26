@@ -1,5 +1,5 @@
 allowBuilds:
-  esbuild: set this to true or false
-  vue-demi: set this to true or false
-overrides:
-  '@pixela-gt/voxel-ui': 'link:'
+  '@swc/core': true
+  esbuild: true
+  unrs-resolver: true
+  vue-demi: true

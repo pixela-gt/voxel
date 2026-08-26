@@ -1,25 +1,75 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject, ref, watch, useId } from 'vue'
 import { CheckboxRoot, CheckboxIndicator } from 'reka-ui'
+import { Check, Minus } from '@lucide/vue'
 import type { CheckboxProps } from './Checkbox.types'
 import { Icon } from '../Icon'
+import { FORM_FIELD_KEY } from '../FormField/FormField.types'
 
+// NOTE: no default for modelValue — its presence/absence decides
+// controlled vs uncontrolled mode.
 const props = withDefaults(defineProps<CheckboxProps>(), {
   size: 'default',
   disabled: false,
-  modelValue: false,
+  indeterminate: false,
+  error: false,
 } as const)
 
 const emit = defineEmits<{
   'update:modelValue': [value: boolean]
 }>()
 
-const checked = computed(() => props.modelValue)
+// FormField integration + label association: FormField's id wins when nested,
+// otherwise we generate our own so the label always toggles the checkbox.
+// First-consumer-wins: only the first control in a field claims the shared id,
+// so siblings fall back to their own unique id (no duplicate DOM ids).
+const formField = inject(FORM_FIELD_KEY, null)
+const ownId = useId()
+let claimedId: string | undefined
+if (formField && !formField.claimed) {
+  formField.claimed = true
+  claimedId = formField.id
+}
+const effectiveId = computed(() => claimedId ?? ownId)
+const hasError = computed(() => props.error || !!formField?.errorMessage)
+
+type CheckedState = boolean | 'indeterminate'
+
+// Single source of truth = internal state, synced FROM modelValue when the
+// parent changes it. This survives environments (e.g. Storybook) that
+// materialize declared props with defaults like modelValue=false.
+const internalValue = ref<CheckedState>(props.indeterminate ? 'indeterminate' : false)
+watch(
+  () => [props.modelValue, props.indeterminate] as const,
+  ([mv, ind], prev) => {
+    // Parent-driven value change wins outright.
+    if (typeof mv === 'boolean') internalValue.value = mv
+    // indeterminate flag transitions set/clear mixed explicitly — it must NOT
+    // permanently pin unchecked to mixed (that made unchecking impossible).
+    const prevInd = prev?.[1]
+    if (ind !== prevInd) {
+      if (ind && !internalValue.value) internalValue.value = 'indeterminate'
+      if (!ind && internalValue.value === 'indeterminate') internalValue.value = false
+    }
+  },
+  { immediate: true },
+)
+
+const checked = computed<CheckedState>(() => internalValue.value)
+
+function onUpdate(v: CheckedState) {
+  const next = v === true
+  internalValue.value = next
+  emit('update:modelValue', next)
+}
+
+const wrapperClass = computed(() => [
+  'voxel-checkbox__wrapper',
+  hasError.value && 'voxel-checkbox--error',
+])
 
 const indicatorClass = computed(() => [
   'voxel-checkbox__indicator',
-  `voxel-checkbox__indicator--size-${props.size}`,
-  checked.value && 'voxel-checkbox__indicator--checked',
 ])
 const labelClass = computed(() => [
   'voxel-checkbox__label',
@@ -29,38 +79,30 @@ const labelClass = computed(() => [
 </script>
 
 <template>
-  <div class="voxel-checkbox__wrapper" v-bind="$attrs">
+  <div :class="wrapperClass" v-bind="$attrs">
     <CheckboxRoot
-      :checked="checked"
+      :id="effectiveId"
+      :model-value="checked"
       :disabled="props.disabled"
-      @update:checked="(v: boolean) => emit('update:modelValue', v)"
-      class="voxel-checkbox"
+      @update:model-value="onUpdate"
+      :class="['voxel-checkbox', `voxel-checkbox--size-${props.size}`]"
     >
       <CheckboxIndicator :class="indicatorClass">
-        <slot name="icon">
-          <Icon
-            v-if="props.icon"
-            :icon="props.icon"
-            :size="props.size"
-            class="voxel-checkbox__icon"
-          />
-          <svg
-            v-else
-            class="voxel-checkbox__icon"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M3 8L7 12L13 4" />
-          </svg>
-        </slot>
+        <!-- Canonical icon pattern (cf. Button/Drawer): wrapper span owns
+             size/layout, bare Icon or fallback glyph inside, slot overrides all. -->
+        <span
+          :class="['voxel-checkbox__icon', `voxel-checkbox__icon--size-${props.size}`]"
+          aria-hidden="true"
+        >
+          <slot name="icon">
+            <Icon v-if="props.icon" :icon="props.icon" />
+            <Icon v-else-if="checked === 'indeterminate'" :icon="Minus" />
+            <Icon v-else :icon="Check" />
+          </slot>
+        </span>
       </CheckboxIndicator>
     </CheckboxRoot>
-    <label v-if="props.label" :class="labelClass">
+    <label v-if="props.label" :for="effectiveId" :class="labelClass">
       {{ props.label }}
     </label>
     <slot />
@@ -72,43 +114,50 @@ const labelClass = computed(() => [
   @apply inline-flex items-center gap-[6px];
 }
 
+/* The ROOT carries the box visuals — CheckboxIndicator unmounts when
+   unchecked (reka Presence), so indicator-owned styling made unchecked
+   checkboxes invisible. State is driven by reka's data-state attribute. */
 .voxel-checkbox {
-  @apply relative flex-shrink-0 cursor-pointer;
-}
-
-.voxel-checkbox__indicator {
-  @apply border border-[1.5px] border-[var(--color-grey-400)] flex items-center justify-center
+  @apply relative inline-flex items-center justify-center flex-shrink-0 cursor-pointer
+    border-[1.5px] border-[var(--color-grey-400)] bg-transparent
     transition-all duration-[var(--transition-fast)]
     hover:border-[var(--color-primary-base)]
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2;
 }
 
-.voxel-checkbox__indicator--checked {
+.voxel-checkbox[data-state='checked'],
+.voxel-checkbox[data-state='indeterminate'] {
   @apply bg-[var(--color-primary-base)] border-[var(--color-primary-base)];
 }
 
-/* Sizes */
-.voxel-checkbox__indicator--size-small {
-  @apply size-4 rounded-[4px];
-}
-.voxel-checkbox__indicator--size-default {
-  @apply size-5 rounded-[5px];
-}
-.voxel-checkbox__indicator--size-large {
-  @apply size-6 rounded-[6px];
+/* Sizes live on the root */
+.voxel-checkbox--size-small { @apply size-4 rounded-[4px]; }
+.voxel-checkbox--size-default { @apply size-5 rounded-[5px]; }
+.voxel-checkbox--size-large { @apply size-6 rounded-[6px]; }
+
+.voxel-checkbox__indicator {
+  /* Pure centering layer for the icon — always full-size of the root box */
+  @apply flex items-center justify-center w-full h-full text-white;
 }
 
 .voxel-checkbox__icon {
-  @apply stroke-current;
+  /* Wrapper owns size (canonical pattern) — children stretch to fill */
+  @apply flex items-center justify-center text-white;
 }
-.voxel-checkbox__indicator--size-small .voxel-checkbox__icon {
-  @apply size-[10px];
+.voxel-checkbox__icon > * {
+  @apply size-full;
 }
-.voxel-checkbox__indicator--size-default .voxel-checkbox__icon {
-  @apply size-[12px];
+.voxel-checkbox__icon--size-small { @apply size-[10px]; }
+.voxel-checkbox__icon--size-default { @apply size-[12px]; }
+.voxel-checkbox__icon--size-large { @apply size-[14px]; }
+
+/* Error state */
+.voxel-checkbox--error .voxel-checkbox {
+  @apply border-[var(--color-error-base)];
 }
-.voxel-checkbox__indicator--size-large .voxel-checkbox__icon {
-  @apply size-[14px];
+.voxel-checkbox--error .voxel-checkbox[data-state='checked'],
+.voxel-checkbox--error .voxel-checkbox[data-state='indeterminate'] {
+  @apply bg-[var(--color-error-base)] border-[var(--color-error-base)];
 }
 
 .voxel-checkbox__label {

@@ -1,2 +1,1 @@
-overrides:
-  '@pixela-gt/voxel-cli': 'link:'
+{ allowBuilds: { esbuild: true } }

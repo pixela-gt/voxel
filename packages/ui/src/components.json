@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-06T19:03:09.855Z",
+  "generated": "2026-08-26T01:06:08.915Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -50,7 +50,7 @@
         "AccordionTrigger",
         "AccordionContent"
       ],
-      "import": "import { Accordion } from '@pixela-gt/voxel-ui'"
+      "import": "import { Accordion } from '@pixela/voxel-ui'"
     },
     "AlertDialog": {
       "name": "AlertDialog",
@@ -107,7 +107,7 @@
         "AlertDialogAction",
         "AlertDialogCancel"
       ],
-      "import": "import { AlertDialog } from '@pixela-gt/voxel-ui'"
+      "import": "import { AlertDialog } from '@pixela/voxel-ui'"
     },
     "AspectRatio": {
       "name": "AspectRatio",
@@ -117,7 +117,17 @@
         "ratio": {
           "type": "number",
           "required": false,
-          "default": 1
+          "default": "undefined"
+        },
+        "preset": {
+          "type": "AspectRatioPreset",
+          "required": false,
+          "default": "undefined"
+        },
+        "asChild": {
+          "type": "boolean",
+          "required": false,
+          "default": false
         },
         "class": {
           "type": "ClassValue",
@@ -131,7 +141,7 @@
       "rekaUi": [
         "AspectRatio"
       ],
-      "import": "import { AspectRatio } from '@pixela-gt/voxel-ui'"
+      "import": "import { AspectRatio } from '@pixela/voxel-ui'"
     },
     "Avatar": {
       "name": "Avatar",
@@ -145,6 +155,24 @@
         },
         "size": {
           "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "shape": {
+          "type": "AvatarShape",
+          "required": false,
+          "default": "rounded"
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false
+        },
+        "status": {
+          "type": "AvatarStatus",
           "required": false
         },
         "src": {
@@ -156,7 +184,7 @@
           "required": false
         },
         "class": {
-          "type": "string | string[] | Record<string, boolean>",
+          "type": "ClassValue",
           "required": false
         }
       },
@@ -169,7 +197,7 @@
         "AvatarImage",
         "AvatarFallback"
       ],
-      "import": "import { Avatar } from '@pixela-gt/voxel-ui'"
+      "import": "import { Avatar } from '@pixela/voxel-ui'"
     },
     "Badge": {
       "name": "Badge",
@@ -201,7 +229,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { Badge } from '@pixela-gt/voxel-ui'"
+      "import": "import { Badge } from '@pixela/voxel-ui'"
     },
     "Button": {
       "name": "Button",
@@ -261,7 +289,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { Button } from '@pixela-gt/voxel-ui'"
+      "import": "import { Button } from '@pixela/voxel-ui'"
     },
     "ButtonGroup": {
       "name": "ButtonGroup",
@@ -311,17 +339,66 @@
       "slots": [],
       "events": [],
       "rekaUi": [],
-      "import": "import { ButtonGroup } from '@pixela-gt/voxel-ui'"
+      "import": "import { ButtonGroup } from '@pixela/voxel-ui'"
     },
     "Calendar": {
       "name": "Calendar",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "Calendar component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "weekStartsOn": {
+          "type": "0 | 1 | 2 | 3 | 4 | 5 | 6",
+          "required": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "fixedWeeks": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { Calendar } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "CalendarRoot",
+        "CalendarHeader",
+        "CalendarHeading",
+        "CalendarPrev",
+        "CalendarNext",
+        "CalendarGrid",
+        "CalendarGridHead",
+        "CalendarGridRow",
+        "CalendarHeadCell",
+        "CalendarGridBody",
+        "CalendarCell",
+        "CalendarCellTrigger"
+      ],
+      "import": "import { Calendar } from '@pixela/voxel-ui'"
     },
     "Card": {
       "name": "Card",
@@ -339,7 +416,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { Card } from '@pixela-gt/voxel-ui'"
+      "import": "import { Card } from '@pixela/voxel-ui'"
     },
     "Checkbox": {
       "name": "Checkbox",
@@ -348,8 +425,7 @@
       "props": {
         "modelValue": {
           "type": "boolean",
-          "required": false,
-          "default": false
+          "required": false
         },
         "size": {
           "type": "ComponentSize",
@@ -369,6 +445,16 @@
           "type": "IconValue",
           "required": false
         },
+        "indeterminate": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "error": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
@@ -384,7 +470,7 @@
         "CheckboxRoot",
         "CheckboxIndicator"
       ],
-      "import": "import { Checkbox } from '@pixela-gt/voxel-ui'"
+      "import": "import { Checkbox } from '@pixela/voxel-ui'"
     },
     "Collapsible": {
       "name": "Collapsible",
@@ -419,57 +505,259 @@
         "CollapsibleTrigger",
         "CollapsibleContent"
       ],
-      "import": "import { Collapsible } from '@pixela-gt/voxel-ui'"
+      "import": "import { Collapsible } from '@pixela/voxel-ui'"
     },
     "ColorArea": {
       "name": "ColorArea",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "ColorArea component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "Color | string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "Color | string",
+          "required": false
+        },
+        "colorSpace": {
+          "type": "ColorSpace",
+          "required": false
+        },
+        "xChannel": {
+          "type": "ColorChannel",
+          "required": false
+        },
+        "yChannel": {
+          "type": "ColorChannel",
+          "required": false
+        },
+        "xName": {
+          "type": "string",
+          "required": false
+        },
+        "yName": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { ColorArea } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ColorAreaRoot",
+        "ColorAreaArea",
+        "ColorAreaThumb"
+      ],
+      "import": "import { ColorArea } from '@pixela/voxel-ui'"
     },
     "ColorField": {
       "name": "ColorField",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "ColorField component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "Color | string | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "Color | string | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        },
+        "channel": {
+          "type": "ColorChannel",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "readonly": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { ColorField } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ColorFieldRoot",
+        "ColorFieldInput"
+      ],
+      "import": "import { ColorField } from '@pixela/voxel-ui'"
     },
     "ColorSlider": {
       "name": "ColorSlider",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "ColorSlider component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "Color | string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "Color | string",
+          "required": false
+        },
+        "channel": {
+          "type": "ColorChannel",
+          "required": true
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "inverted": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { ColorSlider } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ColorSliderRoot",
+        "ColorSliderTrack",
+        "ColorSliderThumb"
+      ],
+      "import": "import { ColorSlider } from '@pixela/voxel-ui'"
     },
     "ColorSwatch": {
       "name": "ColorSwatch",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "ColorSwatch component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "value": {
+          "type": "Color | string",
+          "required": true
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
       "events": [],
-      "rekaUi": [],
-      "import": "import { ColorSwatch } from '@pixela-gt/voxel-ui'"
+      "rekaUi": [
+        "ColorSwatch as RekaColorSwatch"
+      ],
+      "import": "import { ColorSwatch } from '@pixela/voxel-ui'"
     },
     "ColorSwatchPicker": {
       "name": "ColorSwatchPicker",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "ColorSwatchPicker component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "colors": {
+          "type": "string[]",
+          "required": true
+        },
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "multiple": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { ColorSwatchPicker } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ColorSwatchPickerRoot",
+        "ColorSwatchPickerItem",
+        "ColorSwatchPickerItemSwatch",
+        "ColorSwatchPickerItemIndicator"
+      ],
+      "import": "import { ColorSwatchPicker } from '@pixela/voxel-ui'"
     },
     "Combobox": {
       "name": "Combobox",
@@ -570,7 +858,7 @@
         "ComboboxTrigger",
         "ComboboxCancel"
       ],
-      "import": "import { Combobox } from '@pixela-gt/voxel-ui'"
+      "import": "import { Combobox } from '@pixela/voxel-ui'"
     },
     "ContextMenu": {
       "name": "ContextMenu",
@@ -611,7 +899,7 @@
         "ContextMenuItem",
         "ContextMenuSeparator"
       ],
-      "import": "import { ContextMenu } from '@pixela-gt/voxel-ui'"
+      "import": "import { ContextMenu } from '@pixela/voxel-ui'"
     },
     "DateField": {
       "name": "DateField",
@@ -619,15 +907,15 @@
       "category": "misc",
       "props": {
         "modelValue": {
-          "type": "Date | null",
+          "type": "DateValue | null",
           "required": false
         },
         "defaultValue": {
-          "type": "Date | null",
+          "type": "DateValue | null",
           "required": false
         },
         "placeholder": {
-          "type": "Date",
+          "type": "DateValue",
           "required": false
         },
         "disabled": {
@@ -677,38 +965,193 @@
       "events": [
         "update"
       ],
-      "rekaUi": [],
-      "import": "import { DateField } from '@pixela-gt/voxel-ui'"
+      "rekaUi": [
+        "DateFieldRoot",
+        "DateFieldInput"
+      ],
+      "import": "import { DateField } from '@pixela/voxel-ui'"
     },
     "DatePicker": {
       "name": "DatePicker",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "DatePicker component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { DatePicker } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "DatePickerRoot",
+        "DatePickerTrigger",
+        "DatePickerContent",
+        "DatePickerField",
+        "DatePickerInput",
+        "DatePickerCalendar",
+        "DatePickerHeader",
+        "DatePickerHeading",
+        "DatePickerPrev",
+        "DatePickerNext",
+        "DatePickerGrid",
+        "DatePickerGridHead",
+        "DatePickerGridRow",
+        "DatePickerHeadCell",
+        "DatePickerGridBody",
+        "DatePickerCell",
+        "DatePickerCellTrigger"
+      ],
+      "import": "import { DatePicker } from '@pixela/voxel-ui'"
     },
     "DateRangeField": {
       "name": "DateRangeField",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "DateRangeField component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "readonly": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { DateRangeField } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "DateRangeFieldRoot",
+        "DateRangeFieldInput"
+      ],
+      "import": "import { DateRangeField } from '@pixela/voxel-ui'"
     },
     "DateRangePicker": {
       "name": "DateRangePicker",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "DateRangePicker component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { DateRangePicker } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "DateRangePickerRoot",
+        "DateRangePickerTrigger",
+        "DateRangePickerContent",
+        "DateRangePickerField",
+        "DateRangePickerInput",
+        "DateRangePickerCalendar",
+        "DateRangePickerHeader",
+        "DateRangePickerHeading",
+        "DateRangePickerPrev",
+        "DateRangePickerNext",
+        "DateRangePickerGrid",
+        "DateRangePickerGridHead",
+        "DateRangePickerGridRow",
+        "DateRangePickerHeadCell",
+        "DateRangePickerGridBody",
+        "DateRangePickerCell",
+        "DateRangePickerCellTrigger"
+      ],
+      "import": "import { DateRangePicker } from '@pixela/voxel-ui'"
     },
     "Dialog": {
       "name": "Dialog",
@@ -749,17 +1192,31 @@
         "DialogDescription",
         "DialogClose"
       ],
-      "import": "import { Dialog } from '@pixela-gt/voxel-ui'"
+      "import": "import { Dialog } from '@pixela/voxel-ui'"
     },
     "Drawer": {
       "name": "Drawer",
       "description": "Drawer component",
       "category": "layout",
       "props": {
-        "state": {
-          "type": "DrawerState",
+        "open": {
+          "type": "boolean",
           "required": false,
-          "default": "expanded"
+          "default": "undefined"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "side": {
+          "type": "'left' | 'right'",
+          "required": false,
+          "default": "right"
+        },
+        "width": {
+          "type": "number | string",
+          "required": false
         },
         "title": {
           "type": "string",
@@ -785,16 +1242,19 @@
         "content",
         "footer"
       ],
-      "events": [],
+      "events": [
+        "update"
+      ],
       "rekaUi": [
         "DialogRoot",
         "DialogPortal",
         "DialogOverlay",
         "DialogContent",
         "DialogTitle",
+        "DialogDescription",
         "DialogClose"
       ],
-      "import": "import { Drawer } from '@pixela-gt/voxel-ui'"
+      "import": "import { Drawer } from '@pixela/voxel-ui'"
     },
     "DropdownMenu": {
       "name": "DropdownMenu",
@@ -812,7 +1272,7 @@
         "DropdownMenuContent",
         "DropdownMenuItem"
       ],
-      "import": "import { DropdownMenu } from '@pixela-gt/voxel-ui'"
+      "import": "import { DropdownMenu } from '@pixela/voxel-ui'"
     },
     "Editable": {
       "name": "Editable",
@@ -908,7 +1368,7 @@
         "EditableSubmitTrigger",
         "EditableCancelTrigger"
       ],
-      "import": "import { Editable } from '@pixela-gt/voxel-ui'"
+      "import": "import { Editable } from '@pixela/voxel-ui'"
     },
     "FormField": {
       "name": "FormField",
@@ -951,7 +1411,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { FormField } from '@pixela-gt/voxel-ui'"
+      "import": "import { FormField } from '@pixela/voxel-ui'"
     },
     "HoverCard": {
       "name": "HoverCard",
@@ -960,11 +1420,13 @@
       "props": {
         "open": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "defaultOpen": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "openDelay": {
           "type": "number",
@@ -975,6 +1437,19 @@
           "type": "number",
           "required": false,
           "default": 100
+        },
+        "side": {
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
+        },
+        "showArrow": {
+          "type": "boolean",
+          "required": false,
+          "default": true
         },
         "class": {
           "type": "ClassValue",
@@ -994,7 +1469,7 @@
         "HoverCardContent",
         "HoverCardArrow"
       ],
-      "import": "import { HoverCard } from '@pixela-gt/voxel-ui'"
+      "import": "import { HoverCard } from '@pixela/voxel-ui'"
     },
     "Icon": {
       "name": "Icon",
@@ -1014,7 +1489,7 @@
       "slots": [],
       "events": [],
       "rekaUi": [],
-      "import": "import { Icon } from '@pixela-gt/voxel-ui'"
+      "import": "import { Icon } from '@pixela/voxel-ui'"
     },
     "IconButton": {
       "name": "IconButton",
@@ -1067,7 +1542,7 @@
         "click"
       ],
       "rekaUi": [],
-      "import": "import { IconButton } from '@pixela-gt/voxel-ui'"
+      "import": "import { IconButton } from '@pixela/voxel-ui'"
     },
     "Input": {
       "name": "Input",
@@ -1128,7 +1603,7 @@
         "update"
       ],
       "rekaUi": [],
-      "import": "import { Input } from '@pixela-gt/voxel-ui'"
+      "import": "import { Input } from '@pixela/voxel-ui'"
     },
     "Label": {
       "name": "Label",
@@ -1153,7 +1628,7 @@
       "rekaUi": [
         "Label"
       ],
-      "import": "import { Label } from '@pixela-gt/voxel-ui'"
+      "import": "import { Label } from '@pixela/voxel-ui'"
     },
     "Link": {
       "name": "Link",
@@ -1182,6 +1657,11 @@
         },
         "disabled": {
           "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "to": {
+          "type": "string",
           "required": false
         },
         "label": {
@@ -1202,7 +1682,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { Link } from '@pixela-gt/voxel-ui'"
+      "import": "import { Link } from '@pixela/voxel-ui'"
     },
     "List": {
       "name": "List",
@@ -1241,7 +1721,7 @@
       "slots": [],
       "events": [],
       "rekaUi": [],
-      "import": "import { List } from '@pixela-gt/voxel-ui'"
+      "import": "import { List } from '@pixela/voxel-ui'"
     },
     "ListItem": {
       "name": "ListItem",
@@ -1269,7 +1749,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { ListItem } from '@pixela-gt/voxel-ui'"
+      "import": "import { ListItem } from '@pixela/voxel-ui'"
     },
     "Listbox": {
       "name": "Listbox",
@@ -1326,7 +1806,7 @@
         "ListboxGroupLabel",
         "ListboxFilter"
       ],
-      "import": "import { Listbox } from '@pixela-gt/voxel-ui'"
+      "import": "import { Listbox } from '@pixela/voxel-ui'"
     },
     "Loading": {
       "name": "Loading",
@@ -1346,7 +1826,7 @@
       "slots": [],
       "events": [],
       "rekaUi": [],
-      "import": "import { Loading } from '@pixela-gt/voxel-ui'"
+      "import": "import { Loading } from '@pixela/voxel-ui'"
     },
     "MaskedInput": {
       "name": "MaskedInput",
@@ -1411,7 +1891,7 @@
         "update"
       ],
       "rekaUi": [],
-      "import": "import { MaskedInput } from '@pixela-gt/voxel-ui'"
+      "import": "import { MaskedInput } from '@pixela/voxel-ui'"
     },
     "Menubar": {
       "name": "Menubar",
@@ -1459,27 +1939,105 @@
         "MenubarSubTrigger",
         "MenubarSubContent"
       ],
-      "import": "import { Menubar } from '@pixela-gt/voxel-ui'"
+      "import": "import { Menubar } from '@pixela/voxel-ui'"
     },
     "MonthPicker": {
       "name": "MonthPicker",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "MonthPicker component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { MonthPicker } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "MonthPickerRoot",
+        "MonthPickerHeader",
+        "MonthPickerHeading",
+        "MonthPickerPrev",
+        "MonthPickerNext",
+        "MonthPickerGrid",
+        "MonthPickerGridBody",
+        "MonthPickerGridRow",
+        "MonthPickerCell",
+        "MonthPickerCellTrigger"
+      ],
+      "import": "import { MonthPicker } from '@pixela/voxel-ui'"
     },
     "MonthRangePicker": {
       "name": "MonthRangePicker",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "MonthRangePicker component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { MonthRangePicker } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "MonthRangePickerRoot",
+        "MonthRangePickerHeader",
+        "MonthRangePickerHeading",
+        "MonthRangePickerPrev",
+        "MonthRangePickerNext",
+        "MonthRangePickerGrid",
+        "MonthRangePickerGridBody",
+        "MonthRangePickerGridRow",
+        "MonthRangePickerCell",
+        "MonthRangePickerCellTrigger"
+      ],
+      "import": "import { MonthRangePicker } from '@pixela/voxel-ui'"
     },
     "NavigationMenu": {
       "name": "NavigationMenu",
@@ -1534,7 +2092,7 @@
         "NavigationMenuIndicator",
         "NavigationMenuViewport"
       ],
-      "import": "import { NavigationMenu } from '@pixela-gt/voxel-ui'"
+      "import": "import { NavigationMenu } from '@pixela/voxel-ui'"
     },
     "NumberField": {
       "name": "NumberField",
@@ -1619,7 +2177,7 @@
         "NumberFieldIncrement",
         "NumberFieldDecrement"
       ],
-      "import": "import { NumberField } from '@pixela-gt/voxel-ui'"
+      "import": "import { NumberField } from '@pixela/voxel-ui'"
     },
     "Pagination": {
       "name": "Pagination",
@@ -1678,10 +2236,9 @@
         "PaginationListItem",
         "PaginationPrev",
         "PaginationNext",
-        "PaginationEllipsis",
-        "injectPaginationRootContext"
+        "PaginationEllipsis"
       ],
-      "import": "import { Pagination } from '@pixela-gt/voxel-ui'"
+      "import": "import { Pagination } from '@pixela/voxel-ui'"
     },
     "PinInput": {
       "name": "PinInput",
@@ -1757,7 +2314,7 @@
         "PinInputRoot",
         "PinInputInput"
       ],
-      "import": "import { PinInput } from '@pixela-gt/voxel-ui'"
+      "import": "import { PinInput } from '@pixela/voxel-ui'"
     },
     "Popover": {
       "name": "Popover",
@@ -1766,16 +2323,35 @@
       "props": {
         "open": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "defaultOpen": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "modal": {
           "type": "boolean",
           "required": false,
           "default": false
+        },
+        "showClose": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "side": {
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
         },
         "class": {
           "type": "ClassValue",
@@ -1783,7 +2359,8 @@
         }
       },
       "slots": [
-        "trigger"
+        "content",
+        "close-icon"
       ],
       "events": [
         "update"
@@ -1796,7 +2373,7 @@
         "PopoverArrow",
         "PopoverClose"
       ],
-      "import": "import { Popover } from '@pixela-gt/voxel-ui'"
+      "import": "import { Popover } from '@pixela/voxel-ui'"
     },
     "Progress": {
       "name": "Progress",
@@ -1832,7 +2409,7 @@
         "ProgressRoot",
         "ProgressIndicator"
       ],
-      "import": "import { Progress } from '@pixela-gt/voxel-ui'"
+      "import": "import { Progress } from '@pixela/voxel-ui'"
     },
     "Radio": {
       "name": "Radio",
@@ -1859,6 +2436,14 @@
           "type": "boolean",
           "required": false
         },
+        "error": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
         "value": {
           "type": "string",
           "required": true
@@ -1879,17 +2464,66 @@
         "RadioGroupItem",
         "RadioGroupIndicator"
       ],
-      "import": "import { Radio } from '@pixela-gt/voxel-ui'"
+      "import": "import { Radio } from '@pixela/voxel-ui'"
     },
     "RangeCalendar": {
       "name": "RangeCalendar",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "RangeCalendar component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "weekStartsOn": {
+          "type": "0 | 1 | 2 | 3 | 4 | 5 | 6",
+          "required": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "fixedWeeks": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { RangeCalendar } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "RangeCalendarRoot",
+        "RangeCalendarHeader",
+        "RangeCalendarHeading",
+        "RangeCalendarPrev",
+        "RangeCalendarNext",
+        "RangeCalendarGrid",
+        "RangeCalendarGridHead",
+        "RangeCalendarGridRow",
+        "RangeCalendarHeadCell",
+        "RangeCalendarGridBody",
+        "RangeCalendarCell",
+        "RangeCalendarCellTrigger"
+      ],
+      "import": "import { RangeCalendar } from '@pixela/voxel-ui'"
     },
     "Rating": {
       "name": "Rating",
@@ -1942,7 +2576,7 @@
         "RatingItem",
         "RatingItemIndicator"
       ],
-      "import": "import { Rating } from '@pixela-gt/voxel-ui'"
+      "import": "import { Rating } from '@pixela/voxel-ui'"
     },
     "ScrollArea": {
       "name": "ScrollArea",
@@ -1975,15 +2609,19 @@
         "ScrollAreaThumb",
         "ScrollAreaCorner"
       ],
-      "import": "import { ScrollArea } from '@pixela-gt/voxel-ui'"
+      "import": "import { ScrollArea } from '@pixela/voxel-ui'"
     },
     "Select": {
       "name": "Select",
-      "description": "Select component",
+      "description": "VeeValidate compatibility",
       "category": "misc",
       "props": {
         "modelValue": {
           "type": "string | number | (string | number)[]",
+          "required": false
+        },
+        "value": {
+          "type": "string | number | (string | number)[] // VeeValidate compatibility",
           "required": false
         },
         "defaultValue": {
@@ -1992,11 +2630,13 @@
         },
         "defaultOpen": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "open": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "multiple": {
           "type": "boolean",
@@ -2053,7 +2693,10 @@
           "required": false
         }
       },
-      "slots": [],
+      "slots": [
+        "prepend",
+        "append"
+      ],
       "events": [
         "update",
         "update"
@@ -2075,7 +2718,7 @@
         "SelectScrollUpButton",
         "SelectScrollDownButton"
       ],
-      "import": "import { Select } from '@pixela-gt/voxel-ui'"
+      "import": "import { Select } from '@pixela/voxel-ui'"
     },
     "Separator": {
       "name": "Separator",
@@ -2098,7 +2741,7 @@
       "rekaUi": [
         "Separator"
       ],
-      "import": "import { Separator } from '@pixela-gt/voxel-ui'"
+      "import": "import { Separator } from '@pixela/voxel-ui'"
     },
     "Sidebar": {
       "name": "Sidebar",
@@ -2141,6 +2784,10 @@
           "type": "string",
           "required": false
         },
+        "to": {
+          "type": "string",
+          "required": false
+        },
         "href": {
           "type": "string",
           "required": false
@@ -2176,7 +2823,7 @@
         "close"
       ],
       "rekaUi": [],
-      "import": "import { Sidebar } from '@pixela-gt/voxel-ui'"
+      "import": "import { Sidebar } from '@pixela/voxel-ui'"
     },
     "Skeleton": {
       "name": "Skeleton",
@@ -2209,7 +2856,7 @@
       "slots": [],
       "events": [],
       "rekaUi": [],
-      "import": "import { Skeleton } from '@pixela-gt/voxel-ui'"
+      "import": "import { Skeleton } from '@pixela/voxel-ui'"
     },
     "Slider": {
       "name": "Slider",
@@ -2265,7 +2912,7 @@
         "SliderRange",
         "SliderThumb"
       ],
-      "import": "import { Slider } from '@pixela-gt/voxel-ui'"
+      "import": "import { Slider } from '@pixela/voxel-ui'"
     },
     "Stepper": {
       "name": "Stepper",
@@ -2330,7 +2977,7 @@
       "rekaUi": [
         "StepperRoot"
       ],
-      "import": "import { Stepper } from '@pixela-gt/voxel-ui'"
+      "import": "import { Stepper } from '@pixela/voxel-ui'"
     },
     "Switch": {
       "name": "Switch",
@@ -2356,6 +3003,11 @@
           "type": "string",
           "required": false
         },
+        "error": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
@@ -2371,7 +3023,7 @@
         "SwitchRoot",
         "SwitchThumb"
       ],
-      "import": "import { Switch } from '@pixela-gt/voxel-ui'"
+      "import": "import { Switch } from '@pixela/voxel-ui'"
     },
     "Tabs": {
       "name": "Tabs",
@@ -2407,7 +3059,7 @@
         "TabsTrigger",
         "TabsContent"
       ],
-      "import": "import { Tabs } from '@pixela-gt/voxel-ui'"
+      "import": "import { Tabs } from '@pixela/voxel-ui'"
     },
     "TagsInput": {
       "name": "TagsInput",
@@ -2505,7 +3157,7 @@
         "TagsInputInput",
         "TagsInputClear"
       ],
-      "import": "import { TagsInput } from '@pixela-gt/voxel-ui'"
+      "import": "import { TagsInput } from '@pixela/voxel-ui'"
     },
     "Text": {
       "name": "Text",
@@ -2539,7 +3191,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { Text } from '@pixela-gt/voxel-ui'"
+      "import": "import { Text } from '@pixela/voxel-ui'"
     },
     "Textarea": {
       "name": "Textarea",
@@ -2595,7 +3247,7 @@
         "update"
       ],
       "rekaUi": [],
-      "import": "import { Textarea } from '@pixela-gt/voxel-ui'"
+      "import": "import { Textarea } from '@pixela/voxel-ui'"
     },
     "TimeField": {
       "name": "TimeField",
@@ -2603,15 +3255,15 @@
       "category": "misc",
       "props": {
         "modelValue": {
-          "type": "any | null",
+          "type": "TimeValue | null",
           "required": false
         },
         "defaultValue": {
-          "type": "any | null",
+          "type": "TimeValue | null",
           "required": false
         },
         "placeholder": {
-          "type": "any",
+          "type": "TimeValue",
           "required": false
         },
         "disabled": {
@@ -2661,8 +3313,11 @@
       "events": [
         "update"
       ],
-      "rekaUi": [],
-      "import": "import { TimeField } from '@pixela-gt/voxel-ui'"
+      "rekaUi": [
+        "TimeFieldRoot",
+        "TimeFieldInput"
+      ],
+      "import": "import { TimeField } from '@pixela/voxel-ui'"
     },
     "TimeRangeField": {
       "name": "TimeRangeField",
@@ -2670,14 +3325,69 @@
       "category": "misc",
       "props": {
         "modelValue": {
-          "type": "{ start: any | null; end: any | null",
+          "type": "TimeRangeValue | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "TimeRangeValue | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "TimeValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "readonly": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "InputVariant",
+          "required": false,
+          "default": "outlined"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "density": {
+          "type": "InputDensity",
+          "required": false,
+          "default": "default"
+        },
+        "focusEffect": {
+          "type": "InputFocusEffect",
+          "required": false,
+          "default": "border"
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
           "required": false
         }
       },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { TimeRangeField } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "TimeRangeFieldRoot",
+        "TimeRangeFieldInput"
+      ],
+      "import": "import { TimeRangeField } from '@pixela/voxel-ui'"
     },
     "Toast": {
       "name": "Toast",
@@ -2695,7 +3405,7 @@
         "ToastAction",
         "ToastClose"
       ],
-      "import": "import { Toast } from '@pixela-gt/voxel-ui'"
+      "import": "import { Toast } from '@pixela/voxel-ui'"
     },
     "Toggle": {
       "name": "Toggle",
@@ -2738,7 +3448,7 @@
       "rekaUi": [
         "Toggle as RekaToggle"
       ],
-      "import": "import { Toggle } from '@pixela-gt/voxel-ui'"
+      "import": "import { Toggle } from '@pixela/voxel-ui'"
     },
     "ToggleGroup": {
       "name": "ToggleGroup",
@@ -2797,7 +3507,7 @@
       "rekaUi": [
         "ToggleGroupRoot"
       ],
-      "import": "import { ToggleGroup } from '@pixela-gt/voxel-ui'"
+      "import": "import { ToggleGroup } from '@pixela/voxel-ui'"
     },
     "Toolbar": {
       "name": "Toolbar",
@@ -2873,7 +3583,7 @@
       "rekaUi": [
         "ToolbarRoot"
       ],
-      "import": "import { Toolbar } from '@pixela-gt/voxel-ui'"
+      "import": "import { Toolbar } from '@pixela/voxel-ui'"
     },
     "Tooltip": {
       "name": "Tooltip",
@@ -2893,7 +3603,7 @@
         "TooltipTrigger",
         "useForwardPropsEmits"
       ],
-      "import": "import { Tooltip } from '@pixela-gt/voxel-ui'"
+      "import": "import { Tooltip } from '@pixela/voxel-ui'"
     },
     "Tree": {
       "name": "Tree",
@@ -2951,27 +3661,113 @@
         "TreeRoot",
         "TreeItem"
       ],
-      "import": "import { Tree } from '@pixela-gt/voxel-ui'"
+      "import": "import { Tree } from '@pixela/voxel-ui'"
     },
     "YearPicker": {
       "name": "YearPicker",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "YearPicker component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateValue | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "queryDecade": {
+          "type": "number",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { YearPicker } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "YearPickerRoot",
+        "YearPickerHeader",
+        "YearPickerHeading",
+        "YearPickerPrev",
+        "YearPickerNext",
+        "YearPickerGrid",
+        "YearPickerGridBody",
+        "YearPickerGridRow",
+        "YearPickerCell",
+        "YearPickerCellTrigger"
+      ],
+      "import": "import { YearPicker } from '@pixela/voxel-ui'"
     },
     "YearRangePicker": {
       "name": "YearRangePicker",
-      "description": "ponytail: alpha, reka API may shift",
+      "description": "YearRangePicker component",
       "category": "misc",
-      "props": {},
+      "props": {
+        "modelValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "DateRange | null",
+          "required": false
+        },
+        "placeholder": {
+          "type": "DateValue",
+          "required": false
+        },
+        "queryDecade": {
+          "type": "number",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "locale": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
       "slots": [],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { YearRangePicker } from '@pixela-gt/voxel-ui'"
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "YearRangePickerRoot",
+        "YearRangePickerHeader",
+        "YearRangePickerHeading",
+        "YearRangePickerPrev",
+        "YearRangePickerNext",
+        "YearRangePickerGrid",
+        "YearRangePickerGridBody",
+        "YearRangePickerGridRow",
+        "YearRangePickerCell",
+        "YearRangePickerCellTrigger"
+      ],
+      "import": "import { YearRangePicker } from '@pixela/voxel-ui'"
     },
     "AppShell": {
       "name": "AppShell",
@@ -2994,7 +3790,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { AppShell } from '@pixela-gt/voxel-ui'"
+      "import": "import { AppShell } from '@pixela/voxel-ui'"
     },
     "DataTable": {
       "name": "DataTable",
@@ -3044,7 +3840,7 @@
         "sort"
       ],
       "rekaUi": [],
-      "import": "import { DataTable } from '@pixela-gt/voxel-ui'"
+      "import": "import { DataTable } from '@pixela/voxel-ui'"
     },
     "DataTableServer": {
       "name": "DataTableServer",
@@ -3085,7 +3881,7 @@
         "update"
       ],
       "rekaUi": [],
-      "import": "import { DataTableServer } from '@pixela-gt/voxel-ui'"
+      "import": "import { DataTableServer } from '@pixela/voxel-ui'"
     },
     "EmptyState": {
       "name": "EmptyState",
@@ -3093,7 +3889,7 @@
       "category": "pattern",
       "props": {
         "icon": {
-          "type": "string",
+          "type": "IconValue",
           "required": false
         },
         "title": {
@@ -3115,19 +3911,27 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { EmptyState } from '@pixela-gt/voxel-ui'"
+      "import": "import { EmptyState } from '@pixela/voxel-ui'"
     },
     "PageHeader": {
       "name": "PageHeader",
       "description": "PageHeader pattern",
       "category": "pattern",
       "props": {
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
         "title": {
           "type": "string",
           "required": true
         },
         "description": {
           "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "PageShellVariant",
           "required": false
         },
         "class": {
@@ -3141,7 +3945,7 @@
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { PageHeader } from '@pixela-gt/voxel-ui'"
+      "import": "import { PageHeader } from '@pixela/voxel-ui'"
     }
   },
   "tokens": [

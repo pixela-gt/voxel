@@ -29,8 +29,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@pixela-gt/voxel-ui/style.css': resolve(__dirname, '../../packages/ui/src/style.css'),
-      '@pixela-gt/voxel-ui': resolve(__dirname, '../../packages/ui/src/index.ts'),
+      '@pixela/voxel-ui/style.css': resolve(__dirname, '../../packages/ui/src/style.css'),
+      '@pixela/voxel-ui': resolve(__dirname, '../../packages/ui/src/index.ts'),
     },
   },
 })

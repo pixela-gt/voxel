@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createInterface } from 'node:readline'
+import { loadRegistry } from './registry.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -10,11 +11,7 @@ export interface SkillOptions {
   full: boolean
   framework: 'vue' | 'nuxt' | 'both'
   output?: string
-}
-
-function loadRegistry() {
-  const registryPath = resolve(__dirname, '../../ui/src/components.json')
-  return JSON.parse(readFileSync(registryPath, 'utf-8'))
+  global?: boolean
 }
 
 function resolveOutputPath(options: SkillOptions): string {
@@ -22,7 +19,10 @@ function resolveOutputPath(options: SkillOptions): string {
   switch (options.target) {
     case 'claude': return '.claude/skills/voxel/SKILL.md'
     case 'cursor': return '.cursor/rules/voxel.md'
-    case 'opencode': return `${process.env.HOME}/.config/opencode/skills/voxel/SKILL.md`
+    case 'opencode':
+      return options.global
+        ? `${process.env.HOME}/.config/opencode/skills/voxel/SKILL.md`
+        : '.opencode/skills/voxel/SKILL.md'
     case 'md': return './voxel.md'
   }
 }
@@ -58,9 +58,9 @@ function buildSetupSection(framework: string): string {
     lines.push('### Vue Plugin')
     lines.push('')
     lines.push('```ts')
-    lines.push("import { createVoxel } from '@pixela-gt/voxel-ui/plugin'")
-    lines.push("import '@pixela-gt/voxel-ui/style.css'")
-    lines.push("import '@pixela-gt/voxel-ui/tokens.css'")
+    lines.push("import { createVoxel } from '@pixela/voxel-ui/plugin'")
+    lines.push("import '@pixela/voxel-ui/style.css'")
+    lines.push("import '@pixela/voxel-ui/tokens.css'")
     lines.push('')
     lines.push('app.use(createVoxel())')
     lines.push('```')
@@ -68,9 +68,9 @@ function buildSetupSection(framework: string): string {
     lines.push('### Direct Import')
     lines.push('')
     lines.push('```ts')
-    lines.push("import { Button, Dialog, Card } from '@pixela-gt/voxel-ui'")
-    lines.push("import '@pixela-gt/voxel-ui/tokens.css'")
-    lines.push("import '@pixela-gt/voxel-ui/style.css'")
+    lines.push("import { Button, Dialog, Card } from '@pixela/voxel-ui'")
+    lines.push("import '@pixela/voxel-ui/tokens.css'")
+    lines.push("import '@pixela/voxel-ui/style.css'")
     lines.push('```')
     lines.push('')
   }
@@ -81,7 +81,7 @@ function buildSetupSection(framework: string): string {
     lines.push('```ts')
     lines.push('// nuxt.config.ts')
     lines.push('export default defineNuxtConfig({')
-    lines.push("  modules: ['@pixela-gt/voxel-ui-nuxt'],")
+    lines.push("  modules: ['@pixela/voxel-ui-nuxt'],")
     lines.push('})')
     lines.push('```')
     lines.push('')

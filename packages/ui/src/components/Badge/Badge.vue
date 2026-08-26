@@ -55,7 +55,7 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 }
 
 .voxel-badge--variant-subtle {
-  @apply bg-[var(--color-primary-lighten-1)] text-[var(--color-primary-darken-1)];
+  @apply bg-[var(--color-primary-lighten-1)]/12 text-[var(--color-primary-darken-1)];
 }
 
 .voxel-badge--variant-info {

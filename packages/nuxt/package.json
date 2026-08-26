@@ -1,7 +1,7 @@
 {
-  "name": "@pixela-gt/voxel-ui-nuxt",
-  "version": "0.1.0",
-  "description": "Nuxt module for @pixela-gt/voxel-ui",
+  "name": "@pixela/voxel-ui-nuxt",
+  "version": "0.3.0",
+  "description": "Nuxt module for @pixela/voxel-ui",
   "type": "module",
   "exports": {
     ".": {
@@ -18,11 +18,11 @@
     "@nuxt/kit": "^3.0.0"
   },
   "peerDependencies": {
-    "@pixela-gt/voxel-ui": ">=0.1.0"
+    "@pixela/voxel-ui": ">=0.3.0"
   },
   "devDependencies": {
     "@nuxt/schema": "^4.0.0",
-    "@pixela-gt/voxel-ui": "workspace:*",
+    "@pixela/voxel-ui": "workspace:*",
     "nuxt": "^4.0.0",
     "typescript": "^6.0.0"
   },
@@ -34,6 +34,9 @@
     "design-system",
     "voxel-ui"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "author": "pixela-gt",
   "license": "MIT"
 }

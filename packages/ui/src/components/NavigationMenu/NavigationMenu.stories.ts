@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
+import { expect, userEvent, within } from 'storybook/test'
 import NavigationMenu from './NavigationMenu.vue'
 
 const meta: Meta<typeof NavigationMenu> = {
@@ -51,4 +52,33 @@ export const Minimal: Story = {
     },
     template: '<NavigationMenu :items="items" />',
   }),
+}
+
+// Regression guard for BUG-003: the panel must anchor to whichever trigger
+// opened it (previously it rendered at a fixed offset from the menu root).
+export const AnchorsToTrigger: Story = {
+  args: { orientation: 'horizontal' },
+  render: template,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const productsTrigger = canvas.getByRole('button', { name: /products/i })
+    await userEvent.hover(productsTrigger)
+
+    const panel = await within(document.body).findByText('Product A')
+    const panelBox = panel.closest('.voxel-navigation-menu__content')!.getBoundingClientRect()
+    const triggerBox = productsTrigger.getBoundingClientRect()
+    const viewport = panel.closest('.voxel-navigation-menu__viewport') as HTMLElement
+
+    // The shared viewport must be sized/positioned via reka's CSS vars so that
+    // it sits under the active trigger — not stretched across the whole bar.
+    expect(viewport.style.getPropertyValue('--reka-navigation-menu-viewport-width')).toBeTruthy()
+    expect(panelBox.left).toBeGreaterThanOrEqual(triggerBox.left - viewport.offsetWidth)
+    expect(panelBox.right).toBeLessThanOrEqual(triggerBox.right + viewport.offsetWidth + 1)
+
+    // Switching triggers moves the anchored panel.
+    await userEvent.hover(canvas.getByRole('button', { name: /resources/i }))
+    expect(await within(document.body).findByText('Documentation')).toBeTruthy()
+
+    await userEvent.keyboard('{Escape}')
+  },
 }

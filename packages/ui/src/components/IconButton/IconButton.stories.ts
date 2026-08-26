@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Plus, X, Check, ChevronRight } from '@lucide/vue'
 import IconButton from './IconButton.vue'
 
@@ -20,9 +20,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = { args: { icon: Plus, 'aria-label': 'Add' } }
-export const Outline: Story = { args: { icon: Plus, style: 'outline', 'aria-label': 'Add' } }
-export const Tonal: Story = { args: { icon: Plus, style: 'tonal', 'aria-label': 'Add' } }
-export const Text: Story = { args: { icon: Plus, style: 'text', 'aria-label': 'Add' } }
+export const Outline: Story = { args: { icon: Plus, variant: 'outline', 'aria-label': 'Add' } }
+export const Tonal: Story = { args: { icon: Plus, variant: 'tonal', 'aria-label': 'Add' } }
+export const Text: Story = { args: { icon: Plus, variant: 'text', 'aria-label': 'Add' } }
 export const Secondary: Story = { args: { icon: Check, color: 'secondary', 'aria-label': 'Confirm' } }
 export const Success: Story = { args: { icon: Check, color: 'success', 'aria-label': 'Success' } }
 export const Info: Story = { args: { icon: Plus, color: 'info', 'aria-label': 'Info' } }

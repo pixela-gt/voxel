@@ -1,1 +1,11 @@
-// ponytail: alpha, reka API may shift
+import type { ClassValue } from '../../types/shared'
+import type { DateValue } from 'reka-ui'
+
+export interface MonthPickerProps {
+  modelValue?: DateValue | null
+  defaultValue?: DateValue | null
+  placeholder?: DateValue
+  disabled?: boolean
+  locale?: string
+  class?: ClassValue
+}

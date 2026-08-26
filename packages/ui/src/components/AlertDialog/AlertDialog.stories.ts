@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Info, AlertTriangle, XCircle, CheckCircle2 } from '@lucide/vue'
 import AlertDialog from './AlertDialog.vue'
 

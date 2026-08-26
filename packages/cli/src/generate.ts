@@ -1,10 +1,11 @@
-import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs'
 import { resolve, join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const UI_SRC = resolve(__dirname, '../../ui/src')
-const OUTPUT = resolve(__dirname, '../../ui/src/components.json')
+const UI_OUTPUT = resolve(__dirname, '../../ui/src/components.json')
+const BUNDLED_OUTPUT = resolve(__dirname, '../dist/components.json')
 
 interface PropInfo {
   type: string
@@ -250,7 +251,7 @@ function scanDirectory(baseDir: string, sourceDir: string, components: Record<st
       slots,
       events,
       rekaUi,
-      import: `import { ${dir} } from '@pixela-gt/voxel-ui'`,
+      import: `import { ${dir} } from '@pixela/voxel-ui'`,
     }
   }
 }
@@ -278,8 +279,12 @@ function generate(): void {
     tokens,
   }
 
-  writeFileSync(OUTPUT, JSON.stringify(output, null, 2))
-  console.log(`Generated ${OUTPUT}`)
+  const jsonStr = JSON.stringify(output, null, 2)
+  writeFileSync(UI_OUTPUT, jsonStr)
+  mkdirSync(dirname(BUNDLED_OUTPUT), { recursive: true })
+  writeFileSync(BUNDLED_OUTPUT, jsonStr)
+
+  console.log(`Generated ${UI_OUTPUT} and ${BUNDLED_OUTPUT}`)
   console.log(`  ${Object.keys(components).length} components`)
   console.log(`  ${tokens.length} token groups`)
 }

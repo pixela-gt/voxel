@@ -1,23 +1,26 @@
 {
-  "name": "@pixela-gt/voxel",
+  "name": "@pixela/voxel",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter @pixela-gt/voxel-ui build",
-    "build:cli": "pnpm --filter @pixela-gt/voxel-cli build",
-    "cli": "pnpm --filter @pixela-gt/voxel-cli",
+    "build": "pnpm --filter @pixela/voxel-ui build",
+    "build:cli": "pnpm --filter @pixela/voxel-cli build",
+    "cli": "pnpm --filter @pixela/voxel-cli",
     "typecheck": "pnpm -r typecheck",
-    "generate": "pnpm --filter @pixela-gt/voxel-cli generate",
+    "generate": "pnpm --filter @pixela/voxel-cli generate",
     "playground:vue": "pnpm --filter playground-vue dev",
     "playground:nuxt": "pnpm --filter playground-nuxt dev",
-    "storybook": "pnpm --filter @pixela-gt/voxel-ui storybook",
-    "build-storybook": "pnpm --filter @pixela-gt/voxel-ui build-storybook",
-    "pack": "pnpm --filter @pixela-gt/voxel-ui pack && pnpm --filter @pixela-gt/voxel-ui-nuxt pack"
+    "storybook": "pnpm --filter @pixela/voxel-ui storybook",
+    "build-storybook": "pnpm --filter @pixela/voxel-ui build-storybook",
+    "pack": "pnpm --filter @pixela/voxel-ui pack && pnpm --filter @pixela/voxel-ui-nuxt pack",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.0",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.7.0",
     "eslint-plugin-vue": "^10.10.0",
     "typescript-eslint": "^8.65.0"
-  },
-  "dependencies": {}
+  }
 }

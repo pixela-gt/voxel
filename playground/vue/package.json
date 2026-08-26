@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "vue": "^3.5.0",
-    "@pixela-gt/voxel-ui": "workspace:*"
+    "@pixela/voxel-ui": "workspace:*"
   },
   "devDependencies": {
     "vite": "^8.1.5",

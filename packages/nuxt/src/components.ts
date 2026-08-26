@@ -86,6 +86,21 @@ export const componentNames = [
   'VxNavigationMenu',
   'VxTree',
 
+  // Picker
+  'VxColorArea',
+  'VxColorField',
+  'VxColorSlider',
+  'VxColorSwatch',
+  'VxColorSwatchPicker',
+  'VxCalendar',
+  'VxRangeCalendar',
+  'VxMonthPicker',
+  'VxMonthRangePicker',
+  'VxYearPicker',
+  'VxYearRangePicker',
+  'VxDatePicker',
+  'VxDateRangePicker',
+
   // Patterns
   'VxPageHeader',
   'VxEmptyState',

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
+import { TimeFieldRoot, TimeFieldInput } from 'reka-ui'
 import type { TimeFieldProps } from './TimeField.types'
 import type { FormFieldContext } from '../FormField/FormField.types'
 import { FORM_FIELD_KEY } from '../FormField/FormField.types'
@@ -14,7 +15,7 @@ const props = withDefaults(defineProps<TimeFieldProps>(), {
 } as const)
 
 const emit = defineEmits<{
-  'update:modelValue': [value: any | null]
+  'update:modelValue': [value: TimeFieldProps['modelValue']]
 }>()
 
 const formContext = inject<FormFieldContext | null>(FORM_FIELD_KEY, null)
@@ -38,34 +39,44 @@ const rootClass = computed(() => [
   },
   props.class,
 ])
-
-const onInput = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  emit('update:modelValue', target.value)
-}
 </script>
 
 <template>
   <div :class="rootClass">
-    <input
-      type="time"
-      :id="effectiveId"
-      :value="modelValue ? String(modelValue) : ''"
-      :placeholder="placeholder ? String(placeholder) : ''"
+    <TimeFieldRoot
+      v-model="props.modelValue"
+      class="voxel-time-field__group"
+      :default-value="defaultValue ?? undefined"
+      :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
       :name="name"
-      :aria-invalid="!!effectiveError"
-      :aria-describedby="describedBy"
-      class="voxel-time-field__input"
-      @input="onInput"
-    />
+      @update:modelValue="(v) => emit('update:modelValue', v)"
+    >
+      <template #default="{ segments }">
+        <template v-for="(segment, index) in segments" :key="index">
+          <TimeFieldInput
+            :part="segment.part"
+            :id="index === 0 ? effectiveId : undefined"
+            :aria-invalid="!!effectiveError || undefined"
+            :aria-describedby="describedBy"
+            :class="{ 'voxel-time-field__segment': segment.part !== 'literal' }"
+          >
+            {{ segment.value }}
+          </TimeFieldInput>
+        </template>
+      </template>
+    </TimeFieldRoot>
   </div>
 </template>
 
 <style scoped>
 .voxel-time-field {
   @apply inline-flex items-center w-full font-sans transition-all duration-[var(--transition-normal)] focus-within:outline-none;
+}
+
+.voxel-time-field__group {
+  @apply flex items-start flex-1 min-w-0;
 }
 
 /* Outlined */
@@ -163,12 +174,12 @@ const onInput = (event: Event) => {
 }
 
 /* Input */
-.voxel-time-field__input {
-  @apply flex-1 min-w-0 bg-transparent outline-none border-0 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] disabled:cursor-not-allowed;
+.voxel-time-field__segment {
+  @apply bg-transparent outline-none border-0 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] disabled:cursor-not-allowed;
 }
 
 /* Size */
-.voxel-time-field--size-small .voxel-time-field__input { @apply text-[11px]; }
-.voxel-time-field--size-default .voxel-time-field__input { @apply text-sm; }
-.voxel-time-field--size-large .voxel-time-field__input { @apply text-base; }
+.voxel-time-field--size-small .voxel-time-field__segment { @apply text-[11px]; }
+.voxel-time-field--size-default .voxel-time-field__segment { @apply text-sm; }
+.voxel-time-field--size-large .voxel-time-field__segment { @apply text-base; }
 </style>

@@ -33,7 +33,7 @@ const toggleClass = computed(() => [
 <style scoped>
 .voxel-toggle {
   @apply inline-flex items-center justify-center whitespace-nowrap font-sans antialiased
-    transition-colors duration-[var(--transition-fast)]
+    transition-colors duration-[var(--transition-fast)] cursor-pointer
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed;
   corner-smoothing: 60%;

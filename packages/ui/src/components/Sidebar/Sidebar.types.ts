@@ -44,6 +44,7 @@ export interface SidebarProps {
 export interface SidebarItemProps {
   icon?: IconValue
   label?: string
+  to?: string
   href?: string
   badge?: string | number
   active?: boolean

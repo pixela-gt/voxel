@@ -26,7 +26,8 @@ import {
   VXToggle,
   VXLink,
   VXDrawer,
-} from '@pixela-gt/voxel-ui'
+  VXColorField,
+} from '@pixela/voxel-ui'
 
 const checked = ref(false)
 const switched = ref(false)
@@ -35,12 +36,19 @@ const radio = ref('a')
 const toggled = ref(false)
 const drawerOpen = ref(false)
 const dialogOpen = ref(false)
+const color = ref('#3450e8')
 </script>
 
 <template>
   <div class="p-8 max-w-3xl mx-auto">
     <VXText variant="display-lg" color="primary">Voxel UI Playground</VXText>
     <VXSeparator class="my-6" />
+
+    <VXText variant="headline-md">ColorField</VXText>
+    <div class="mb-4 flex items-center gap-4">
+      <VXColorField v-model="color" />
+      <VXText>Value: {{ color }}</VXText>
+    </div>
 
     <VXText variant="headline-md">Button</VXText>
     <div class="flex gap-2 mb-4">

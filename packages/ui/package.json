@@ -1,6 +1,6 @@
 {
-  "name": "@pixela-gt/voxel-ui",
-  "version": "0.1.0",
+  "name": "@pixela/voxel-ui",
+  "version": "0.3.0",
   "description": "Vue component design system based on reka-ui with Tailwind CSS",
   "type": "module",
   "main": "./dist/index.mjs",
@@ -48,26 +48,33 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "@pixela-gt/voxel-ui": "link:",
     "reka-ui": "^2.9.0"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.0",
+    "@internationalized/date": "^3.12.2",
     "@lucide/vue": "1.25.0",
-    "@storybook/addon-a11y": "^10.5.3",
-    "@storybook/vue3": "^10.5.3",
-    "@storybook/vue3-vite": "^10.5.3",
+    "@storybook/addon-a11y": "^10.5.7",
+    "@storybook/addon-docs": "^10.5.7",
+    "@storybook/addon-vitest": "^10.5.8",
+    "@storybook/test-runner": "^0.24.4",
+    "@storybook/vue3-vite": "^10.5.7",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.1.1",
     "@vitejs/plugin-vue": "^6.0.8",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
+    "eslint-plugin-storybook": "10.5.7",
+    "playwright": "latest",
     "postcss": "^8.5.22",
     "prettier": "^3.9.6",
     "reka-ui": "^2.9.0",
-    "storybook": "^10.5.3",
+    "storybook": "^10.5.7",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vite": "^8.1.5",
     "vite-plugin-dts": "^5.0.3",
+    "vitest": "latest",
     "vue": "^3.4.0",
     "vue-tsc": "^3.3.8"
   },
@@ -82,6 +89,9 @@
     "tailwindcss",
     "accessible"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "author": "pixela-gt",
   "license": "MIT"
 }

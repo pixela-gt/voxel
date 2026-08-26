@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
+import { TimeRangeFieldRoot, TimeRangeFieldInput } from 'reka-ui'
+import type { TimeValue } from 'reka-ui'
 import type { TimeRangeFieldProps } from './TimeRangeField.types'
 import type { FormFieldContext } from '../FormField/FormField.types'
 import { FORM_FIELD_KEY } from '../FormField/FormField.types'
@@ -14,12 +16,32 @@ const props = withDefaults(defineProps<TimeRangeFieldProps>(), {
 } as const)
 
 const emit = defineEmits<{
-  'update:modelValue': [value: { start: any | null; end: any | null }]
+  'update:modelValue': [value: TimeRangeFieldProps['modelValue']]
 }>()
 
 const formContext = inject<FormFieldContext | null>(FORM_FIELD_KEY, null)
 
 const effectiveError = computed(() => props.errorMessage ?? formContext?.errorMessage)
+const effectiveId = computed(() => formContext?.id)
+const describedBy = computed(() => {
+  if (!formContext?.id) return undefined
+  return effectiveError.value ? `${formContext.id}-error` : `${formContext.id}-hint`
+})
+
+const modelIn = computed(() =>
+  props.modelValue == null
+    ? undefined
+    : { start: props.modelValue.start ?? undefined, end: props.modelValue.end ?? undefined },
+)
+const defaultIn = computed(() =>
+  props.defaultValue == null
+    ? undefined
+    : { start: props.defaultValue.start ?? undefined, end: props.defaultValue.end ?? undefined },
+)
+
+const onUpdateModelValue = (v: { start: TimeValue | undefined; end: TimeValue | undefined } | null | undefined) => {
+  emit('update:modelValue', v as TimeRangeFieldProps['modelValue'])
+}
 const rootClass = computed(() => [
   'voxel-time-range-field',
   `voxel-time-range-field--variant-${props.variant}`,
@@ -32,51 +54,57 @@ const rootClass = computed(() => [
   },
   props.class,
 ])
-
-const onStartInput = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  emit('update:modelValue', {
-    start: target.value,
-    end: props.modelValue?.end ?? null,
-  })
-}
-
-const onEndInput = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  emit('update:modelValue', {
-    start: props.modelValue?.start ?? null,
-    end: target.value,
-  })
-}
 </script>
 
 <template>
   <div :class="rootClass">
-    <input
-      type="time"
-      :value="modelValue?.start ? String(modelValue.start) : ''"
-      placeholder="Start"
+    <TimeRangeFieldRoot
+      class="voxel-time-range-field__group"
+      :model-value="modelIn"
+      :default-value="defaultIn"
+      :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
-      class="voxel-time-range-field__input"
-      @input="onStartInput"
-    />
-    <span class="voxel-time-range-field__separator">—</span>
-    <input
-      type="time"
-      :value="modelValue?.end ? String(modelValue.end) : ''"
-      placeholder="End"
-      :disabled="disabled"
-      :readonly="readonly"
-      class="voxel-time-range-field__input"
-      @input="onEndInput"
-    />
+      :name="name"
+      @update:modelValue="onUpdateModelValue"
+    >
+      <template #default="{ segments }">
+        <template v-for="(segment, index) in segments.start" :key="'start' + index">
+          <TimeRangeFieldInput
+            type="start"
+            :part="segment.part"
+            :id="index === 0 ? effectiveId : undefined"
+            :aria-invalid="!!effectiveError || undefined"
+            :aria-describedby="describedBy"
+            :class="{ 'voxel-time-range-field__segment': segment.part !== 'literal' }"
+          >
+            {{ segment.value }}
+          </TimeRangeFieldInput>
+        </template>
+        <span class="voxel-time-range-field__separator">—</span>
+        <template v-for="(segment, index) in segments.end" :key="'end' + index">
+          <TimeRangeFieldInput
+            type="end"
+            :part="segment.part"
+            :aria-invalid="!!effectiveError || undefined"
+            :aria-describedby="describedBy"
+            :class="{ 'voxel-time-range-field__segment': segment.part !== 'literal' }"
+          >
+            {{ segment.value }}
+          </TimeRangeFieldInput>
+        </template>
+      </template>
+    </TimeRangeFieldRoot>
   </div>
 </template>
 
 <style scoped>
 .voxel-time-range-field {
   @apply inline-flex items-center w-full font-sans transition-all duration-[var(--transition-normal)] focus-within:outline-none;
+}
+
+.voxel-time-range-field__group {
+  @apply flex items-start flex-1 min-w-0;
 }
 
 /* Outlined */
@@ -179,12 +207,12 @@ const onEndInput = (event: Event) => {
 }
 
 /* Input */
-.voxel-time-range-field__input {
-  @apply flex-1 min-w-0 bg-transparent outline-none border-0 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] disabled:cursor-not-allowed;
+.voxel-time-range-field__segment {
+  @apply bg-transparent outline-none border-0 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] disabled:cursor-not-allowed;
 }
 
 /* Size */
-.voxel-time-range-field--size-small .voxel-time-range-field__input { @apply text-[11px]; }
-.voxel-time-range-field--size-default .voxel-time-range-field__input { @apply text-sm; }
-.voxel-time-range-field--size-large .voxel-time-range-field__input { @apply text-base; }
+.voxel-time-range-field--size-small .voxel-time-range-field__segment { @apply text-[11px]; }
+.voxel-time-range-field--size-default .voxel-time-range-field__segment { @apply text-sm; }
+.voxel-time-range-field--size-large .voxel-time-range-field__segment { @apply text-base; }
 </style>
