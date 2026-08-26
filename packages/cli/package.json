@@ -1,6 +1,6 @@
 {
   "name": "@pixela/voxel-cli",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CLI tool for Voxel design system — component docs, tokens, and agent tooling",
   "type": "module",
   "main": "./dist/index.js",
