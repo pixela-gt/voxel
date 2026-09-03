@@ -1,6 +1,6 @@
 ---
-"@pixela/voxel-ui": major
-"@pixela/voxel-ui-nuxt": major
+"@pixela/voxel-ui": minor
+"@pixela/voxel-ui-nuxt": minor
 ---
 
 Breaking rebuild of NavigationMenu as modular sub-component family with router support

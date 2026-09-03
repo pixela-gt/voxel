@@ -1,6 +1,6 @@
 ---
-"@pixela/voxel-ui": major
-"@pixela/voxel-ui-nuxt": major
+"@pixela/voxel-ui": minor
+"@pixela/voxel-ui-nuxt": minor
 ---
 
 Breaking rebuild of Sidebar as modular sub-component family
