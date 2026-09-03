@@ -153,7 +153,12 @@ function inferCategory(name: string, sourceDir?: string): string {
       'FormField',
       'MaskedInput',
     ],
-    navigation: ['Tabs', 'TabsList', 'TabsTrigger', 'TabsContent', 'Accordion'],
+    navigation: [
+      'Tabs', 'TabsList', 'TabsTrigger', 'TabsContent', 'Accordion',
+      'Sidebar', 'SidebarItem', 'SidebarItemGroup', 'SidebarSection', 'SidebarHeading', 'SidebarCollapseButton',
+      'NavigationMenu', 'NavigationMenuList', 'NavigationMenuItem', 'NavigationMenuTrigger',
+      'NavigationMenuContent', 'NavigationMenuLink', 'NavigationMenuSection',
+    ],
     layout: ['Card', 'Separator', 'Drawer'],
     overlays: ['Dialog', 'Tooltip', 'DropdownMenu'],
     data: ['Avatar', 'Badge', 'Text'],

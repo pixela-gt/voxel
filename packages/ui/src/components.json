@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-26T01:06:08.915Z",
+  "generated": "2026-09-02T22:42:39.734Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -2041,8 +2041,8 @@
     },
     "NavigationMenu": {
       "name": "NavigationMenu",
-      "description": "NavigationMenu component",
-      "category": "misc",
+      "description": "Root",
+      "category": "navigation",
       "props": {
         "modelValue": {
           "type": "string",
@@ -2067,12 +2067,32 @@
           "required": false,
           "default": 300
         },
-        "items": {
-          "type": "NavigationMenuItem[]",
-          "required": false
-        },
         "class": {
           "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        },
+        "description": {
+          "type": "string",
           "required": false
         }
       },
@@ -2084,11 +2104,6 @@
       ],
       "rekaUi": [
         "NavigationMenuRoot",
-        "NavigationMenuList",
-        "NavigationMenuItem",
-        "NavigationMenuTrigger",
-        "NavigationMenuContent",
-        "NavigationMenuLink",
         "NavigationMenuIndicator",
         "NavigationMenuViewport"
       ],
@@ -2745,9 +2760,13 @@
     },
     "Sidebar": {
       "name": "Sidebar",
-      "description": "Data types for the items array",
-      "category": "misc",
+      "description": "Component props",
+      "category": "navigation",
       "props": {
+        "id": {
+          "type": "string",
+          "required": false
+        },
         "items": {
           "type": "SidebarNavItem[]",
           "required": false

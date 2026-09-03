@@ -23,6 +23,9 @@ export const componentNames = [
   'VxSidebar',
   'VxSidebarItem',
   'VxSidebarItemGroup',
+  'VxSidebarSection',
+  'VxSidebarHeading',
+  'VxSidebarCollapseButton',
   'VxToolbar',
   'VxToolbarButton',
   'VxToolbarLink',
@@ -84,6 +87,12 @@ export const componentNames = [
   'VxContextMenu',
   'VxMenubar',
   'VxNavigationMenu',
+  'VxNavigationMenuList',
+  'VxNavigationMenuItem',
+  'VxNavigationMenuTrigger',
+  'VxNavigationMenuContent',
+  'VxNavigationMenuLink',
+  'VxNavigationMenuSection',
   'VxTree',
 
   // Picker

@@ -163,15 +163,21 @@ export type {
 } from './components/Menubar/Menubar.types'
 export type {
   NavigationMenuProps as VXNavigationMenuProps,
-  NavigationMenuItem as VXNavigationMenuItem,
+  NavigationMenuListProps as VXNavigationMenuListProps,
+  NavigationMenuItemProps as VXNavigationMenuItemProps,
+  NavigationMenuTriggerProps as VXNavigationMenuTriggerProps,
+  NavigationMenuContentProps as VXNavigationMenuContentProps,
+  NavigationMenuLinkProps as VXNavigationMenuLinkProps,
+  NavigationMenuSectionProps as VXNavigationMenuSectionProps,
 } from './components/NavigationMenu/NavigationMenu.types'
 export type {
   SidebarProps as VXSidebarProps,
-  SidebarItemData as VXSidebarItemData,
-  SidebarGroupData as VXSidebarGroupData,
-  SidebarNavItem as VXSidebarNavItem,
   SidebarItemProps as VXSidebarItemProps,
   SidebarItemGroupProps as VXSidebarItemGroupProps,
+  SidebarSectionProps as VXSidebarSectionProps,
+  SidebarHeadingProps as VXSidebarHeadingProps,
+  SidebarCollapseButtonProps as VXSidebarCollapseButtonProps,
+  SidebarContext as VXSidebarContext,
 } from './components/Sidebar/Sidebar.types'
 export type {
   TreeProps as VXTreeProps,
@@ -266,11 +272,22 @@ export {
 export { Pagination as VXPagination } from './components/Pagination'
 export { ContextMenu as VXContextMenu } from './components/ContextMenu'
 export { Menubar as VXMenubar } from './components/Menubar'
-export { NavigationMenu as VXNavigationMenu } from './components/NavigationMenu'
+export {
+  NavigationMenu as VXNavigationMenu,
+  NavigationMenuList as VXNavigationMenuList,
+  NavigationMenuItem as VXNavigationMenuItem,
+  NavigationMenuTrigger as VXNavigationMenuTrigger,
+  NavigationMenuContent as VXNavigationMenuContent,
+  NavigationMenuLink as VXNavigationMenuLink,
+  NavigationMenuSection as VXNavigationMenuSection,
+} from './components/NavigationMenu'
 export {
   Sidebar as VXSidebar,
   SidebarItem as VXSidebarItem,
   SidebarItemGroup as VXSidebarItemGroup,
+  SidebarSection as VXSidebarSection,
+  SidebarHeading as VXSidebarHeading,
+  SidebarCollapseButton as VXSidebarCollapseButton,
 } from './components/Sidebar'
 export { Tree as VXTree } from './components/Tree'
 export {
