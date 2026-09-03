@@ -289,6 +289,14 @@ export {
   SidebarHeading as VXSidebarHeading,
   SidebarCollapseButton as VXSidebarCollapseButton,
 } from './components/Sidebar'
+export {
+  Breadcrumb as VXBreadcrumb,
+  BreadcrumbItem as VXBreadcrumbItem,
+} from './components/Breadcrumb'
+export type {
+  BreadcrumbProps as VXBreadcrumbProps,
+  BreadcrumbItemProps as VXBreadcrumbItemProps,
+} from './components/Breadcrumb'
 export { Tree as VXTree } from './components/Tree'
 export {
   Toolbar as VXToolbar,

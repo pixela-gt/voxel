@@ -158,6 +158,7 @@ function inferCategory(name: string, sourceDir?: string): string {
       'Sidebar', 'SidebarItem', 'SidebarItemGroup', 'SidebarSection', 'SidebarHeading', 'SidebarCollapseButton',
       'NavigationMenu', 'NavigationMenuList', 'NavigationMenuItem', 'NavigationMenuTrigger',
       'NavigationMenuContent', 'NavigationMenuLink', 'NavigationMenuSection',
+      'Breadcrumb', 'BreadcrumbItem',
     ],
     layout: ['Card', 'Separator', 'Drawer'],
     overlays: ['Dialog', 'Tooltip', 'DropdownMenu'],

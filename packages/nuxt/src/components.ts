@@ -93,6 +93,8 @@ export const componentNames = [
   'VxNavigationMenuContent',
   'VxNavigationMenuLink',
   'VxNavigationMenuSection',
+  'VxBreadcrumb',
+  'VxBreadcrumbItem',
   'VxTree',
 
   // Picker

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-02T22:42:39.734Z",
+  "generated": "2026-09-03T02:14:23.706Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -230,6 +230,44 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Badge } from '@pixela/voxel-ui'"
+    },
+    "Breadcrumb": {
+      "name": "Breadcrumb",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "separator": {
+          "type": "string",
+          "required": false,
+          "default": "/"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Breadcrumb } from '@pixela/voxel-ui'"
     },
     "Button": {
       "name": "Button",
@@ -1941,6 +1979,61 @@
       ],
       "import": "import { Menubar } from '@pixela/voxel-ui'"
     },
+    "MobileNav": {
+      "name": "MobileNav",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "breakpoint": {
+          "type": "string",
+          "required": false,
+          "default": "768px"
+        },
+        "width": {
+          "type": "number | string",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": false,
+          "default": ""
+        },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "footer"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { MobileNav } from '@pixela/voxel-ui'"
+    },
     "MonthPicker": {
       "name": "MonthPicker",
       "description": "MonthPicker component",
@@ -2780,6 +2873,11 @@
           "type": "boolean",
           "required": false,
           "default": true
+        },
+        "mobileToggle": {
+          "type": "boolean",
+          "required": false,
+          "default": false
         },
         "breakpoint": {
           "type": "string",
@@ -3623,6 +3721,42 @@
         "useForwardPropsEmits"
       ],
       "import": "import { Tooltip } from '@pixela/voxel-ui'"
+    },
+    "TopNav": {
+      "name": "TopNav",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "start",
+        "end"
+      ],
+      "events": [],
+      "rekaUi": [
+        "MenubarRoot"
+      ],
+      "import": "import { TopNav } from '@pixela/voxel-ui'"
     },
     "Tree": {
       "name": "Tree",
