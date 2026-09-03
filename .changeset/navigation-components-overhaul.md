@@ -12,7 +12,7 @@ Navigation components overhaul: NavigationMenu, Sidebar, Breadcrumb, TopNav, Mob
 **New components:**
 - Breadcrumb + BreadcrumbItem — configurable separators with leading/trailing control
 - TopNav + TopNavItem + TopNavHeading — reka-ui Menubar wrapping with start/center/end slots
-- MobileNav + MobileNavToggle — responsive Drawer that only renders below configurable breakpoint
+- MobileNav + MobileNavToggle — responsive Drawer wrapper that only renders below configurable breakpoint; `open`/`defaultOpen` flow through `$attrs` to Drawer (avoids Vue 3 boolean-casting bug)
 
 **NavigationMenu migration:**
 ```vue
