@@ -297,6 +297,24 @@ export type {
   BreadcrumbProps as VXBreadcrumbProps,
   BreadcrumbItemProps as VXBreadcrumbItemProps,
 } from './components/Breadcrumb'
+export {
+  TopNav as VXTopNav,
+  TopNavItem as VXTopNavItem,
+  TopNavHeading as VXTopNavHeading,
+} from './components/TopNav'
+export type {
+  TopNavProps as VXTopNavProps,
+  TopNavItemProps as VXTopNavItemProps,
+  TopNavHeadingProps as VXTopNavHeadingProps,
+} from './components/TopNav'
+export {
+  MobileNav as VXMobileNav,
+  MobileNavToggle as VXMobileNavToggle,
+} from './components/MobileNav'
+export type {
+  MobileNavProps as VXMobileNavProps,
+  MobileNavToggleProps as VXMobileNavToggleProps,
+} from './components/MobileNav'
 export { Tree as VXTree } from './components/Tree'
 export {
   Toolbar as VXToolbar,

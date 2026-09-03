@@ -159,6 +159,8 @@ function inferCategory(name: string, sourceDir?: string): string {
       'NavigationMenu', 'NavigationMenuList', 'NavigationMenuItem', 'NavigationMenuTrigger',
       'NavigationMenuContent', 'NavigationMenuLink', 'NavigationMenuSection',
       'Breadcrumb', 'BreadcrumbItem',
+      'TopNav', 'TopNavItem', 'TopNavHeading',
+      'MobileNav', 'MobileNavToggle',
     ],
     layout: ['Card', 'Separator', 'Drawer'],
     overlays: ['Dialog', 'Tooltip', 'DropdownMenu'],

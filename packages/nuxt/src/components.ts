@@ -95,6 +95,11 @@ export const componentNames = [
   'VxNavigationMenuSection',
   'VxBreadcrumb',
   'VxBreadcrumbItem',
+  'VxTopNav',
+  'VxTopNavItem',
+  'VxTopNavHeading',
+  'VxMobileNav',
+  'VxMobileNavToggle',
   'VxTree',
 
   // Picker
