@@ -151,6 +151,7 @@ function handleBackdropClick() {
 
 .vx-sidebar__title {
   @apply flex items-center justify-center shrink-0 px-4 py-4;
+  color: var(--sidebar-text, #ffffff);
 }
 
 .vx-sidebar__nav {

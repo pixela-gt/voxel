@@ -165,6 +165,7 @@ function inferCategory(name: string, sourceDir?: string): string {
     layout: ['Card', 'Separator', 'Drawer'],
     overlays: ['Dialog', 'Tooltip', 'DropdownMenu'],
     data: ['Avatar', 'Badge', 'Text'],
+    patterns: ['PageHeader', 'EmptyState', 'DataTable', 'DataTableServer', 'AttributePresenter'],
   }
 
   for (const [cat, names] of Object.entries(categories)) {

@@ -52,23 +52,40 @@ const groupClass = computed(() => [
 </template>
 
 <style scoped>
+.vx-sidebar-group__trigger {
+  @apply flex w-full text-left;
+}
+
 .vx-sidebar-group__trigger .vx-sidebar-item__content {
-  @apply flex-1 justify-between;
+  @apply flex-1 justify-start items-start text-left;
+}
+
+.vx-sidebar-group__trigger .vx-sidebar-item:hover {
+  background-color: transparent !important;
 }
 
 .vx-sidebar-group__content {
   @apply flex flex-col gap-1 mt-1;
 }
 
+.vx-sidebar-group :deep(.voxel-collapsible) {
+  @apply flex flex-col w-full;
+}
+
 .vx-sidebar-group :deep(.voxel-collapsible__trigger) {
-  @apply w-full px-0 py-0 bg-transparent hover:bg-transparent;
+  @apply !flex !items-center !justify-start !text-left !w-full !px-0 !py-0;
   color: var(--sidebar-text, #ffffff);
+  background: transparent;
 }
 
 .vx-sidebar-group :deep(.voxel-collapsible__icon) {
-  @apply size-4 shrink-0 transition-transform duration-200;
+  @apply size-4 shrink-0 transition-all duration-200;
   opacity: 0.7;
   color: var(--sidebar-text, #ffffff);
+}
+
+.vx-sidebar-group :deep(.voxel-collapsible__trigger:hover .voxel-collapsible__icon) {
+  opacity: 1;
 }
 
 .vx-sidebar-group--collapsed :deep(.voxel-collapsible__icon) {

@@ -15,7 +15,7 @@ const props = defineProps<SidebarHeadingProps>()
 
 <style scoped>
 .vx-sidebar-heading {
-  @apply block px-4 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider
-    text-[var(--color-text-muted)] opacity-70;
+  @apply block px-4 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider opacity-70;
+  color: var(--sidebar-text, #ffffff);
 }
 </style>

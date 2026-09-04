@@ -122,4 +122,5 @@ export const componentNames = [
   'VxEmptyState',
   'VxDataTable',
   'VxDataTableServer',
+  'VxAttributePresenter',
 ] as const

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-03T02:14:23.706Z",
+  "generated": "2026-09-03T22:55:21.974Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -240,6 +240,16 @@
           "type": "string",
           "required": false,
           "default": "/"
+        },
+        "leading": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "trailing": {
+          "type": "boolean",
+          "required": false,
+          "default": true
         },
         "class": {
           "type": "ClassValue",
@@ -1984,16 +1994,6 @@
       "description": "Root wrapper",
       "category": "navigation",
       "props": {
-        "open": {
-          "type": "boolean",
-          "required": false,
-          "default": "undefined"
-        },
-        "defaultOpen": {
-          "type": "boolean",
-          "required": false,
-          "default": "undefined"
-        },
         "breakpoint": {
           "type": "string",
           "required": false,
@@ -2028,9 +2028,7 @@
       "slots": [
         "footer"
       ],
-      "events": [
-        "update"
-      ],
+      "events": [],
       "rekaUi": [],
       "import": "import { MobileNav } from '@pixela/voxel-ui'"
     },
@@ -3727,6 +3725,16 @@
       "description": "Root wrapper",
       "category": "navigation",
       "props": {
+        "variant": {
+          "type": "TopNavVariant",
+          "required": false,
+          "default": "default"
+        },
+        "dense": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
@@ -3944,6 +3952,53 @@
       "events": [],
       "rekaUi": [],
       "import": "import { AppShell } from '@pixela/voxel-ui'"
+    },
+    "AttributePresenter": {
+      "name": "AttributePresenter",
+      "description": "AttributePresenter pattern",
+      "category": "pattern",
+      "props": {
+        "item": {
+          "type": "T",
+          "required": true
+        },
+        "fields": {
+          "type": "FieldDef[]",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "skeletonCount": {
+          "type": "number",
+          "required": false
+        },
+        "emptyText": {
+          "type": "string",
+          "required": false
+        },
+        "missingBehavior": {
+          "type": "MissingValueBehavior",
+          "required": false
+        },
+        "missingFallback": {
+          "type": "string",
+          "required": false
+        },
+        "elevation": {
+          "type": "'flat' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { AttributePresenter } from '@pixela/voxel-ui'"
     },
     "DataTable": {
       "name": "DataTable",
