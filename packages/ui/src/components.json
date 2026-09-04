@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-08-26T01:06:08.915Z",
+  "generated": "2026-09-03T22:55:21.974Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -230,6 +230,54 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Badge } from '@pixela/voxel-ui'"
+    },
+    "Breadcrumb": {
+      "name": "Breadcrumb",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "separator": {
+          "type": "string",
+          "required": false,
+          "default": "/"
+        },
+        "leading": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "trailing": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Breadcrumb } from '@pixela/voxel-ui'"
     },
     "Button": {
       "name": "Button",
@@ -1941,6 +1989,49 @@
       ],
       "import": "import { Menubar } from '@pixela/voxel-ui'"
     },
+    "MobileNav": {
+      "name": "MobileNav",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "breakpoint": {
+          "type": "string",
+          "required": false,
+          "default": "768px"
+        },
+        "width": {
+          "type": "number | string",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": false,
+          "default": ""
+        },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "footer"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { MobileNav } from '@pixela/voxel-ui'"
+    },
     "MonthPicker": {
       "name": "MonthPicker",
       "description": "MonthPicker component",
@@ -2041,8 +2132,8 @@
     },
     "NavigationMenu": {
       "name": "NavigationMenu",
-      "description": "NavigationMenu component",
-      "category": "misc",
+      "description": "Root",
+      "category": "navigation",
       "props": {
         "modelValue": {
           "type": "string",
@@ -2067,12 +2158,32 @@
           "required": false,
           "default": 300
         },
-        "items": {
-          "type": "NavigationMenuItem[]",
-          "required": false
-        },
         "class": {
           "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        },
+        "description": {
+          "type": "string",
           "required": false
         }
       },
@@ -2084,11 +2195,6 @@
       ],
       "rekaUi": [
         "NavigationMenuRoot",
-        "NavigationMenuList",
-        "NavigationMenuItem",
-        "NavigationMenuTrigger",
-        "NavigationMenuContent",
-        "NavigationMenuLink",
         "NavigationMenuIndicator",
         "NavigationMenuViewport"
       ],
@@ -2745,9 +2851,13 @@
     },
     "Sidebar": {
       "name": "Sidebar",
-      "description": "Data types for the items array",
-      "category": "misc",
+      "description": "Component props",
+      "category": "navigation",
       "props": {
+        "id": {
+          "type": "string",
+          "required": false
+        },
         "items": {
           "type": "SidebarNavItem[]",
           "required": false
@@ -2761,6 +2871,11 @@
           "type": "boolean",
           "required": false,
           "default": true
+        },
+        "mobileToggle": {
+          "type": "boolean",
+          "required": false,
+          "default": false
         },
         "breakpoint": {
           "type": "string",
@@ -3605,6 +3720,52 @@
       ],
       "import": "import { Tooltip } from '@pixela/voxel-ui'"
     },
+    "TopNav": {
+      "name": "TopNav",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "variant": {
+          "type": "TopNavVariant",
+          "required": false,
+          "default": "default"
+        },
+        "dense": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "start",
+        "end"
+      ],
+      "events": [],
+      "rekaUi": [
+        "MenubarRoot"
+      ],
+      "import": "import { TopNav } from '@pixela/voxel-ui'"
+    },
     "Tree": {
       "name": "Tree",
       "description": "ponytail: alpha, reka API may shift",
@@ -3791,6 +3952,53 @@
       "events": [],
       "rekaUi": [],
       "import": "import { AppShell } from '@pixela/voxel-ui'"
+    },
+    "AttributePresenter": {
+      "name": "AttributePresenter",
+      "description": "AttributePresenter pattern",
+      "category": "pattern",
+      "props": {
+        "item": {
+          "type": "T",
+          "required": true
+        },
+        "fields": {
+          "type": "FieldDef[]",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "skeletonCount": {
+          "type": "number",
+          "required": false
+        },
+        "emptyText": {
+          "type": "string",
+          "required": false
+        },
+        "missingBehavior": {
+          "type": "MissingValueBehavior",
+          "required": false
+        },
+        "missingFallback": {
+          "type": "string",
+          "required": false
+        },
+        "elevation": {
+          "type": "'flat' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { AttributePresenter } from '@pixela/voxel-ui'"
     },
     "DataTable": {
       "name": "DataTable",

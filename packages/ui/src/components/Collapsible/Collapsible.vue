@@ -3,23 +3,30 @@ import { computed } from 'vue'
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent } from 'reka-ui'
 import type { CollapsibleProps } from './Collapsible.types'
 
-const props = defineProps<CollapsibleProps>()
+const props = withDefaults(defineProps<CollapsibleProps>(), {
+  open: undefined,
+  defaultOpen: undefined,
+})
 
 const emit = defineEmits<{
   'update:open': [value: boolean]
 }>()
 
 const rootClass = computed(() => ['voxel-collapsible', props.class])
+
+// Forward open/defaultOpen conditionally to avoid Vue 3 boolean-casting bug
+const rootBindings = computed(() => ({
+  ...(props.open !== undefined ? { open: props.open } : {}),
+  ...(props.defaultOpen !== undefined ? { defaultOpen: props.defaultOpen } : {}),
+}))
 </script>
 
 <template>
   <CollapsibleRoot
-    :open="props.open"
-    :defaultOpen="props.defaultOpen"
+    v-bind="rootBindings"
     :disabled="props.disabled"
     @update:open="(v: boolean) => emit('update:open', v)"
     :class="rootClass"
-    v-bind="$attrs"
   >
     <CollapsibleTrigger class="voxel-collapsible__trigger">
       <slot name="trigger" />

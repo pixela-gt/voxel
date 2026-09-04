@@ -153,10 +153,19 @@ function inferCategory(name: string, sourceDir?: string): string {
       'FormField',
       'MaskedInput',
     ],
-    navigation: ['Tabs', 'TabsList', 'TabsTrigger', 'TabsContent', 'Accordion'],
+    navigation: [
+      'Tabs', 'TabsList', 'TabsTrigger', 'TabsContent', 'Accordion',
+      'Sidebar', 'SidebarItem', 'SidebarItemGroup', 'SidebarSection', 'SidebarHeading', 'SidebarCollapseButton',
+      'NavigationMenu', 'NavigationMenuList', 'NavigationMenuItem', 'NavigationMenuTrigger',
+      'NavigationMenuContent', 'NavigationMenuLink', 'NavigationMenuSection',
+      'Breadcrumb', 'BreadcrumbItem',
+      'TopNav', 'TopNavItem', 'TopNavHeading',
+      'MobileNav', 'MobileNavToggle',
+    ],
     layout: ['Card', 'Separator', 'Drawer'],
     overlays: ['Dialog', 'Tooltip', 'DropdownMenu'],
     data: ['Avatar', 'Badge', 'Text'],
+    patterns: ['PageHeader', 'EmptyState', 'DataTable', 'DataTableServer', 'AttributePresenter'],
   }
 
   for (const [cat, names] of Object.entries(categories)) {

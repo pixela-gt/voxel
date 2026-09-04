@@ -2,11 +2,6 @@
 import { computed } from 'vue'
 import {
   NavigationMenuRoot,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
 } from 'reka-ui'
@@ -36,36 +31,11 @@ const rootClass = computed(() => ['voxel-navigation-menu', `voxel-navigation-men
     :class="rootClass"
     v-bind="$attrs"
   >
-    <NavigationMenuList class="voxel-navigation-menu__list">
-      <template v-for="(item, idx) in props.items ?? []" :key="idx">
-        <NavigationMenuItem v-if="item.items?.length" :value="item.value">
-          <NavigationMenuTrigger class="voxel-navigation-menu__trigger">
-            {{ item.label }}
-            <svg class="voxel-navigation-menu__caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 4L5 6L7 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          </NavigationMenuTrigger>
-          <NavigationMenuContent class="voxel-navigation-menu__content">
-            <ul class="voxel-navigation-menu__sub-list">
-              <li v-for="(sub, subIdx) in item.items" :key="subIdx" class="voxel-navigation-menu__sub-item">
-                <NavigationMenuLink :href="sub.href" class="voxel-navigation-menu__link">
-                  <div class="voxel-navigation-menu__link-label">{{ sub.label }}</div>
-                  <p v-if="sub.description" class="voxel-navigation-menu__link-description">{{ sub.description }}</p>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem v-else>
-          <NavigationMenuLink :href="item.href" class="voxel-navigation-menu__link voxel-navigation-menu__link--inline">
-            {{ item.label }}
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </template>
-      <slot />
-    </NavigationMenuList>
+    <slot />
     <NavigationMenuIndicator class="voxel-navigation-menu__indicator">
       <div class="voxel-navigation-menu__indicator-arrow" />
     </NavigationMenuIndicator>
-    <NavigationMenuViewport class="voxel-navigation-menu__viewport" />
+    <NavigationMenuViewport class="voxel-navigation-menu__viewport" force-mount />
   </NavigationMenuRoot>
 </template>
 
@@ -89,7 +59,7 @@ const rootClass = computed(() => ['voxel-navigation-menu', `voxel-navigation-men
     text-sm font-medium text-[var(--color-text-primary)]
     cursor-pointer
     transition-colors
-    hover:bg-[var(--color-grey-100)]
+    hover:bg-[var(--color-surface-light)]
     data-[state=open]:bg-[var(--color-primary-lighten-1)]/12 data-[state=open]:text-[var(--color-primary-base)]
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2;
 }
@@ -126,7 +96,7 @@ const rootClass = computed(() => ['voxel-navigation-menu', `voxel-navigation-men
   @apply inline-flex items-center
     px-3 h-9 rounded-md
     text-sm font-medium text-[var(--color-text-primary)]
-    hover:bg-[var(--color-grey-100)];
+    hover:bg-[var(--color-surface-light)];
 }
 
 .voxel-navigation-menu__link-label {
@@ -135,6 +105,10 @@ const rootClass = computed(() => ['voxel-navigation-menu', `voxel-navigation-men
 
 .voxel-navigation-menu__link-description {
   @apply text-xs text-[var(--color-text-secondary)] leading-snug;
+}
+
+.voxel-navigation-menu__section {
+  @apply flex flex-col;
 }
 
 /* Plain open/close (first open, Esc dismiss). Declared BEFORE the

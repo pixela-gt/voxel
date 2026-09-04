@@ -31,7 +31,7 @@ import {
 .voxel-dropdown__item {
   @apply relative flex items-center gap-2 rounded-[6px] px-2 py-2
     text-[11px] font-medium text-[var(--color-info-base)] outline-none
-    focus:bg-[var(--color-primary-lighten-1)] focus:text-[var(--color-primary-base)]
+    focus:bg-[var(--color-primary-lighten-1)]/12 focus:text-[var(--color-primary-base)]
     data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed;
 }
 </style>

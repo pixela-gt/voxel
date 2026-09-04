@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted, provide } from 'vue'
+import { computed, ref, onMounted, onUnmounted, provide, watch } from 'vue'
 import type { SidebarProps } from './Sidebar.types'
-import { isSidebarGroup, isSidebarItem, SIDEBAR_KEY } from './Sidebar.types'
-import SidebarItem from './SidebarItem.vue'
-import SidebarItemGroup from './SidebarItemGroup.vue'
+import { SIDEBAR_KEY } from './Sidebar.types'
+import { useSidebar } from '../../composables/useSidebar'
+import { Menu, X } from '@lucide/vue'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsed: false,
   visible: true,
+  mobileToggle: false,
   breakpoint: '768px',
   ariaLabel: 'Main navigation',
 })
@@ -17,6 +18,41 @@ const emit = defineEmits<{
   'update:visible': [value: boolean]
   close: []
 }>()
+
+const sidebar = useSidebar({ id: props.id })
+
+// One-way sync: prop → composable (initialize composable state from prop)
+watch(() => props.collapsed, (val) => {
+  sidebar.setCollapsed(val)
+}, { immediate: true })
+
+watch(() => props.visible, (val) => {
+  sidebar.setVisible(val)
+}, { immediate: true })
+
+// Two-way sync: composable → prop (emit when composable state changes via toggle/programmatic)
+let emitting = false
+watch(sidebar.collapsed, (val) => {
+  if (!emitting && val !== props.collapsed) {
+    emitting = true
+    emit('update:collapsed', val)
+    emitting = false
+  }
+})
+
+watch(sidebar.visible, (val) => {
+  if (!emitting && val !== props.visible) {
+    emitting = true
+    emit('update:visible', val)
+    emitting = false
+  }
+})
+
+provide(SIDEBAR_KEY, {
+  collapsed: sidebar.collapsed,
+  toggle: sidebar.toggle,
+  setCollapsed: sidebar.setCollapsed,
+})
 
 const isMobile = ref(false)
 let mediaQuery: MediaQueryList | null = null
@@ -35,22 +71,18 @@ onUnmounted(() => {
   mediaQuery?.removeEventListener('change', updateMatches)
 })
 
-provide(SIDEBAR_KEY, {
-  collapsed: computed(() => props.collapsed),
-})
-
 const rootClass = computed(() => [
   'vx-sidebar',
   {
-    'vx-sidebar--collapsed': props.collapsed,
+    'vx-sidebar--collapsed': sidebar.collapsed.value,
     'vx-sidebar--mobile': isMobile.value,
-    'vx-sidebar--hidden': isMobile.value && !props.visible,
+    'vx-sidebar--hidden': isMobile.value && !sidebar.visible.value,
   },
   props.class,
 ])
 
 function handleBackdropClick() {
-  emit('update:visible', false)
+  sidebar.hide()
   emit('close')
 }
 </script>
@@ -65,51 +97,28 @@ function handleBackdropClick() {
     </div>
 
     <div class="vx-sidebar__nav">
-      <template v-for="(item, idx) in props.items" :key="idx">
-        <SidebarItem
-          v-if="isSidebarItem(item)"
-          :icon="item.icon"
-          :label="item.label"
-          :to="item.to"
-          :href="item.href"
-          :badge="item.badge"
-          :active="item.active"
-          :disabled="item.disabled"
-          :sub="item.sub"
-        />
-        <SidebarItemGroup
-          v-else-if="isSidebarGroup(item)"
-          :icon="item.icon"
-          :label="item.label"
-          :defaultOpen="item.defaultOpen"
-          :disabled="item.disabled"
-        >
-          <SidebarItem
-            v-for="(sub, subIdx) in item.items"
-            :key="subIdx"
-            :icon="sub.icon"
-            :label="sub.label"
-            :to="sub.to"
-            :href="sub.href"
-            :badge="sub.badge"
-            :active="sub.active"
-            :disabled="sub.disabled"
-            sub
-          />
-        </SidebarItemGroup>
-      </template>
       <slot />
     </div>
 
     <div class="vx-sidebar__bottom">
       <slot name="bottom" />
     </div>
+
+    <button
+      v-if="mobileToggle && isMobile"
+      type="button"
+      class="vx-sidebar__mobile-toggle"
+      :aria-label="sidebar.visible.value ? 'Close menu' : 'Open menu'"
+      @click="sidebar.visible.value ? sidebar.hide() : sidebar.show()"
+    >
+      <component :is="sidebar.visible.value ? X : Menu" :size="18" />
+    </button>
   </nav>
 
   <div
     v-if="isMobile"
     class="vx-sidebar__backdrop"
-    :class="{ 'vx-sidebar__backdrop--hidden': !props.visible }"
+    :class="{ 'vx-sidebar__backdrop--hidden': !sidebar.visible.value }"
     aria-hidden="true"
     @click="handleBackdropClick"
   />
@@ -142,6 +151,7 @@ function handleBackdropClick() {
 
 .vx-sidebar__title {
   @apply flex items-center justify-center shrink-0 px-4 py-4;
+  color: var(--sidebar-text, #ffffff);
 }
 
 .vx-sidebar__nav {
@@ -150,6 +160,20 @@ function handleBackdropClick() {
 
 .vx-sidebar__bottom {
   @apply shrink-0 px-2 py-3;
+}
+
+.vx-sidebar__mobile-toggle {
+  @apply absolute top-4 right-0 z-10
+    flex items-center justify-center
+    w-9 h-9 rounded-full
+    translate-x-1/2
+    bg-[var(--color-surface-base)] text-[var(--color-text-primary)]
+    border border-[var(--color-grey-200)]
+    shadow-md
+    cursor-pointer
+    transition-colors
+    hover:bg-[var(--color-grey-50)]
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)];
 }
 
 .vx-sidebar__backdrop {
