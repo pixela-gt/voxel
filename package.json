@@ -1,6 +1,7 @@
 {
   "name": "@pixela/voxel",
   "private": true,
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
     "build": "pnpm --filter @pixela/voxel-ui build",
     "build:cli": "pnpm --filter @pixela/voxel-cli build",
