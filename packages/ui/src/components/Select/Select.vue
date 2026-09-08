@@ -62,7 +62,7 @@ const triggerClass = computed(() => [
 const isGroup = (entry: SelectItemType | SelectGroupType): entry is SelectGroupType =>
   Array.isArray((entry as SelectGroupType).items)
 
-// For vee-validate compatibilty, since its v-slot props expose `value` instead of `modelValue`. If both are provided, `modelValue` takes precedence.
+// For vee-validate compatibility, since its v-slot props expose `value` instead of `modelValue`. If both are provided, `modelValue` takes precedence.
 const controlledValue = computed(() => props.modelValue ?? props.value)
 </script>
 
