@@ -21,8 +21,7 @@ const meta: Meta<typeof Select> = {
     name: { control: 'text' },
     defaultOpen: { control: 'boolean' },
     errorMessage: { control: 'text' },
-    // not wired in the component (dead props) — hide to avoid misleading controls
-    value: { table: { disable: true } },
+    value: { control: 'text' },
     open: { table: { disable: true } },
     items: { table: { disable: true } },
     class: { table: { disable: true } },
