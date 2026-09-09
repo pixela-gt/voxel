@@ -1,5 +1,11 @@
 # @pixela/voxel-ui
 
+## 0.4.1
+
+### Patch Changes
+
+- ad58569: fix(Select): wire `value` prop for vee-validate compatibility and fix Storybook docs
+
 ## 0.4.0
 
 ### Minor Changes

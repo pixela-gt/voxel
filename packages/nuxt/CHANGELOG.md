@@ -1,5 +1,12 @@
 # @pixela/voxel-ui-nuxt
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [ad58569]
+  - @pixela/voxel-ui@0.4.1
+
 ## 0.4.0
 
 ### Minor Changes
