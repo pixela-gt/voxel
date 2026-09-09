@@ -1,6 +1,6 @@
 {
   "name": "@pixela/voxel-ui",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Vue component design system based on reka-ui with Tailwind CSS",
   "type": "module",
   "main": "./dist/index.mjs",
