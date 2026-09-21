@@ -3,6 +3,7 @@ import type { InputVariant, InputDensity, InputFocusEffect } from '../Input/Inpu
 
 export interface NumberFieldProps {
   modelValue?: number
+  value?: number // VeeValidate compatibility
   min?: number
   max?: number
   step?: number
