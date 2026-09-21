@@ -1,5 +1,11 @@
 # @pixela/voxel-ui
 
+## 0.4.2
+
+### Patch Changes
+
+- Add controlledValue prop to NumberField for VeeValidate compatibility
+
 ## 0.4.1
 
 ### Patch Changes

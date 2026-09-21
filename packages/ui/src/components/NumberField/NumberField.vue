@@ -45,11 +45,13 @@ const rootClass = computed(() => [
   },
   props.class,
 ])
+
+const controlledValue = computed(() => props.modelValue ?? props.value)
 </script>
 
 <template>
   <NumberFieldRoot
-    :modelValue="props.modelValue"
+    :modelValue="controlledValue"
     :min="props.min"
     :max="props.max"
     :step="props.step"
