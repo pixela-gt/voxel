@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import FileInput from './FileInput.vue'
 
 const meta: Meta<typeof FileInput> = {
-  title: 'Inputs/FileInput',
+  title: 'Forms/FileInput',
   component: FileInput,
   tags: ['autodocs'],
   argTypes: {

@@ -4,7 +4,7 @@ import { Heart } from '@lucide/vue'
 import Tooltip from './Tooltip.vue'
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Action/Tooltip',
+  title: 'Surfaces/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {

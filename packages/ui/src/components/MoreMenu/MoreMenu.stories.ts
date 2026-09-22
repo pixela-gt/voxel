@@ -5,7 +5,7 @@ import MoreMenuItem from './MoreMenuItem.vue'
 import MoreMenuSeparator from './MoreMenuSeparator.vue'
 
 const meta: Meta<typeof MoreMenu> = {
-  title: 'Actions/MoreMenu',
+  title: 'Overlays/MoreMenu',
   component: MoreMenu,
   tags: ['autodocs'],
   argTypes: {
