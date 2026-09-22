@@ -26,9 +26,6 @@ const fileInputRef = ref<HTMLInputElement | null>(null)
 
 const effectiveError = computed(() => props.errorMessage ?? formContext?.errorMessage)
 const effectiveId = computed(() => formContext?.id)
-
-// VeeValidate compatibility — its v-slot props expose `value` instead of `modelValue`
-const controlledValue = computed(() => props.modelValue ?? props.value)
 const describedBy = computed(() => {
   if (!formContext?.id) return undefined
   return effectiveError.value ? `${formContext.id}-error` : `${formContext.id}-hint`

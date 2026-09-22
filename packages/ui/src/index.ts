@@ -53,7 +53,7 @@ export type {
   SeparatorProps as VXSeparatorProps,
   SeparatorOrientation as VXSeparatorOrientation,
 } from './components/Separator/Separator.types'
-export type { DropdownMenuProps as VXDropdownMenuProps } from './components/DropdownMenu/DropdownMenu.types'
+export type { DropdownMenuProps as VXDropdownMenuProps, DropdownMenuItemProps as VXDropdownMenuItemProps, DropdownMenuSeparatorProps as VXDropdownMenuSeparatorProps } from './components/DropdownMenu/DropdownMenu.types'
 export type { DrawerProps as VXDrawerProps } from './components/Drawer/Drawer.types'
 export type {
   AvatarProps as VXAvatarProps,
@@ -197,7 +197,7 @@ export type { VisuallyHiddenProps as VXVisuallyHiddenProps } from './components/
 export type { GridProps as VXGridProps, ResponsiveValue as VXResponsiveValue } from './components/Grid/Grid.types'
 export type { StackProps as VXStackProps } from './components/HStack/HStack.types'
 export type { FileInputProps as VXFileInputProps } from './components/FileInput/FileInput.types'
-export type { MoreMenuProps as VXMoreMenuProps, MoreMenuItem as VXMoreMenuItem } from './components/MoreMenu/MoreMenu.types'
+export type { MoreMenuProps as VXMoreMenuProps, MoreMenuItemProps as VXMoreMenuItemProps, MoreMenuSeparatorProps as VXMoreMenuSeparatorProps } from './components/MoreMenu/MoreMenu.types'
 export type { BannerOptions as VXBannerOptions, BannerEntry as VXBannerEntry, BannerVariant as VXBannerVariant } from './components/Banner/Banner.types'
 export type { ClickableCardProps as VXClickableCardProps } from './components/ClickableCard/ClickableCard.types'
 
@@ -217,7 +217,11 @@ export { FormField as VXFormField } from './components/FormField'
 export { MaskedInput as VXMaskedInput } from './components/MaskedInput'
 export { Card as VXCard } from './components/Card'
 export { Separator as VXSeparator } from './components/Separator'
-export { DropdownMenu as VXDropdownMenu } from './components/DropdownMenu'
+export {
+  DropdownMenu as VXDropdownMenu,
+  DropdownMenuItem as VXDropdownMenuItem,
+  DropdownMenuSeparator as VXDropdownMenuSeparator,
+} from './components/DropdownMenu'
 export { Drawer as VXDrawer } from './components/Drawer'
 export { Avatar as VXAvatar } from './components/Avatar'
 export { Dialog as VXDialog } from './components/Dialog'
@@ -352,7 +356,11 @@ export { Grid as VXGrid } from './components/Grid'
 export { HStack as VXHStack } from './components/HStack'
 export { VStack as VXVStack } from './components/VStack'
 export { FileInput as VXFileInput } from './components/FileInput'
-export { MoreMenu as VXMoreMenu } from './components/MoreMenu'
+export {
+  MoreMenu as VXMoreMenu,
+  MoreMenuItem as VXMoreMenuItem,
+  MoreMenuSeparator as VXMoreMenuSeparator,
+} from './components/MoreMenu'
 export {
   Banner as VXBanner,
   BannerProvider as VXBannerProvider,

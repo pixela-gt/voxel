@@ -6,6 +6,8 @@ export const componentNames = [
   'VxLink',
   'VxTooltip',
   'VxMoreMenu',
+  'VxMoreMenuItem',
+  'VxMoreMenuSeparator',
 
   // Inputs
   'VxCheckbox',
@@ -40,6 +42,8 @@ export const componentNames = [
 
   // Overlays
   'VxDropdownMenu',
+  'VxDropdownMenuItem',
+  'VxDropdownMenuSeparator',
   'VxDrawer',
   'VxAvatar',
   'VxDialog',

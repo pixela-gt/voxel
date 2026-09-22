@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, provide } from 'vue'
 import { MoreVertical } from '@lucide/vue'
 import {
   DropdownMenuRoot,
   DropdownMenuTrigger,
   DropdownMenuPortal,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
 } from 'reka-ui'
 import { Icon } from '../Icon'
 import type { MoreMenuProps } from './MoreMenu.types'
+import { MORE_MENU_KEY } from './MoreMenu.types'
 
 const props = withDefaults(defineProps<MoreMenuProps>(), {
   sideOffset: 4,
@@ -21,6 +20,10 @@ const emit = defineEmits<{
   select: [value: string]
   'update:open': [open: boolean]
 }>()
+
+provide(MORE_MENU_KEY, {
+  onSelect: (value: string) => emit('select', value),
+})
 
 const rootClass = computed(() => ['voxel-more-menu', props.class])
 </script>
@@ -38,19 +41,6 @@ const rootClass = computed(() => ['voxel-more-menu', props.class])
     </DropdownMenuTrigger>
     <DropdownMenuPortal>
       <DropdownMenuContent class="voxel-more-menu__content" :side-offset="sideOffset" :align="align">
-        <template v-for="(item, idx) in props.items" :key="idx">
-          <DropdownMenuSeparator v-if="item.separator" class="voxel-more-menu__separator" />
-          <DropdownMenuItem
-            v-else
-            :disabled="item.disabled"
-            class="voxel-more-menu__item"
-            :class="{ 'voxel-more-menu__item--destructive': item.destructive }"
-            @select="() => item.value && emit('select', item.value)"
-          >
-            <Icon v-if="item.icon" :icon="item.icon" size="small" class="voxel-more-menu__item-icon" />
-            <span>{{ item.label }}</span>
-          </DropdownMenuItem>
-        </template>
         <slot />
       </DropdownMenuContent>
     </DropdownMenuPortal>
@@ -78,28 +68,5 @@ const rootClass = computed(() => ['voxel-more-menu', props.class])
     border border-[var(--color-grey-200)]
     p-1
     focus-visible:outline-none z-50;
-}
-
-.voxel-more-menu__item {
-  @apply relative flex items-center gap-2
-    rounded-md px-2 py-1.5
-    text-sm text-[var(--color-text-primary)]
-    cursor-pointer select-none outline-none
-    data-[highlighted]:bg-[var(--color-primary-lighten-1)] data-[highlighted]:text-[var(--color-primary-base)]
-    data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed;
-}
-
-.voxel-more-menu__item--destructive {
-  @apply text-[var(--color-error-base)]
-    data-[highlighted]:bg-[var(--color-error-lighten-1)] data-[highlighted]:text-[var(--color-error-base)];
-}
-
-.voxel-more-menu__item-icon {
-  @apply text-[var(--color-text-muted)]
-    data-[highlighted]:text-[var(--color-primary-base)];
-}
-
-.voxel-more-menu__separator {
-  @apply h-px bg-[var(--color-grey-200)] my-1;
 }
 </style>
