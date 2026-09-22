@@ -4,7 +4,7 @@ import { provideToastStore, useToastStore } from '../../composables/useToast'
 import Toast from './Toast.vue'
 
 provideToastStore()
-const store = useToastStore()
+const { toasts } = useToastStore()
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const store = useToastStore()
     <slot />
     <ToastPortal>
       <ToastViewport class="voxel-toast-viewport">
-        <Toast v-for="t in store.toasts.value" :key="t.id" :toast="t">
+        <Toast v-for="t in toasts" :key="t.id" :toast="t">
           <template v-if="$slots.action" #action>
             <slot name="action" :toast="t" />
           </template>
