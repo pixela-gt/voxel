@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-03T22:55:21.974Z",
+  "generated": "2026-09-22T00:11:56.546Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -527,11 +527,13 @@
       "props": {
         "open": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "defaultOpen": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "disabled": {
           "type": "boolean",
@@ -2202,11 +2204,15 @@
     },
     "NumberField": {
       "name": "NumberField",
-      "description": "NumberField component",
+      "description": "VeeValidate compatibility",
       "category": "misc",
       "props": {
         "modelValue": {
           "type": "number",
+          "required": false
+        },
+        "value": {
+          "type": "number // VeeValidate compatibility",
           "required": false
         },
         "min": {
@@ -3990,12 +3996,26 @@
           "type": "'flat' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
           "required": false
         },
+        "shadow": {
+          "type": "'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "required": false
+        },
+        "dense": {
+          "type": "boolean",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
         }
       },
-      "slots": [],
+      "slots": [
+        "title"
+      ],
       "events": [],
       "rekaUi": [],
       "import": "import { AttributePresenter } from '@pixela/voxel-ui'"
