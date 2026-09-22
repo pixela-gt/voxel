@@ -193,6 +193,13 @@ export type {
   ToolbarContext as VXToolbarContext,
   ToolbarToggleContext as VXToolbarToggleContext,
 } from './components/Toolbar/Toolbar.types'
+export type { VisuallyHiddenProps as VXVisuallyHiddenProps } from './components/VisuallyHidden/VisuallyHidden.types'
+export type { GridProps as VXGridProps, ResponsiveValue as VXResponsiveValue } from './components/Grid/Grid.types'
+export type { StackProps as VXStackProps } from './components/HStack/HStack.types'
+export type { FileInputProps as VXFileInputProps } from './components/FileInput/FileInput.types'
+export type { MoreMenuProps as VXMoreMenuProps, MoreMenuItem as VXMoreMenuItem } from './components/MoreMenu/MoreMenu.types'
+export type { BannerOptions as VXBannerOptions, BannerEntry as VXBannerEntry, BannerVariant as VXBannerVariant } from './components/Banner/Banner.types'
+export type { ClickableCardProps as VXClickableCardProps } from './components/ClickableCard/ClickableCard.types'
 
 // Components (VX-prefixed)
 export { Button as VXButton } from './components/Button'
@@ -340,12 +347,25 @@ export { YearPicker as VXYearPicker } from './components/YearPicker'
 export { YearRangePicker as VXYearRangePicker } from './components/YearRangePicker'
 export { DatePicker as VXDatePicker } from './components/DatePicker'
 export { DateRangePicker as VXDateRangePicker } from './components/DateRangePicker'
+export { VisuallyHidden as VXVisuallyHidden } from './components/VisuallyHidden'
+export { Grid as VXGrid } from './components/Grid'
+export { HStack as VXHStack } from './components/HStack'
+export { VStack as VXVStack } from './components/VStack'
+export { FileInput as VXFileInput } from './components/FileInput'
+export { MoreMenu as VXMoreMenu } from './components/MoreMenu'
+export {
+  Banner as VXBanner,
+  BannerProvider as VXBannerProvider,
+} from './components/Banner'
+export { ClickableCard as VXClickableCard } from './components/ClickableCard'
 
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'
 export { useThemeConfig, type ThemeColors, type ThemeConfig } from './composables/useThemeConfig'
 export { useToast, type UseToast } from './composables/useToast'
 export { useSidebar, type UseSidebarOptions } from './composables/useSidebar'
+export { useVisuallyHidden } from './composables/useVisuallyHidden'
+export { useBanner, type UseBanner } from './composables/useBanner'
 
 // Layouts
 export { AppShell as VXAppShell } from './layouts'

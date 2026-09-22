@@ -5,6 +5,7 @@ export const componentNames = [
   'VxButtonGroup',
   'VxLink',
   'VxTooltip',
+  'VxMoreMenu',
 
   // Inputs
   'VxCheckbox',
@@ -15,11 +16,15 @@ export const componentNames = [
   'VxTextarea',
   'VxFormField',
   'VxMaskedInput',
+  'VxFileInput',
 
   // Layout
   'VxCard',
   'VxSeparator',
   'VxAppShell',
+  'VxGrid',
+  'VxHStack',
+  'VxVStack',
   'VxSidebar',
   'VxSidebarItem',
   'VxSidebarItemGroup',
@@ -38,6 +43,7 @@ export const componentNames = [
   'VxDrawer',
   'VxAvatar',
   'VxDialog',
+  'VxClickableCard',
 
   // Data display
   'VxBadge',
@@ -123,4 +129,11 @@ export const componentNames = [
   'VxDataTable',
   'VxDataTableServer',
   'VxAttributePresenter',
+
+  // Feedback
+  'VxBanner',
+  'VxBannerProvider',
+
+  // Utilities
+  'VxVisuallyHidden',
 ] as const
