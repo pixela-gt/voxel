@@ -128,8 +128,8 @@ function handleBackdropClick() {
 .vx-sidebar {
   @apply flex flex-col h-full transition-all duration-300 ease-out;
   width: var(--sidebar-width, 255px);
-  background-color: var(--sidebar-bg, #4f46e5);
-  color: var(--sidebar-text, #ffffff);
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
 }
 
 .vx-sidebar--collapsed {
@@ -151,7 +151,7 @@ function handleBackdropClick() {
 
 .vx-sidebar__title {
   @apply flex items-center justify-center shrink-0 px-4 py-4;
-  color: var(--sidebar-text, #ffffff);
+  color: var(--sidebar-text);
 }
 
 .vx-sidebar__nav {
@@ -182,10 +182,5 @@ function handleBackdropClick() {
 
 .vx-sidebar__backdrop--hidden {
   @apply opacity-0 pointer-events-none;
-}
-
-.dark .vx-sidebar {
-  background-color: var(--sidebar-bg-dark, #3730a3);
-  color: var(--sidebar-text-dark, #ffffff);
 }
 </style>

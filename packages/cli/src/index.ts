@@ -267,7 +267,7 @@ program
   .option('--output <path>', 'Custom output path (overrides target default)')
   .option('--global', 'Install skill to user-level config (opencode only)')
   .action(async (options: any) => {
-    const { generateSkill } = await import('./skill')
+    const { generateSkill } = await import('./skill.js')
     await generateSkill({ ...options, global: options.global })
   })
 

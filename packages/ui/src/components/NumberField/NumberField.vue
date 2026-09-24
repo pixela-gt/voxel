@@ -205,13 +205,11 @@ const rootClass = computed(() => [
 }
 
 /* Focus effects — border */
-.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
-.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+.voxel-number-field--focus-border:focus-within .voxel-number-field__wrapper {
   @apply border-[var(--color-primary-base)]/70;
 }
 
-.voxel-number-field--variant-underlined.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
-.voxel-number-field--variant-underlined.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+.voxel-number-field--variant-underlined.voxel-number-field--focus-border:focus-within .voxel-number-field__wrapper {
   @apply border-b-[var(--color-primary-base)]/70;
 }
 
@@ -226,13 +224,11 @@ const rootClass = computed(() => [
 }
 
 /* Error — border */
-.voxel-number-field--error.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
-.voxel-number-field--error.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+.voxel-number-field--error.voxel-number-field--focus-border:focus-within .voxel-number-field__wrapper {
   @apply border-[var(--color-error-base)];
 }
 
-.voxel-number-field--error.voxel-number-field--variant-underlined.voxel-number-field--focus-border .voxel-number-field__input:focus-within,
-.voxel-number-field--error.voxel-number-field--variant-underlined.voxel-number-field--focus-border:focus-within .voxel-number-field__input {
+.voxel-number-field--error.voxel-number-field--variant-underlined.voxel-number-field--focus-border:focus-within .voxel-number-field__wrapper {
   @apply border-b-[var(--color-error-base)];
 }
 
