@@ -74,14 +74,14 @@ const groupClass = computed(() => [
 
 .vx-sidebar-group :deep(.voxel-collapsible__trigger) {
   @apply !flex !items-center !justify-start !text-left !w-full !px-0 !py-0;
-  color: var(--sidebar-text, #ffffff);
+  color: var(--sidebar-text);
   background: transparent;
 }
 
 .vx-sidebar-group :deep(.voxel-collapsible__icon) {
   @apply size-4 shrink-0 transition-all duration-200;
   opacity: 0.7;
-  color: var(--sidebar-text, #ffffff);
+  color: var(--sidebar-text);
 }
 
 .vx-sidebar-group :deep(.voxel-collapsible__trigger:hover .voxel-collapsible__icon) {

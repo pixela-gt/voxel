@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-03T22:55:21.974Z",
+  "generated": "2026-09-24T23:28:07.404Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -51,6 +51,179 @@
         "AccordionContent"
       ],
       "import": "import { Accordion } from '@pixela/voxel-ui'"
+    },
+    "AccordionContent": {
+      "name": "AccordionContent",
+      "description": "AccordionContent component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "collapsible": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "AccordionContent as RekaAccordionContent"
+      ],
+      "import": "import { AccordionContent } from '@pixela/voxel-ui'"
+    },
+    "AccordionHeader": {
+      "name": "AccordionHeader",
+      "description": "AccordionHeader component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "collapsible": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "AccordionHeader as RekaAccordionHeader"
+      ],
+      "import": "import { AccordionHeader } from '@pixela/voxel-ui'"
+    },
+    "AccordionItem": {
+      "name": "AccordionItem",
+      "description": "AccordionItem component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "collapsible": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "AccordionItem as RekaAccordionItem"
+      ],
+      "import": "import { AccordionItem } from '@pixela/voxel-ui'"
+    },
+    "AccordionTrigger": {
+      "name": "AccordionTrigger",
+      "description": "AccordionTrigger component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "collapsible": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "icon"
+      ],
+      "events": [],
+      "rekaUi": [
+        "AccordionTrigger as RekaAccordionTrigger"
+      ],
+      "import": "import { AccordionTrigger } from '@pixela/voxel-ui'"
     },
     "AlertDialog": {
       "name": "AlertDialog",
@@ -231,6 +404,28 @@
       "rekaUi": [],
       "import": "import { Badge } from '@pixela/voxel-ui'"
     },
+    "Banner": {
+      "name": "Banner",
+      "description": "Banner component",
+      "category": "misc",
+      "props": {},
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Banner } from '@pixela/voxel-ui'"
+    },
+    "BannerProvider": {
+      "name": "BannerProvider",
+      "description": "BannerProvider component",
+      "category": "misc",
+      "props": {},
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { BannerProvider } from '@pixela/voxel-ui'"
+    },
     "Breadcrumb": {
       "name": "Breadcrumb",
       "description": "Root wrapper",
@@ -278,6 +473,53 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Breadcrumb } from '@pixela/voxel-ui'"
+    },
+    "BreadcrumbItem": {
+      "name": "BreadcrumbItem",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "separator": {
+          "type": "string",
+          "required": false
+        },
+        "leading": {
+          "type": "boolean",
+          "required": false
+        },
+        "trailing": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      },
+      "slots": [
+        "separator"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { BreadcrumbItem } from '@pixela/voxel-ui'"
     },
     "Button": {
       "name": "Button",
@@ -520,6 +762,52 @@
       ],
       "import": "import { Checkbox } from '@pixela/voxel-ui'"
     },
+    "ClickableCard": {
+      "name": "ClickableCard",
+      "description": "ClickableCard component",
+      "category": "misc",
+      "props": {
+        "elevation": {
+          "type": "CardElevation",
+          "required": false,
+          "default": "flat"
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "target": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "tag": {
+          "type": "string",
+          "required": false,
+          "default": "div"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "click"
+      ],
+      "rekaUi": [],
+      "import": "import { ClickableCard } from '@pixela/voxel-ui'"
+    },
     "Collapsible": {
       "name": "Collapsible",
       "description": "Collapsible component",
@@ -527,11 +815,13 @@
       "props": {
         "open": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "defaultOpen": {
           "type": "boolean",
-          "required": false
+          "required": false,
+          "default": "undefined"
         },
         "disabled": {
           "type": "boolean",
@@ -1306,21 +1596,152 @@
     },
     "DropdownMenu": {
       "name": "DropdownMenu",
-      "description": "Root props from reka-ui",
+      "description": "Root props",
       "category": "overlays",
-      "props": {},
+      "props": {
+        "sideOffset": {
+          "type": "number",
+          "required": false,
+          "default": 4
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false,
+          "default": "start"
+        },
+        "modal": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "destructive": {
+          "type": "boolean",
+          "required": false
+        }
+      },
       "slots": [
-        "trigger",
-        "item"
+        "trigger"
       ],
-      "events": [],
+      "events": [
+        "select",
+        "update"
+      ],
       "rekaUi": [
         "DropdownMenuRoot",
         "DropdownMenuTrigger",
-        "DropdownMenuContent",
-        "DropdownMenuItem"
+        "DropdownMenuPortal",
+        "DropdownMenuContent"
       ],
       "import": "import { DropdownMenu } from '@pixela/voxel-ui'"
+    },
+    "DropdownMenuItem": {
+      "name": "DropdownMenuItem",
+      "description": "Root props",
+      "category": "overlays",
+      "props": {
+        "sideOffset": {
+          "type": "number",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
+        },
+        "modal": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "destructive": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "DropdownMenuItem"
+      ],
+      "import": "import { DropdownMenuItem } from '@pixela/voxel-ui'"
+    },
+    "DropdownMenuSeparator": {
+      "name": "DropdownMenuSeparator",
+      "description": "Root props",
+      "category": "overlays",
+      "props": {
+        "sideOffset": {
+          "type": "number",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
+        },
+        "modal": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "destructive": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [
+        "DropdownMenuSeparator"
+      ],
+      "import": "import { DropdownMenuSeparator } from '@pixela/voxel-ui'"
     },
     "Editable": {
       "name": "Editable",
@@ -1418,6 +1839,67 @@
       ],
       "import": "import { Editable } from '@pixela/voxel-ui'"
     },
+    "FileInput": {
+      "name": "FileInput",
+      "description": "VeeValidate compatibility",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "FileList | null",
+          "required": false
+        },
+        "value": {
+          "type": "FileList | null // VeeValidate compatibility",
+          "required": false
+        },
+        "multiple": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "accept": {
+          "type": "string",
+          "required": false,
+          "default": "undefined"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "errorMessage": {
+          "type": "string",
+          "required": false
+        },
+        "dragoverText": {
+          "type": "string",
+          "required": false,
+          "default": "Drop files here"
+        },
+        "browseText": {
+          "type": "string",
+          "required": false,
+          "default": "Browse files"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update",
+        "change"
+      ],
+      "rekaUi": [],
+      "import": "import { FileInput } from '@pixela/voxel-ui'"
+    },
     "FormField": {
       "name": "FormField",
       "description": "FormField component",
@@ -1460,6 +1942,83 @@
       "events": [],
       "rekaUi": [],
       "import": "import { FormField } from '@pixela/voxel-ui'"
+    },
+    "Grid": {
+      "name": "Grid",
+      "description": "Grid component",
+      "category": "misc",
+      "props": {
+        "cols": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false
+        },
+        "rows": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false
+        },
+        "gap": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "align": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "justify": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Grid } from '@pixela/voxel-ui'"
+    },
+    "HStack": {
+      "name": "HStack",
+      "description": "HStack component",
+      "category": "misc",
+      "props": {
+        "gap": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "align": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "justify": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "wrap": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { HStack } from '@pixela/voxel-ui'"
     },
     "HoverCard": {
       "name": "HoverCard",
@@ -2032,6 +2591,50 @@
       "rekaUi": [],
       "import": "import { MobileNav } from '@pixela/voxel-ui'"
     },
+    "MobileNavToggle": {
+      "name": "MobileNavToggle",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "breakpoint": {
+          "type": "string",
+          "required": false
+        },
+        "width": {
+          "type": "number | string",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": false
+        },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false,
+          "default": "Toggle navigation"
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "click"
+      ],
+      "rekaUi": [],
+      "import": "import { MobileNavToggle } from '@pixela/voxel-ui'"
+    },
     "MonthPicker": {
       "name": "MonthPicker",
       "description": "MonthPicker component",
@@ -2130,6 +2733,142 @@
       ],
       "import": "import { MonthRangePicker } from '@pixela/voxel-ui'"
     },
+    "MoreMenu": {
+      "name": "MoreMenu",
+      "description": "Root props",
+      "category": "misc",
+      "props": {
+        "sideOffset": {
+          "type": "number",
+          "required": false,
+          "default": 4
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false,
+          "default": "end"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "destructive": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "trigger"
+      ],
+      "events": [
+        "select",
+        "update"
+      ],
+      "rekaUi": [
+        "DropdownMenuRoot",
+        "DropdownMenuTrigger",
+        "DropdownMenuPortal",
+        "DropdownMenuContent"
+      ],
+      "import": "import { MoreMenu } from '@pixela/voxel-ui'"
+    },
+    "MoreMenuItem": {
+      "name": "MoreMenuItem",
+      "description": "Root props",
+      "category": "actions",
+      "props": {
+        "sideOffset": {
+          "type": "number",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "destructive": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "DropdownMenuItem"
+      ],
+      "import": "import { MoreMenuItem } from '@pixela/voxel-ui'"
+    },
+    "MoreMenuSeparator": {
+      "name": "MoreMenuSeparator",
+      "description": "Root props",
+      "category": "actions",
+      "props": {
+        "sideOffset": {
+          "type": "number",
+          "required": false
+        },
+        "align": {
+          "type": "'start' | 'center' | 'end'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "destructive": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [
+        "DropdownMenuSeparator"
+      ],
+      "import": "import { MoreMenuSeparator } from '@pixela/voxel-ui'"
+    },
     "NavigationMenu": {
       "name": "NavigationMenu",
       "description": "Root",
@@ -2199,6 +2938,384 @@
         "NavigationMenuViewport"
       ],
       "import": "import { NavigationMenu } from '@pixela/voxel-ui'"
+    },
+    "NavigationMenuContent": {
+      "name": "NavigationMenuContent",
+      "description": "Root",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "delayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "skipDelayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "NavigationMenuContent as RekaNavigationMenuContent"
+      ],
+      "import": "import { NavigationMenuContent } from '@pixela/voxel-ui'"
+    },
+    "NavigationMenuItem": {
+      "name": "NavigationMenuItem",
+      "description": "Root",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "delayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "skipDelayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "NavigationMenuItem as RekaNavigationMenuItem"
+      ],
+      "import": "import { NavigationMenuItem } from '@pixela/voxel-ui'"
+    },
+    "NavigationMenuLink": {
+      "name": "NavigationMenuLink",
+      "description": "Root",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "delayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "skipDelayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "NavigationMenuLink as RekaNavigationMenuLink"
+      ],
+      "import": "import { NavigationMenuLink } from '@pixela/voxel-ui'"
+    },
+    "NavigationMenuList": {
+      "name": "NavigationMenuList",
+      "description": "Root",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "delayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "skipDelayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "NavigationMenuList as RekaNavigationMenuList"
+      ],
+      "import": "import { NavigationMenuList } from '@pixela/voxel-ui'"
+    },
+    "NavigationMenuSection": {
+      "name": "NavigationMenuSection",
+      "description": "Root",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "delayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "skipDelayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { NavigationMenuSection } from '@pixela/voxel-ui'"
+    },
+    "NavigationMenuTrigger": {
+      "name": "NavigationMenuTrigger",
+      "description": "Root",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "delayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "skipDelayDuration": {
+          "type": "number",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "exact": {
+          "type": "boolean",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "NavigationMenuTrigger as RekaNavigationMenuTrigger"
+      ],
+      "import": "import { NavigationMenuTrigger } from '@pixela/voxel-ui'"
     },
     "NumberField": {
       "name": "NumberField",
@@ -2572,6 +3689,60 @@
       ],
       "import": "import { Radio } from '@pixela/voxel-ui'"
     },
+    "RadioItem": {
+      "name": "RadioItem",
+      "description": "RadioItem component",
+      "category": "inputs",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "required": {
+          "type": "boolean",
+          "required": false
+        },
+        "error": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "RadioGroupItem",
+        "RadioGroupIndicator"
+      ],
+      "import": "import { RadioItem } from '@pixela/voxel-ui'"
+    },
     "RangeCalendar": {
       "name": "RangeCalendar",
       "description": "RangeCalendar component",
@@ -2940,6 +4111,416 @@
       "rekaUi": [],
       "import": "import { Sidebar } from '@pixela/voxel-ui'"
     },
+    "SidebarCollapseButton": {
+      "name": "SidebarCollapseButton",
+      "description": "Component props",
+      "category": "navigation",
+      "props": {
+        "id": {
+          "type": "string",
+          "required": false
+        },
+        "items": {
+          "type": "SidebarNavItem[]",
+          "required": false
+        },
+        "collapsed": {
+          "type": "boolean",
+          "required": false
+        },
+        "visible": {
+          "type": "boolean",
+          "required": false
+        },
+        "mobileToggle": {
+          "type": "boolean",
+          "required": false
+        },
+        "breakpoint": {
+          "type": "string",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "badge": {
+          "type": "string | number",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "sub": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { SidebarCollapseButton } from '@pixela/voxel-ui'"
+    },
+    "SidebarHeading": {
+      "name": "SidebarHeading",
+      "description": "Component props",
+      "category": "navigation",
+      "props": {
+        "id": {
+          "type": "string",
+          "required": false
+        },
+        "items": {
+          "type": "SidebarNavItem[]",
+          "required": false
+        },
+        "collapsed": {
+          "type": "boolean",
+          "required": false
+        },
+        "visible": {
+          "type": "boolean",
+          "required": false
+        },
+        "mobileToggle": {
+          "type": "boolean",
+          "required": false
+        },
+        "breakpoint": {
+          "type": "string",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "badge": {
+          "type": "string | number",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "sub": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { SidebarHeading } from '@pixela/voxel-ui'"
+    },
+    "SidebarItem": {
+      "name": "SidebarItem",
+      "description": "Component props",
+      "category": "navigation",
+      "props": {
+        "id": {
+          "type": "string",
+          "required": false
+        },
+        "items": {
+          "type": "SidebarNavItem[]",
+          "required": false
+        },
+        "collapsed": {
+          "type": "boolean",
+          "required": false
+        },
+        "visible": {
+          "type": "boolean",
+          "required": false
+        },
+        "mobileToggle": {
+          "type": "boolean",
+          "required": false
+        },
+        "breakpoint": {
+          "type": "string",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "badge": {
+          "type": "string | number",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "sub": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "badge"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { SidebarItem } from '@pixela/voxel-ui'"
+    },
+    "SidebarItemGroup": {
+      "name": "SidebarItemGroup",
+      "description": "Component props",
+      "category": "navigation",
+      "props": {
+        "id": {
+          "type": "string",
+          "required": false
+        },
+        "items": {
+          "type": "SidebarNavItem[]",
+          "required": false
+        },
+        "collapsed": {
+          "type": "boolean",
+          "required": false
+        },
+        "visible": {
+          "type": "boolean",
+          "required": false
+        },
+        "mobileToggle": {
+          "type": "boolean",
+          "required": false
+        },
+        "breakpoint": {
+          "type": "string",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "badge": {
+          "type": "string | number",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "sub": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      },
+      "slots": [
+        "trigger"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { SidebarItemGroup } from '@pixela/voxel-ui'"
+    },
+    "SidebarSection": {
+      "name": "SidebarSection",
+      "description": "Component props",
+      "category": "navigation",
+      "props": {
+        "id": {
+          "type": "string",
+          "required": false
+        },
+        "items": {
+          "type": "SidebarNavItem[]",
+          "required": false
+        },
+        "collapsed": {
+          "type": "boolean",
+          "required": false
+        },
+        "visible": {
+          "type": "boolean",
+          "required": false
+        },
+        "mobileToggle": {
+          "type": "boolean",
+          "required": false
+        },
+        "breakpoint": {
+          "type": "string",
+          "required": false
+        },
+        "ariaLabel": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "badge": {
+          "type": "string | number",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "sub": {
+          "type": "boolean",
+          "required": false
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { SidebarSection } from '@pixela/voxel-ui'"
+    },
     "Skeleton": {
       "name": "Skeleton",
       "description": "Skeleton component",
@@ -3094,6 +4675,71 @@
       ],
       "import": "import { Stepper } from '@pixela/voxel-ui'"
     },
+    "StepperItem": {
+      "name": "StepperItem",
+      "description": "StepperItem component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number",
+          "required": false
+        },
+        "defaultValue": {
+          "type": "number",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "linear": {
+          "type": "boolean",
+          "required": false
+        },
+        "size": {
+          "type": "'small' | 'default' | 'large'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "step": {
+          "type": "number",
+          "required": true
+        },
+        "title": {
+          "type": "string",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "completed": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "separator"
+      ],
+      "events": [],
+      "rekaUi": [
+        "StepperItem",
+        "StepperTrigger",
+        "StepperIndicator",
+        "StepperTitle",
+        "StepperDescription",
+        "StepperSeparator",
+        "injectStepperRootContext"
+      ],
+      "import": "import { StepperItem } from '@pixela/voxel-ui'"
+    },
     "Switch": {
       "name": "Switch",
       "description": "Switch component",
@@ -3175,6 +4821,99 @@
         "TabsContent"
       ],
       "import": "import { Tabs } from '@pixela/voxel-ui'"
+    },
+    "TabsContent": {
+      "name": "TabsContent",
+      "description": "TabsContent component",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "activationMode": {
+          "type": "'automatic' | 'manual'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "TabsContent as RekaTabsContent"
+      ],
+      "import": "import { TabsContent } from '@pixela/voxel-ui'"
+    },
+    "TabsList": {
+      "name": "TabsList",
+      "description": "TabsList component",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "activationMode": {
+          "type": "'automatic' | 'manual'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "TabsList as RekaTabsList"
+      ],
+      "import": "import { TabsList } from '@pixela/voxel-ui'"
+    },
+    "TabsTrigger": {
+      "name": "TabsTrigger",
+      "description": "TabsTrigger component",
+      "category": "navigation",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "activationMode": {
+          "type": "'automatic' | 'manual'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "TabsTrigger as RekaTabsTrigger"
+      ],
+      "import": "import { TabsTrigger } from '@pixela/voxel-ui'"
     },
     "TagsInput": {
       "name": "TagsInput",
@@ -3522,6 +5261,22 @@
       ],
       "import": "import { Toast } from '@pixela/voxel-ui'"
     },
+    "ToastProvider": {
+      "name": "ToastProvider",
+      "description": "ToastProvider component",
+      "category": "misc",
+      "props": {},
+      "slots": [
+        "action"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToastProvider",
+        "ToastPortal",
+        "ToastViewport"
+      ],
+      "import": "import { ToastProvider } from '@pixela/voxel-ui'"
+    },
     "Toggle": {
       "name": "Toggle",
       "description": "Toggle component",
@@ -3624,6 +5379,59 @@
       ],
       "import": "import { ToggleGroup } from '@pixela/voxel-ui'"
     },
+    "ToggleGroupItem": {
+      "name": "ToggleGroupItem",
+      "description": "ToggleGroupItem component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "undefined"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "rovingFocus": {
+          "type": "boolean",
+          "required": false
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToggleGroupItem"
+      ],
+      "import": "import { ToggleGroupItem } from '@pixela/voxel-ui'"
+    },
     "Toolbar": {
       "name": "Toolbar",
       "description": "Root",
@@ -3700,6 +5508,397 @@
       ],
       "import": "import { Toolbar } from '@pixela/voxel-ui'"
     },
+    "ToolbarButton": {
+      "name": "ToolbarButton",
+      "description": "Root",
+      "category": "misc",
+      "props": {
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "variant": {
+          "type": "ButtonStyle",
+          "required": false,
+          "default": "undefined"
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false,
+          "default": "undefined"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "undefined"
+        },
+        "density": {
+          "type": "Density",
+          "required": false,
+          "default": "undefined"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "prependIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "appendIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "rovingFocus": {
+          "type": "boolean",
+          "required": false
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "slots": [
+        "prepend-icon",
+        "append-icon"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToolbarButton as RekaToolbarButton"
+      ],
+      "import": "import { ToolbarButton } from '@pixela/voxel-ui'"
+    },
+    "ToolbarLink": {
+      "name": "ToolbarLink",
+      "description": "Root",
+      "category": "misc",
+      "props": {
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "variant": {
+          "type": "ButtonStyle",
+          "required": false
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false,
+          "default": "primary"
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "density": {
+          "type": "Density",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "prependIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "appendIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "rovingFocus": {
+          "type": "boolean",
+          "required": false
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToolbarLink as RekaToolbarLink"
+      ],
+      "import": "import { ToolbarLink } from '@pixela/voxel-ui'"
+    },
+    "ToolbarSeparator": {
+      "name": "ToolbarSeparator",
+      "description": "Root",
+      "category": "misc",
+      "props": {
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "variant": {
+          "type": "ButtonStyle",
+          "required": false
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false
+        },
+        "density": {
+          "type": "Density",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        },
+        "prependIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "appendIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "rovingFocus": {
+          "type": "boolean",
+          "required": false
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [
+        "ToolbarSeparator as RekaToolbarSeparator"
+      ],
+      "import": "import { ToolbarSeparator } from '@pixela/voxel-ui'"
+    },
+    "ToolbarToggleGroup": {
+      "name": "ToolbarToggleGroup",
+      "description": "Root",
+      "category": "misc",
+      "props": {
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "variant": {
+          "type": "ButtonStyle",
+          "required": false
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false
+        },
+        "density": {
+          "type": "Density",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "prependIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "appendIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false,
+          "default": "single"
+        },
+        "rovingFocus": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ToolbarToggleGroup as RekaToolbarToggleGroup"
+      ],
+      "import": "import { ToolbarToggleGroup } from '@pixela/voxel-ui'"
+    },
+    "ToolbarToggleItem": {
+      "name": "ToolbarToggleItem",
+      "description": "Root",
+      "category": "misc",
+      "props": {
+        "orientation": {
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "variant": {
+          "type": "ButtonStyle",
+          "required": false
+        },
+        "color": {
+          "type": "AccentColor",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "undefined"
+        },
+        "density": {
+          "type": "Density",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "prependIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "appendIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "modelValue": {
+          "type": "string | string[]",
+          "required": false
+        },
+        "type": {
+          "type": "'single' | 'multiple'",
+          "required": false
+        },
+        "rovingFocus": {
+          "type": "boolean",
+          "required": false
+        },
+        "loop": {
+          "type": "boolean",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToolbarToggleItem as RekaToolbarToggleItem"
+      ],
+      "import": "import { ToolbarToggleItem } from '@pixela/voxel-ui'"
+    },
     "Tooltip": {
       "name": "Tooltip",
       "description": "Tooltip component",
@@ -3766,6 +5965,93 @@
       ],
       "import": "import { TopNav } from '@pixela/voxel-ui'"
     },
+    "TopNavHeading": {
+      "name": "TopNavHeading",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "variant": {
+          "type": "TopNavVariant",
+          "required": false
+        },
+        "dense": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { TopNavHeading } from '@pixela/voxel-ui'"
+    },
+    "TopNavItem": {
+      "name": "TopNavItem",
+      "description": "Root wrapper",
+      "category": "navigation",
+      "props": {
+        "variant": {
+          "type": "TopNavVariant",
+          "required": false
+        },
+        "dense": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "to": {
+          "type": "string",
+          "required": false
+        },
+        "href": {
+          "type": "string",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "MenubarMenu",
+        "MenubarTrigger"
+      ],
+      "import": "import { TopNavItem } from '@pixela/voxel-ui'"
+    },
     "Tree": {
       "name": "Tree",
       "description": "ponytail: alpha, reka API may shift",
@@ -3823,6 +6109,55 @@
         "TreeItem"
       ],
       "import": "import { Tree } from '@pixela/voxel-ui'"
+    },
+    "VStack": {
+      "name": "VStack",
+      "description": "VStack component",
+      "category": "misc",
+      "props": {
+        "gap": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "align": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "justify": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { VStack } from '@pixela/voxel-ui'"
+    },
+    "VisuallyHidden": {
+      "name": "VisuallyHidden",
+      "description": "VisuallyHidden component",
+      "category": "misc",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { VisuallyHidden } from '@pixela/voxel-ui'"
     },
     "YearPicker": {
       "name": "YearPicker",
@@ -3990,12 +6325,26 @@
           "type": "'flat' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
           "required": false
         },
+        "shadow": {
+          "type": "'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "required": false
+        },
+        "dense": {
+          "type": "boolean",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": false
+        },
         "class": {
           "type": "ClassValue",
           "required": false
         }
       },
-      "slots": [],
+      "slots": [
+        "title"
+      ],
       "events": [],
       "rekaUi": [],
       "import": "import { AttributePresenter } from '@pixela/voxel-ui'"
@@ -4375,6 +6724,15 @@
         "--transition-fast": "150ms",
         "--transition-normal": "200ms",
         "--transition-slow": "300ms"
+      }
+    },
+    {
+      "name": "Sidebar",
+      "tokens": {
+        "--sidebar-bg": "#4f46e5",
+        "--sidebar-text": "#ffffff",
+        "--sidebar-hover-bg": "rgba(255, 255, 255, 0.1)",
+        "--sidebar-active-color": "#ffffff"
       }
     }
   ]

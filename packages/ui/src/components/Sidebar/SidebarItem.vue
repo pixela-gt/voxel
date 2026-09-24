@@ -82,8 +82,8 @@ function badgeText(badge: string | number) {
 .vx-sidebar-item {
   @apply flex items-center w-full text-sm font-medium no-underline cursor-pointer transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1;
   border-right: 2px solid transparent;
-  --tw-ring-color: color-mix(in srgb, var(--sidebar-active-color, #ffffff) 50%, transparent);
-  color: var(--sidebar-text, #ffffff);
+  --tw-ring-color: color-mix(in srgb, var(--sidebar-active-color) 50%, transparent);
+  color: var(--sidebar-text);
 }
 
 .vx-sidebar-item__content {
@@ -96,12 +96,12 @@ function badgeText(badge: string | number) {
 }
 
 .vx-sidebar-item:hover:not(.vx-sidebar-item--disabled) {
-  background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.1));
+  background-color: var(--sidebar-hover-bg);
 }
 
 .vx-sidebar-item--active {
-  border-right-color: var(--sidebar-active-color, #ffffff);
-  background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.1));
+  border-right-color: var(--sidebar-active-color);
+  background-color: var(--sidebar-hover-bg);
 }
 
 .vx-sidebar-item--disabled {
@@ -143,8 +143,8 @@ function badgeText(badge: string | number) {
 .vx-sidebar-item__badge {
   @apply inline-flex items-center justify-center min-w-[18px] h-[18px] px-1.5 rounded-full text-[10px] font-semibold tabular-nums;
   position: relative;
-  background-color: var(--sidebar-active-color, #ffffff);
-  color: var(--sidebar-bg, #4f46e5);
+  background-color: var(--sidebar-active-color);
+  color: var(--sidebar-bg);
 }
 
 .vx-sidebar-item--collapsed .vx-sidebar-item__badge {
@@ -160,21 +160,6 @@ function badgeText(badge: string | number) {
   color: transparent;
   overflow: hidden;
   border-radius: 50%;
-  background-color: var(--sidebar-active-color, #ffffff);
-}
-
-/* Dark mode */
-.dark .vx-sidebar-item:hover:not(.vx-sidebar-item--disabled) {
-  background-color: var(--sidebar-hover-bg-dark, rgba(255, 255, 255, 0.15));
-}
-
-.dark .vx-sidebar-item--active {
-  background-color: var(--sidebar-hover-bg-dark, rgba(255, 255, 255, 0.15));
-  border-right-color: var(--sidebar-active-color-dark, #ffffff);
-}
-
-.dark .vx-sidebar-item__badge {
-  background-color: var(--sidebar-active-color-dark, #ffffff);
-  color: var(--sidebar-bg-dark, #3730a3);
+  background-color: var(--sidebar-active-color);
 }
 </style>

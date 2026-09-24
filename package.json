@@ -15,7 +15,7 @@
     "pack": "pnpm --filter @pixela/voxel-ui pack && pnpm --filter @pixela/voxel-ui-nuxt pack",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && pnpm build:cli && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.0",

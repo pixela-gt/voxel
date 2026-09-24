@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import HoverCard from './HoverCard.vue'
 
 const meta: Meta<typeof HoverCard> = {
-  title: 'Action/HoverCard',
+  title: 'Surfaces/HoverCard',
   component: HoverCard,
   tags: ['autodocs'],
   argTypes: {

@@ -203,6 +203,12 @@
     --transition-fast: 150ms;
     --transition-normal: 200ms;
     --transition-slow: 300ms;
+
+    /* Sidebar */
+    --sidebar-bg: #4f46e5;
+    --sidebar-text: #ffffff;
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+    --sidebar-active-color: #ffffff;
   }
 
 .dark {
@@ -243,4 +249,10 @@
   --color-text-on-error: #ffffff;
   --color-text-on-warning: var(--color-grey-950);
   --color-text-on-neutral: var(--color-grey-950);
+
+  /* Sidebar - Dark Mode */
+  --sidebar-bg: #3730a3;
+  --sidebar-text: #ffffff;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.15);
+  --sidebar-active-color: #ffffff;
 }
