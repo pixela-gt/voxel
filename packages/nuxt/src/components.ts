@@ -5,6 +5,9 @@ export const componentNames = [
   'VxButtonGroup',
   'VxLink',
   'VxTooltip',
+  'VxMoreMenu',
+  'VxMoreMenuItem',
+  'VxMoreMenuSeparator',
 
   // Inputs
   'VxCheckbox',
@@ -15,11 +18,15 @@ export const componentNames = [
   'VxTextarea',
   'VxFormField',
   'VxMaskedInput',
+  'VxFileInput',
 
   // Layout
   'VxCard',
   'VxSeparator',
   'VxAppShell',
+  'VxGrid',
+  'VxHStack',
+  'VxVStack',
   'VxSidebar',
   'VxSidebarItem',
   'VxSidebarItemGroup',
@@ -35,9 +42,12 @@ export const componentNames = [
 
   // Overlays
   'VxDropdownMenu',
+  'VxDropdownMenuItem',
+  'VxDropdownMenuSeparator',
   'VxDrawer',
   'VxAvatar',
   'VxDialog',
+  'VxClickableCard',
 
   // Data display
   'VxBadge',
@@ -123,4 +133,11 @@ export const componentNames = [
   'VxDataTable',
   'VxDataTableServer',
   'VxAttributePresenter',
+
+  // Feedback
+  'VxBanner',
+  'VxBannerProvider',
+
+  // Utilities
+  'VxVisuallyHidden',
 ] as const

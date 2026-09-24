@@ -63,7 +63,7 @@ function handleClick(event: MouseEvent) {
 
 <style scoped>
 .voxel-icon-button {
-  @apply inline-flex items-center justify-center flex-shrink-0 font-sans
+  @apply cursor-pointer inline-flex items-center justify-center flex-shrink-0 font-sans
     transition-colors duration-[var(--transition-fast)]
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-base)] focus-visible:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed;

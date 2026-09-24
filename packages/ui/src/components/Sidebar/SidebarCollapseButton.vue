@@ -34,8 +34,8 @@ if (!ctx) throw new Error('SidebarCollapseButton must be used inside Sidebar')
     hover:bg-white/10
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1
     transition-colors duration-200;
-  color: var(--sidebar-text, #ffffff);
-  --tw-ring-color: color-mix(in srgb, var(--sidebar-active-color, #ffffff) 50%, transparent);
+  color: var(--sidebar-text);
+  --tw-ring-color: color-mix(in srgb, var(--sidebar-active-color) 50%, transparent);
 }
 
 .vx-sidebar-collapse-button__icon {

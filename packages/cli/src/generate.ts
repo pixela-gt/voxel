@@ -142,7 +142,7 @@ function inferCategory(name: string, sourceDir?: string): string {
   if (sourceDir === 'patterns') return 'pattern'
 
   const categories: Record<string, string[]> = {
-    actions: ['Button', 'IconButton', 'Link', 'Toggle', 'ToggleGroup'],
+    actions: ['Button', 'IconButton', 'Link', 'Toggle', 'ToggleGroup', 'MoreMenuItem', 'MoreMenuSeparator'],
     inputs: [
       'Checkbox',
       'Switch',
@@ -163,7 +163,7 @@ function inferCategory(name: string, sourceDir?: string): string {
       'MobileNav', 'MobileNavToggle',
     ],
     layout: ['Card', 'Separator', 'Drawer'],
-    overlays: ['Dialog', 'Tooltip', 'DropdownMenu'],
+    overlays: ['Dialog', 'Tooltip', 'DropdownMenu', 'DropdownMenuItem', 'DropdownMenuSeparator'],
     data: ['Avatar', 'Badge', 'Text'],
     patterns: ['PageHeader', 'EmptyState', 'DataTable', 'DataTableServer', 'AttributePresenter'],
   }
@@ -261,6 +261,53 @@ function scanDirectory(baseDir: string, sourceDir: string, components: Record<st
       events,
       rekaUi,
       import: `import { ${dir} } from '@pixela/voxel-ui'`,
+    }
+
+    // Scan for sibling .vue files (sub-components) in this directory
+    const siblingVueFiles = readdirSync(dirPath, { withFileTypes: true })
+      .filter(f => f.isFile() && f.name.endsWith('.vue') && f.name !== `${dir}.vue`)
+      .map(f => f.name.replace('.vue', ''))
+
+    for (const name of siblingVueFiles) {
+      if (components[name]) continue
+
+      const siblingVueFile = join(dirPath, `${name}.vue`)
+      const siblingVueContent = readFileSync(siblingVueFile, 'utf-8')
+
+      let siblingTypesContent: string | null = null
+      const siblingTypesFile = join(dirPath, `${name}.types.ts`)
+      if (existsSync(siblingTypesFile)) {
+        siblingTypesContent = readFileSync(siblingTypesFile, 'utf-8')
+      } else {
+        siblingTypesContent = typesContent  // fall back to parent types
+      }
+
+      const sProps = siblingTypesContent ? extractProps(siblingTypesContent) : {}
+      const sDefaults = extractDefaults(siblingVueContent)
+      const sSlots = extractSlots(siblingVueContent)
+      const sEvents = extractEvents(siblingVueContent)
+      const sRekaUi = extractRekaUi(siblingVueContent)
+
+      for (const [pname, prop] of Object.entries(sProps)) {
+        if (pname in sDefaults) prop.default = sDefaults[pname]
+      }
+
+      let sDescription = `${name} component`
+      const sDescMatch = siblingTypesContent?.match(/\/\/\s*(.+)/)
+      if (sDescMatch) sDescription = sDescMatch[1]
+
+      const sCategory = inferCategory(name, sourceDir)
+
+      components[name] = {
+        name,
+        description: sDescription,
+        category: sCategory,
+        props: sProps,
+        slots: sSlots,
+        events: sEvents,
+        rekaUi: sRekaUi,
+        import: `import { ${name} } from '@pixela/voxel-ui'`,
+      }
     }
   }
 }

@@ -5,7 +5,7 @@ import { ToastProvider } from './index'
 import { useToast } from '../../composables/useToast'
 
 const meta: Meta<typeof ToastProvider> = {
-  title: 'Action/Toast',
+  title: 'Feedback/Toast',
   component: ToastProvider,
   tags: ['autodocs'],
 }
