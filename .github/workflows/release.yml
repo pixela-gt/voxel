@@ -8,13 +8,16 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
-      packages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -24,11 +27,12 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
+          registry-url: https://registry.npmjs.org
 
       - run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm build
+        run: pnpm build && pnpm build:cli
 
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -39,16 +43,38 @@ jobs:
           pr-title: "chore: version packages"
           commit-message: "chore: version packages"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
 
-      - name: Publish to GitHub Packages
+      - name: Get version and release notes
         if: steps.changesets.outputs.published == 'true'
+        id: release
         run: |
-          for pkg in packages/ui packages/nuxt packages/cli; do
-            cd $pkg
-            pnpm publish --registry https://npm.pkg.github.com --no-git-checks
-            cd ../..
+          VERSION=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r '.[0].version')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+          # Collect changelog entries from all published packages
+          NOTES=""
+          for pkg in packages/ui packages/cli packages/nuxt; do
+            if [ -f "$pkg/CHANGELOG.md" ]; then
+              SECTION=$(awk "/^## $VERSION/{found=1; next} /^## [0-9]/{if(found) exit} found{print}" "$pkg/CHANGELOG.md")
+              if [ -n "$SECTION" ]; then
+                NOTES="$NOTES$SECTION"$'\n'
+              fi
+            fi
           done
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # Write to file to avoid shell escaping issues
+          if [ -n "$NOTES" ]; then
+            echo "$NOTES" > /tmp/release-notes.md
+          else
+            echo "Release v$VERSION" > /tmp/release-notes.md
+          fi
+
+      - name: Create GitHub Release
+        if: steps.changesets.outputs.published == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.release.outputs.version }}
+          name: v${{ steps.release.outputs.version }}
+          body_path: /tmp/release-notes.md
+          generate_release_notes: true
