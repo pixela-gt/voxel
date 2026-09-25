@@ -38,7 +38,7 @@ jobs:
         id: changesets
         uses: changesets/action@v2
         with:
-          version-script: pnpm version
+          version-script: pnpm changeset version
           publish-script: pnpm release
           pr-title: "chore: version packages"
           commit-message: "chore: version packages"
