@@ -17,6 +17,10 @@
     "version": "changeset version",
     "release": "pnpm build && pnpm build:cli && changeset publish"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixela-gt/voxel"
+  },
   "devDependencies": {
     "@changesets/cli": "^3.0.0",
     "@eslint/js": "^10.0.1",
