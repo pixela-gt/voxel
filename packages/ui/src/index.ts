@@ -195,7 +195,7 @@ export type {
 } from './components/Toolbar/Toolbar.types'
 export type { VisuallyHiddenProps as VXVisuallyHiddenProps } from './components/VisuallyHidden/VisuallyHidden.types'
 export type { GridProps as VXGridProps, ResponsiveValue as VXResponsiveValue } from './components/Grid/Grid.types'
-export type { StackProps as VXStackProps } from './components/HStack/HStack.types'
+export type { StackProps as VXStackProps, StackOrientation as VXStackOrientation } from './components/Stack/Stack.types'
 export type { FileInputProps as VXFileInputProps } from './components/FileInput/FileInput.types'
 export type { MoreMenuProps as VXMoreMenuProps, MoreMenuItemProps as VXMoreMenuItemProps, MoreMenuSeparatorProps as VXMoreMenuSeparatorProps } from './components/MoreMenu/MoreMenu.types'
 export type { BannerOptions as VXBannerOptions, BannerEntry as VXBannerEntry, BannerVariant as VXBannerVariant } from './components/Banner/Banner.types'
@@ -371,6 +371,26 @@ export { ClickableCard as VXClickableCard } from './components/ClickableCard'
 export { StatusDot as VXStatusDot } from './components/StatusDot'
 export { AvatarGroup as VXAvatarGroup } from './components/AvatarGroup'
 
+// Batch A: Simple/wrapper components
+export { Kbd as VXKbd } from './components/Kbd'
+export type { KbdProps as VXKbdProps } from './components/Kbd'
+export { Center as VXCenter } from './components/Center'
+export type { CenterProps as VXCenterProps } from './components/Center'
+export { Timestamp as VXTimestamp } from './components/Timestamp'
+export type { TimestampProps as VXTimestampProps, TimestampFormat as VXTimestampFormat } from './components/Timestamp'
+export { Token as VXToken } from './components/Token'
+export type { TokenProps as VXTokenProps, TokenVariant as VXTokenVariant } from './components/Token'
+export { FieldStatus as VXFieldStatus } from './components/FieldStatus'
+export type { FieldStatusProps as VXFieldStatusProps, FieldStatusType as VXFieldStatusType } from './components/FieldStatus'
+export { InputGroup as VXInputGroup } from './components/InputGroup'
+export type { InputGroupProps as VXInputGroupProps } from './components/InputGroup'
+export { RadioList as VXRadioList } from './components/RadioList'
+export type { RadioListProps as VXRadioListProps, RadioListItem as VXRadioListItem } from './components/RadioList'
+export { Stack as VXStack } from './components/Stack'
+export { FormGrid as VXFormGrid } from './components/FormGrid'
+export type { FormGridProps as VXFormGridProps } from './components/FormGrid'
+
+// Batch B: Composite/interactive components
 export {
   SegmentedControl as VXSegmentedControl,
   SegmentedControlItem as VXSegmentedControlItem,
@@ -379,9 +399,16 @@ export type {
   SegmentedControlProps as VXSegmentedControlProps,
   SegmentedControlItemProps as VXSegmentedControlItemProps,
 } from './components/SegmentedControl'
-
 export { SelectableCard as VXSelectableCard } from './components/SelectableCard'
 export type { SelectableCardProps as VXSelectableCardProps } from './components/SelectableCard'
+export {
+  Carousel as VXCarousel,
+  CarouselSlide as VXCarouselSlide,
+} from './components/Carousel'
+export type { CarouselProps as VXCarouselProps } from './components/Carousel'
+export { Lightbox as VXLightbox } from './components/Lightbox'
+export type { LightboxProps as VXLightboxProps, LightboxImage as VXLightboxImage } from './components/Lightbox'
+
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'
 export { useThemeConfig, type ThemeColors, type ThemeConfig } from './composables/useThemeConfig'

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-10-01T18:45:06.213Z",
+  "generated": "2026-10-01T20:56:59.301Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -282,29 +282,6 @@
       ],
       "import": "import { AlertDialog } from '@pixela/voxel-ui'"
     },
-    "AppShell": {
-      "name": "AppShell",
-      "description": "AppShell layout",
-      "category": "layout",
-      "props": {
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        },
-        "variant": {
-          "type": "AppShellVariant",
-          "required": false,
-          "default": "default"
-        }
-      },
-      "slots": [
-        "sidebar",
-        "header"
-      ],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { AppShell } from '@pixela/voxel-ui'"
-    },
     "AspectRatio": {
       "name": "AspectRatio",
       "description": "AspectRatio component",
@@ -338,67 +315,6 @@
         "AspectRatio"
       ],
       "import": "import { AspectRatio } from '@pixela/voxel-ui'"
-    },
-    "AttributePresenter": {
-      "name": "AttributePresenter",
-      "description": "AttributePresenter pattern",
-      "category": "pattern",
-      "props": {
-        "item": {
-          "type": "T",
-          "required": true
-        },
-        "fields": {
-          "type": "FieldDef[]",
-          "required": false
-        },
-        "loading": {
-          "type": "boolean",
-          "required": false
-        },
-        "skeletonCount": {
-          "type": "number",
-          "required": false
-        },
-        "emptyText": {
-          "type": "string",
-          "required": false
-        },
-        "missingBehavior": {
-          "type": "MissingValueBehavior",
-          "required": false
-        },
-        "missingFallback": {
-          "type": "string",
-          "required": false
-        },
-        "elevation": {
-          "type": "'flat' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
-          "required": false
-        },
-        "shadow": {
-          "type": "'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
-          "required": false
-        },
-        "dense": {
-          "type": "boolean",
-          "required": false
-        },
-        "title": {
-          "type": "string",
-          "required": false
-        },
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        }
-      },
-      "slots": [
-        "title"
-      ],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { AttributePresenter } from '@pixela/voxel-ui'"
     },
     "Avatar": {
       "name": "Avatar",
@@ -820,6 +736,83 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Card } from '@pixela/voxel-ui'"
+    },
+    "Carousel": {
+      "name": "Carousel",
+      "description": "Carousel component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number",
+          "required": false
+        },
+        "showArrows": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "showDots": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { Carousel } from '@pixela/voxel-ui'"
+    },
+    "CarouselSlide": {
+      "name": "CarouselSlide",
+      "description": "CarouselSlide component",
+      "category": "misc",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { CarouselSlide } from '@pixela/voxel-ui'"
+    },
+    "Center": {
+      "name": "Center",
+      "description": "Center component",
+      "category": "misc",
+      "props": {
+        "as": {
+          "type": "string",
+          "required": false,
+          "default": "div"
+        },
+        "inline": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Center } from '@pixela/voxel-ui'"
     },
     "Checkbox": {
       "name": "Checkbox",
@@ -1351,97 +1344,6 @@
         "ContextMenuSeparator"
       ],
       "import": "import { ContextMenu } from '@pixela/voxel-ui'"
-    },
-    "DataTable": {
-      "name": "DataTable",
-      "description": "DataTable pattern",
-      "category": "pattern",
-      "props": {
-        "columns": {
-          "type": "ColumnDef<T>[]",
-          "required": true
-        },
-        "items": {
-          "type": "T[]",
-          "required": true
-        },
-        "pageSize": {
-          "type": "number",
-          "required": false
-        },
-        "loading": {
-          "type": "boolean",
-          "required": false
-        },
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        },
-        "mode": {
-          "type": "emit page changes */",
-          "required": true
-        },
-        "total": {
-          "type": "number",
-          "required": false
-        },
-        "page": {
-          "type": "number",
-          "required": false
-        },
-        "onPageChange": {
-          "type": "(page: number)",
-          "required": false
-        }
-      },
-      "slots": [],
-      "events": [
-        "update",
-        "sort"
-      ],
-      "rekaUi": [],
-      "import": "import { DataTable } from '@pixela/voxel-ui'"
-    },
-    "DataTableServer": {
-      "name": "DataTableServer",
-      "description": "DataTableServer pattern",
-      "category": "pattern",
-      "props": {
-        "columns": {
-          "type": "ColumnDef<T>[]",
-          "required": true
-        },
-        "items": {
-          "type": "T[]",
-          "required": true
-        },
-        "total": {
-          "type": "number",
-          "required": true
-        },
-        "page": {
-          "type": "number",
-          "required": false
-        },
-        "pageSize": {
-          "type": "number",
-          "required": false
-        },
-        "loading": {
-          "type": "boolean",
-          "required": false
-        },
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        }
-      },
-      "slots": [],
-      "events": [
-        "update"
-      ],
-      "rekaUi": [],
-      "import": "import { DataTableServer } from '@pixela/voxel-ui'"
     },
     "DateField": {
       "name": "DateField",
@@ -2043,20 +1945,17 @@
       ],
       "import": "import { Editable } from '@pixela/voxel-ui'"
     },
-    "EmptyState": {
-      "name": "EmptyState",
-      "description": "EmptyState pattern",
-      "category": "pattern",
+    "FieldStatus": {
+      "name": "FieldStatus",
+      "description": "FieldStatus component",
+      "category": "misc",
       "props": {
-        "icon": {
-          "type": "IconValue",
-          "required": false
+        "status": {
+          "type": "FieldStatusType",
+          "required": false,
+          "default": "info"
         },
-        "title": {
-          "type": "string",
-          "required": true
-        },
-        "description": {
+        "message": {
           "type": "string",
           "required": false
         },
@@ -2066,12 +1965,11 @@
         }
       },
       "slots": [
-        "icon",
-        "action"
+        "default"
       ],
       "events": [],
       "rekaUi": [],
-      "import": "import { EmptyState } from '@pixela/voxel-ui'"
+      "import": "import { FieldStatus } from '@pixela/voxel-ui'"
     },
     "FileInput": {
       "name": "FileInput",
@@ -2177,6 +2075,33 @@
       "rekaUi": [],
       "import": "import { FormField } from '@pixela/voxel-ui'"
     },
+    "FormGrid": {
+      "name": "FormGrid",
+      "description": "FormGrid component",
+      "category": "misc",
+      "props": {
+        "labelWidth": {
+          "type": "string",
+          "required": false,
+          "default": "150px"
+        },
+        "gap": {
+          "type": "string",
+          "required": false,
+          "default": "12px"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { FormGrid } from '@pixela/voxel-ui'"
+    },
     "Grid": {
       "name": "Grid",
       "description": "Grid component",
@@ -2216,6 +2141,43 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Grid } from '@pixela/voxel-ui'"
+    },
+    "HStack": {
+      "name": "HStack",
+      "description": "HStack component",
+      "category": "misc",
+      "props": {
+        "gap": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "align": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "justify": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "wrap": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { HStack } from '@pixela/voxel-ui'"
     },
     "HoverCard": {
       "name": "HoverCard",
@@ -2274,43 +2236,6 @@
         "HoverCardArrow"
       ],
       "import": "import { HoverCard } from '@pixela/voxel-ui'"
-    },
-    "HStack": {
-      "name": "HStack",
-      "description": "HStack component",
-      "category": "misc",
-      "props": {
-        "gap": {
-          "type": "ResponsiveValue<number | string>",
-          "required": false,
-          "default": "undefined"
-        },
-        "align": {
-          "type": "ResponsiveValue<string>",
-          "required": false,
-          "default": "undefined"
-        },
-        "justify": {
-          "type": "ResponsiveValue<string>",
-          "required": false,
-          "default": "undefined"
-        },
-        "wrap": {
-          "type": "boolean",
-          "required": false,
-          "default": false
-        },
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        }
-      },
-      "slots": [
-        "default"
-      ],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { HStack } from '@pixela/voxel-ui'"
     },
     "Icon": {
       "name": "Icon",
@@ -2446,6 +2371,46 @@
       "rekaUi": [],
       "import": "import { Input } from '@pixela/voxel-ui'"
     },
+    "InputGroup": {
+      "name": "InputGroup",
+      "description": "InputGroup component",
+      "category": "misc",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "leading",
+        "trailing"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { InputGroup } from '@pixela/voxel-ui'"
+    },
+    "Kbd": {
+      "name": "Kbd",
+      "description": "Kbd component",
+      "category": "misc",
+      "props": {
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Kbd } from '@pixela/voxel-ui'"
+    },
     "Label": {
       "name": "Label",
       "description": "Label component",
@@ -2470,6 +2435,63 @@
         "Label"
       ],
       "import": "import { Label } from '@pixela/voxel-ui'"
+    },
+    "Lightbox": {
+      "name": "Lightbox",
+      "description": "Lightbox component",
+      "category": "misc",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "src": {
+          "type": "string",
+          "required": false
+        },
+        "alt": {
+          "type": "string",
+          "required": false
+        },
+        "caption": {
+          "type": "string",
+          "required": false
+        },
+        "images": {
+          "type": "LightboxImage[]",
+          "required": false
+        },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "close-icon"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "DialogRoot",
+        "DialogPortal",
+        "DialogOverlay",
+        "DialogContent",
+        "DialogTitle",
+        "DialogDescription",
+        "DialogClose"
+      ],
+      "import": "import { Lightbox } from '@pixela/voxel-ui'"
     },
     "Link": {
       "name": "Link",
@@ -2564,6 +2586,34 @@
       "rekaUi": [],
       "import": "import { List } from '@pixela/voxel-ui'"
     },
+    "ListItem": {
+      "name": "ListItem",
+      "description": "ListItem component",
+      "category": "misc",
+      "props": {
+        "value": {
+          "type": "string | number",
+          "required": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "prepend",
+        "secondary",
+        "append"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { ListItem } from '@pixela/voxel-ui'"
+    },
     "Listbox": {
       "name": "Listbox",
       "description": "Listbox component",
@@ -2620,34 +2670,6 @@
         "ListboxFilter"
       ],
       "import": "import { Listbox } from '@pixela/voxel-ui'"
-    },
-    "ListItem": {
-      "name": "ListItem",
-      "description": "ListItem component",
-      "category": "misc",
-      "props": {
-        "value": {
-          "type": "string | number",
-          "required": false
-        },
-        "disabled": {
-          "type": "boolean",
-          "required": false,
-          "default": false
-        },
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        }
-      },
-      "slots": [
-        "prepend",
-        "secondary",
-        "append"
-      ],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { ListItem } from '@pixela/voxel-ui'"
     },
     "Loading": {
       "name": "Loading",
@@ -3553,11 +3575,15 @@
     },
     "NumberField": {
       "name": "NumberField",
-      "description": "NumberField component",
+      "description": "VeeValidate compatibility",
       "category": "misc",
       "props": {
         "modelValue": {
           "type": "number",
+          "required": false
+        },
+        "value": {
+          "type": "number // VeeValidate compatibility",
           "required": false
         },
         "min": {
@@ -3635,40 +3661,6 @@
         "NumberFieldDecrement"
       ],
       "import": "import { NumberField } from '@pixela/voxel-ui'"
-    },
-    "PageHeader": {
-      "name": "PageHeader",
-      "description": "PageHeader pattern",
-      "category": "pattern",
-      "props": {
-        "icon": {
-          "type": "IconValue",
-          "required": false
-        },
-        "title": {
-          "type": "string",
-          "required": true
-        },
-        "description": {
-          "type": "string",
-          "required": false
-        },
-        "variant": {
-          "type": "PageShellVariant",
-          "required": false
-        },
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        }
-      },
-      "slots": [
-        "prepend",
-        "actions"
-      ],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { PageHeader } from '@pixela/voxel-ui'"
     },
     "Pagination": {
       "name": "Pagination",
@@ -4011,6 +4003,60 @@
       ],
       "import": "import { RadioItem } from '@pixela/voxel-ui'"
     },
+    "RadioList": {
+      "name": "RadioList",
+      "description": "RadioList component",
+      "category": "misc",
+      "props": {
+        "items": {
+          "type": "RadioListItem[]",
+          "required": true
+        },
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "required": {
+          "type": "boolean",
+          "required": false
+        },
+        "error": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "RadioGroupRoot",
+        "RadioGroupItem",
+        "RadioGroupIndicator"
+      ],
+      "import": "import { RadioList } from '@pixela/voxel-ui'"
+    },
     "RangeCalendar": {
       "name": "RangeCalendar",
       "description": "RangeCalendar component",
@@ -4155,6 +4201,74 @@
         "ScrollAreaCorner"
       ],
       "import": "import { ScrollArea } from '@pixela/voxel-ui'"
+    },
+    "SegmentedControl": {
+      "name": "SegmentedControl",
+      "description": "SegmentedControl component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ToggleGroupRoot"
+      ],
+      "import": "import { SegmentedControl } from '@pixela/voxel-ui'"
+    },
+    "SegmentedControlItem": {
+      "name": "SegmentedControlItem",
+      "description": "SegmentedControlItem component",
+      "category": "misc",
+      "props": {
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "undefined"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToggleGroupItem"
+      ],
+      "import": "import { SegmentedControlItem } from '@pixela/voxel-ui'"
     },
     "Select": {
       "name": "Select",
@@ -4917,6 +5031,48 @@
       ],
       "import": "import { Slider } from '@pixela/voxel-ui'"
     },
+    "Stack": {
+      "name": "Stack",
+      "description": "Stack component",
+      "category": "misc",
+      "props": {
+        "orientation": {
+          "type": "StackOrientation",
+          "required": false,
+          "default": "horizontal"
+        },
+        "gap": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "align": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "justify": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "wrap": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Stack } from '@pixela/voxel-ui'"
+    },
     "StatusDot": {
       "name": "StatusDot",
       "description": "StatusDot component",
@@ -5579,6 +5735,35 @@
       ],
       "import": "import { TimeRangeField } from '@pixela/voxel-ui'"
     },
+    "Timestamp": {
+      "name": "Timestamp",
+      "description": "Timestamp component",
+      "category": "misc",
+      "props": {
+        "datetime": {
+          "type": "string | Date",
+          "required": true
+        },
+        "format": {
+          "type": "TimestampFormat",
+          "required": false,
+          "default": "relative"
+        },
+        "locale": {
+          "type": "string",
+          "required": false,
+          "default": "undefined"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Timestamp } from '@pixela/voxel-ui'"
+    },
     "Toast": {
       "name": "Toast",
       "description": "Toast component",
@@ -5767,6 +5952,41 @@
         "ToggleGroupItem"
       ],
       "import": "import { ToggleGroupItem } from '@pixela/voxel-ui'"
+    },
+    "Token": {
+      "name": "Token",
+      "description": "Token component",
+      "category": "misc",
+      "props": {
+        "label": {
+          "type": "string",
+          "required": true
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "variant": {
+          "type": "TokenVariant",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "remove"
+      ],
+      "rekaUi": [],
+      "import": "import { Token } from '@pixela/voxel-ui'"
     },
     "Toolbar": {
       "name": "Toolbar",
@@ -6446,23 +6666,6 @@
       ],
       "import": "import { Tree } from '@pixela/voxel-ui'"
     },
-    "VisuallyHidden": {
-      "name": "VisuallyHidden",
-      "description": "VisuallyHidden component",
-      "category": "misc",
-      "props": {
-        "class": {
-          "type": "ClassValue",
-          "required": false
-        }
-      },
-      "slots": [
-        "default"
-      ],
-      "events": [],
-      "rekaUi": [],
-      "import": "import { VisuallyHidden } from '@pixela/voxel-ui'"
-    },
     "VStack": {
       "name": "VStack",
       "description": "VStack component",
@@ -6494,6 +6697,23 @@
       "events": [],
       "rekaUi": [],
       "import": "import { VStack } from '@pixela/voxel-ui'"
+    },
+    "VisuallyHidden": {
+      "name": "VisuallyHidden",
+      "description": "VisuallyHidden component",
+      "category": "misc",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { VisuallyHidden } from '@pixela/voxel-ui'"
     },
     "YearPicker": {
       "name": "YearPicker",
@@ -6600,6 +6820,245 @@
         "YearRangePickerCellTrigger"
       ],
       "import": "import { YearRangePicker } from '@pixela/voxel-ui'"
+    },
+    "AppShell": {
+      "name": "AppShell",
+      "description": "AppShell layout",
+      "category": "layout",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "variant": {
+          "type": "AppShellVariant",
+          "required": false,
+          "default": "default"
+        }
+      },
+      "slots": [
+        "sidebar",
+        "header"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { AppShell } from '@pixela/voxel-ui'"
+    },
+    "AttributePresenter": {
+      "name": "AttributePresenter",
+      "description": "AttributePresenter pattern",
+      "category": "pattern",
+      "props": {
+        "item": {
+          "type": "T",
+          "required": true
+        },
+        "fields": {
+          "type": "FieldDef[]",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "skeletonCount": {
+          "type": "number",
+          "required": false
+        },
+        "emptyText": {
+          "type": "string",
+          "required": false
+        },
+        "missingBehavior": {
+          "type": "MissingValueBehavior",
+          "required": false
+        },
+        "missingFallback": {
+          "type": "string",
+          "required": false
+        },
+        "elevation": {
+          "type": "'flat' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "required": false
+        },
+        "shadow": {
+          "type": "'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "required": false
+        },
+        "dense": {
+          "type": "boolean",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "title"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { AttributePresenter } from '@pixela/voxel-ui'"
+    },
+    "DataTable": {
+      "name": "DataTable",
+      "description": "DataTable pattern",
+      "category": "pattern",
+      "props": {
+        "columns": {
+          "type": "ColumnDef<T>[]",
+          "required": true
+        },
+        "items": {
+          "type": "T[]",
+          "required": true
+        },
+        "pageSize": {
+          "type": "number",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        },
+        "mode": {
+          "type": "emit page changes */",
+          "required": true
+        },
+        "total": {
+          "type": "number",
+          "required": false
+        },
+        "page": {
+          "type": "number",
+          "required": false
+        },
+        "onPageChange": {
+          "type": "(page: number)",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update",
+        "sort"
+      ],
+      "rekaUi": [],
+      "import": "import { DataTable } from '@pixela/voxel-ui'"
+    },
+    "DataTableServer": {
+      "name": "DataTableServer",
+      "description": "DataTableServer pattern",
+      "category": "pattern",
+      "props": {
+        "columns": {
+          "type": "ColumnDef<T>[]",
+          "required": true
+        },
+        "items": {
+          "type": "T[]",
+          "required": true
+        },
+        "total": {
+          "type": "number",
+          "required": true
+        },
+        "page": {
+          "type": "number",
+          "required": false
+        },
+        "pageSize": {
+          "type": "number",
+          "required": false
+        },
+        "loading": {
+          "type": "boolean",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { DataTableServer } from '@pixela/voxel-ui'"
+    },
+    "EmptyState": {
+      "name": "EmptyState",
+      "description": "EmptyState pattern",
+      "category": "pattern",
+      "props": {
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "icon",
+        "action"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { EmptyState } from '@pixela/voxel-ui'"
+    },
+    "PageHeader": {
+      "name": "PageHeader",
+      "description": "PageHeader pattern",
+      "category": "pattern",
+      "props": {
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "PageShellVariant",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "prepend",
+        "actions"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { PageHeader } from '@pixela/voxel-ui'"
     }
   },
   "tokens": [
@@ -6754,6 +7213,12 @@
         "--color-text-on-warning": "var(--color-grey-950)",
         "--color-text-on-neutral": "var(--color-grey-950)",
         "--color-text-muted": "var(--color-grey-600)"
+      }
+    },
+    {
+      "name": "Input",
+      "tokens": {
+        "--color-input-icon": "var(--color-text-secondary)"
       }
     },
     {

@@ -3,9 +3,9 @@
 "@pixela/voxel-ui-nuxt": minor
 ---
 
-Add 11 new Tier-2 components from the Astryx gap analysis:
+Add 15 new Tier-2 components from the Astryx gap analysis (Batch A + Batch B):
 
-**New components:**
+**Batch A — Simple/wrapper components:**
 - **AvatarGroup** — stacked/overlapping avatars with `max` prop and `+N` overflow badge; reuses Avatar, SR-readable overflow count
 - **Kbd** — styled keyboard key element with `size` variants and monospace font; for shortcuts and key combos
 - **Center** — flex wrapper that centers children; `as` prop for element tag, `inline` mode
@@ -17,6 +17,12 @@ Add 11 new Tier-2 components from the Astryx gap analysis:
 - **RadioList** — vertical radio list with label + description per item; composes reka-ui RadioGroup primitives
 - **Stack** — generic flex stack with `orientation` prop (`horizontal`/`vertical`); responsive object syntax for gap/align/justify
 - **FormGrid** — two-column CSS Grid for form rows (label + control); configurable `labelWidth`/`gap`, collapses on small screens
+
+**Batch B — Composite/interactive components:**
+- **SegmentedControl** — segmented button group for exclusive selection; wraps reka-ui ToggleGroup with sliding pill indicator; arrow-key navigation
+- **SelectableCard** — card with selection state; controlled (`modelValue`) and uncontrolled (`defaultSelected`); keyboard accessible; custom `selectedIcon` prop
+- **Carousel** — horizontal scroll carousel with CSS scroll-snap; `slidesPerView` and `gap` props; optional arrows (hide at boundaries) and pagination dots
+- **Lightbox** — full-screen image viewer on reka-ui Dialog; single image or gallery mode with prev/next; Escape to close; SSR-safe
 
 **Refactors:**
 - Extracted shared `resolveResponsive()` utility and `ResponsiveValue<T>` type into `utils/responsive.ts`; Grid, HStack, VStack now import from shared utility instead of duplicating logic
@@ -34,3 +40,4 @@ Add 11 new Tier-2 components from the Astryx gap analysis:
 - All components use design tokens; dark mode works via existing token system
 - Token variant renamed from `destructive` to `error` for API consistency with Badge/FieldStatus
 - Stack is independent of HStack/VStack — no breaking changes to existing layout components
+- No new runtime dependencies — Carousel uses CSS scroll-snap

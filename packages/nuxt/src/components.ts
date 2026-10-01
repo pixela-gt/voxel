@@ -21,6 +21,8 @@ export const componentNames = [
   'VxFormField',
   'VxMaskedInput',
   'VxFileInput',
+  'VxInputGroup',
+  'VxRadioList',
 
   // Layout
   'VxCard',
@@ -29,6 +31,9 @@ export const componentNames = [
   'VxGrid',
   'VxHStack',
   'VxVStack',
+  'VxStack',
+  'VxCenter',
+  'VxFormGrid',
   'VxSidebar',
   'VxSidebarItem',
   'VxSidebarItemGroup',
@@ -51,11 +56,18 @@ export const componentNames = [
   'VxDialog',
   'VxClickableCard',
   'VxSelectableCard',
+  'VxLightbox',
 
   // Data display
   'VxBadge',
   'VxStatusDot',
   'VxAvatarGroup',
+  'VxKbd',
+  'VxTimestamp',
+  'VxToken',
+  'VxFieldStatus',
+  'VxCarousel',
+  'VxCarouselSlide',
   'VxTabs',
   'VxTabsList',
   'VxTabsTrigger',
