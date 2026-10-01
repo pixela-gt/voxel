@@ -372,6 +372,35 @@
       ],
       "import": "import { Avatar } from '@pixela/voxel-ui'"
     },
+    "AvatarGroup": {
+      "name": "AvatarGroup",
+      "description": "AvatarGroup component",
+      "category": "misc",
+      "props": {
+        "items": {
+          "type": "AvatarProps[]",
+          "required": true
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": 5
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { AvatarGroup } from '@pixela/voxel-ui'"
+    },
     "Badge": {
       "name": "Badge",
       "description": "Badge component",

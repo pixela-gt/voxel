@@ -51,6 +51,7 @@ export const componentNames = [
 
   // Data display
   'VxBadge',
+  'VxAvatarGroup',
   'VxTabs',
   'VxTabsList',
   'VxTabsTrigger',

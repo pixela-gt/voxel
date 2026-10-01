@@ -200,6 +200,7 @@ export type { FileInputProps as VXFileInputProps } from './components/FileInput/
 export type { MoreMenuProps as VXMoreMenuProps, MoreMenuItemProps as VXMoreMenuItemProps, MoreMenuSeparatorProps as VXMoreMenuSeparatorProps } from './components/MoreMenu/MoreMenu.types'
 export type { BannerOptions as VXBannerOptions, BannerEntry as VXBannerEntry, BannerVariant as VXBannerVariant } from './components/Banner/Banner.types'
 export type { ClickableCardProps as VXClickableCardProps } from './components/ClickableCard/ClickableCard.types'
+export type { AvatarGroupProps as VXAvatarGroupProps } from './components/AvatarGroup/AvatarGroup.types'
 
 // Components (VX-prefixed)
 export { Button as VXButton } from './components/Button'
@@ -366,6 +367,7 @@ export {
   BannerProvider as VXBannerProvider,
 } from './components/Banner'
 export { ClickableCard as VXClickableCard } from './components/ClickableCard'
+export { AvatarGroup as VXAvatarGroup } from './components/AvatarGroup'
 
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'
