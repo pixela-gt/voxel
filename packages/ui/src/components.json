@@ -4265,6 +4265,45 @@
       ],
       "import": "import { Select } from '@pixela/voxel-ui'"
     },
+    "SelectableCard": {
+      "name": "SelectableCard",
+      "description": "SelectableCard component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "defaultSelected": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "elevation": {
+          "type": "CardElevation",
+          "required": false,
+          "default": "flat"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { SelectableCard } from '@pixela/voxel-ui'"
+    },
     "Separator": {
       "name": "Separator",
       "description": "Separator component",

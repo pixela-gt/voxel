@@ -371,6 +371,8 @@ export { ClickableCard as VXClickableCard } from './components/ClickableCard'
 export { StatusDot as VXStatusDot } from './components/StatusDot'
 export { AvatarGroup as VXAvatarGroup } from './components/AvatarGroup'
 
+export { SelectableCard as VXSelectableCard } from './components/SelectableCard'
+export type { SelectableCardProps as VXSelectableCardProps } from './components/SelectableCard'
 // Composables
 export { useTheme, type ThemeMode } from './composables/useTheme'
 export { useThemeConfig, type ThemeColors, type ThemeConfig } from './composables/useThemeConfig'

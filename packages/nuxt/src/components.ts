@@ -48,6 +48,7 @@ export const componentNames = [
   'VxAvatar',
   'VxDialog',
   'VxClickableCard',
+  'VxSelectableCard',
 
   // Data display
   'VxBadge',
