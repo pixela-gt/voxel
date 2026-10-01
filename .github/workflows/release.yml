@@ -42,7 +42,7 @@ jobs:
           publish-script: pnpm release
           pr-title: "chore: version packages"
           commit-message: "chore: version packages"
-          createGithubReleases: false
+          create-github-releases: false
         env:
           NPM_CONFIG_PROVENANCE: true
 
