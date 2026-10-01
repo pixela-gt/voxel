@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-10-01T20:56:59.301Z",
+  "generated": "2026-10-01T22:30:05.839Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -745,6 +745,16 @@
         "modelValue": {
           "type": "number",
           "required": false
+        },
+        "slidesPerView": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "gap": {
+          "type": "number",
+          "required": false,
+          "default": 16
         },
         "showArrows": {
           "type": "boolean",
@@ -4394,6 +4404,10 @@
           "required": false,
           "default": "undefined"
         },
+        "selectedIcon": {
+          "type": "IconValue",
+          "required": false
+        },
         "elevation": {
           "type": "CardElevation",
           "required": false,
@@ -7225,6 +7239,16 @@
       "name": "Font",
       "tokens": {
         "--font-family-sans": "'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      }
+    },
+    {
+      "name": "Font Families",
+      "tokens": {
+        "--font-display": "var(--font-family-sans)",
+        "--font-title": "var(--font-family-sans)",
+        "--font-heading": "var(--font-family-sans)",
+        "--font-body": "var(--font-family-sans)",
+        "--font-emphasis": "var(--font-family-sans)"
       }
     },
     {

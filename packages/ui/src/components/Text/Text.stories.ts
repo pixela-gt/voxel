@@ -15,6 +15,7 @@ const meta: Meta<typeof Text> = {
         'title-lg', 'title-md', 'title-sm',
         'body-lg', 'body-md', 'body-sm',
         'label-lg', 'label-md', 'label-sm',
+        'emphasis-xs', 'emphasis-sm', 'emphasis-base', 'emphasis-lg',
       ],
     },
     weight: { control: 'select', options: ['normal', 'medium', 'bold'] },
@@ -39,3 +40,4 @@ export const BodyMd: Story = { args: { tag: 'p', variant: 'body-md' }, render: t
 export const LabelSm: Story = { args: { variant: 'label-sm' }, render: text('Label') }
 export const Bold: Story = { args: { variant: 'body-md', weight: 'bold' }, render: text('Bold body') }
 export const Muted: Story = { args: { variant: 'body-md', color: 'muted' }, render: text('Muted text') }
+export const EmphasisSm: Story = { args: { variant: 'emphasis-sm' }, render: text('Emphasized body text with bold italic styling.') }
