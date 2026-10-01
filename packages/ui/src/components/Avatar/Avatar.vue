@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { AvatarRoot, AvatarImage, AvatarFallback } from 'reka-ui'
+import { StatusDot } from '../StatusDot'
 import type { AvatarProps } from './Avatar.types'
 
 const props = withDefaults(defineProps<AvatarProps>(), {
@@ -58,7 +59,9 @@ const colorName = computed(() => props.color ?? HASH_PALETTE[hashIndex(props.nam
     </AvatarFallback>
     <div v-if="props.style === 'main'" class="voxel-avatar__shadow voxel-avatar__shadow--1" />
     <div v-if="props.style === 'main'" class="voxel-avatar__shadow voxel-avatar__shadow--2" />
-    <span v-if="props.status" :class="`voxel-avatar__status voxel-avatar__status--${props.status} voxel-avatar__status--size-${props.size}`" />
+    <span v-if="props.status" :class="`voxel-avatar__status voxel-avatar__status--size-${props.size}`">
+      <StatusDot :status="props.status" />
+    </span>
   </AvatarRoot>
 </template>
 
@@ -136,19 +139,16 @@ const colorName = computed(() => props.color ?? HASH_PALETTE[hashIndex(props.nam
 }
 
 .voxel-avatar__status {
-  @apply absolute bottom-0 right-0 z-10 rounded-full border-2 border-[var(--color-surface-background)] bg-[var(--color-grey-500)];
+  @apply absolute bottom-0 right-0 z-10;
 }
-.voxel-avatar__status--online { @apply bg-[var(--color-success-base)]; }
-.voxel-avatar__status--away { @apply bg-[var(--color-warning-base)]; }
-.voxel-avatar__status--busy { @apply bg-[var(--color-error-base)]; }
 
 .voxel-avatar__status--size-small {
-  @apply size-1.5 -mb-px -mr-px;
+  @apply -mb-px -mr-px;
 }
 .voxel-avatar__status--size-default {
-  @apply size-2 -mb-px -mr-px;
+  @apply -mb-px -mr-px;
 }
 .voxel-avatar__status--size-large {
-  @apply size-2.5 -mb-px -mr-px;
+  @apply -mb-px -mr-px;
 }
 </style>
