@@ -42,6 +42,7 @@ jobs:
           publish-script: pnpm release
           pr-title: "chore: version packages"
           commit-message: "chore: version packages"
+          createGithubReleases: false
         env:
           NPM_CONFIG_PROVENANCE: true
 
@@ -49,7 +50,11 @@ jobs:
         if: steps.changesets.outputs.published == 'true'
         id: release
         run: |
-          VERSION=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r '.[0].version')
+          PUBLISHED='${{ steps.changesets.outputs.publishedPackages }}'
+          VERSION=$(echo "$PUBLISHED" | jq -r '.[0].version // empty' 2>/dev/null || true)
+          if [ -z "$VERSION" ]; then
+            VERSION=$(node -p "require('./packages/ui/package.json').version")
+          fi
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
           # Collect changelog entries from all published packages
@@ -71,7 +76,7 @@ jobs:
           fi
 
       - name: Create GitHub Release
-        if: steps.changesets.outputs.published == 'true'
+        if: steps.changesets.outputs.published == 'true' && steps.release.outputs.version != ''
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.release.outputs.version }}

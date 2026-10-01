@@ -1,6 +1,7 @@
 import type { ClassValue } from '../../types/shared'
+import type { ResponsiveValue } from '../../utils/responsive'
 
-export type ResponsiveValue<T> = T | { base?: T; sm?: T; md?: T; lg?: T; xl?: T; '2xl'?: T }
+export type { ResponsiveValue } from '../../utils/responsive'
 
 export interface StackProps {
   gap?: ResponsiveValue<number | string>

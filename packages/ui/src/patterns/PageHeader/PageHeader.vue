@@ -20,7 +20,7 @@ const classes = computed(() => [
       <div class="voxel-page-header__text">
         <div class="voxel-page-header__heading">
           <Icon v-if="props.icon" :icon="props.icon" class="voxel-page-header__icon" />
-          <Text variant="title-lg" weight="bold" class="voxel-page-header__title">{{ props.title }}</Text>
+          <Text variant="title-lg" tag="h1" weight="bold" class="voxel-page-header__title">{{ props.title }}</Text>
         </div>
         <Text v-if="props.description" variant="body-sm" class="voxel-page-header__description">
           {{ props.description }}

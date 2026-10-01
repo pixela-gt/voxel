@@ -10,7 +10,11 @@ export interface ThemeColors {
 
 export interface ThemeConfig {
   colors?: ThemeColors
-  fontFamily?: string
+  fontFamilyDisplay?: string
+  fontFamilyTitle?: string
+  fontFamilyHeading?: string
+  fontFamilyBody?: string
+  fontFamilyEmphasis?: string
 }
 
 const COLOR_KEYS: Record<keyof ThemeColors, string> = {
@@ -21,6 +25,14 @@ const COLOR_KEYS: Record<keyof ThemeColors, string> = {
   error: 'error',
   warning: 'warning',
   neutral: 'neutral',
+}
+
+const FONT_KEYS: Record<string, string> = {
+  fontFamilyDisplay: 'font-display',
+  fontFamilyTitle: 'font-title',
+  fontFamilyHeading: 'font-heading',
+  fontFamilyBody: 'font-body',
+  fontFamilyEmphasis: 'font-emphasis',
 }
 
 function generateColorScale(base: string): { darken: string; lighten: string } {
@@ -50,8 +62,20 @@ export function useThemeConfig() {
       }
     }
 
-    if (config.fontFamily) {
-      setCssVar('font-family-sans', config.fontFamily)
+    if (config.fontFamilyDisplay) {
+      setCssVar(FONT_KEYS.fontFamilyDisplay, config.fontFamilyDisplay)
+    }
+    if (config.fontFamilyTitle) {
+      setCssVar(FONT_KEYS.fontFamilyTitle, config.fontFamilyTitle)
+    }
+    if (config.fontFamilyHeading) {
+      setCssVar(FONT_KEYS.fontFamilyHeading, config.fontFamilyHeading)
+    }
+    if (config.fontFamilyBody) {
+      setCssVar(FONT_KEYS.fontFamilyBody, config.fontFamilyBody)
+    }
+    if (config.fontFamilyEmphasis) {
+      setCssVar(FONT_KEYS.fontFamilyEmphasis, config.fontFamilyEmphasis)
     }
   }
 
@@ -63,7 +87,7 @@ export function useThemeConfig() {
         `--color-${k}-darken-1`,
         `--color-${k}-lighten-1`,
       ]),
-      '--font-family-sans',
+      ...Object.values(FONT_KEYS).map((k) => `--${k}`),
     ]
     props.forEach((p) => el.style.removeProperty(p))
   }

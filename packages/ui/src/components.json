@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-24T23:28:07.404Z",
+  "generated": "2026-10-01T22:30:05.839Z",
   "components": {
     "Accordion": {
       "name": "Accordion",
@@ -372,6 +372,35 @@
       ],
       "import": "import { Avatar } from '@pixela/voxel-ui'"
     },
+    "AvatarGroup": {
+      "name": "AvatarGroup",
+      "description": "AvatarGroup component",
+      "category": "misc",
+      "props": {
+        "items": {
+          "type": "AvatarProps[]",
+          "required": true
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": 5
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { AvatarGroup } from '@pixela/voxel-ui'"
+    },
     "Badge": {
       "name": "Badge",
       "description": "Badge component",
@@ -707,6 +736,93 @@
       "events": [],
       "rekaUi": [],
       "import": "import { Card } from '@pixela/voxel-ui'"
+    },
+    "Carousel": {
+      "name": "Carousel",
+      "description": "Carousel component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "number",
+          "required": false
+        },
+        "slidesPerView": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "gap": {
+          "type": "number",
+          "required": false,
+          "default": 16
+        },
+        "showArrows": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        "showDots": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { Carousel } from '@pixela/voxel-ui'"
+    },
+    "CarouselSlide": {
+      "name": "CarouselSlide",
+      "description": "CarouselSlide component",
+      "category": "misc",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { CarouselSlide } from '@pixela/voxel-ui'"
+    },
+    "Center": {
+      "name": "Center",
+      "description": "Center component",
+      "category": "misc",
+      "props": {
+        "as": {
+          "type": "string",
+          "required": false,
+          "default": "div"
+        },
+        "inline": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Center } from '@pixela/voxel-ui'"
     },
     "Checkbox": {
       "name": "Checkbox",
@@ -1839,6 +1955,32 @@
       ],
       "import": "import { Editable } from '@pixela/voxel-ui'"
     },
+    "FieldStatus": {
+      "name": "FieldStatus",
+      "description": "FieldStatus component",
+      "category": "misc",
+      "props": {
+        "status": {
+          "type": "FieldStatusType",
+          "required": false,
+          "default": "info"
+        },
+        "message": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { FieldStatus } from '@pixela/voxel-ui'"
+    },
     "FileInput": {
       "name": "FileInput",
       "description": "VeeValidate compatibility",
@@ -1942,6 +2084,33 @@
       "events": [],
       "rekaUi": [],
       "import": "import { FormField } from '@pixela/voxel-ui'"
+    },
+    "FormGrid": {
+      "name": "FormGrid",
+      "description": "FormGrid component",
+      "category": "misc",
+      "props": {
+        "labelWidth": {
+          "type": "string",
+          "required": false,
+          "default": "150px"
+        },
+        "gap": {
+          "type": "string",
+          "required": false,
+          "default": "12px"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { FormGrid } from '@pixela/voxel-ui'"
     },
     "Grid": {
       "name": "Grid",
@@ -2212,6 +2381,46 @@
       "rekaUi": [],
       "import": "import { Input } from '@pixela/voxel-ui'"
     },
+    "InputGroup": {
+      "name": "InputGroup",
+      "description": "InputGroup component",
+      "category": "misc",
+      "props": {
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "leading",
+        "trailing"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { InputGroup } from '@pixela/voxel-ui'"
+    },
+    "Kbd": {
+      "name": "Kbd",
+      "description": "Kbd component",
+      "category": "misc",
+      "props": {
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Kbd } from '@pixela/voxel-ui'"
+    },
     "Label": {
       "name": "Label",
       "description": "Label component",
@@ -2236,6 +2445,63 @@
         "Label"
       ],
       "import": "import { Label } from '@pixela/voxel-ui'"
+    },
+    "Lightbox": {
+      "name": "Lightbox",
+      "description": "Lightbox component",
+      "category": "misc",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "src": {
+          "type": "string",
+          "required": false
+        },
+        "alt": {
+          "type": "string",
+          "required": false
+        },
+        "caption": {
+          "type": "string",
+          "required": false
+        },
+        "images": {
+          "type": "LightboxImage[]",
+          "required": false
+        },
+        "closeIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "close-icon"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "DialogRoot",
+        "DialogPortal",
+        "DialogOverlay",
+        "DialogContent",
+        "DialogTitle",
+        "DialogDescription",
+        "DialogClose"
+      ],
+      "import": "import { Lightbox } from '@pixela/voxel-ui'"
     },
     "Link": {
       "name": "Link",
@@ -3319,11 +3585,15 @@
     },
     "NumberField": {
       "name": "NumberField",
-      "description": "NumberField component",
+      "description": "VeeValidate compatibility",
       "category": "misc",
       "props": {
         "modelValue": {
           "type": "number",
+          "required": false
+        },
+        "value": {
+          "type": "number // VeeValidate compatibility",
           "required": false
         },
         "min": {
@@ -3743,6 +4013,60 @@
       ],
       "import": "import { RadioItem } from '@pixela/voxel-ui'"
     },
+    "RadioList": {
+      "name": "RadioList",
+      "description": "RadioList component",
+      "category": "misc",
+      "props": {
+        "items": {
+          "type": "RadioListItem[]",
+          "required": true
+        },
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "required": false
+        },
+        "required": {
+          "type": "boolean",
+          "required": false
+        },
+        "error": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "RadioGroupRoot",
+        "RadioGroupItem",
+        "RadioGroupIndicator"
+      ],
+      "import": "import { RadioList } from '@pixela/voxel-ui'"
+    },
     "RangeCalendar": {
       "name": "RangeCalendar",
       "description": "RangeCalendar component",
@@ -3888,6 +4212,74 @@
       ],
       "import": "import { ScrollArea } from '@pixela/voxel-ui'"
     },
+    "SegmentedControl": {
+      "name": "SegmentedControl",
+      "description": "SegmentedControl component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "string",
+          "required": false
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [
+        "ToggleGroupRoot"
+      ],
+      "import": "import { SegmentedControl } from '@pixela/voxel-ui'"
+    },
+    "SegmentedControlItem": {
+      "name": "SegmentedControlItem",
+      "description": "SegmentedControlItem component",
+      "category": "misc",
+      "props": {
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "size": {
+          "type": "ComponentSize",
+          "required": false,
+          "default": "undefined"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [
+        "ToggleGroupItem"
+      ],
+      "import": "import { SegmentedControlItem } from '@pixela/voxel-ui'"
+    },
     "Select": {
       "name": "Select",
       "description": "VeeValidate compatibility",
@@ -3996,6 +4388,49 @@
         "SelectScrollDownButton"
       ],
       "import": "import { Select } from '@pixela/voxel-ui'"
+    },
+    "SelectableCard": {
+      "name": "SelectableCard",
+      "description": "SelectableCard component",
+      "category": "misc",
+      "props": {
+        "modelValue": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "defaultSelected": {
+          "type": "boolean",
+          "required": false,
+          "default": "undefined"
+        },
+        "selectedIcon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "elevation": {
+          "type": "CardElevation",
+          "required": false,
+          "default": "flat"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [
+        "update"
+      ],
+      "rekaUi": [],
+      "import": "import { SelectableCard } from '@pixela/voxel-ui'"
     },
     "Separator": {
       "name": "Separator",
@@ -4609,6 +5044,77 @@
         "SliderThumb"
       ],
       "import": "import { Slider } from '@pixela/voxel-ui'"
+    },
+    "Stack": {
+      "name": "Stack",
+      "description": "Stack component",
+      "category": "misc",
+      "props": {
+        "orientation": {
+          "type": "StackOrientation",
+          "required": false,
+          "default": "horizontal"
+        },
+        "gap": {
+          "type": "ResponsiveValue<number | string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "align": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "justify": {
+          "type": "ResponsiveValue<string>",
+          "required": false,
+          "default": "undefined"
+        },
+        "wrap": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [
+        "default"
+      ],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Stack } from '@pixela/voxel-ui'"
+    },
+    "StatusDot": {
+      "name": "StatusDot",
+      "description": "StatusDot component",
+      "category": "misc",
+      "props": {
+        "status": {
+          "type": "StatusDotStatus",
+          "required": false,
+          "default": "online"
+        },
+        "pulse": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "label": {
+          "type": "string",
+          "required": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { StatusDot } from '@pixela/voxel-ui'"
     },
     "Stepper": {
       "name": "Stepper",
@@ -5243,6 +5749,35 @@
       ],
       "import": "import { TimeRangeField } from '@pixela/voxel-ui'"
     },
+    "Timestamp": {
+      "name": "Timestamp",
+      "description": "Timestamp component",
+      "category": "misc",
+      "props": {
+        "datetime": {
+          "type": "string | Date",
+          "required": true
+        },
+        "format": {
+          "type": "TimestampFormat",
+          "required": false,
+          "default": "relative"
+        },
+        "locale": {
+          "type": "string",
+          "required": false,
+          "default": "undefined"
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [],
+      "rekaUi": [],
+      "import": "import { Timestamp } from '@pixela/voxel-ui'"
+    },
     "Toast": {
       "name": "Toast",
       "description": "Toast component",
@@ -5431,6 +5966,41 @@
         "ToggleGroupItem"
       ],
       "import": "import { ToggleGroupItem } from '@pixela/voxel-ui'"
+    },
+    "Token": {
+      "name": "Token",
+      "description": "Token component",
+      "category": "misc",
+      "props": {
+        "label": {
+          "type": "string",
+          "required": true
+        },
+        "icon": {
+          "type": "IconValue",
+          "required": false
+        },
+        "variant": {
+          "type": "TokenVariant",
+          "required": false,
+          "default": "default"
+        },
+        "disabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "class": {
+          "type": "ClassValue",
+          "required": false
+        }
+      },
+      "slots": [],
+      "events": [
+        "remove"
+      ],
+      "rekaUi": [],
+      "import": "import { Token } from '@pixela/voxel-ui'"
     },
     "Toolbar": {
       "name": "Toolbar",
@@ -6660,9 +7230,25 @@
       }
     },
     {
+      "name": "Input",
+      "tokens": {
+        "--color-input-icon": "var(--color-text-secondary)"
+      }
+    },
+    {
       "name": "Font",
       "tokens": {
         "--font-family-sans": "'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      }
+    },
+    {
+      "name": "Font Families",
+      "tokens": {
+        "--font-display": "var(--font-family-sans)",
+        "--font-title": "var(--font-family-sans)",
+        "--font-heading": "var(--font-family-sans)",
+        "--font-body": "var(--font-family-sans)",
+        "--font-emphasis": "var(--font-family-sans)"
       }
     },
     {
