@@ -187,6 +187,7 @@ All tokens are CSS custom properties. Use via Tailwind or raw CSS.
 
 ### Typography
 - Font: `--font-family-sans` (Outfit, system-ui)
+- Font Families: `--font-display`, `--font-title`, `--font-heading`, `--font-body`, `--font-emphasis` (all default to `--font-family-sans`)
 - Sizes: `--font-size-2xs` (11px) through `--font-size-7xl` (71px)
 
 ### Spacing (4px grid)
@@ -236,7 +237,8 @@ const { setTheme, resetTheme } = useThemeConfig()
 
 setTheme({
   colors: { primary: '#ff0000', secondary: '#00ff00' },
-  fontFamily: 'Inter',
+  fontFamilyTitle: 'Inter',
+  fontFamilyHeading: 'Georgia',
 })
 
 resetTheme() // removes overrides, reverts to tokens.css defaults
@@ -245,6 +247,8 @@ resetTheme() // removes overrides, reverts to tokens.css defaults
 Auto-generates `--color-{name}-darken-1` and `--color-{name}-lighten-1` via `color-mix()`.
 
 Available color keys: `primary`, `secondary`, `info`, `error`, `warning`, `success`.
+
+Available font keys: `fontFamilyDisplay`, `fontFamilyTitle`, `fontFamilyHeading`, `fontFamilyBody`, `fontFamilyEmphasis` — each maps to `--font-display`, `--font-title`, `--font-heading`, `--font-body`, `--font-emphasis`.
 
 ## Package Exports
 

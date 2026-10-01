@@ -1,34 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { VStackProps, ResponsiveValue } from './VStack.types'
+import type { VStackProps } from './VStack.types'
+import { resolveResponsive } from '../../utils/responsive'
 
 const props = withDefaults(defineProps<VStackProps>(), {
   gap: undefined,
   align: undefined,
   justify: undefined,
 })
-
-const breakpointMap: Record<string, string> = {
-  sm: '640px', md: '768px', lg: '1024px', xl: '1280px', '2xl': '1536px',
-}
-
-function resolveResponsive<T extends string | number>(
-  value: ResponsiveValue<T> | undefined,
-  cssProp: string,
-  transform: (v: T) => string,
-): Record<string, string> {
-  if (value === undefined || value === null) return {}
-  if (typeof value !== 'object') return { [cssProp]: transform(value) }
-  const result: Record<string, string> = {}
-  for (const [bp, val] of Object.entries(value)) {
-    if (bp === 'base') {
-      result[cssProp] = transform(val as T)
-    } else {
-      result[`@media (min-width: ${breakpointMap[bp]})`] = `${cssProp}: ${transform(val as T)}`
-    }
-  }
-  return result
-}
 
 const stackStyle = computed(() => ({
   display: 'flex' as const,

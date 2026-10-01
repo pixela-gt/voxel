@@ -8,6 +8,8 @@ export const componentNames = [
   'VxMoreMenu',
   'VxMoreMenuItem',
   'VxMoreMenuSeparator',
+  'VxSegmentedControl',
+  'VxSegmentedControlItem',
 
   // Inputs
   'VxCheckbox',
@@ -19,6 +21,8 @@ export const componentNames = [
   'VxFormField',
   'VxMaskedInput',
   'VxFileInput',
+  'VxInputGroup',
+  'VxRadioList',
 
   // Layout
   'VxCard',
@@ -27,6 +31,9 @@ export const componentNames = [
   'VxGrid',
   'VxHStack',
   'VxVStack',
+  'VxStack',
+  'VxCenter',
+  'VxFormGrid',
   'VxSidebar',
   'VxSidebarItem',
   'VxSidebarItemGroup',
@@ -48,9 +55,19 @@ export const componentNames = [
   'VxAvatar',
   'VxDialog',
   'VxClickableCard',
+  'VxSelectableCard',
+  'VxLightbox',
 
   // Data display
   'VxBadge',
+  'VxStatusDot',
+  'VxAvatarGroup',
+  'VxKbd',
+  'VxTimestamp',
+  'VxToken',
+  'VxFieldStatus',
+  'VxCarousel',
+  'VxCarouselSlide',
   'VxTabs',
   'VxTabsList',
   'VxTabsTrigger',
