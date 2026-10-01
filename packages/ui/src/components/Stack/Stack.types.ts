@@ -3,7 +3,10 @@ import type { ResponsiveValue } from '../../utils/responsive'
 
 export type { ResponsiveValue } from '../../utils/responsive'
 
+export type StackOrientation = 'horizontal' | 'vertical'
+
 export interface StackProps {
+  orientation?: StackOrientation
   gap?: ResponsiveValue<number | string>
   align?: ResponsiveValue<string>
   justify?: ResponsiveValue<string>
