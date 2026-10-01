@@ -371,6 +371,15 @@ export { ClickableCard as VXClickableCard } from './components/ClickableCard'
 export { StatusDot as VXStatusDot } from './components/StatusDot'
 export { AvatarGroup as VXAvatarGroup } from './components/AvatarGroup'
 
+export {
+  SegmentedControl as VXSegmentedControl,
+  SegmentedControlItem as VXSegmentedControlItem,
+} from './components/SegmentedControl'
+export type {
+  SegmentedControlProps as VXSegmentedControlProps,
+  SegmentedControlItemProps as VXSegmentedControlItemProps,
+} from './components/SegmentedControl'
+
 export { SelectableCard as VXSelectableCard } from './components/SelectableCard'
 export type { SelectableCardProps as VXSelectableCardProps } from './components/SelectableCard'
 // Composables

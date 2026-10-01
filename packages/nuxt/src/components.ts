@@ -8,6 +8,8 @@ export const componentNames = [
   'VxMoreMenu',
   'VxMoreMenuItem',
   'VxMoreMenuSeparator',
+  'VxSegmentedControl',
+  'VxSegmentedControlItem',
 
   // Inputs
   'VxCheckbox',
