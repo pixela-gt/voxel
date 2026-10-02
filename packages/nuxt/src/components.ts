@@ -23,6 +23,10 @@ export const componentNames = [
   'VxFileInput',
   'VxInputGroup',
   'VxRadioList',
+  'VxDateField',
+  'VxDateRangeField',
+  'VxTimeField',
+  'VxTimeRangeField',
 
   // Layout
   'VxCard',
